@@ -4,6 +4,8 @@
       "source": "/s/(.*)",
       "destination": "/api/s/$1"
     }
-  ]
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
 }
 
