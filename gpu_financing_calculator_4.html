@@ -86,20 +86,46 @@
             color: var(--text-primary);
         }
 
-        .connect-btn {
-            background: transparent;
-            border: 1px solid var(--border-light);
-            color: var(--text-primary);
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 0.9rem;
+        /* Dropdown Menu */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown-toggle {
             cursor: pointer;
+        }
+
+        .nav-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin-top: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 0;
+            min-width: 150px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .nav-dropdown:hover .nav-dropdown-menu {
+            display: block;
+        }
+
+        .nav-dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
             transition: all 0.2s;
         }
 
-        .connect-btn:hover {
-            background: var(--text-primary);
-            color: var(--bg-primary);
+        .nav-dropdown-menu a:hover {
+            color: var(--text-primary);
+            background: var(--bg-input);
         }
 
         /* Main Container */
@@ -965,17 +991,20 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <div class="logo">
+        <a href="https://silicon.net" class="logo" style="text-decoration: none; color: inherit;">
             <div class="logo-icon"></div>
             Silicon
-        </div>
+        </a>
         <nav class="nav">
-            <a href="#">Home</a>
-            <a href="#">Docs</a>
-            <a href="#">Metrics</a>
-            <a href="#">App</a>
+            <a href="https://docs.silicon.net">Docs</a>
+            <div class="nav-dropdown">
+                <a href="#" class="nav-dropdown-toggle">App</a>
+                <div class="nav-dropdown-menu">
+                    <a href="https://owner.silicon.net">Owner</a>
+                    <a href="https://provider.silicon.net">Provider</a>
+                </div>
+            </div>
         </nav>
-        <button class="connect-btn">Connect Wallet</button>
     </header>
 
     <div class="container">
