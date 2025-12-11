@@ -7,10 +7,19 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { code } = req.query;
+    // Get code from query params
+    // Vercel passes dynamic route params in req.query
+    // For file api/s/[code].js, the param is available as req.query.code
+    const code = req.query.code;
 
     if (!code || typeof code !== 'string') {
-      return res.status(400).json({ error: 'Invalid code' });
+      console.error('Missing or invalid code. Query:', JSON.stringify(req.query), 'URL:', req.url);
+      return res.status(400).json({ 
+        error: 'Invalid code', 
+        received: req.query,
+        url: req.url,
+        method: req.method
+      });
     }
 
     // Retrieve the full URL from storage
@@ -19,14 +28,24 @@ export default async function handler(req, res) {
     // const fullURL = stored.url;
     
     // Simple in-memory storage lookup
+    // NOTE: This storage is reset on each serverless function restart/deployment
+    // For production, use Vercel KV for persistent storage
     if (!global.urlStore) {
-      return res.status(404).json({ error: 'URL not found' });
+      console.error('URL store not initialized. Code:', code);
+      return res.status(404).json({ 
+        error: 'URL not found - storage not available',
+        note: 'In-memory storage resets on deployment. Use Vercel KV for persistence.'
+      });
     }
     
     const stored = global.urlStore.get(code);
 
     if (!stored) {
-      return res.status(404).json({ error: 'URL not found or expired' });
+      console.error('Code not found in store:', code, 'Available codes:', Array.from(global.urlStore.keys()));
+      return res.status(404).json({ 
+        error: 'URL not found or expired',
+        note: 'Short URLs are stored in memory and reset on deployment. The URL may have expired.'
+      });
     }
     
     // Handle both old format (string) and new format (object)
