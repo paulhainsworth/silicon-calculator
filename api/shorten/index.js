@@ -19,27 +19,30 @@ export default async function handler(req, res) {
     const shortCode = generateShortCode();
     const fullURL = buildFullURL(params, scenarios);
 
-    // Store the mapping using Vercel KV (with fallback to in-memory)
+    // Store the mapping using Vercel KV (REQUIRED for persistence across deployments)
     const storeData = { url: fullURL, scenarios: scenarios || [] };
     
+    // Check if KV is configured
+    if (!process.env.KV_REST_API_URL) {
+      console.error('Vercel KV not configured. KV_REST_API_URL environment variable is missing.');
+      return res.status(503).json({ 
+        error: 'URL shortening unavailable',
+        message: 'Vercel KV is not configured. Please set up Vercel KV (Upstash Redis) in your Vercel dashboard to enable persistent URL storage.',
+        setupInstructions: 'Go to Vercel Dashboard → Storage → Create KV database (Upstash Redis) → Link to this project'
+      });
+    }
+    
     try {
-      // Try to use Vercel KV (available when KV is set up in Vercel dashboard)
-      if (process.env.KV_REST_API_URL) {
-        await kv.set(`short:${shortCode}`, JSON.stringify(storeData), { ex: 86400 * 7 }); // 7 days expiry
-      } else {
-        // Fallback to in-memory storage (for local dev or if KV not set up)
-        if (!global.urlStore) {
-          global.urlStore = new Map();
-        }
-        global.urlStore.set(shortCode, storeData);
-      }
+      // Store in Vercel KV with 7-day expiry
+      await kv.set(`short:${shortCode}`, JSON.stringify(storeData), { ex: 86400 * 7 });
+      console.log(`Successfully stored short URL: ${shortCode} in KV`);
     } catch (kvError) {
-      console.error('KV storage error, using fallback:', kvError);
-      // Fallback to in-memory if KV fails
-      if (!global.urlStore) {
-        global.urlStore = new Map();
-      }
-      global.urlStore.set(shortCode, storeData);
+      console.error('KV storage error:', kvError);
+      return res.status(500).json({ 
+        error: 'Failed to store URL',
+        message: 'Could not save to Vercel KV. Please check your KV configuration.',
+        details: kvError.message
+      });
     }
 
     // Return the short URL
