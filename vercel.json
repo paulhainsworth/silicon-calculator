@@ -2,18 +2,6 @@
   "outputDirectory": "public",
   "rewrites": [
     {
-      "source": "/calculator",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/calculator/",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/calculator/s/(.*)",
-      "destination": "/api/s/$1"
-    },
-    {
       "source": "/s/(.*)",
       "destination": "/api/s/$1"
     }

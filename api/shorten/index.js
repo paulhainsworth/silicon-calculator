@@ -48,16 +48,7 @@ export default async function handler(req, res) {
       : `https://${req.headers.host}`;
     
     // Remove /api from base URL if present
-    let siteURL = baseURL.replace('/api', '');
-    
-    // If the request came from /calculator path, ensure short URLs use /calculator
-    const referer = req.headers.referer || '';
-    const isCalculatorPath = referer.includes('/calculator') || req.headers.host?.includes('silicon.net');
-    
-    if (isCalculatorPath && !siteURL.includes('/calculator')) {
-      siteURL = siteURL.replace(/\/$/, '') + '/calculator';
-    }
-    
+    const siteURL = baseURL.replace('/api', '');
     const shortURL = `${siteURL}/s/${shortCode}`;
 
     return res.status(200).json({ 
