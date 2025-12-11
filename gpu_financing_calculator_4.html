@@ -992,7 +992,6 @@
             </select>
             <button class="scenario-btn primary" onclick="openSaveModal()">Save Scenario</button>
             <button class="scenario-btn" onclick="shareScenario()">Share</button>
-            <button class="scenario-btn" onclick="downloadWithScenarios()">Download with Scenarios</button>
             <button class="scenario-btn" onclick="deleteScenario()" id="deleteBtn" style="display:none;">Delete</button>
             <span class="scenario-count" id="scenarioCount"></span>
         </div>
@@ -2268,6 +2267,11 @@
                 url.searchParams.set(key, params[key]);
             });
             
+            // Add scenarios if they exist
+            if (scenarios && scenarios.length > 0) {
+                url.searchParams.set('scenarios', JSON.stringify(scenarios));
+            }
+            
             return url.toString();
         }
         
@@ -2286,6 +2290,22 @@
                 }
             });
             
+            // Load scenarios from URL if present
+            const scenariosParam = urlParams.get('scenarios');
+            if (scenariosParam) {
+                try {
+                    const loadedScenarios = JSON.parse(scenariosParam);
+                    if (Array.isArray(loadedScenarios) && loadedScenarios.length > 0) {
+                        // Replace current scenarios with loaded ones
+                        scenarios = loadedScenarios;
+                        updateScenarioDropdown();
+                        updateScenarioCount();
+                    }
+                } catch (e) {
+                    console.error('Error parsing scenarios from URL:', e);
+                }
+            }
+            
             if (Object.keys(params).length > 0) {
                 setParams(params);
                 // Clear URL params after loading to keep URL clean
@@ -2296,21 +2316,89 @@
             return false;
         }
         
-        // Share scenario - copy URL to clipboard
-        function shareScenario() {
-            const shareURL = encodeParamsToURL();
+        // Share scenario - copy shortened URL to clipboard
+        async function shareScenario(event) {
+            const params = getCurrentParams();
             
-            // Copy to clipboard
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(shareURL).then(() => {
-                    showToast('Link copied to clipboard! Share this URL to let others see your scenario.');
-                }).catch(() => {
-                    // Fallback for older browsers
-                    fallbackCopyToClipboard(shareURL);
+            // Check if we're on localhost (API won't work)
+            const isLocalhost = window.location.hostname === 'localhost' || 
+                               window.location.hostname === '127.0.0.1' ||
+                               window.location.protocol === 'file:';
+            
+            // Show loading state
+            const shareBtn = event?.target || document.querySelector('button[onclick*="shareScenario"]');
+            const originalText = shareBtn?.textContent;
+            if (shareBtn) {
+                shareBtn.textContent = 'Sharing...';
+                shareBtn.disabled = true;
+            }
+            
+            // If on localhost, skip API and use full URL
+            if (isLocalhost) {
+                const fullURL = encodeParamsToURL();
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(fullURL).then(() => {
+                        showToast('Link copied! (Full URL - shortening requires Vercel deployment)');
+                    }).catch(() => {
+                        fallbackCopyToClipboard(fullURL);
+                    });
+                } else {
+                    fallbackCopyToClipboard(fullURL);
+                }
+                if (shareBtn) {
+                    shareBtn.textContent = originalText || 'Share';
+                    shareBtn.disabled = false;
+                }
+                return;
+            }
+            
+            try {
+                // Call the shortening API with both params and scenarios
+                const response = await fetch('/api/shorten', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ 
+                        params,
+                        scenarios: scenarios || []
+                    })
                 });
-            } else {
-                // Fallback for older browsers
-                fallbackCopyToClipboard(shareURL);
+                
+                if (!response.ok) {
+                    throw new Error('Failed to shorten URL');
+                }
+                
+                const data = await response.json();
+                const shortURL = data.shortURL;
+                
+                // Copy to clipboard
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(shortURL);
+                    showToast('Short link copied to clipboard! Share this URL to let others see your scenario.');
+                } else {
+                    // Fallback for older browsers
+                    fallbackCopyToClipboard(shortURL);
+                }
+            } catch (error) {
+                console.error('Error shortening URL:', error);
+                // Fallback to full URL if shortening fails
+                const fullURL = encodeParamsToURL();
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(fullURL).then(() => {
+                        showToast('Link copied! (Full URL - shortening unavailable)', 'error');
+                    }).catch(() => {
+                        fallbackCopyToClipboard(fullURL);
+                    });
+                } else {
+                    fallbackCopyToClipboard(fullURL);
+                }
+            } finally {
+                // Restore button state
+                if (shareBtn) {
+                    shareBtn.textContent = originalText || 'Share';
+                    shareBtn.disabled = false;
+                }
             }
         }
         
