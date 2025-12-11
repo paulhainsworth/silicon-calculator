@@ -8,6 +8,9 @@
   },
   "keywords": ["calculator", "gpu", "financing"],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/kv": "^0.2.1"
+  }
 }
 

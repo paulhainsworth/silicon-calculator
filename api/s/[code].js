@@ -1,6 +1,8 @@
 // API route to redirect short URLs
 // GET /api/s/[code]
 
+import { kv } from '@vercel/kv';
+
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -22,29 +24,31 @@ export default async function handler(req, res) {
       });
     }
 
-    // Retrieve the full URL from storage
-    // For production, use Vercel KV:
-    // const stored = await kv.get(`short:${code}`);
-    // const fullURL = stored.url;
+    // Retrieve the full URL from storage (Vercel KV with fallback to in-memory)
+    let stored = null;
     
-    // Simple in-memory storage lookup
-    // NOTE: This storage is reset on each serverless function restart/deployment
-    // For production, use Vercel KV for persistent storage
-    if (!global.urlStore) {
-      console.error('URL store not initialized. Code:', code);
-      return res.status(404).json({ 
-        error: 'URL not found - storage not available',
-        note: 'In-memory storage resets on deployment. Use Vercel KV for persistence.'
-      });
+    try {
+      // Try to use Vercel KV first
+      if (process.env.KV_REST_API_URL) {
+        const storedJson = await kv.get(`short:${code}`);
+        if (storedJson) {
+          stored = JSON.parse(storedJson);
+        }
+      }
+    } catch (kvError) {
+      console.error('KV retrieval error, trying fallback:', kvError);
     }
     
-    const stored = global.urlStore.get(code);
+    // Fallback to in-memory storage if KV not available or failed
+    if (!stored && global.urlStore) {
+      stored = global.urlStore.get(code);
+    }
 
     if (!stored) {
-      console.error('Code not found in store:', code, 'Available codes:', Array.from(global.urlStore.keys()));
+      console.error('Code not found:', code);
       return res.status(404).json({ 
         error: 'URL not found or expired',
-        note: 'Short URLs are stored in memory and reset on deployment. The URL may have expired.'
+        note: 'The short URL may have expired or was not found. Short URLs expire after 7 days.'
       });
     }
     

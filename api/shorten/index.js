@@ -1,6 +1,8 @@
 // API route to shorten URLs
 // POST /api/shorten
 
+import { kv } from '@vercel/kv';
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -17,19 +19,28 @@ export default async function handler(req, res) {
     const shortCode = generateShortCode();
     const fullURL = buildFullURL(params, scenarios);
 
-    // Store the mapping
-    // For production, use Vercel KV or a database
-    // For now, we'll use a simple in-memory cache (not persistent across deployments)
-    // In production, replace this with Vercel KV:
-    // await kv.set(`short:${shortCode}`, JSON.stringify({ url: fullURL, scenarios }), { ex: 86400 * 7 }); // 7 days expiry
+    // Store the mapping using Vercel KV (with fallback to in-memory)
+    const storeData = { url: fullURL, scenarios: scenarios || [] };
     
-    // Simple in-memory storage (will be lost on serverless function restart)
-    // This is a temporary solution - for production, use Vercel KV
-    if (!global.urlStore) {
-      global.urlStore = new Map();
+    try {
+      // Try to use Vercel KV (available when KV is set up in Vercel dashboard)
+      if (process.env.KV_REST_API_URL) {
+        await kv.set(`short:${shortCode}`, JSON.stringify(storeData), { ex: 86400 * 7 }); // 7 days expiry
+      } else {
+        // Fallback to in-memory storage (for local dev or if KV not set up)
+        if (!global.urlStore) {
+          global.urlStore = new Map();
+        }
+        global.urlStore.set(shortCode, storeData);
+      }
+    } catch (kvError) {
+      console.error('KV storage error, using fallback:', kvError);
+      // Fallback to in-memory if KV fails
+      if (!global.urlStore) {
+        global.urlStore = new Map();
+      }
+      global.urlStore.set(shortCode, storeData);
     }
-    // Store both URL and scenarios
-    global.urlStore.set(shortCode, { url: fullURL, scenarios: scenarios || [] });
 
     // Return the short URL
     const baseURL = req.headers['x-forwarded-proto'] 
