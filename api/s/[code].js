@@ -26,17 +26,20 @@ export default async function handler(req, res) {
 
     // Retrieve the full URL from storage (Vercel KV with fallback to in-memory)
     let stored = null;
+    let usingKV = false;
     
     try {
       // Try to use Vercel KV first
       if (process.env.KV_REST_API_URL) {
+        usingKV = true;
         const storedJson = await kv.get(`short:${code}`);
         if (storedJson) {
-          stored = JSON.parse(storedJson);
+          stored = typeof storedJson === 'string' ? JSON.parse(storedJson) : storedJson;
         }
       }
     } catch (kvError) {
       console.error('KV retrieval error, trying fallback:', kvError);
+      usingKV = false;
     }
     
     // Fallback to in-memory storage if KV not available or failed
@@ -45,10 +48,18 @@ export default async function handler(req, res) {
     }
 
     if (!stored) {
-      console.error('Code not found:', code);
+      console.error('Code not found:', code, 'Using KV:', usingKV, 'KV URL set:', !!process.env.KV_REST_API_URL);
       return res.status(404).json({ 
         error: 'URL not found or expired',
-        note: 'The short URL may have expired or was not found. Short URLs expire after 7 days.'
+        note: usingKV 
+          ? 'The short URL may have expired (7 days) or was not found in KV storage.'
+          : 'Vercel KV is not configured. Short URLs are stored in memory and reset on deployment. Please set up Vercel KV for persistent storage.',
+        debug: {
+          code,
+          kvConfigured: !!process.env.KV_REST_API_URL,
+          usingKV,
+          hasMemoryStore: !!global.urlStore
+        }
       });
     }
     
