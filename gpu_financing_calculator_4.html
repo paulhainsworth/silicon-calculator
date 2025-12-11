@@ -931,6 +931,35 @@
             color: var(--text-muted);
             margin-left: 4px;
         }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--accent);
+            color: var(--text-primary);
+            padding: 16px 24px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            z-index: 3000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            max-width: 400px;
+        }
+
+        .toast.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .toast.success {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+        }
     </style>
 </head>
 <body>
@@ -962,6 +991,7 @@
                 <option value="">— Select Scenario —</option>
             </select>
             <button class="scenario-btn primary" onclick="openSaveModal()">Save Scenario</button>
+            <button class="scenario-btn" onclick="shareScenario()">Share</button>
             <button class="scenario-btn" onclick="downloadWithScenarios()">Download with Scenarios</button>
             <button class="scenario-btn" onclick="deleteScenario()" id="deleteBtn" style="display:none;">Delete</button>
             <span class="scenario-count" id="scenarioCount"></span>
@@ -2221,7 +2251,126 @@
         // Initialize scenarios
         initScenarios();
 
-        calculate();
+        // ============================================
+        // SHARE FUNCTIONALITY
+        // ============================================
+        
+        // Encode current parameters into URL
+        function encodeParamsToURL() {
+            const params = getCurrentParams();
+            const url = new URL(window.location.href);
+            
+            // Clear existing params
+            url.search = '';
+            
+            // Add all parameters
+            Object.keys(params).forEach(key => {
+                url.searchParams.set(key, params[key]);
+            });
+            
+            return url.toString();
+        }
+        
+        // Load parameters from URL
+        function loadParamsFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const hasParams = Array.from(urlParams.keys()).length > 0;
+            
+            if (!hasParams) return false;
+            
+            const params = {};
+            PARAM_KEYS.forEach(key => {
+                const value = urlParams.get(key);
+                if (value !== null) {
+                    params[key] = value;
+                }
+            });
+            
+            if (Object.keys(params).length > 0) {
+                setParams(params);
+                // Clear URL params after loading to keep URL clean
+                window.history.replaceState({}, document.title, window.location.pathname);
+                return true;
+            }
+            
+            return false;
+        }
+        
+        // Share scenario - copy URL to clipboard
+        function shareScenario() {
+            const shareURL = encodeParamsToURL();
+            
+            // Copy to clipboard
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(shareURL).then(() => {
+                    showToast('Link copied to clipboard! Share this URL to let others see your scenario.');
+                }).catch(() => {
+                    // Fallback for older browsers
+                    fallbackCopyToClipboard(shareURL);
+                });
+            } else {
+                // Fallback for older browsers
+                fallbackCopyToClipboard(shareURL);
+            }
+        }
+        
+        // Fallback copy method
+        function fallbackCopyToClipboard(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                showToast('Link copied to clipboard! Share this URL to let others see your scenario.');
+            } catch (err) {
+                showToast('Failed to copy. Please copy the URL manually from the address bar.', 'error');
+            }
+            
+            document.body.removeChild(textArea);
+        }
+        
+        // Show toast notification
+        function showToast(message, type = 'success') {
+            // Remove existing toast if any
+            const existingToast = document.getElementById('shareToast');
+            if (existingToast) {
+                existingToast.remove();
+            }
+            
+            // Create new toast
+            const toast = document.createElement('div');
+            toast.id = 'shareToast';
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            // Show toast
+            setTimeout(() => {
+                toast.classList.add('visible');
+            }, 10);
+            
+            // Hide and remove toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('visible');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        // Load parameters from URL on page load (before calculate)
+        if (loadParamsFromURL()) {
+            // Parameters were loaded from URL, calculate will be called by setParams
+        } else {
+            // No URL parameters, run normal calculation
+            calculate();
+        }
     </script>
 
     <!-- Save Scenario Modal -->
@@ -2242,5 +2391,8 @@
             </div>
         </div>
     </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer"></div>
 </body>
 </html>
