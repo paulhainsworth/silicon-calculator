@@ -1,0 +1,2246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silicon | GPU Financing Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --bg-card: #111111;
+            --bg-input: #1a1a1a;
+            --border: #222222;
+            --border-light: #333333;
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --text-muted: #555555;
+            --accent: #00d46a;
+            --accent-dim: rgba(0, 212, 106, 0.1);
+            --negative: #ff4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.5;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .logo-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--text-primary);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            border: 2px solid var(--bg-primary);
+            border-radius: 2px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .nav a:hover {
+            color: var(--text-primary);
+        }
+
+        .connect-btn {
+            background: transparent;
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .connect-btn:hover {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px 40px;
+        }
+
+        /* Page Title */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .page-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .apr-badge {
+            position: fixed;
+            top: 80px;
+            right: 24px;
+            z-index: 1000;
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .apr-badge:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 25px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Main Grid - Side by Side */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        @media (max-width: 1000px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .inputs-column {
+            position: sticky;
+            top: 24px;
+        }
+
+        .results-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .card-header {
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .card-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Input Groups */
+        .input-section {
+            margin-bottom: 20px;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .input-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .input-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            color: var(--text-primary);
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 4px;
+            background: var(--border-light);
+            border-radius: 2px;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            background: var(--text-primary);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.15s ease;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+        }
+
+        /* Slider with breakeven tick */
+        .slider-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .breakeven-tick {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 3px;
+            height: 16px;
+            background: #f59e0b;
+            border-radius: 1px;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.15s ease;
+        }
+
+        .breakeven-tick:hover {
+            background: #fbbf24;
+            height: 20px;
+            box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+        }
+
+        .breakeven-tick::after {
+            content: 'BE';
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.6rem;
+            color: #f59e0b;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.15s ease;
+        }
+
+        .breakeven-tick:hover::after {
+            opacity: 1;
+        }
+
+        .breakeven-tick.hidden {
+            display: none;
+        }
+
+        /* Inline editable inputs for slider values */
+        .input-value {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .inline-input {
+            width: 50px;
+            padding: 2px 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid transparent;
+            border-radius: 4px;
+            color: #10b981;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-align: right;
+            -moz-appearance: textfield;
+            transition: all 0.15s ease;
+        }
+
+        .inline-input::-webkit-outer-spin-button,
+        .inline-input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .inline-input:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .inline-input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #10b981;
+        }
+
+        .input-suffix {
+            color: #10b981;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        input[type="number"]:focus {
+            border-color: var(--accent);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .stat-card {
+            background: var(--bg-input);
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .stat-value.accent {
+            color: var(--accent);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+        }
+
+        /* Section Headers */
+        .section-header {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        /* Outputs Grid - 3 column */
+        .outputs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .output-card {
+            background: var(--bg-input);
+            border-radius: 8px;
+            padding: 14px;
+        }
+
+        .output-card.highlight {
+            background: var(--accent-dim);
+            border: 1px solid var(--accent);
+        }
+
+        .output-card.highlight.wide {
+            grid-column: span 2;
+        }
+
+        .output-card.highlight.full-width {
+            grid-column: span 3;
+        }
+
+        .output-label {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .output-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .output-value.large {
+            font-size: 1.3rem;
+        }
+
+        .output-value.positive {
+            color: var(--accent);
+        }
+
+        .output-value.negative {
+            color: var(--negative);
+        }
+
+        .output-note {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Tooltips */
+        .tooltip {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 14px;
+            height: 14px;
+            font-size: 10px;
+            color: var(--text-muted);
+            cursor: pointer;
+            margin-left: 4px;
+            vertical-align: middle;
+        }
+
+        .tooltip:hover {
+            color: var(--accent);
+        }
+
+        .tooltip-text {
+            display: none;
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1a1a1a;
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            line-height: 1.4;
+            width: 220px;
+            z-index: 100;
+            font-weight: 400;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        .tooltip-text::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: #1a1a1a;
+        }
+
+        .tooltip.active .tooltip-text {
+            display: block;
+        }
+
+        /* Formula tooltip (wrench) */
+        .formula-tip {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 14px;
+            height: 14px;
+            font-size: 9px;
+            color: var(--text-muted);
+            cursor: pointer;
+            margin-left: 2px;
+            vertical-align: middle;
+        }
+
+        .formula-tip:hover {
+            color: var(--accent);
+        }
+
+        .formula-text {
+            display: none;
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0d1117;
+            border: 1px solid var(--accent);
+            color: var(--text-primary);
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            line-height: 1.5;
+            width: 280px;
+            z-index: 100;
+            font-weight: 400;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+        }
+
+        .formula-text::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: var(--accent);
+        }
+
+        .formula-tip.active .formula-text {
+            display: block;
+        }
+
+        /* Table Section */
+        .table-section {
+            margin-top: 0;
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .table-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .toggle-btn {
+            background: transparent;
+            border: 1px solid var(--border-light);
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .toggle-btn:hover {
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+        }
+
+        .table-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .export-btn {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .export-btn:hover {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .table-container {
+            max-height: 360px;
+            overflow-y: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+        }
+
+        th {
+            background: var(--bg-input);
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            position: sticky;
+            top: 0;
+        }
+
+        td {
+            padding: 10px 16px;
+            border-top: 1px solid var(--border);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .cell-negative {
+            color: var(--negative);
+        }
+
+        .cell-positive {
+            color: var(--accent);
+        }
+
+        /* Mini Chart */
+        .chart-wrapper {
+            padding: 16px;
+            background: var(--bg-input);
+            border-radius: 8px;
+        }
+
+        .chart-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .chart-bars {
+            display: flex;
+            align-items: flex-end;
+            height: 80px;
+            gap: 2px;
+        }
+
+        .chart-bar {
+            flex: 1;
+            background: var(--accent);
+            min-height: 2px;
+            border-radius: 1px 1px 0 0;
+            opacity: 0.7;
+            transition: all 0.2s;
+        }
+
+        .chart-bar:hover {
+            opacity: 1;
+        }
+
+        .chart-bar.negative {
+            background: var(--negative);
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 20px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 1000px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            .inputs-column {
+                position: static;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .outputs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .output-card.highlight.wide {
+                grid-column: span 2;
+            }
+            .output-card.highlight.full-width {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 16px 20px;
+            }
+            .nav {
+                display: none;
+            }
+            .container {
+                padding: 20px;
+            }
+            .page-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            .stat-value {
+                font-size: 1.2rem;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            .outputs-grid {
+                grid-template-columns: 1fr;
+            }
+            .output-card.highlight.wide,
+            .output-card.highlight.full-width {
+                grid-column: span 1;
+            }
+        }
+
+        /* Scenario Controls */
+        .scenario-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .scenario-select {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            min-width: 200px;
+            cursor: pointer;
+        }
+
+        .scenario-select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .scenario-btn {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .scenario-btn:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--accent);
+        }
+
+        .scenario-btn.primary {
+            background: var(--accent);
+            color: var(--bg-primary);
+            border-color: var(--accent);
+        }
+
+        .scenario-btn.primary:hover {
+            background: #0ea472;
+        }
+
+        .scenario-description {
+            width: 100%;
+            padding: 10px 14px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-style: italic;
+            display: none;
+        }
+
+        .scenario-description.visible {
+            display: block;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .modal-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            width: 90%;
+            max-width: 450px;
+            transform: scale(0.95);
+            transition: transform 0.2s ease;
+        }
+
+        .modal-overlay.visible .modal {
+            transform: scale(1);
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .modal-field {
+            margin-bottom: 16px;
+        }
+
+        .modal-label {
+            display: block;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+
+        .modal-input {
+            width: 100%;
+            padding: 10px 12px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .modal-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .modal-textarea {
+            width: 100%;
+            padding: 10px 12px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            min-height: 80px;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .modal-textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        .scenario-count {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-left: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon"></div>
+            Silicon
+        </div>
+        <nav class="nav">
+            <a href="#">Home</a>
+            <a href="#">Docs</a>
+            <a href="#">Metrics</a>
+            <a href="#">App</a>
+        </nav>
+        <button class="connect-btn">Connect Wallet</button>
+    </header>
+
+    <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="page-title">GPU Financing Calculator — Cluster 01</div>
+            <div class="apr-badge">Est. APY <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Annualized return: (Owner Net Profit ÷ Total Investment) × (12 ÷ Term)</span></span> <span id="apyBadge">24.1%</span></div>
+        </div>
+
+        <!-- Scenario Controls -->
+        <div class="scenario-controls">
+            <select class="scenario-select" id="scenarioSelect" onchange="loadScenario()">
+                <option value="">— Select Scenario —</option>
+            </select>
+            <button class="scenario-btn primary" onclick="openSaveModal()">Save Scenario</button>
+            <button class="scenario-btn" onclick="downloadWithScenarios()">Download with Scenarios</button>
+            <button class="scenario-btn" onclick="deleteScenario()" id="deleteBtn" style="display:none;">Delete</button>
+            <span class="scenario-count" id="scenarioCount"></span>
+        </div>
+        <div class="scenario-description" id="scenarioDescription"></div>
+
+        <!-- Main Side-by-Side Grid -->
+        <div class="main-grid">
+            <!-- LEFT: Inputs Column -->
+            <div class="inputs-column">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Model Parameters</div>
+                        <div class="card-subtitle">Adjust to see results update</div>
+                    </div>
+
+                    <div class="input-section">
+                        <div class="section-label">Investment Terms</div>
+                        
+                        <div class="input-group">
+                            <div class="input-row">
+                                <span class="input-label">Investment Term</span>
+                                <span class="input-value"><input type="number" class="inline-input" id="termInput" value="30" min="6" max="60" oninput="syncFromInput('term')"><span class="input-suffix">mo</span></span>
+                            </div>
+                            <input type="range" id="term" min="6" max="60" value="30" oninput="syncFromSlider('term')">
+                        </div>
+                    </div>
+
+                    <div class="input-section">
+                        <div class="section-label">Assets</div>
+                        
+                        <div class="input-group">
+                            <div class="input-row">
+                                <span class="input-label">Number of Servers</span>
+                                <span class="input-value"><input type="number" class="inline-input" id="serversInput" value="1" min="1" max="100000" oninput="syncFromInput('servers')"></span>
+                            </div>
+                            <input type="range" id="servers" min="1" max="100000" value="1" oninput="syncFromSlider('servers')">
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-row">
+                                <span class="input-label">Unit Cost (CAPEX)</span>
+                            </div>
+                            <input type="number" id="unitCost" value="100000" oninput="calculate()">
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-row">
+                                <span class="input-label">Liquidation Residual</span>
+                                <span class="input-value"><input type="number" class="inline-input" id="residualInput" value="20" min="0" max="100" step="1" oninput="syncFromInput('residual')"><span class="input-suffix">%</span></span>
+                            </div>
+                            <div class="slider-container">
+                                <input type="range" id="residual" min="0" max="100" step="1" value="20" oninput="syncFromSlider('residual')">
+                                <div class="breakeven-tick hidden" id="residualBreakeven" onclick="setToBreakeven('residual')"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-section">
+                        <div class="section-label">Revenue</div>
+                        
+                        <div class="input-group">
+                            <div class="input-row">
+                                <span class="input-label">Starting Hourly Rate</span>
+                            </div>
+                            <input type="number" id="hourlyRate" value="1.84" step="0.01" oninput="calculate()">
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-row">
+                                <span class="input-label">Annual Decay</span>
+                                <span class="input-value"><input type="number" class="inline-input" id="decayInput" value="20" min="0" max="50" step="1" oninput="syncFromInput('decay')"><span class="input-suffix">%</span></span>
+                            </div>
+                            <div class="slider-container">
+                                <input type="range" id="decay" min="0" max="50" step="1" value="20" oninput="syncFromSlider('decay')">
+                                <div class="breakeven-tick hidden" id="decayBreakeven" onclick="setToBreakeven('decay')"></div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-row">
+                                <span class="input-label">Utilization</span>
+                                <span class="input-value"><input type="number" class="inline-input" id="utilizationInput" value="90" min="10" max="100" step="1" oninput="syncFromInput('utilization')"><span class="input-suffix">%</span></span>
+                            </div>
+                            <div class="slider-container">
+                                <input type="range" id="utilization" min="10" max="100" step="1" value="90" oninput="syncFromSlider('utilization')">
+                                <div class="breakeven-tick hidden" id="utilizationBreakeven" onclick="setToBreakeven('utilization')"></div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-row">
+                                <span class="input-label">Marketplace Rake</span>
+                                <span class="input-value"><input type="number" class="inline-input" id="marketRakeInput" value="20" min="0" max="40" step="1" oninput="syncFromInput('marketRake')"><span class="input-suffix">%</span></span>
+                            </div>
+                            <input type="range" id="marketRake" min="0" max="40" step="1" value="20" oninput="syncFromSlider('marketRake')">
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-row">
+                                <span class="input-label">Provider Rake</span>
+                                <span class="input-value"><input type="number" class="inline-input" id="providerRakeInput" value="25" min="0" max="100" step="1" oninput="syncFromInput('providerRake')"><span class="input-suffix">%</span></span>
+                            </div>
+                            <input type="range" id="providerRake" min="0" max="100" step="1" value="25" oninput="syncFromSlider('providerRake')">
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-row">
+                                <span class="input-label">Silicon Fee</span>
+                                <span class="input-value"><input type="number" class="inline-input" id="siliconFeeInput" value="5" min="0" max="25" step="1" oninput="syncFromInput('siliconFee')"><span class="input-suffix">%</span></span>
+                            </div>
+                            <input type="range" id="siliconFee" min="0" max="25" step="1" value="5" oninput="syncFromSlider('siliconFee')">
+                        </div>
+                    </div>
+
+                    <!-- Tax Section -->
+                    <div class="input-section">
+                        <div class="section-label">TAX</div>
+
+                        <div class="input-group">
+                            <div class="input-row">
+                                <span class="input-label">Tax Rate</span>
+                                <span class="input-value"><input type="number" class="inline-input" id="taxRateInput" value="21" min="0" max="100" step="1" oninput="syncFromInput('taxRate')"><span class="input-suffix">%</span></span>
+                            </div>
+                            <input type="range" id="taxRate" min="0" max="100" step="1" value="21" oninput="syncFromSlider('taxRate')">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Results Column -->
+            <div class="results-column">
+                <!-- Key Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalCapexStat">$3.75M</div>
+                        <div class="stat-label">Total CAPEX <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Total capital expenditure: Number of Servers × Unit Cost</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Servers × Unit Cost</span></span></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="downpaymentStat">$375K</div>
+                        <div class="stat-label">Total Investment <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Owner's upfront capital investment (100% of CAPEX). Owner owns the asset.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">= Total CAPEX<br>(Owner pays 100%)</span></span></div>
+                    </div>
+                </div>
+
+                <!-- Section 2: KPIs -->
+                <div class="section-header">KEY PERFORMANCE INDICATORS</div>
+                <div class="outputs-grid">
+                    <div class="output-card">
+                        <div class="output-label">Payback Period <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Months of owner revenue share required to recover initial investment</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Total Investment ÷ (Owner Fee ÷ Term)</span></span></div>
+                        <div class="output-value" id="paybackPeriod">24 mo</div>
+                    </div>
+                    <div class="output-card">
+                        <div class="output-label">CAPEX Break-even <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Month when cumulative rental revenue equals the total CAPEX investment</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Month where:<br>Σ(Owner Fee) ≥ CAPEX</span></span></div>
+                        <div class="output-value" id="breakevenMonth">Month 42</div>
+                    </div>
+                    <div class="output-card">
+                        <div class="output-label">Total Return <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Owner Net Profit ÷ Total Investment. Your total profit as a percentage of initial capital.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Owner Net Profit ÷ Total Investment</span></span></div>
+                        <div class="output-value" id="totalReturn">141%</div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Revenue -->
+                <div class="section-header">REVENUE</div>
+                <div class="outputs-grid">
+                    <div class="output-card">
+                        <div class="output-label">Total Revenue <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Total gross rental revenue generated by the assets over the investment term (same as Gross Rental Revenue).</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">= Gross Rental Revenue</span></span></div>
+                        <div class="output-value" id="totalRevenue">$8,234,567</div>
+                    </div>
+                    <div class="output-card">
+                        <div class="output-label">Gross Rental Revenue <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Sum of (Hourly Rate × 730 × 8 × Utilization) for all months. Raw rental income before any fees.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Σ(Rate × 730 × 8 × Util)<br>for each month<br>(Rate decays monthly)</span></span></div>
+                        <div class="output-value" id="grossRentalRevenue">$7,234,567</div>
+                    </div>
+                    <div class="output-card">
+                        <div class="output-label">Marketplace Rake <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Marketplace earnings: Gross Rental Revenue × Marketplace Fee %</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Gross Rental Revenue × Marketplace %</span></span></div>
+                        <div class="output-value" id="marketplaceRake">$1,446,913</div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Provider Financials -->
+                <div class="section-header">PROVIDER FINANCIALS</div>
+                <div class="outputs-grid">
+                    <div class="output-card">
+                        <div class="output-label">Provider Gross Revenue <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Gross Rental Revenue − Marketplace Rake. Revenue to provider before fees.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Gross Rental − Marketplace Rake</span></span></div>
+                        <div class="output-value" id="providerGrossRevenue">$5,787,654</div>
+                    </div>
+                    <div class="output-card">
+                        <div class="output-label">Silicon Fee Earnings <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Silicon's share: Provider Gross Revenue × Silicon Fee %.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Provider Gross × Silicon Fee %</span></span></div>
+                        <div class="output-value" id="siliconFeeEarnings">$123,456</div>
+                    </div>
+                    <div class="output-card">
+                        <div class="output-label">Provider Rake Earnings <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Provider's share: (Provider Gross − Silicon Fee) × Provider Rake %.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">(Provider Gross − Silicon) × Provider Rake %</span></span></div>
+                        <div class="output-value" id="providerRakeEarnings">$1,234,567</div>
+                    </div>
+                    <div class="output-card highlight">
+                        <div class="output-label">Provider Net Revenue <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Provider Gross Revenue − Silicon Fee − Owner Fee. What provider keeps.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">= Provider Rake Earnings</span></span></div>
+                        <div class="output-value" id="providerNetRevenue">$1,234,567</div>
+                    </div>
+                </div>
+
+                <!-- Section 5: Owner Financials -->
+                <div class="section-header">OWNER FINANCIALS</div>
+                <div class="outputs-grid">
+                    <div class="output-card">
+                        <div class="output-label">Total Cash Inflow <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Owner Fee + Liquidation Value at end of term.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Owner Fee + Liquidation Value</span></span></div>
+                        <div class="output-value" id="totalCashInflow">$5,234,567</div>
+                    </div>
+                    <div class="output-card">
+                        <div class="output-label">Total Cash Outflow <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Owner's upfront capital investment (100% of CAPEX).</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">= Total CAPEX<br>(100% upfront)</span></span></div>
+                        <div class="output-value" id="totalCashOutflow">$4,612,351</div>
+                    </div>
+                    <div class="output-card highlight">
+                        <div class="output-label">Owner Fee <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Owner's revenue share: (Provider Gross − Silicon Fee) × (1 − Provider Rake).</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">(Provider Gross − Silicon) × (1 − Provider Rake %)</span></span></div>
+                        <div class="output-value" id="ownerEbitda">$859,567</div>
+                    </div>
+                    <div class="output-card">
+                        <div class="output-label">Depreciation Expense <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Straight-line depreciation: (CAPEX − Liquidation Value) / Term. Owner owns the asset.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">(CAPEX − Liquidation) ÷ Term</span></span></div>
+                        <div class="output-value" id="depreciationExpense">$80,000</div>
+                    </div>
+                    <div class="output-card">
+                        <div class="output-label">Liquidation Value <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Expected residual value at end of term: CAPEX × Residual %. Owner receives at exit.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">CAPEX × Residual %</span></span></div>
+                        <div class="output-value" id="liquidationValueDisplay">$20,000</div>
+                    </div>
+                    <div class="output-card">
+                        <div class="output-label">Taxable Income <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Owner Fee − Depreciation Expense. Owner claims depreciation as asset owner.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Owner Fee − Depreciation</span></span></div>
+                        <div class="output-value" id="taxableIncomeTotal">$500,000</div>
+                    </div>
+                    <div class="output-card">
+                        <div class="output-label">Total Tax <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Taxable Income × Tax Rate. May be reduced by depreciation shield.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">max(0, Taxable Income) × Tax Rate</span></span></div>
+                        <div class="output-value" id="totalTax">$125,000</div>
+                    </div>
+                    <div class="output-card highlight full-width">
+                        <div class="output-label">Owner Net Profit <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">−Total Investment + Owner Fee + Liquidation Value − Tax. After-tax return on invested capital.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">−Investment + Owner Fee + Liquidation − Tax</span></span></div>
+                        <div class="output-value" id="afterTaxCashFlow">$734,567</div>
+                    </div>
+                </div>
+
+                <!-- Chart -->
+                <div class="chart-wrapper">
+                    <div class="chart-title">Monthly Net Cash Flow</div>
+                    <div class="chart-bars" id="chartBars"></div>
+                </div>
+
+                <!-- Table Section: Monthly Cash Flow -->
+                <div class="table-section">
+                    <div class="table-header">
+                        <span class="table-title">Monthly Cash Flow</span>
+                        <div class="table-buttons">
+                            <button class="toggle-btn" onclick="toggleTable('cashFlowTable', this)">Show Table</button>
+                            <button class="export-btn" onclick="exportTable()">Export CSV</button>
+                        </div>
+                    </div>
+                    <div class="table-container" id="cashFlowTable" style="display: none;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Hourly Rate</th>
+                                    <th>Break-even Util.</th>
+                                    <th>Gross Revenue</th>
+                                    <th>Net Profit</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cashFlowBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Table Section: Depreciation Schedule -->
+                <div class="table-section">
+                    <div class="table-header">
+                        <span class="table-title">Depreciation Schedule</span>
+                        <div class="table-buttons">
+                            <button class="toggle-btn" onclick="toggleTable('depreciationTable', this)">Show Table</button>
+                        </div>
+                    </div>
+                    <div class="table-container" id="depreciationTable" style="display: none;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Depreciation</th>
+                                    <th>Cumulative Depreciation</th>
+                                    <th>Book Value</th>
+                                </tr>
+                            </thead>
+                            <tbody id="depreciationBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Table Section: Taxable Income Calculation -->
+                <div class="table-section">
+                    <div class="table-header">
+                        <span class="table-title">Taxable Income Calculation</span>
+                        <div class="table-buttons">
+                            <button class="toggle-btn" onclick="toggleTable('taxableIncomeTable', this)">Show Table</button>
+                        </div>
+                    </div>
+                    <div class="table-container" id="taxableIncomeTable" style="display: none;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Owner Fee</th>
+                                    <th>Taxable Income</th>
+                                    <th>Tax</th>
+                                </tr>
+                            </thead>
+                            <tbody id="taxableIncomeBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Table Section: Owner Net Profit -->
+                <div class="table-section">
+                    <div class="table-header">
+                        <span class="table-title">Owner Net Profit</span>
+                        <div class="table-buttons">
+                            <button class="toggle-btn" onclick="toggleTable('afterTaxTable', this)">Show Table</button>
+                        </div>
+                    </div>
+                    <div class="table-container" id="afterTaxTable" style="display: none;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Owner Fee</th>
+                                    <th>Tax</th>
+                                    <th>After-Tax Cash Flow</th>
+                                    <th>Cumulative After-Tax</th>
+                                </tr>
+                            </thead>
+                            <tbody id="afterTaxBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function PMT(rate, nper, pv) {
+            if (rate === 0) return -pv / nper;
+            return -pv * rate * Math.pow(1 + rate, nper) / (Math.pow(1 + rate, nper) - 1);
+        }
+
+        function formatCurrency(value, compact = false) {
+            if (compact) {
+                if (Math.abs(value) >= 1000000000) {
+                    const billions = value / 1000000000;
+                    return '$' + (billions % 1 === 0 ? billions.toFixed(0) : billions.toFixed(2).replace(/\.?0+$/, '')) + 'B';
+                } else if (Math.abs(value) >= 1000000) {
+                    const millions = value / 1000000;
+                    return '$' + (millions % 1 === 0 ? millions.toFixed(0) : millions.toFixed(2).replace(/\.?0+$/, '')) + 'M';
+                } else if (Math.abs(value) >= 1000) {
+                    const thousands = value / 1000;
+                    return '$' + (thousands % 1 === 0 ? thousands.toFixed(0) : thousands.toFixed(1).replace(/\.?0+$/, '')) + 'K';
+                }
+            }
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(value);
+        }
+
+        function formatPercent(value, decimals = 1) {
+            return (value * 100).toFixed(decimals) + '%';
+        }
+
+        // Sync from slider to input field
+        function syncFromSlider(param) {
+            const slider = document.getElementById(param);
+            const input = document.getElementById(param + 'Input');
+            if (input) {
+                input.value = slider.value;
+            }
+            calculate();
+        }
+
+        // Sync from input field to slider
+        function syncFromInput(param) {
+            const input = document.getElementById(param + 'Input');
+            const slider = document.getElementById(param);
+            
+            let value = parseFloat(input.value);
+            const min = parseFloat(slider.min);
+            const max = parseFloat(slider.max);
+            
+            // Clamp to slider range
+            if (!isNaN(value)) {
+                if (value < min) value = min;
+                if (value > max) value = max;
+                slider.value = value;
+            }
+            calculate();
+        }
+
+        function calculate() {
+            const term = parseInt(document.getElementById('term').value);
+            const servers = parseInt(document.getElementById('servers').value);
+            const unitCost = parseFloat(document.getElementById('unitCost').value);
+            const residual = parseFloat(document.getElementById('residual').value) / 100;
+            const hourlyRate = parseFloat(document.getElementById('hourlyRate').value);
+            const decay = parseFloat(document.getElementById('decay').value) / 100;
+            const utilization = parseFloat(document.getElementById('utilization').value) / 100;
+            const marketRake = parseFloat(document.getElementById('marketRake').value) / 100;
+            const providerRake = parseFloat(document.getElementById('providerRake').value) / 100;
+            const siliconFee = parseFloat(document.getElementById('siliconFee').value) / 100;
+            const taxRate = parseFloat(document.getElementById('taxRate').value) / 100;
+
+            // Calculations - OWNER FINANCING MODEL (no loan)
+            const totalCapex = unitCost * servers;
+            const totalInvestment = totalCapex;  // Owner pays 100% upfront
+            const liquidationValue = totalCapex * residual;
+
+            const cashFlows = [];
+            let currentHourlyRate = hourlyRate * servers;
+            let totalOwnerFee = 0;       // Owner's share of revenue
+            let totalRawRevenue = 0;     // Gross rental revenue
+            let totalProviderRevenue = 0; // Provider's share
+            let totalMarketplaceFees = 0; // Marketplace earnings
+            let totalSiliconFees = 0;     // Silicon earnings
+            let cumulativeOwnerFee = 0;   // For break-even tracking
+            let breakevenMonth = 0;
+            let cumulativeCashFlow = 0;
+
+            cashFlows.push({
+                month: 0,
+                hourlyRate: 0,
+                breakevenUtil: 0,
+                grossRevenue: 0,
+                netProfit: -totalInvestment
+            });
+
+            for (let m = 1; m <= term; m++) {
+                if (m > 1) {
+                    currentHourlyRate = currentHourlyRate * (1 - decay / 12);
+                }
+
+                // Break-even utilization (what util needed for owner to break even monthly)
+                // Not directly applicable in this model, but keep for consistency
+                const breakevenUtil = 0;
+                
+                // FINANCING MODEL WATERFALL:
+                // 1. Gross Rental Revenue
+                // 2. - Marketplace Fee = Provider Gross Revenue
+                // 3. - Silicon Fee (Provider Gross × Silicon %) = After Silicon
+                // 4. - Owner Fee = After Silicon × (1 - Provider Rake)
+                // 5. = Provider Net Revenue (Provider Rake Earnings)
+                
+                const rawRevenue = currentHourlyRate * 730 * 8 * utilization;  // Gross rental revenue
+                const marketplaceFee = rawRevenue * marketRake;                 // Marketplace cut
+                const providerGross = rawRevenue - marketplaceFee;              // Provider Gross Revenue
+                const siliconShare = providerGross * siliconFee;                // Silicon Fee
+                const afterSilicon = providerGross - siliconShare;              // After Silicon
+                const ownerShare = afterSilicon * (1 - providerRake);           // Owner Fee
+                const providerShare = afterSilicon * providerRake;              // Provider Rake Earnings
+                
+                const grossRevenue = ownerShare;
+                const netProfit = grossRevenue;
+
+                totalRawRevenue += rawRevenue;
+                totalMarketplaceFees += marketplaceFee;
+                totalSiliconFees += siliconShare;
+                totalProviderRevenue += providerShare;
+                totalOwnerFee += ownerShare;
+                cumulativeOwnerFee += ownerShare;
+                cumulativeCashFlow += netProfit;
+
+                // Break-even = when cumulative owner fee covers full CAPEX
+                if (breakevenMonth === 0 && cumulativeOwnerFee >= totalCapex) {
+                    breakevenMonth = m;
+                }
+
+                cashFlows.push({
+                    month: m,
+                    hourlyRate: currentHourlyRate / servers,
+                    breakevenUtil: breakevenUtil,
+                    grossRevenue: grossRevenue,
+                    netProfit: netProfit
+                });
+            }
+
+            // Liquidation row - owner receives liquidation value
+            cashFlows.push({
+                month: term + 1,
+                hourlyRate: 0,
+                breakevenUtil: 0,
+                grossRevenue: liquidationValue,
+                netProfit: liquidationValue,
+                isLiquidation: true
+            });
+
+            // Store for export
+            exportData = cashFlows;
+
+            // Check if break-even happens with liquidation
+            cumulativeOwnerFee += liquidationValue;
+            cumulativeCashFlow += liquidationValue;
+            if (breakevenMonth === 0 && cumulativeOwnerFee >= totalCapex) {
+                breakevenMonth = term + 1; // Happens at liquidation
+            }
+
+            // Cash flow calculations (OWNER FINANCING MODEL)
+            const totalCashInflow = totalOwnerFee + liquidationValue;  // Owner Fee + Liquidation
+            const totalCashOutflow = totalInvestment;                   // 100% of CAPEX
+            
+            // Revenue calculations
+            const totalRevenue = totalRawRevenue;  // Gross rental revenue only (no liquidation)
+            
+            // Provider Financials
+            const providerGrossRevenue = totalRawRevenue - totalMarketplaceFees;  // Before silicon/splits
+            const providerNetRevenue = totalProviderRevenue;  // Same as Provider Rake Earnings
+            
+            // Payback period: months of owner fee required to recover investment
+            const avgMonthlyOwnerFee = totalOwnerFee / term;
+            const paybackPeriod = avgMonthlyOwnerFee > 0 ? totalInvestment / avgMonthlyOwnerFee : Infinity;
+
+            // Update all outputs
+            document.getElementById('totalCapexStat').textContent = formatCurrency(totalCapex, true);
+            document.getElementById('downpaymentStat').textContent = formatCurrency(totalInvestment, true);
+            // APY badge updated later after tax calculations
+
+            document.getElementById('totalCashInflow').textContent = formatCurrency(totalCashInflow);
+            document.getElementById('totalCashOutflow').textContent = formatCurrency(totalCashOutflow);
+            
+            // Revenue outputs
+            document.getElementById('totalRevenue').textContent = formatCurrency(totalRevenue);
+            document.getElementById('grossRentalRevenue').textContent = formatCurrency(totalRawRevenue);
+            document.getElementById('marketplaceRake').textContent = formatCurrency(totalMarketplaceFees);
+            
+            // Provider Financials
+            document.getElementById('providerGrossRevenue').textContent = formatCurrency(providerGrossRevenue);
+            document.getElementById('providerNetRevenue').textContent = formatCurrency(providerNetRevenue);
+            document.getElementById('providerRakeEarnings').textContent = formatCurrency(totalProviderRevenue);
+            document.getElementById('siliconFeeEarnings').textContent = formatCurrency(totalSiliconFees);
+            document.getElementById('liquidationValueDisplay').textContent = formatCurrency(liquidationValue);
+            
+            // Owner Financials
+            document.getElementById('ownerEbitda').textContent = formatCurrency(totalOwnerFee);
+            
+            if (paybackPeriod === Infinity || paybackPeriod < 0) {
+                document.getElementById('paybackPeriod').textContent = 'Never';
+            } else {
+                document.getElementById('paybackPeriod').textContent = Math.ceil(paybackPeriod) + ' mo';
+            }
+
+            // Break-even (months to pay back full CAPEX from rental income only)
+            if (breakevenMonth > 0 && breakevenMonth <= term) {
+                document.getElementById('breakevenMonth').textContent = 'Month ' + breakevenMonth;
+            } else {
+                document.getElementById('breakevenMonth').textContent = 'Never';
+            }
+
+            // ============================================
+            // CALCULATE TOTALS FOR NEW OUTPUT BOXES
+            // (These will be populated after table calculations)
+            // ============================================
+
+            // Table
+            const tbody = document.getElementById('cashFlowBody');
+            tbody.innerHTML = '';
+            cashFlows.forEach(cf => {
+                const tr = document.createElement('tr');
+                if (cf.isLiquidation) {
+                    tr.innerHTML = `
+                        <td>Liquidation</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td class="cell-positive">${formatCurrency(cf.grossRevenue)}</td>
+                        <td class="cell-positive">${formatCurrency(cf.netProfit)}</td>
+                    `;
+                } else if (cf.month === 0) {
+                    tr.innerHTML = `
+                        <td>Initial</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td class="cell-negative">${formatCurrency(cf.netProfit)}</td>
+                    `;
+                } else {
+                    tr.innerHTML = `
+                        <td>${cf.month}</td>
+                        <td>$${cf.hourlyRate.toFixed(2)}</td>
+                        <td>${formatPercent(cf.breakevenUtil)}</td>
+                        <td>${formatCurrency(cf.grossRevenue)}</td>
+                        <td class="${cf.netProfit >= 0 ? 'cell-positive' : 'cell-negative'}">${formatCurrency(cf.netProfit)}</td>
+                    `;
+                }
+                tbody.appendChild(tr);
+            });
+
+            // ============================================
+            // DEPRECIATION SCHEDULE TABLE
+            // ============================================
+            const depreciableBasis = totalCapex - liquidationValue;
+            const monthlyDepreciation = depreciableBasis / term;
+            const depreciationData = [];
+            let cumulativeDepreciation = 0;
+
+            for (let m = 1; m <= term; m++) {
+                cumulativeDepreciation += monthlyDepreciation;
+                const bookValue = totalCapex - cumulativeDepreciation;
+
+                depreciationData.push({
+                    month: m,
+                    depreciation: monthlyDepreciation,
+                    cumulativeDepreciation: cumulativeDepreciation,
+                    bookValue: bookValue
+                });
+            }
+
+            const depreciationBody = document.getElementById('depreciationBody');
+            depreciationBody.innerHTML = '';
+            depreciationData.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${row.month}</td>
+                    <td>${formatCurrency(row.depreciation)}</td>
+                    <td>${formatCurrency(row.cumulativeDepreciation)}</td>
+                    <td>${formatCurrency(row.bookValue)}</td>
+                `;
+                depreciationBody.appendChild(tr);
+            });
+
+            // ============================================
+            // TAXABLE INCOME TABLE (OWNER FINANCING MODEL)
+            // Owner claims depreciation as asset owner
+            // ============================================
+            const taxableIncomeData = [];
+
+            for (let m = 1; m <= term; m++) {
+                const cf = cashFlows.find(c => c.month === m);
+                const ownerFee = cf ? cf.grossRevenue : 0;
+
+                // Owner financing model: Taxable income = Owner Fee - Depreciation
+                const taxableIncome = ownerFee - monthlyDepreciation;
+                
+                // Tax calculation - may have loss carryforward due to depreciation
+                const tax = taxableIncome > 0 ? taxableIncome * taxRate : 0;
+
+                taxableIncomeData.push({
+                    month: m,
+                    ownerFee: ownerFee,
+                    depreciation: monthlyDepreciation,
+                    taxableIncome: taxableIncome,
+                    tax: tax
+                });
+            }
+
+            const taxableIncomeBody = document.getElementById('taxableIncomeBody');
+            taxableIncomeBody.innerHTML = '';
+            taxableIncomeData.forEach(row => {
+                const tr = document.createElement('tr');
+                const taxableClass = row.taxableIncome >= 0 ? 'cell-positive' : 'cell-negative';
+                tr.innerHTML = `
+                    <td>${row.month}</td>
+                    <td>${formatCurrency(row.ownerFee)}</td>
+                    <td class="${taxableClass}">${formatCurrency(row.taxableIncome)}</td>
+                    <td>${formatCurrency(row.tax)}</td>
+                `;
+                taxableIncomeBody.appendChild(tr);
+            });
+
+            // ============================================
+            // AFTER-TAX CASH FLOW TABLE (OWNER FINANCING MODEL - WITH LIQUIDATION)
+            // ============================================
+            const afterTaxData = [];
+            let cumulativeAfterTax = -totalInvestment; // Start with full investment as outflow
+
+            // Initial row (investment)
+            afterTaxData.push({
+                month: 0,
+                ownerFee: 0,
+                tax: 0,
+                afterTaxCashFlow: -totalInvestment,
+                cumulativeAfterTax: cumulativeAfterTax
+            });
+
+            for (let m = 1; m <= term; m++) {
+                const cf = cashFlows.find(c => c.month === m);
+                const ownerFee = cf ? cf.grossRevenue : 0;
+                const tax = taxableIncomeData[m - 1].tax;
+                const afterTaxCashFlow = ownerFee - tax;
+                cumulativeAfterTax += afterTaxCashFlow;
+
+                afterTaxData.push({
+                    month: m,
+                    ownerFee: ownerFee,
+                    tax: tax,
+                    afterTaxCashFlow: afterTaxCashFlow,
+                    cumulativeAfterTax: cumulativeAfterTax
+                });
+            }
+
+            // Liquidation row - owner receives asset liquidation value
+            cumulativeAfterTax += liquidationValue;
+            afterTaxData.push({
+                month: term + 1,
+                ownerFee: liquidationValue,
+                tax: 0,
+                afterTaxCashFlow: liquidationValue,
+                cumulativeAfterTax: cumulativeAfterTax,
+                isLiquidation: true
+            });
+
+            const afterTaxBody = document.getElementById('afterTaxBody');
+            afterTaxBody.innerHTML = '';
+            afterTaxData.forEach(row => {
+                const tr = document.createElement('tr');
+                const cashFlowClass = row.afterTaxCashFlow >= 0 ? 'cell-positive' : 'cell-negative';
+                const cumulativeClass = row.cumulativeAfterTax >= 0 ? 'cell-positive' : 'cell-negative';
+                
+                if (row.isLiquidation) {
+                    tr.innerHTML = `
+                        <td>Liquidation</td>
+                        <td>${formatCurrency(row.ownerFee)}</td>
+                        <td>—</td>
+                        <td class="cell-positive">${formatCurrency(row.afterTaxCashFlow)}</td>
+                        <td class="${cumulativeClass}">${formatCurrency(row.cumulativeAfterTax)}</td>
+                    `;
+                } else if (row.month === 0) {
+                    tr.innerHTML = `
+                        <td>Initial</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td class="cell-negative">${formatCurrency(row.afterTaxCashFlow)}</td>
+                        <td class="${cumulativeClass}">${formatCurrency(row.cumulativeAfterTax)}</td>
+                    `;
+                } else {
+                    tr.innerHTML = `
+                        <td>${row.month}</td>
+                        <td>${formatCurrency(row.ownerFee)}</td>
+                        <td>${formatCurrency(row.tax)}</td>
+                        <td class="${cashFlowClass}">${formatCurrency(row.afterTaxCashFlow)}</td>
+                        <td class="${cumulativeClass}">${formatCurrency(row.cumulativeAfterTax)}</td>
+                    `;
+                }
+                afterTaxBody.appendChild(tr);
+            });
+
+            // ============================================
+            // UPDATE NEW OUTPUT BOXES
+            // ============================================
+            
+            // Depreciation Expense (cumulative at end of term)
+            const totalDepreciation = depreciableBasis; // Same as cumulative at end
+            document.getElementById('depreciationExpense').textContent = formatCurrency(totalDepreciation);
+            
+            // ============================================
+            // OWNER TAX CALCULATIONS
+            // ============================================
+            
+            // Total Taxable Income (sum of taxable income column - includes depreciation deduction)
+            const totalTaxableIncome = taxableIncomeData.reduce((sum, row) => sum + row.taxableIncome, 0);
+            document.getElementById('taxableIncomeTotal').textContent = formatCurrency(totalTaxableIncome);
+            
+            // Total Tax (sum of tax column)
+            const totalTax = taxableIncomeData.reduce((sum, row) => sum + row.tax, 0);
+            document.getElementById('totalTax').textContent = formatCurrency(totalTax);
+            
+            // After-Tax Cash Flow (final cumulative value)
+            const finalAfterTaxCashFlow = afterTaxData[afterTaxData.length - 1].cumulativeAfterTax;
+            const afterTaxEl = document.getElementById('afterTaxCashFlow');
+            afterTaxEl.textContent = formatCurrency(finalAfterTaxCashFlow);
+            afterTaxEl.className = 'output-value ' + (finalAfterTaxCashFlow >= 0 ? 'positive' : 'negative');
+            
+            // Total Return = Net Profit / Investment
+            const totalReturn = finalAfterTaxCashFlow / totalInvestment;
+            document.getElementById('totalReturn').textContent = formatPercent(totalReturn, 0);
+            
+            // APY based on after-tax cash flow (true investor return)
+            const simpleApy = (finalAfterTaxCashFlow / totalInvestment) * (12 / term);
+            document.getElementById('apyBadge').textContent = formatPercent(simpleApy);
+
+            updateChart(cashFlows);
+            
+            // Calculate and position breakeven ticks
+            updateBreakevenTicks();
+        }
+        
+        // Calculate after-tax cash flow for a given parameter override (OWNER FINANCING MODEL)
+        function calcAfterTaxCF(overrides = {}) {
+            const term = overrides.term ?? parseInt(document.getElementById('term').value);
+            const servers = overrides.servers ?? parseInt(document.getElementById('servers').value);
+            const unitCost = overrides.unitCost ?? parseFloat(document.getElementById('unitCost').value);
+            const residual = overrides.residual ?? parseFloat(document.getElementById('residual').value) / 100;
+            const hourlyRate = overrides.hourlyRate ?? parseFloat(document.getElementById('hourlyRate').value);
+            const decay = overrides.decay ?? parseFloat(document.getElementById('decay').value) / 100;
+            const utilization = overrides.utilization ?? parseFloat(document.getElementById('utilization').value) / 100;
+            const marketRake = overrides.marketRake ?? parseFloat(document.getElementById('marketRake').value) / 100;
+            const providerRake = overrides.providerRake ?? parseFloat(document.getElementById('providerRake').value) / 100;
+            const siliconFee = overrides.siliconFee ?? parseFloat(document.getElementById('siliconFee').value) / 100;
+            const taxRate = overrides.taxRate ?? parseFloat(document.getElementById('taxRate').value) / 100;
+            
+            const totalCapex = unitCost * servers;
+            const totalInvestment = totalCapex;  // Owner pays 100%
+            const liquidationValue = totalCapex * residual;
+            const depreciableBasis = totalCapex - liquidationValue;
+            const monthlyDepreciation = depreciableBasis / term;
+            
+            // Generate cash flows with FINANCING MODEL WATERFALL
+            // Raw → Marketplace → Silicon → Provider/Owner split
+            let currentHourlyRate = hourlyRate * servers;
+            const ownerFees = [];
+            for (let m = 1; m <= term; m++) {
+                if (m > 1) currentHourlyRate *= (1 - decay / 12);
+                const rawRevenue = currentHourlyRate * 730 * 8 * utilization;
+                const providerGross = rawRevenue * (1 - marketRake);
+                const siliconShare = providerGross * siliconFee;
+                const afterSilicon = providerGross - siliconShare;
+                const ownerFee = afterSilicon * (1 - providerRake);
+                ownerFees.push(ownerFee);
+            }
+            
+            // OWNER FINANCING TAX MODEL: Owner Fee - Depreciation
+            const taxes = [];
+            for (let m = 0; m < term; m++) {
+                const taxableIncome = ownerFees[m] - monthlyDepreciation;
+                const tax = taxableIncome > 0 ? taxableIncome * taxRate : 0;
+                taxes.push(tax);
+            }
+            
+            // After-tax cumulative (WITH LIQUIDATION for owner)
+            let cumulative = -totalInvestment;
+            for (let m = 0; m < term; m++) {
+                cumulative += ownerFees[m] - taxes[m];
+            }
+            // Owner receives liquidation value at exit
+            cumulative += liquidationValue;
+            
+            return cumulative;
+        }
+        
+        // Binary search to find breakeven value for a parameter
+        function findBreakeven(param, min, max, increasing = true) {
+            const tolerance = 0.001;
+            const maxIterations = 50;
+            
+            // Check if breakeven exists within range
+            const atMin = calcAfterTaxCF({ [param]: min });
+            const atMax = calcAfterTaxCF({ [param]: max });
+            
+            // For increasing params (utilization, residual): low value = negative CF, high = positive
+            // For decreasing params (decay): low value = positive CF, high = negative
+            if (increasing) {
+                if (atMin > 0) return null; // Already profitable at min
+                if (atMax < 0) return null; // Never profitable
+            } else {
+                if (atMin < 0) return null; // Never profitable
+                if (atMax > 0) return null; // Already profitable at max
+            }
+            
+            let low = min, high = max;
+            for (let i = 0; i < maxIterations; i++) {
+                const mid = (low + high) / 2;
+                const cf = calcAfterTaxCF({ [param]: mid });
+                
+                if (Math.abs(cf) < tolerance * 1000) {
+                    return mid;
+                }
+                
+                if (increasing) {
+                    if (cf < 0) low = mid;
+                    else high = mid;
+                } else {
+                    if (cf > 0) low = mid;
+                    else high = mid;
+                }
+            }
+            
+            return (low + high) / 2;
+        }
+        
+        // Update breakeven tick positions
+        function updateBreakevenTicks() {
+            // Junior debt model: breakeven is when Owner Net Profit = 0
+            // (no liquidation, full tax on EBITDA)
+            
+            // Decay: higher decay = less revenue = more negative (decreasing relationship)
+            const decayBE = findBreakeven('decay', 0, 0.50, false);
+            positionBreakevenTick('decay', decayBE, 0, 50);
+            
+            // Utilization: higher util = more revenue = more positive (increasing relationship)
+            const utilBE = findBreakeven('utilization', 0.10, 1.00, true);
+            positionBreakevenTick('utilization', utilBE, 10, 100);
+            
+            // Residual: Owner doesn't participate in liquidation, so no breakeven to show
+            // Hide the residual breakeven tick
+            const residualTick = document.getElementById('residualBreakeven');
+            if (residualTick) residualTick.classList.add('hidden');
+        }
+        
+        // Position a breakeven tick on a slider
+        function positionBreakevenTick(param, beValue, sliderMin, sliderMax) {
+            const tick = document.getElementById(param + 'Breakeven');
+            const slider = document.getElementById(param);
+            
+            if (beValue === null || beValue === undefined) {
+                tick.classList.add('hidden');
+                return;
+            }
+            
+            // Convert to slider scale (percentage for these sliders)
+            let sliderValue;
+            if (param === 'utilization') {
+                sliderValue = beValue * 100; // 0.10-1.00 -> 10-100
+            } else if (param === 'residual') {
+                sliderValue = beValue * 100; // 0-1.00 -> 0-100
+            } else if (param === 'decay') {
+                sliderValue = beValue * 100; // 0-0.50 -> 0-50
+            }
+            
+            // Check if within slider range
+            if (sliderValue < sliderMin || sliderValue > sliderMax) {
+                tick.classList.add('hidden');
+                return;
+            }
+            
+            // Calculate position as percentage of slider width
+            const percent = (sliderValue - sliderMin) / (sliderMax - sliderMin) * 100;
+            
+            tick.classList.remove('hidden');
+            tick.style.left = `calc(${percent}% + ${(50 - percent) * 0.15}px)`; // Slight adjustment for thumb width
+            tick.dataset.value = sliderValue.toFixed(1);
+            tick.title = `Breakeven: ${sliderValue.toFixed(1)}%`;
+        }
+        
+        // Set slider to breakeven value when tick is clicked
+        function setToBreakeven(param) {
+            const tick = document.getElementById(param + 'Breakeven');
+            const slider = document.getElementById(param);
+            const input = document.getElementById(param + 'Input');
+            const value = parseFloat(tick.dataset.value);
+            
+            if (!isNaN(value)) {
+                const roundedValue = Math.round(value);
+                slider.value = roundedValue;
+                if (input) input.value = roundedValue;
+                calculate();
+            }
+        }
+
+        function updateChart(cashFlows) {
+            const chartBars = document.getElementById('chartBars');
+            chartBars.innerHTML = '';
+
+            const operatingFlows = cashFlows.filter(cf => cf.month > 0);
+            const profits = operatingFlows.map(cf => cf.netProfit);
+            const maxAbs = Math.max(...profits.map(p => Math.abs(p))) || 1;
+
+            operatingFlows.forEach(cf => {
+                const bar = document.createElement('div');
+                bar.className = 'chart-bar' + (cf.netProfit < 0 ? ' negative' : '');
+                const height = (Math.abs(cf.netProfit) / maxAbs) * 100;
+                bar.style.height = Math.max(2, height) + '%';
+                chartBars.appendChild(bar);
+            });
+        }
+
+        function toggleTable(tableId, btn) {
+            const table = document.getElementById(tableId);
+            if (table.style.display === 'none') {
+                table.style.display = 'block';
+                btn.textContent = 'Hide Table';
+            } else {
+                table.style.display = 'none';
+                btn.textContent = 'Show Table';
+            }
+        }
+
+        // Store cash flows globally for export
+        let exportData = [];
+
+        function exportTable() {
+            if (exportData.length === 0) {
+                alert('No data to export');
+                return;
+            }
+
+            // Get current parameters
+            const params = {
+                term: document.getElementById('term').value,
+                servers: document.getElementById('servers').value,
+                unitCost: document.getElementById('unitCost').value,
+                residual: document.getElementById('residual').value,
+                hourlyRate: document.getElementById('hourlyRate').value,
+                decay: document.getElementById('decay').value,
+                utilization: document.getElementById('utilization').value,
+                marketRake: document.getElementById('marketRake').value,
+                providerRake: document.getElementById('providerRake').value,
+                siliconFee: document.getElementById('siliconFee').value,
+                taxRate: document.getElementById('taxRate').value
+            };
+
+            // Build CSV with parameters header
+            let csv = 'GPU Financing Calculator Export\n';
+            csv += 'Generated,' + new Date().toISOString() + '\n\n';
+            csv += 'Model Parameters\n';
+            csv += 'Investment Term (months),' + params.term + '\n';
+            csv += 'Number of Servers,' + params.servers + '\n';
+            csv += 'Unit Cost ($),' + params.unitCost + '\n';
+            csv += 'Liquidation Residual (%),' + params.residual + '\n';
+            csv += 'Starting Hourly Rate ($),' + params.hourlyRate + '\n';
+            csv += 'Annual Decay (%),' + params.decay + '\n';
+            csv += 'Utilization (%),' + params.utilization + '\n';
+            csv += 'Marketplace Rake (%),' + params.marketRake + '\n';
+            csv += 'Provider Rake (%),' + params.providerRake + '\n';
+            csv += 'Silicon Fee (%),' + params.siliconFee + '\n';
+            csv += 'Tax Rate (%),' + params.taxRate + '\n\n';
+
+            // Summary metrics
+            csv += 'Summary\n';
+            csv += 'Total CAPEX,' + document.getElementById('totalCapexStat').textContent + '\n';
+            csv += 'Total Investment,' + document.getElementById('downpaymentStat').textContent + '\n';
+            csv += 'Total Revenue,' + document.getElementById('totalRevenue').textContent + '\n';
+            csv += 'Owner Fee,' + document.getElementById('ownerEbitda').textContent + '\n';
+            csv += 'Total Cash Inflow,' + document.getElementById('totalCashInflow').textContent + '\n';
+            csv += 'Total Cash Outflow,' + document.getElementById('totalCashOutflow').textContent + '\n';
+            csv += 'Owner Net Profit,' + document.getElementById('afterTaxCashFlow').textContent + '\n';
+            csv += 'Payback Period,' + document.getElementById('paybackPeriod').textContent + '\n';
+            csv += 'Est. APY,' + document.getElementById('apyBadge').textContent + '\n\n';
+            
+            // Cash flow table
+            csv += 'Monthly Cash Flow\n';
+            const headers = ['Month', 'Hourly Rate', 'Owner Fee', 'Net Profit', 'Cumulative Net'];
+            csv += headers.join(',') + '\n';
+            
+            let cumulative = 0;
+            exportData.forEach(cf => {
+                cumulative += cf.netProfit;
+                const row = [
+                    cf.isLiquidation ? 'Liquidation' : (cf.month === 0 ? 'Initial' : cf.month),
+                    cf.month === 0 || cf.isLiquidation ? '' : cf.hourlyRate.toFixed(2),
+                    cf.isLiquidation ? cf.grossRevenue.toFixed(2) : (cf.month === 0 ? '' : cf.grossRevenue.toFixed(2)),
+                    cf.netProfit.toFixed(2),
+                    cumulative.toFixed(2)
+                ];
+                csv += row.join(',') + '\n';
+            });
+
+            // Download file
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'gpu_financing_cash_flow.csv';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Close tooltips when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.tooltip')) {
+                document.querySelectorAll('.tooltip.active').forEach(t => t.classList.remove('active'));
+            }
+            if (!e.target.closest('.formula-tip')) {
+                document.querySelectorAll('.formula-tip.active').forEach(t => t.classList.remove('active'));
+            }
+        });
+
+        // ============================================
+        // SCENARIO MANAGEMENT
+        // ============================================
+        
+        // Embedded scenarios (this gets populated when downloading with scenarios)
+        const EMBEDDED_SCENARIOS = [];
+        
+        // Runtime scenarios array
+        let scenarios = [...EMBEDDED_SCENARIOS];
+        
+        // Parameter keys for saving/loading
+        const PARAM_KEYS = [
+            'term', 'servers', 'unitCost', 'residual',
+            'hourlyRate', 'decay', 'utilization', 'marketRake', 'providerRake', 'siliconFee', 'taxRate'
+        ];
+        
+        // Initialize scenarios on page load
+        function initScenarios() {
+            updateScenarioDropdown();
+            updateScenarioCount();
+        }
+        
+        // Get current parameters
+        function getCurrentParams() {
+            const params = {};
+            PARAM_KEYS.forEach(key => {
+                const el = document.getElementById(key);
+                if (el) params[key] = el.value;
+            });
+            return params;
+        }
+        
+        // Set parameters from saved scenario
+        function setParams(params) {
+            PARAM_KEYS.forEach(key => {
+                const slider = document.getElementById(key);
+                const input = document.getElementById(key + 'Input');
+                if (slider && params[key] !== undefined) {
+                    slider.value = params[key];
+                    if (input) input.value = params[key];
+                }
+            });
+            calculate();
+        }
+        
+        // Update dropdown with scenarios
+        function updateScenarioDropdown() {
+            const select = document.getElementById('scenarioSelect');
+            select.innerHTML = '<option value="">— Select Scenario —</option>';
+            scenarios.forEach((scenario, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = scenario.name;
+                select.appendChild(option);
+            });
+        }
+        
+        // Update scenario count display
+        function updateScenarioCount() {
+            const countEl = document.getElementById('scenarioCount');
+            if (scenarios.length > 0) {
+                countEl.textContent = `(${scenarios.length} saved)`;
+            } else {
+                countEl.textContent = '';
+            }
+        }
+        
+        // Load selected scenario
+        function loadScenario() {
+            const select = document.getElementById('scenarioSelect');
+            const descEl = document.getElementById('scenarioDescription');
+            const deleteBtn = document.getElementById('deleteBtn');
+            
+            if (select.value === '') {
+                descEl.classList.remove('visible');
+                deleteBtn.style.display = 'none';
+                return;
+            }
+            
+            const scenario = scenarios[parseInt(select.value)];
+            if (scenario) {
+                setParams(scenario.params);
+                if (scenario.description) {
+                    descEl.textContent = scenario.description;
+                    descEl.classList.add('visible');
+                } else {
+                    descEl.classList.remove('visible');
+                }
+                deleteBtn.style.display = 'inline-block';
+            }
+        }
+        
+        // Open save modal
+        function openSaveModal() {
+            document.getElementById('scenarioModal').classList.add('visible');
+            document.getElementById('scenarioName').value = '';
+            document.getElementById('scenarioDesc').value = '';
+            document.getElementById('scenarioName').focus();
+        }
+        
+        // Close save modal
+        function closeSaveModal() {
+            document.getElementById('scenarioModal').classList.remove('visible');
+        }
+        
+        // Save scenario
+        function saveScenario() {
+            const name = document.getElementById('scenarioName').value.trim();
+            const description = document.getElementById('scenarioDesc').value.trim();
+            
+            if (!name) {
+                alert('Please enter a scenario name.');
+                return;
+            }
+            
+            const scenario = {
+                name: name,
+                description: description,
+                params: getCurrentParams(),
+                savedAt: new Date().toISOString()
+            };
+            
+            scenarios.push(scenario);
+            updateScenarioDropdown();
+            updateScenarioCount();
+            closeSaveModal();
+            
+            // Select the newly saved scenario
+            const select = document.getElementById('scenarioSelect');
+            select.value = scenarios.length - 1;
+            loadScenario();
+        }
+        
+        // Delete current scenario
+        function deleteScenario() {
+            const select = document.getElementById('scenarioSelect');
+            if (select.value === '') return;
+            
+            const index = parseInt(select.value);
+            const scenario = scenarios[index];
+            
+            if (confirm(`Delete scenario "${scenario.name}"?`)) {
+                scenarios.splice(index, 1);
+                updateScenarioDropdown();
+                updateScenarioCount();
+                document.getElementById('scenarioDescription').classList.remove('visible');
+                document.getElementById('deleteBtn').style.display = 'none';
+            }
+        }
+        
+        // Download HTML file with embedded scenarios
+        function downloadWithScenarios() {
+            if (scenarios.length === 0) {
+                alert('No scenarios to save. Create at least one scenario first.');
+                return;
+            }
+            
+            // Get current HTML
+            let html = document.documentElement.outerHTML;
+            
+            // Find and replace the EMBEDDED_SCENARIOS array
+            const scenariosJson = JSON.stringify(scenarios, null, 2);
+            html = html.replace(
+                /const EMBEDDED_SCENARIOS = \[\];/,
+                `const EMBEDDED_SCENARIOS = ${scenariosJson};`
+            );
+            
+            // Create download
+            const blob = new Blob([html], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'gpu_lending_calculator_with_scenarios.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+        
+        // Handle Enter key in modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && document.getElementById('scenarioModal').classList.contains('visible')) {
+                if (e.target.tagName !== 'TEXTAREA') {
+                    saveScenario();
+                }
+            }
+            if (e.key === 'Escape') {
+                closeSaveModal();
+            }
+        });
+        
+        // Initialize scenarios
+        initScenarios();
+
+        calculate();
+    </script>
+
+    <!-- Save Scenario Modal -->
+    <div class="modal-overlay" id="scenarioModal" onclick="if(event.target === this) closeSaveModal()">
+        <div class="modal">
+            <div class="modal-title">Save Scenario</div>
+            <div class="modal-field">
+                <label class="modal-label">Scenario Name *</label>
+                <input type="text" class="modal-input" id="scenarioName" placeholder="e.g., Base Case, Optimistic, Conservative">
+            </div>
+            <div class="modal-field">
+                <label class="modal-label">Description (optional)</label>
+                <textarea class="modal-textarea" id="scenarioDesc" placeholder="Describe the assumptions or purpose of this scenario..."></textarea>
+            </div>
+            <div class="modal-buttons">
+                <button class="scenario-btn" onclick="closeSaveModal()">Cancel</button>
+                <button class="scenario-btn primary" onclick="saveScenario()">Save</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

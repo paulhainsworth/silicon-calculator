@@ -1,0 +1,13 @@
+{
+  "name": "silicon-calculator",
+  "version": "1.0.0",
+  "description": "GPU Financing Calculator",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'No build step required for static site'"
+  },
+  "keywords": ["calculator", "gpu", "financing"],
+  "author": "",
+  "license": "MIT"
+}
+
