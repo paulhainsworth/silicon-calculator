@@ -4,7 +4,7 @@
   "description": "GPU Financing Calculator",
   "scripts": {
     "dev": "npx serve .",
-    "build": "echo 'No build step required for static site'"
+    "build": "mkdir -p public && cp index.html public/ && cp gpu_financing_calculator_4.html public/ || true"
   },
   "keywords": ["calculator", "gpu", "financing"],
   "author": "",
