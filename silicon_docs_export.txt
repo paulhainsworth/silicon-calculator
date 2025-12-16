@@ -1,0 +1,2177 @@
+# Silicon Network Documentation Export
+# Generated on Fri Dec 12 11:56:42 PST 2025
+# Source: docs.silicon.net
+
+========================================
+
+========================================
+## Home - About Silicon
+URL: https://docs.silicon.net/
+========================================
+
+ About Silicon About Silicon  Silicon Network is a blockchain-enabled platform for GPU 
+infrastructure ownership, connecting physical AI computing hardware with onchain markets. By 
+providing a tokenization platform for GPUs, Silicon enables direct ownership relationships between 
+individuals and professional datacenter operators.   Ask anything   Silicon's platform provides two 
+core capabilities:   Tokenization: Infrastructure for datacenter partners to bring physical GPUs 
+onchain as individual NFTS or fungible pool tokens  Legal Attestation & Cashflow Settlement: Legal 
+and cashflow rails that bind offchain agreements and operations to onchain ownership   The name 
+Silicon reflects the fundamental material of computing hardware and our mission to bring these real 
+world assets (RWAs) onchain. GPU ownership represents participation in the foundational layer of 
+the AI economy—Silicon provides the rails to make that ownership verifiable, transferable, and 
+economically productive.  Quick links   Website: https://silicon.net (opens in a new tab)  App / 
+Pre-deposit (coming soon)  Owner dashboard: https://owner.silicon.net (opens in a new tab)  
+Provider dashboard: https://providers.silicon.net (opens in a new tab)  Metrics: 
+https://owner.silicon.net/network (opens in a new tab)  X / Twitter: https://x.com/silicondotnet 
+(opens in a new tab)  Discord: https://discord.gg/silicon (opens in a new tab)  Mission & Vision 
+
+
+========================================
+## mission vision
+URL: https://docs.silicon.net/mission-vision
+========================================
+
+ Mission & Vision Mission & Vision  The AI revolution is being built on physical infrastructure 
+controlled by a small number of corporations. Silicon's architecture enables ownership distribution 
+across thousands of individual participants and dozens of independent datacenter operators. This 
+distributed model reduces single points of failure, creates competitive market dynamics, and aligns 
+infrastructure ownership with the broader ecosystem of AI builders and users rather than 
+exclusively with large technology companies.  Democratizing AI Infrastructure Ownership  Silicon 
+enables direct ownership of physical GPU hardware through blockchain verification. Our tokenization 
+platform allows datacenter partners to offer their infrastructure for ownership by the broader 
+public, creating paths for participation in AI infrastructure that were previously limited to 
+institutional capital. By making GPU ownership accessible, Silicon distributes the economic 
+benefits of AI's growth beyond hyperscaler corporations.  Creating Market Alternatives to 
+Centralized Compute  Hyperscaler providers concentrate compute resources, creating opacity in 
+pricing, limited availability through quotas and waitlists, and vendor lock-in that restricts 
+flexibility. Silicon empowers a distributed network of independent datacenter operators to continue 
+providing competitive pricing and more flexible resource allocation. This distributed model creates 
+resilience through diversification while enabling market-driven price discovery for AI 
+infrastructure.  Building Liquid Markets for Computing Assets  GPU hardware has historically been 
+an illiquid asset class—purchasing infrastructure requires significant capital, and selling requires 
+finding specialized buyers. Through tokenization, secondary marketplace infrastructure, and pooling 
+protocols, Silicon transforms GPUs into tradable assets with verifiable performance history and 
+transparent ownership. This liquidity enables more efficient capital allocation, allowing 
+participants to enter and exit positions based on market conditions and infrastructure needs. About 
+Silicon Overview 
+
+
+========================================
+## pool token overview
+URL: https://docs.silicon.net/pool-token-overview
+========================================
+
+ Overview Pool Token overview  Pre-deposit for pool token coming soon!  For datacenters, the pool 
+token unlocks instant, global liquidity while preserving operational control and upside. For DeFi 
+users, the pool token delivers diversified, real‑world yield in a single ERC‑20 with onchain USDC 
+flows, NAV‑anchored redemptions, and plug‑and‑play composability across lending, yield, and liquidity. 
+  The pool token is a fungible claim on a diversified basket of tokenized GPU servers  Holders will 
+see value accrue to the token price from ongoing cashflows from AI workloads and residual hardware 
+values  Revenue from hosted GPUs is converted to onchain USDC and deposited into the pool  Holders 
+can burn pool tokens to redeem either USDC or underlying NFTs  This redemption mechanism keeps the 
+spot price (on AMMs) anchored near NAV through arbitrage  Built as an ERC-20 token for 
+composability with DeFi: lending, AMMs, Pendle, etc  Mission & Vision Overview 
+
+
+========================================
+## owner overview
+URL: https://docs.silicon.net/owner-overview
+========================================
+
+ Overview Owner Dashboard Documentation  Welcome to the Silicon Network Owner Dashboard 
+documentation. This guide helps GPU NFT owners monitor their assets, track earnings, and manage 
+their tokenized GPU portfolio.   Ask anything   What is the Owner Dashboard?  The Owner Dashboard 
+is your control center for managing GPU NFT ownership on Silicon Network. It enables you to:   
+Monitor earnings from your GPU assets in real-time  Track performance of individual GPUs and your 
+overall portfolio  Manage agreements with datacenter providers  Withdraw funds to your wallet when 
+ready  Analyze returns and project future performance  List GPUs for sale on the secondary market  
+View network metrics and compare your performance   Who is this for?  This documentation is 
+designed for GPU NFT owners who:   Own tokenized GPU infrastructure through Silicon Network  
+Receive earnings from GPU compute rentals  Want to maximize returns on their GPU assets  Need to 
+understand their portfolio performance   Getting Started  If you're new to the Owner Dashboard, we 
+recommend:   Read the Dashboard overview to understand your main metrics  Check My GPUs to see your 
+complete portfolio  Review Financials to understand your earnings  Explore the Calculator to 
+project returns   Quick Navigation  Core Pages   Dashboard - Overview and key metrics  My GPUs - 
+Complete GPU inventory and management  Trades - Secondary market trading  Financials - Earnings and 
+transaction history  Calculator - Return projection tools  Network - Silicon Network metrics and 
+benchmarks  Settings - Account configuration   Common Tasks   Check daily earnings  Sign provider 
+agreements  Withdraw available balance  Monitor GPU performance  Compare to network averages  
+Project future returns  List GPU for sale   Understanding Your Role  As a GPU owner on Silicon 
+Network:  You own:   NFT representing physical GPU hardware  Rights to earnings from GPU rentals  
+Ability to sell GPU NFT on secondary market   You don't manage:   Physical hardware operations  
+Datacenter infrastructure  Rental customer relationships  Compute workload deployment   Your 
+datacenter provider handles:   Hardware hosting and maintenance  Rental facilitation  Earnings 
+calculation and distribution  Operational compliance   Key Concepts  Tokenized Ownership  Your GPU 
+NFT represents ownership of physical hardware hosted in professional datacenters. You receive 
+earnings when your GPU is rented for AI compute workloads.  Earning Flow   Compute customer rents 
+your GPU  Usage is metered and recorded  Earnings calculated based on rental  Amount appears in 
+"Queued earnings"  Processed to "Balance" during payout cycle  You withdraw to your wallet   
+Agreements  Datacenter providers require signed agreements before GPUs can generate earnings. These 
+define operational terms and payment structures.  Multi-chain NFTs  Silicon Network offers 
+multi-chain NFT support to provide GPU access to as many blockchain ecosystems as possible. This 
+approach ensures broader accessibility and enables ownership across different chains, including 
+Chia and Base, with plans to expand to additional networks.  Dashboard Overview  Main Metrics   
+Balance : Available earnings ready to withdraw  Queued Earnings : Pending amounts being processed  
+Total Earnings : Lifetime cumulative revenue  IRR/APR : Portfolio return performance  Est. Current 
+Value : Estimated resale value   Portfolio View  See all your GPUs grouped by type with quick 
+performance metrics and navigation to detailed views.  Earnings Visualization  Track daily earning 
+trends, identify patterns, and monitor portfolio health through interactive charts.  Support  If 
+you need assistance:   Check the relevant page documentation  Review Troubleshooting for common 
+issues  Contact your datacenter provider for hardware/operational questions  Reach out to 
+support@silicon.net for platform issues   Important Disclaimers  Past performance does not predict 
+future results. GPU earnings vary based on market demand for compute, hardware depreciates over 
+time, provider performance may vary, and secondary market prices fluctuate. Your GPU NFTs represent 
+ownership of physical infrastructure commodities, not investment securities.   Ready to dive in? 
+Start with the Dashboard to understand your portfolio overview, or jump to My GPUs to see your 
+complete asset list. Overview Dashboard 
+
+
+========================================
+## owner pages dropdown > dashboard
+URL: https://docs.silicon.net/owner-pages-dropdown/dashboard
+========================================
+
+ Pages Dashboard Owner Dashboard  The Dashboard provides an at-a-glance overview of your GPU 
+portfolio, earnings, and asset performance. It's your central hub for monitoring the financial 
+performance of your tokenized GPU infrastructure.  Overview  Key Metrics   Balance shows available 
+earnings ready to withdraw in USDC—just click "Transfer" to move funds to your wallet.  Queued 
+Earnings (marked with ~) represent amounts currently processing from recently completed GPU 
+rentals, typically required to queue for 30 days to account for chargebacks and late payments from 
+compute customers.  Total Earnings tracks your lifetime cumulative revenue from all GPUs, including 
+both withdrawn and available amounts.   Earnings Chart  This line chart visualizes your daily 
+earnings over time. Filter by date range, toggle between Daily and Total views, or hover over any 
+point for details. Use it to spot trends, identify performance patterns, monitor seasonal 
+variations, and verify your GPUs are operating consistently.  GPUs Summary  Quick overview of your 
+GPU portfolio organized by type.  Information Displayed Per GPU Type  Ownership Stats:   Owned : 
+Number of GPUs you own of this type  Claim tickets : Pending GPU claims or pre-orders  Total earned 
+: Cumulative earnings from this GPU type  Avg. daily earnings : Average per-GPU daily revenue  Avg. 
+purchase price : Average you paid per GPU   Actions:   View [GPU Type]s : Navigate to filtered view 
+showing only these GPUs   Portfolio Metrics  Total purchase cost represents your historical cost 
+basis—the sum of all GPU purchase prices. Est. current value estimates your portfolio's resale value 
+based on current market prices, which may differ significantly from what you originally paid.  
+Sales Section  This section contains information on GPUs you have sold or are currently selling. 
+Note this section will not be visible if you are not currently selling a GPU nor have you sold one 
+in the past.  Currently on Sale   Shows number of GPUs actively listed  "Manage" button to edit 
+listings  Quick access to sales management   Pending Payout   Amount owed from completed sales  
+Action: "Contact provider to request payout"  Providers process sales payouts separately from 
+rental earnings   Sold GPUs   Count of GPUs successfully sold  Total revenue from sales  Historical 
+transaction record   Understanding Your Earnings  Earning States  Each earning moves through 
+stages: individual rentals appear with "Queued" status, then after aging 30 days to account for 
+chargebacks and payment settlement from the compute customer they aggregate into Queued Earnings 
+(marked with ~ to indicate estimates) where they typically settle within 24-48 hours. Once 
+processed, amounts move to your Balance where they're confirmed and ready to withdraw anytime with 
+no minimum.  Why Earnings Vary  Daily fluctuations are normal. Compute demand varies by time and 
+day, GPU utilization rates shift, market pricing changes, and rental duration and intensity differ. 
+ Troubleshooting  Balance not updating? See if any GPUs stopped earning and review your provider's 
+payout schedule. Wait for the next payout cycle. If payouts are delayed significantly, contact 
+support@silicon.net  Earnings lower than expected? Check the My GPUs page for non-earning units, 
+review Financials > Earnings for daily breakdowns, compare to Network > Earnings for current market 
+rates, and look for "Agreement must be signed" warnings. Sign any pending agreements and contact 
+your provider about underperforming GPUs.  Can't withdraw balance? Ensure your wallet is connected 
+on the correct network (Base), there are no pending transactions. Try reconnecting your wallet and 
+retrying the withdrawal. Overview My GPUs 
+
+
+========================================
+## owner pages dropdown > my gpus
+URL: https://docs.silicon.net/owner-pages-dropdown/my-gpus
+========================================
+
+ Pages My GPUs My GPUs  View and manage all your owned GPUs, monitor individual performance, handle 
+agreements, and manage GPU sales.  Filtering and Search   Click provider names to filter by 
+datacenter (Pantheon Compute, FarmGPU, etc.)—you can select multiple providers and see active filter 
+chips.  Filter by GPU type (4090, 5090, H200) to narrow down to specific models, or search by GPU 
+ID to find specific units quickly.  Use Filter for advanced options and Select to multi-select GPUs 
+for bulk actions.   GPU States  Your GPUs can be in one of four states:  Agreement Required : The 
+card shows a blurred GPU image with a document icon and warning. Your provider requires a signed 
+agreement before earnings can begin. Click "Review agreement" to read the terms and sign 
+electronically—confirmation is usually instant. Sign these immediately after purchase.  Active and 
+Earning : Clear GPU image with green indicators showing total earnings, "Live since" date, GPU ID, 
+provider, and type badge. No action needed—your GPU is operational, being rented to compute 
+customers, and generating earnings normally. Monitor earnings regularly and compare to similar GPUs 
+on the Network page.  Claim Ticket : Shows a GPU image with "Claim ticket" indicator and "Live by" 
+date. You own the NFT but the physical GPU hasn't been delivered or paired yet. Monitor the 
+expected delivery date and contact your provider if it passes. No action needed before delivery.  
+Listed for Sale : Displays list price and "Listed on" date. Your GPU is actively listed on the 
+marketplace and still generating earnings while listed. Monitor for sale completion, update the 
+listing price if needed, or remove the listing if you change your mind.  🚫 GPUs cannot generate 
+earnings until provider agreements are signed. Sign agreements immediately after purchase to start 
+earning.  Troubleshooting a Non-Earning GPU  If GPU stops earning:    Check agreement status   Look 
+for agreement warning  Sign if required     Verify GPU is live   Check "Live since" date exists  
+Not a claim ticket     Contact provider   If issue persists for more a majority of a billing 
+period, contact your provider  Provide GPU ID  Request status check     For Sale Tab  Currently 
+Listed GPUs  Information Displayed:   GPU image and specifications  List price  Time on market   
+Actions:   Manage : Edit listing, change price, or delist  View : See marketplace listing page   
+Sales Best Practices  Price strategically: Check the Network page for comparable sales, factor in 
+remaining GPU lifespan and total earnings to date, then price competitively for faster sales.  
+While listed, your GPU continues earning and you keep those earnings until the sale completes.  
+Bulk Actions  Selecting Multiple GPUs   Click "Select" button  Checkboxes appear on GPU cards  
+Select desired GPUs  Choose bulk action   Available Bulk Actions:   List GPUs for sale   GPU 
+Performance Comparison  Comparing Your GPUs  Within My GPUs:   Sort by "Total earnings"  Identify 
+top and bottom performers  Check "Live since" dates (newer = less total earnings)  Calculate daily 
+average for fair comparison   Against Network:   Note your GPU type and provider  Go to Network > 
+Earnings  Find comparable GPUs  Compare your earnings to network average   Understanding GPU 
+Identifiers  GPU IDs like #274-ffe9 or #02 consist of a sequential number from your provider and 
+sometimes a hash fragment for unique identification. These IDs provide traceability to specific 
+hardware.  Use your GPU ID to reference units in support requests, compare performance over time, 
+identify specific GPUs in financial reports, and match to provider systems. IDs also help you 
+confirm ownership, verify earnings attribution, match to NFT metadata, and maintain an audit trail. 
+ Provider Information  Your provider is the datacenter operator who hosts your physical GPU, 
+manages hardware operations, facilitates compute rentals, processes earnings, and maintains uptime. 
+ Providers handle hardware deployment and maintenance, ensure uptime and connectivity, manage 
+hardware failures and replacements, track GPU utilization, calculate and process earnings, provide 
+reporting, define operational terms, and handle legal compliance.  Troubleshooting  GPU not 
+showing? Verify the correct wallet is connected, the NFT transfer completed, page data is 
+refreshed, and the GPU isn't filtered out. Try disconnecting and reconnecting your wallet, 
+refreshing the page, and clearing filters.  Can't sign agreement? Check your wallet connection, 
+ensure you're on the correct network (Base or Chia per provider), enable browser pop-ups, and 
+confirm you have sufficient gas for the transaction. Switch networks or add gas funds if needed.  
+Earnings not matching expected? Check the "Live since" date (GPU may be recently deployed), compare 
+to Network averages, verify your agreement is signed, and look for provider issues. Calculate your 
+daily average, compare to benchmarks, and contact your provider if significantly low.  Claim ticket 
+overdue? If the "Live by" date has passed, check for provider updates, review purchase 
+communications, contact your provider for status, and document the delay. Request an ETA, 
+understand the reason, and consider remedies if the delay is excessive.  Tips for Success    Sign 
+agreements immediately after purchase. Keep records of signed agreements and always review terms 
+before signing.    When monitoring performance, compare apples to apples—same GPU type and similar 
+timeframes. Account for seasonality since compute demand varies, check the Network page to 
+understand market-wide trends, and track daily averages rather than total earnings for more 
+reliable metrics.    Keep your portfolio healthy. Diversify across providers with different 
+specialties, mix GPU types for different workloads, monitor utilization (GPUs should earn most 
+days), and plan for the hardware lifecycle since GPUs depreciate over time.    GPU performance 
+varies based on market demand for compute. Consistent monitoring helps identify issues early and 
+optimize your portfolio. Dashboard Financials 
+
+
+========================================
+## owner pages dropdown > financials
+URL: https://docs.silicon.net/owner-pages-dropdown/financials
+========================================
+
+ Pages Financials Financials  Track your earnings, review transaction history, and understand your 
+GPU portfolio's financial performance.  Earnings Tab  View detailed earning records for every GPU 
+transaction.  What You'll See  Each row shows one earning event: the date the rental occurred, GPU 
+type (RTX 4090, H100, etc.), provider, GPU ID (#243, #274-ffe9, etc.), and earnings amount.  
+Filtering Your Data  Use custom ranges to compare month-over-month and analyze seasonal patterns. 
+Filter by provider to see how each datacenter performs and identify which consistently generates 
+more rentals. Compare GPU types (like RTX 4090s versus H100s) to decide which hardware to buy more 
+of. Search by GPU ID or date to find specific transactions.  Earnings Chart  The line chart at the 
+top shows your daily earnings—hover over any point for exact amounts and dates. Look for steady 
+upward trends (healthy, growing portfolio), sudden drops (investigate which GPUs stopped earning), 
+spikes (high-demand days, normal), or flat lines (potential provider issues).  Export Your Data  
+Click Export to download a CSV with all visible transactions for tax preparation, accounting 
+software imports, creating your own analyses, or sharing with financial advisors.  Filter before 
+exporting to get exactly the data you need. Exports include all currently visible rows.  
+Transactions Tab  Complete history of all money movement—earnings coming in, withdrawals going out, 
+and any GPU sale proceeds.  Transaction Types   Payouts (green badge) are earnings deposited from 
+your provider to your wallet.  Sales (teal badge) represent proceeds from selling GPU NFTs, moving 
+from the buyer's wallet to yours.  Withdrawals (blue badge, negative amount) show funds you moved 
+out to external addresses or exchanges.   What Each Row Shows  Each transaction displays the date, 
+type (Payout/Sale/Withdrawal), amount (withdrawals shown as negative), source and destination 
+addresses or provider names, a transaction identifier, and a "View" link to see on-chain details in 
+the block explorer.  Filtering and Finding Transactions  Active filters appear just below the 
+serach bar, click the X to remove them. Filter by type to see only payouts (income), withdrawals 
+(spending), or sales (GPU exits). Use the date picker to narrow down to specific months or 
+quarters, or set min/max amounts to find large transactions.  Search by transaction ID, wallet 
+address, or specific dates. Sort by newest first (default), oldest first (historical review), or 
+highest amount to find big transactions.  ⚠️ Earnings shown in Financials are actual, confirmed 
+amounts. Dashboard shows both confirmed (Balance) and pending (Queued). They won't always match. My 
+GPUs Calculator 
+
+
+========================================
+## owner pages dropdown > calculator
+URL: https://docs.silicon.net/owner-pages-dropdown/calculator
+========================================
+
+ Pages Calculator Calculator  Model different scenarios to understand how variables like revenue 
+decay, service life, and resale value affect your GPU returns.  ⚠️ Disclosure : This tool performs 
+mathematical calculations based on historical data and user-provided assumptions. Results are 
+hypothetical scenarios for educational purposes only. Past performance does not predict future 
+results . Silicon Network provides no guidance on appropriate assumptions.  How It Works  The 
+Calculator lets you play with variables to see how they impact return scenarios.  Two modes:   
+Generic scenario - Pick any GPU type, enter assumptions, see scenario  Your GPU - Select one of 
+your actual GPUs, adjust variables, compare to reality   Setting Up a Scenario  Step 1: Select GPU  
+Option A: Generic Choose "Select a GPU to begin" and pick any GPU type to model a hypothetical 
+purchase.  Option B: Your GPU  Choose one of your actual GPUs from the dropdown (shows as "FarmGPU 
+50... #34 - gh78" or similar). The calculator will pre-fill with your real data.  Step 2: Purchase 
+Price  Enter what you paid (or would pay) for the GPU.  For generic scenarios: Use current market 
+prices  For your GPU: Pre-filled with your actual purchase price  Step 3: Daily Revenue  Starting 
+point:  Set what the GPU earns per day right now.  Finding a realistic number:   Check your GPU on 
+My GPUs page for current average  Look at Network > Earnings page for market rates  Use your actual 
+history if you own similar GPUs   Step 4: Monthly Revenue Decay  GPU earnings typically decline as 
+newer hardware comes out. Use the slider (0% to 20%) to set the rate: 0% means earnings stay flat 
+forever (unrealistic), 3-5% indicates slow decline (optimistic), 6-10% shows moderate decline 
+(realistic), and 15-20% represents fast decline (pessimistic). At 5% monthly decay, a GPU earning 
+$15/day in Month 1 would earn ~$14.25 in Month 2, ~$13.54 in Month 3, etc.  Step 5: Service Term  
+How long until the GPU is retired or sold? The slider ranges from 0 to 36 months, with your 
+selected GPU's term marked if applicable. Hardware is typically useful for 24-36 months. Shorter 
+terms mean conservative modeling while longer terms are optimistic but potentially unrealistic.  
+Step 6: Residual Value  What percentage of your purchase price will you get back when selling the 
+GPU at end of service? Use the slider (0% to 100%) where 0% means worthless at end (worst case), 
+20-30% shows significant depreciation (realistic), 50% means reasonably holding value (optimistic), 
+and 70%+ is very optimistic. Reality check: GPUs usually sell for 20-40% of original price after 
+24-30 months, with newer, in-demand models holding value better.  Understanding Your Results  
+Scenario Values (the 4 boxes)  Scenario IRR/APR: Internal Rate of Return and Annual Percentage 
+Yield—higher means better returns.  Scenario total earnings: Sum of all daily earnings over the 
+service term after decay.  Scenario total return: Earnings plus residual value divided by purchase 
+price. 1.0x means break even, 1.5x is 50% profit, and 2.0x means you doubled your money.  Scenario 
+payback period: How many months until cumulative earnings equal purchase price. Faster is 
+better—compare to your target ROI timeline.  Scenario Overview Chart  The graph shows three lines:  
+Purchase price (dashed horizontal line)  Your initial investment—the baseline.  Revenue to-date 
+(solid line)  How much you've actually earned so far (only appears if you selected one of your 
+GPUs).  Scenario cumulative revenue (dashed line)  Projected total earnings over time based on your 
+assumptions.  Key moments marked:   Where the graph line meets the purchase price line = payback 
+period  End of line = service EOL   Common Questions  Q: Why doesn't my GPU's actual performance 
+match the model?  A: The model is a projection based on assumptions. Reality has variability the 
+smooth curve doesn't capture. If actual is trending way off, your assumptions (especially decay 
+rate) might need adjusting.  Q: Should I use this to decide whether to buy a GPU?  A: Yes, but it's 
+one input among many. Also consider: provider reputation, hardware availability, your risk 
+tolerance, liquidity needs, and market trends.  Q: How do I estimate residual value?  A: Check 
+secondary marketplaces for similar GPUs 18-24 months old. Generally 20-40% of original price. 
+In-demand models hold value better.  Q: Can I save my scenarios?  A: Not currently. Take 
+screenshots or note your assumptions. Copy the results into a spreadsheet for comparison.  Q: What 
+if my assumptions change mid-ownership?  A: Run a new scenario with updated numbers and time 
+remaining. The calculator doesn't "remember" past projections—each run is independent.  Reset  Made 
+a mess of your inputs? Click Reset in the top right to clear everything and start fresh. Financials 
+Wallet 
+
+
+========================================
+## owner pages dropdown > wallet
+URL: https://docs.silicon.net/owner-pages-dropdown/wallet
+========================================
+
+ Pages Wallet Wallet  Manage your digital assets, send and receive payments, and handle offers 
+across multiple blockchain networks.  Overview  Silicon provides a multichain wallet solution, 
+giving you flexibility and access to diverse blockchain ecosystems. As part of our multichain 
+infrastructure, the platform currently supports:   Base Wallet (Smart Account powered by ThirdWeb) 
+- Primary wallet for USDC earnings, NFT ownership, and platform transactions  Chia Wallet - 
+Secondary wallet for XCH assets, offer-based trading, and Chia-native tokens   Additional 
+blockchain networks will be integrated as the platform expands, providing you with even more 
+options for asset management, trading, and cross-chain operations.  Access your wallet by clicking 
+your wallet address in the top navigation. The wallet modal provides quick access to balances, 
+transaction history, and key actions across all supported networks.  Base Wallet (Smart Account)  
+The Base wallet is your primary account for platform operations, built on ThirdWeb's Smart Account 
+infrastructure.  Core Features  Smart Account Benefits:   Gas-free transactions (sponsored by 
+platform)  Social recovery options  Batched transactions for efficiency  Enhanced security through 
+account abstraction   Send Tab  Transfer USDC or other Base network tokens to any address.  Fields: 
+  Token : Select from available tokens in your wallet (USDC, ETH, etc.)  Recipient address : 
+Ethereum-compatible address starting with "0x"  Amount : Quantity to send (shows available balance) 
+ Network fee : Estimated gas cost (often sponsored)   Process:   Select the token you want to send  
+Enter or paste the recipient's address  Input the amount (click "Max" to send entire balance)  
+Review the network fee and total  Click "Send" to initiate the transaction  Confirm in the 
+transaction preview modal  Wait for blockchain confirmation   The platform may sponsor gas fees for 
+certain transactions. When sponsored, you'll see "Gas sponsored" instead of a fee amount.  Receive 
+Tab  Get funds from external wallets or other users.  Information Displayed:   Your Base wallet 
+address (0x format)  QR code for easy mobile scanning  Copy button for quick address sharing   
+Usage:   Click "Receive" to open the modal  Share your address by:   Clicking "Copy" to copy the 
+address  Having sender scan the QR code  Sharing the address manually    Wait for the sender to 
+complete their transaction  Funds appear in your balance after confirmation   Supported Assets:   
+USDC (primary earnings currency)  ETH (for gas if needed)  GPU NFTs  Other ERC-20 tokens   Buy Tab  
+Purchase cryptocurrency directly within the platform using fiat payment methods.  Available through 
+ThirdWeb integration:   Credit/debit card purchases  Bank transfers (ACH)  Apple Pay / Google Pay  
+Multiple fiat currencies supported   Process:   Click "Buy" to open the purchase interface  Select 
+the token to purchase (typically USDC or ETH)  Enter the amount in your local currency  Choose your 
+payment method  Complete KYC verification (first-time only)  Confirm the purchase  Tokens arrive in 
+your wallet after processing   ⚠️ Third-party payment providers may charge fees. Review the total 
+cost before confirming purchases.  Transaction History  View and track all Base wallet activity.  
+Each transaction shows:   Type : Send, Receive, NFT Transfer, Contract Interaction  Amount : 
+Quantity and token type  Status : Pending, Confirmed, Failed  Timestamp : When the transaction 
+occurred  Transaction hash : On-chain identifier (click to view on block explorer)   Filter 
+options:   All transactions  Sent only  Received only  Date range   Actions:   Click any 
+transaction to view details  Click transaction hash to open Basescan  Export history for accounting 
+purposes   Chia Wallet  The Chia wallet handles XCH, NFTs, and offer-based trading on the Chia 
+blockchain.  Dashboard View  Wallet Information:   Balance : Available XCH (in mojos and XCH)  
+Wallet ID : Your unique Chia wallet identifier  Sync status : Blockchain synchronization state   
+Tabs:   Offers : Create and manage trading offers  Assets : View Chia-native tokens and NFTs  
+Transactions : XCH transaction history   Send XCH  Transfer XCH to other Chia addresses.  Fields:   
+Recipient address : Chia address starting with "xch"  Amount : XCH to send (shown in both XCH and 
+mojos)  Transaction fee : Network fee (typically 0.00001 XCH or lower)  Memo (optional): Add a note 
+to the transaction   Process:   Click "Send XCH" or navigate to Send tab  Enter the recipient's 
+Chia address  Input the amount in XCH  Review the transaction fee  Optionally add a memo for 
+record-keeping  Click "Send"  Confirm the transaction details  Wait for blockchain confirmation 
+(typically 1-3 minutes)   Important Notes:   Chia uses "mojos" as the smallest unit (1 XCH = 
+1,000,000,000,000 mojos)  Transaction fees are minimal compared to Ethereum  Confirmations appear 
+after the next transaction block   Receive XCH  Get XCH from external wallets or exchanges.  
+Display:   Your Chia wallet address (xch format)  QR code for scanning  Copy button for address 
+sharing   Best Practices:   Generate a new receive address for each transaction (privacy)  Verify 
+the address before sharing with sender  Keep a record of expected incoming amounts   Offers Tab  
+Create, manage, and respond to trading offers on the Chia blockchain—a unique peer-to-peer trading 
+mechanism.  Understanding Offers  Chia offers are cryptographically signed proposals to exchange 
+assets (XCH, NFTs, tokens). They're:   Trustless : No middleman or escrow needed  Atomic : Either 
+the entire trade executes or nothing happens  Portable : Share offers via file or text  Cancellable 
+: Cancel anytime before acceptance   Active Offers  View all your currently active trading offers.  
+Each offer displays:   Offer ID : Unique identifier  Type : Buying or Selling  Offered : What 
+you're giving  Requested : What you're asking for  Status : Active, Pending, Cancelled  Created 
+date : When the offer was created  Expiration : When the offer automatically cancels (if set)   
+Actions per offer:   Share : Copy offer file or text to share with others  Cancel : Revoke the 
+offer (requires on-chain transaction)  View Details : See complete offer information   Create Offer 
+ Propose a trade with specific terms.  Offer Types:   Sell XCH for other assets  Buy assets with 
+XCH  Trade assets for assets  Sell NFTs or tokens   Creating an Offer:   Click "Create Offer"  
+Select what you're offering (XCH, NFTs, tokens)  Specify what you're requesting in return  Set an 
+optional expiration date  Review the offer terms  Click "Create Offer"  Sign the offer 
+(cryptographic signature)  Share the generated offer file or text with potential traders   Example: 
+Selling a GPU NFT   Offering : 1x RTX 4090 Performer #34 NFT  Requesting : 2.5 XCH  Result : Anyone 
+with 2.5 XCH can accept and complete the trade instantly   Accept Offer  Respond to offers created 
+by others.  Process:   Receive an offer file or offer text from another user  Click "Accept Offer" 
+in the Offers tab  Paste the offer text or upload the offer file  Review the offer details:   What 
+they're offering  What they're requesting  Ensure you have the requested assets    Click "Accept 
+Offer" to confirm  Sign the transaction  The trade executes atomically on-chain   Verification 
+Before Accepting:   Confirm you have sufficient assets to fulfill the request  Verify the offered 
+assets are what you expect  Check for any unusual terms or amounts  Ensure the offer hasn't expired 
+  Cancel Offer  Revoke an active offer before someone accepts it.  Process:   Navigate to the 
+Offers tab  Find the offer you want to cancel  Click the overflow menu (...) and select "Cancel"  
+Confirm the cancellation  Sign the on-chain cancellation transaction  Wait for blockchain 
+confirmation   Important:   Cancellation requires a small transaction fee  Once cancelled, the 
+offer cannot be accepted  You cannot cancel an offer that's already been accepted   Closed Offers  
+Historical record of completed or expired offers.  Status types:   Completed : Successfully traded  
+Cancelled : You revoked the offer  Expired : Passed the expiration date  Failed : Technical issue 
+prevented execution   Information shown:   Original offer terms  Completion date  Trading partner's 
+address (for completed offers)  Transaction hash   Assets Tab  View and manage Chia-native tokens 
+and NFTs in your wallet.  Asset Types:   Chia Asset Tokens (CATs) : Fungible tokens on Chia  NFTs : 
+Non-fungible tokens (artwork, collectibles)  GPUs on Chia : Silicon GPU NFTs on the Chia blockchain 
+  Each asset displays:   Name : Token or NFT name  Type : CAT, NFT, or other  Quantity : Amount 
+owned (for fungible tokens)  Asset ID : Unique on-chain identifier  Actions : Send, Create Offer, 
+View Details   Managing Assets:   Click any asset to view full details  Use "Send" to transfer to 
+another address  Click "Create Offer" to trade the asset  View on Chia explorer for blockchain 
+verification   Transactions Tab  Complete history of all Chia wallet activity.  Transaction Types:  
+ Standard Transaction : XCH sent or received  Offer Accepted : Trade executed  Offer Cancelled : 
+Offer revoked  NFT Transfer : Non-fungible token moved  Token Transfer : CAT tokens sent/received   
+Each transaction shows:   Type and direction : Sent, Received, or Trade  Amount : XCH or asset 
+quantity  Fee : Network cost  Status : Confirmed, Pending, Failed  Height : Blockchain height when 
+confirmed  Transaction ID : On-chain identifier  Timestamp : When it occurred  Memos : Any attached 
+notes   Actions:   Click transaction ID to view on Chia explorer  Filter by type or date range  
+Export transaction history  Search by address or amount   Export Private Key  Access your Chia 
+wallet's private key for backup or migration purposes.  Security Warning: Your private key provides 
+complete control over your wallet. Anyone with this key can access and spend your funds.  How to 
+Export   Navigate to Wallet > Chia tab  Click the overflow menu (...) in the top right  Select 
+"Export Private Key"  Enter your account password for verification  View the private key display  
+Write it down or save it securely—never store digitally unencrypted   The export screen shows:   
+Your private key string  Security warnings and best practices  "Copy" button (use with extreme 
+caution)  Backup verification checkbox   Backup Best Practices  Do:   Write the key on paper and 
+store in a safe  Use a metal backup device for fire/water resistance  Keep multiple copies in 
+different physical locations  Verify the backup by importing to a test wallet  Store in a fireproof 
+safe or safety deposit box   Don't:   Screenshot or save in cloud storage  Email or message to 
+yourself  Store in password managers connected to the internet  Share with anyone (support will 
+never ask for it)  Leave visible on your screen when not in use   When to Export   Initial wallet 
+setup : Create a backup immediately  Before large transactions : Ensure you can recover if needed  
+Hardware wallet setup : Import to a hardware device  Migration : Moving to a new device or wallet 
+software  Estate planning : Secure backup for beneficiaries   🚫 Never share your private key with 
+anyone. Silicon support will never ask for your private key. Loss of your private key means 
+permanent loss of access to your funds.  Switching Between Wallets  The wallet modal allows 
+seamless switching between all supported blockchain networks.  Currently available networks:   
+Click your wallet address in the top navigation  Use the tabs at the top of the modal to switch 
+between:   Base Wallet : ThirdWeb Smart Account  Chia Wallet : Chia blockchain wallet  Additional 
+networks will appear here as they're integrated    The modal updates to show the selected wallet's 
+interface   Each wallet maintains:   Independent balances  Separate transaction histories  
+Different asset types  Unique addresses  Network-specific features   Security Best Practices  
+General Security  Protect Your Access:   Enable 2FA on your Silicon account (see Settings)  Use 
+strong, unique passwords  Create passkeys for high-security operations  Regularly review connected 
+sessions  Log out on shared computers   Verify Transactions:   Double-check recipient addresses 
+before sending  Start with small test transactions for new recipients  Verify amounts and fees 
+before confirming  Keep records of important transactions  Report suspicious activity immediately   
+Wallet Hygiene:   Keep all wallets funded with native tokens for gas fees  Regularly check for 
+unexpected transactions across all networks  Monitor asset balances on each chain  Update browser 
+and extensions  Use hardware wallets for large holdings   Phishing Protection  Red Flags:   
+Unsolicited messages asking for wallet actions  Urgent requests to "verify" your wallet  Links to 
+wallet interfaces from emails  Requests for your seed phrase or private key  Offers that seem too 
+good to be true   Safe Practices:   Always access the wallet through the Silicon platform  Bookmark 
+the official Silicon URL  Verify URLs before connecting wallets  Never approve transactions you 
+didn't initiate  Contact support if something seems suspicious   Smart Contract Interactions  When 
+interacting with smart contracts:   Review the contract address  Understand what you're approving  
+Check the requested permissions  Verify the transaction details  Revoke unused approvals 
+periodically   Common Workflows  Withdrawing Earnings  From Dashboard to Bank:   Verify your 
+Balance on the Dashboard  Click your wallet address to open the wallet modal  Navigate to Base 
+Wallet > Send  Select USDC as the token  Enter your personal wallet address or exchange deposit 
+address  Input the amount to withdraw  Review fees and confirm  Move to exchange or cash out to 
+bank   Buying Your First GPU NFT  Using offers on Chia:   Browse available GPU listings  Note the 
+seller's offer file or text  Open Wallet > Chia > Offers  Click "Accept Offer"  Paste the offer 
+details  Verify the GPU NFT and XCH amount  Confirm you have sufficient XCH  Accept the offer  Wait 
+for blockchain confirmation  GPU appears in My GPUs   Selling a GPU via Offer  Creating a sale 
+offer:   Navigate to My GPUs  Select the GPU to sell  Click "Create Offer" (or do it directly in 
+Wallet)  Open Wallet > Chia > Offers > Create Offer  Select the GPU NFT as what you're offering  
+Enter the XCH amount you're requesting  Set an expiration (optional)  Create and sign the offer  
+Share the offer file/text with potential buyers  Wait for someone to accept   Funding Your Wallet  
+Getting USDC:   Open Wallet > Base Wallet  Click "Buy" tab  Select USDC  Choose your payment method 
+ Complete purchase  USDC arrives in your Base wallet   Getting XCH:   Purchase XCH on an exchange 
+(Kraken, OKX, etc.)  Open Wallet > Chia > Receive  Copy your Chia address  Withdraw from exchange 
+to your address  Wait for transfer to confirm  XCH appears in your Chia wallet   Troubleshooting  
+Base Wallet Issues  Transaction won't confirm:   Check your network connection  Verify you have 
+sufficient gas (ETH)  Wait for network congestion to clear  Try increasing gas fee (if manual)  
+Contact support if stuck for over 30 minutes   Can't see my NFTs:   Refresh the page  Verify the 
+correct network (Base)  Check if the NFT is in pending state  Look in the Assets section  Import 
+the NFT contract address manually   Wrong balance showing:   Click refresh in the wallet modal  
+Check the block explorer for actual balance  Clear browser cache  Disconnect and reconnect wallet  
+Contact support if discrepancy persists   Chia Wallet Issues  Wallet not syncing:   Check internet 
+connection  Wait for initial sync to complete (can take time)  Verify blockchain node is online  
+Restart the wallet connection  Contact support if sync fails repeatedly   Offer won't create:   
+Ensure you have the assets you're offering  Check you have XCH for transaction fees  Verify wallet 
+is fully synced  Try with a smaller amount first  Check offer terms are valid   Can't accept an 
+offer:   Verify you have the requested assets  Ensure offer hasn't expired  Check the offer 
+file/text is complete and valid  Confirm sufficient XCH for fees  Try copying the offer text again 
+from sender   Transaction pending forever:   Check Chia network status  Verify your fee was 
+sufficient  Wait for next transaction block  Check transaction ID on Chia explorer  Contact support 
+if stuck over 30 minutes   Recovery & Access  Lost access to wallet:   Check if you're on the 
+correct network  Try reconnecting your wallet  Clear browser cache and cookies  Use private key to 
+recover (Chia)  Contact support for account-level issues   Need to restore Chia wallet:   Use your 
+private key backup  Import into a fresh Chia wallet  Wait for blockchain sync  Verify all assets 
+and balances  Never share private key during recovery   Advanced Features  ThirdWeb Smart Account 
+Capabilities  For developers and advanced users, the Base wallet supports:   Account abstraction : 
+Programmable wallet logic  Session keys : Temporary permissions for apps  Batched transactions : 
+Multiple actions in one tx  Gas sponsorship : Platform or provider pays fees  Social recovery : 
+Recover access without seed phrase   See ThirdWeb documentation (opens in a new tab) for complete 
+capabilities.  Chia Offer Automation  Power users can automate offer creation and acceptance:   Use 
+Chia CLI tools for scripted offers  Monitor offer books programmatically  Create offer templates  
+Auto-accept offers matching criteria  Build custom trading bots   Related Pages  Dashboard - 
+Earnings and portfolio overview  My GPUs - Manage your GPU assets  Trades - Trading history and 
+marketplace  Financials - Detailed earnings breakdown  Settings - Security and account 
+configuration  Multichain Expansion : Silicon is building a comprehensive multichain ecosystem. 
+While Base and Chia are currently supported, additional blockchain networks will be integrated over 
+time, expanding your options for asset management, trading, and platform interactions.  Keep small 
+amounts of native tokens (ETH on Base, XCH on Chia, etc.) in your wallets to cover transaction 
+fees. Without gas funds, you cannot send transactions or accept offers on that network. Calculator 
+Settings 
+
+
+========================================
+## owner pages dropdown > settings
+URL: https://docs.silicon.net/owner-pages-dropdown/settings
+========================================
+
+ Pages Settings Settings  Manage your account details, security settings, organization memberships, 
+and download monthly statements.  General Tab  Account profile and basic information management.  
+Account Profile  Upload or remove your profile photo (accepted formats: JPG, PNG; max size: 5MB; 
+recommended: 400x400px minimum). Set your first name and last name as the display name used 
+throughout the platform. Your email is your primary contact—it must match your wallet-connected 
+email. Click Save changes after making any modifications to persist updates.  Connections  Link 
+external accounts for streamlined authentication. Connect Google or GitHub OAuth accounts for 
+social sign-in—these accounts must use the same email address as your primary account email. If 
+there's an email mismatch, you'll see: "Connected accounts must use the same address as your 
+account email." Use this to sign in with Google instead of a password, verify identity through 
+GitHub, and simplify future logins.  Security Tab  Manage authentication, password requirements, 
+and account protection.  Change Password  Enter your current password for verification, then enter 
+your new password and confirm it to prevent typos.  Password Requirements  All new passwords must 
+have at least 10 characters (up to 100), at least one lowercase character, at least one special 
+character (! @ # ?), and be significantly different from previous passwords. A requirements 
+checklist shows which criteria are met as you type. If criteria aren't satisfied when attempting to 
+save, you'll see a red warning: "Your new password must meet the requirements below."  Two-Factor 
+Authentication  Add an additional security layer for account access. Google Authenticator is the 
+recommended 2FA method using time-based one-time passwords (TOTP). Click Configure to open the 
+setup flow for linking your authenticator app. This confirms your identity during unusual account 
+activity or when accessing sensitive functions.  Passkeys  Modern authentication using biometric or 
+device-based verification—hardware-backed cryptographic keys stored on your device (fingerprint, 
+Face ID, security key). Use passkeys for secure asset transfers, sign-in authentication, and 
+high-security actions.  Each passkey shows the platform (device type like iPhone, Windows, 
+YubiKey), last used date, created date, and a delete option (X icon). Click Create a new passkey to 
+initiate device-specific enrollment. Check the action log link to view history of all passkey usage 
+and modifications.  Organizations Tab  Manage multi-signature wallets, DAOs, and group ownership 
+structures.  Your Organizations  The table shows organization name, contract address (on-chain 
+smart contract identifier), role (Admin with full management permissions or Member with view and 
+limited interaction permissions), and date joined. Use the overflow menu (...) to access 
+organization-specific actions like viewing details or leaving the organization.  Create 
+Organization Button  Click to initiate the flow for deploying a new multi-sig or DAO 
+structure—useful for forming GPU purchasing groups, creating investment DAOs, or establishing shared 
+ownership structures.  Pending Invites  Each invite displays the organization name, timestamp 
+received, wallet address of the member who sent it, and the organization's on-chain contract 
+address. Click Reject to decline or Accept to join (may require an on-chain transaction signature). 
+Use the overflow menu (...) for additional actions like viewing details or reporting spam.  
+Statements Tab  Download monthly financial statements for accounting and tax purposes.  Statement 
+Period Selector  Dropdown showing available months in reverse chronological order.  Example:   July 
+2025  June 2025  May 2025  ...   Download Button  Exports a PDF statement for the selected period. 
+The statement includes summary of earnings by GPU, transaction history (payouts, sales, 
+withdrawals), provider-specific breakdowns, and beginning and ending balances. Use it for tax 
+preparation, portfolio performance tracking, accounting reconciliation, or sharing with financial 
+advisors. File format: PDF. Naming convention: silicon_statement_YYYY_MM.pdf .  Common Actions  
+Updating Profile Information: Navigate to Settings > General, modify desired fields, click "Save 
+changes," and a confirmation toast appears. Note: Email changes may require verification.  Setting 
+Up 2FA: Navigate to Settings > Security, find the "Two-factor authentication" section, click 
+"Configure" next to Google Authenticator, scan the QR code with your authenticator app, enter the 
+verification code to confirm, and save backup codes in a secure location.  Creating a Passkey: 
+Navigate to Settings > Security, scroll to "Passkeys," click "Create a new passkey," follow 
+browser/OS prompts, complete biometric or device verification, and the passkey appears in your list 
+with its creation date.  Joining an Organization: Check your email for the organization invite, 
+navigate to Settings > Organizations, find the invite in "Pending invites," review organization 
+details (name, contract, inviter), click "Accept," sign the transaction if a wallet prompt appears, 
+and the organization appears in "Your Organizations" table.  Downloading Statements: Navigate to 
+Settings > Statements, select the desired month from the dropdown, click "Download," and the PDF 
+saves to your default download location—open and verify contents.  Security Best Practices  Password 
+Management: Use a unique password not used elsewhere, use a password manager to generate and store 
+it, and change your password if account activity seems unusual. Don't share your password with 
+anyone, use easily guessable patterns, or write it in an unsecured location.  2FA Setup: Enable 
+immediately after account creation, store backup codes offline in a secure location, and use a 
+dedicated authenticator app (Authy, 1Password). Don't skip 2FA setup, store backup codes in email, 
+or disable 2FA unless absolutely necessary.  Passkey Management: Create passkeys for 
+frequently-used devices, test passkey login before removing the password option, and keep a backup 
+authentication method enabled. Don't create passkeys on shared or public devices, delete all 
+passkeys without an alternative auth method, or share a device with active passkey access.  
+Troubleshooting  "Connected accounts must use same email" Error: Trying to link Google or GitHub 
+with a different email? Disconnect any existing linked accounts and update your primary account 
+email to match the OAuth provider, then retry connection. Or change the email on your OAuth 
+provider to match your Silicon account and retry connection.  Can't Change Password: If the "Save 
+changes" button is disabled or you see red error text, verify your current password is correct, 
+check the new password meets all requirements (review the checklist), ensure "new password" and 
+"confirm password" fields match, and try clearing and re-entering.  Missing Organization: 
+Organization not showing in the table after accepting the invite? Refresh the page, check pending 
+invites (may need to re-accept), verify your wallet address matches the invite recipient, or 
+contact the organization admin to resend the invite.  Statement Won't Download: If the download 
+button isn't working or the file is corrupted, check your internet connection, try a different 
+browser, clear your browser cache, disable ad blockers or extensions, and contact support if the 
+issue persists.  Related Pages  Dashboard - Your portfolio overview  My GPUs - GPU management  
+Financials - Detailed earnings  ⚠️ Changing security settings (password, 2FA, passkeys) may require 
+re-authentication. Keep backup access methods enabled while testing new authentication 
+configurations. Wallet Network 
+
+
+========================================
+## owner pages dropdown > network
+URL: https://docs.silicon.net/owner-pages-dropdown/network
+========================================
+
+ Pages Network Metrics  Monitor Silicon Network's key metrics: compute and earnings.  Overview  The 
+Metrics page provides two key views for understanding the Silicon Network: Metrics for tracking 
+network scale and available compute capacity, and GPUs for analyzing individual assets and their 
+performance.  Compute Tab  Network Scale & Capacity  The Compute tab provides a high-level view of 
+Silicon Network's infrastructure and growth:  Key Statistics   Total GPUs : Number of GPUs 
+tokenized on Silicon Network  Computing Power : Combined TFLOPS available across the network  
+Network Capacity : Total available compute resources  Growth Trends : Track capacity expansion over 
+time   Capacity Monitoring  The interactive chart displays network capacity growth, showing:   
+Historical capacity trends  Total and available TFLOPS  Network expansion patterns  Infrastructure 
+scaling   This data helps you understand the overall health and scale of the Silicon Network 
+ecosystem, tracking how the network is growing and evolving over time.  Earnings Tab  Individual 
+Asset Performance  The Earnings tab allows you to drill down into specific assets and compare 
+performance across the network:  Browse & Filter   View all GPUs on the network  Filter by GPU 
+model (RTX 4090, H100, etc.)  Filter by datacenter provider  Search by GPU ID   Performance 
+Analysis   Daily, weekly, and monthly earnings per GPU  Compare individual assets against their 
+peer group  Verify actual returns vs. projections  Identify top-performing GPUs by type   Use Cases 
+ The GPUs tab is designed to help you:   Benchmark Performance : See which specific GPUs are 
+earning the most in their category  Validate Providers : Compare earnings across different 
+datacenter providers  Research Purchases : Evaluate which GPU types deliver the best returns  
+Monitor Similar GPUs : Understand what assets are performing well on the network   GPU earnings 
+data updates daily, giving you near real-time insights into asset performance across the network.  
+For GPU Owners  Compare Your Assets  Use the Earnings page to benchmark your GPUs against the 
+broader market:  Performance Validation   Compare your GPUs to similar models on the network  
+Identify if your assets are performing above or below average  Validate that your provider is 
+delivering competitive earnings  Set realistic expectations based on real network data   Portfolio 
+Optimization   Spot underperforming assets that may need attention  Identify which GPU types are 
+currently delivering the best returns  Make data-driven decisions about future purchases  
+Understand how your portfolio compares to the network   For Potential Buyers  Research Before 
+Purchasing  The Metrics page provides essential data for evaluating GPU investments:  Market 
+Research   Compare actual earnings across different GPU models  See which providers are delivering 
+strong performance  Understand the real-world returns different assets generate  Evaluate market 
+depth for each GPU type   Informed Decision Making  Before buying a GPU NFT, use this data to:   
+Verify that calculator projections align with actual network earnings  Compare the performance of 
+different GPU types in your price range  Identify which providers have strong track records  
+Understand what "good" performance looks like for each GPU model   Accessing the Metrics Page  For 
+detailed network analytics and GPU-by-GPU comparisons, visit the dedicated Metrics page in the 
+Owner Dashboard (opens in a new tab) .  Whether you're managing a large portfolio or considering 
+your first GPU purchase, the Metrics page provides the transparency and data you need to make 
+informed decisions on Silicon Network. Settings Troubleshooting 
+
+
+========================================
+## owner troubleshooting
+URL: https://docs.silicon.net/owner-troubleshooting
+========================================
+
+ Troubleshooting Troubleshooting  Common issues and solutions for GPU/NFT Owners on Silicon 
+Network.  Not Seeing Earnings  Symptoms   GPU shows $0 earnings for multiple days  "Last earning" 
+date is stale  Expected earnings not appearing in dashboard   Diagnosis Steps    Check GPU status 
+(My GPUs page)   Is GPU showing "Active" status?  Is GPU paired with an NFT?  When was last earning 
+recorded?     Verify agreement signed (Dashboard)   Have you signed your provider's agreement?  Is 
+agreement status showing "Active"?  Check for any pending agreements     Check GPU rental status 
+(My GPUs > GPU Details)   Is GPU being rented?  Check utilization percentage  Review rental history 
+    Solutions  If agreement not signed:   Go to Dashboard  Look for "Agreement Required" 
+notification  Click to review and sign agreement  Earnings will begin after next rental   If GPU 
+not paired:   Contact your datacenter provider  They need to pair your NFT to hardware  Verify NFT 
+Token ID with provider  Wait for pairing confirmation   If GPU not being rented:   Low earnings are 
+normal during low demand periods  Check Network page to compare with network averages  Contact 
+provider if your GPU significantly underperforms  Review Calculator projections vs actual 
+performance   Earnings fluctuate based on market demand for GPU compute. Some variation is normal.  
+Wallet Connection Issues  Can't Connect Wallet  Symptoms:   Wallet connection fails  "Connect 
+Wallet" button not working  Wrong network detected   Solutions for Base Wallet (USDC payments):   
+Ensure you're using a compatible wallet (MetaMask, Coinbase Wallet, WalletConnect)  Switch wallet 
+to Base network (Chain ID: 8453)  Clear browser cache and retry  Disable browser extensions that 
+might interfere  Try incognito/private browsing mode   Solutions for Chia Wallet (NFT 
+verification):   Ensure Chia wallet is installed and running  Check wallet is synced to latest 
+block  Verify NFT is in connected wallet address  Restart wallet application  Try reconnecting from 
+Settings page   Wrong Wallet Connected  Symptoms:   Don't see your NFTs  Dashboard shows wrong 
+balance  GPUs not appearing   Solutions:   Disconnect current wallet  Connect correct wallet with 
+your NFT  Refresh page after connecting  Verify wallet address matches your NFT ownership  Check 
+both Chia and Base wallets are correct   Withdrawal Issues  Can't Withdraw Balance  Symptoms:   
+Withdrawal button disabled  Transaction fails  Balance not reaching wallet   Common Causes and 
+Solutions:  Minimum Balance Not Met  Solution:   Most providers set minimum withdrawal amounts  
+Check minimum requirement with your provider  Wait until balance exceeds minimum  Balance will 
+accumulate until you can withdraw   Insufficient Gas Fees  Symptoms:   Transaction rejected  
+"Insufficient funds for gas" error   Solution:   Add small amount of ETH to your Base wallet for 
+gas  Usually need $1-5 worth of ETH  ETH is needed even though payment is in USDC  Retry withdrawal 
+after adding ETH   Network Congestion  Symptoms:   Transaction pending for long time  High gas fee 
+estimates   Solution:   Wait for network congestion to clear  Try withdrawal during off-peak hours  
+Monitor Base network status  Transaction will complete when network clears   Wrong Network Selected 
+ Symptoms:   Transaction fails immediately  Wallet shows incorrect balance   Solution:   Switch 
+wallet to Base network  Verify you see correct Base balance  Retry withdrawal  Check wallet is on 
+Chain ID: 8453   ⚠️ Always ensure your wallet is connected to Base network for USDC withdrawals.  
+Agreement and Signature Issues  Can't Sign Agreement  Symptoms:   Agreement signature fails  "Sign 
+Agreement" button not working  Transaction rejected   Solutions:    Check wallet connection   
+Ensure wallet is connected  Verify you're on correct network  Try disconnecting and reconnecting    
+ Review agreement terms   Read full agreement text  Ensure you understand terms  Check for any 
+special requirements     Clear browser state   Clear cache and cookies  Refresh page  Retry 
+signature     Try different browser   Some wallets work better with specific browsers  Try Chrome, 
+Firefox, or Brave  Ensure browser is up to date     Agreement Status Unclear  Symptoms:   Don't 
+know if agreement is signed  Multiple agreements showing  Conflicting status messages   Solutions:  
+ Go to Dashboard  Check "Provider Agreements" section  Look for "Active" status  Contact provider 
+if status unclear  Request copy of signed agreement   Data Display Issues  Dashboard Not Loading  
+Symptoms:   Blank dashboard  Infinite loading spinner  Error messages   Solutions:    Check 
+internet connection   Verify stable internet  Test other websites  Try mobile data if on WiFi     
+Clear browser cache   Clear cache and cookies  Close and reopen browser  Try incognito/private mode 
+    Disable browser extensions   Ad blockers may interfere  Disable extensions temporarily  Test if 
+dashboard loads     Try different browser   Test in Chrome, Firefox, or Safari  Ensure browser is 
+updated  Check if browser is supported     Check device compatibility   Desktop browser recommended 
+ Mobile view has limitations  Ensure device meets minimum specs     Earnings Data Incorrect  
+Symptoms:   Earnings don't match expectations  Sudden unexplained changes  Missing transactions   
+Solutions:    Verify date range   Check selected date range in filters  Ensure looking at correct 
+period  Compare with historical data     Understand earnings flow   "Queued earnings" process to 
+"Balance"  Processing takes 24-48 hours  Check both sections     Compare with GPU utilization   Low 
+utilization = lower earnings  Check My GPUs for usage data  Review rental history     Check for 
+deductions   Provider fees may apply  Review agreement terms  Check transaction history for details 
+    Contact provider   Request earnings breakdown  Compare with their data  Ask for clarification 
+on calculations     GPU Information Not Updating  Symptoms:   Stale "Last earning" timestamp  GPU 
+status not changing  Data seems frozen   Solutions:   Refresh page (hard refresh: Ctrl+Shift+R or 
+Cmd+Shift+R)  Wait 5 minutes for data sync  Check network connection  Clear browser cache  Check if 
+issue affects all GPUs or just one   Performance and Calculator Issues  Calculator Projections Seem 
+Wrong  Symptoms:   Unrealistic return estimates  Calculations don't match actual earnings  APR/IRR 
+numbers unexpected   Understanding Projections:  ⚠️ Calculator projections are estimates based on 
+current and historical data. Past performance does not guarantee future results.  Key factors 
+affecting accuracy:   Market demand for GPU compute fluctuates  Your actual utilization may vary  
+Hardware depreciation over time  Provider performance differences  Network competition   Solutions: 
+  Review assumptions in calculator  Compare your earnings to network averages (Network page)  Use 
+conservative projections for planning  Track actual vs projected over time  Adjust expectations 
+based on market conditions   IRR/APR Metrics Confusing  Understanding the metrics:  IRR (Internal 
+Rate of Return):   Accounts for your initial investment  Includes purchase price of NFT  Shows 
+annualized return considering timing  Can be negative if recent purchase   APR (Annual Percentage 
+Yield):   Based on current earnings rate  Projects forward if current rate continues  Does not 
+factor initial investment  More relevant for daily earnings expectations   Total Earnings:   
+Cumulative all-time earnings  Does not subtract NFT purchase price  Gross earnings before any fees  
+ Why they might seem off:   Recent purchase means IRR needs time to improve  Low current demand 
+affects APR projections  Total earnings accumulate slowly at first  Comparison to other investments 
+requires context   Secondary Market and Trading Issues  Can't List GPU for Sale  Symptoms:   List 
+button disabled  Transaction fails  Listing doesn't appear   Solutions:    Check GPU eligibility   
+GPU must be paired to NFT  No active disputes or holds  Verify ownership of NFT     Verify NFT 
+ownership   Check Chia wallet contains NFT  Confirm Token ID matches  Ensure no pending transfers   
+  Check marketplace requirements   Minimum listing price may apply  Review listing terms  Ensure 
+wallet connected     Transaction issues   Ensure sufficient XCH for transaction fees  Check Chia 
+wallet sync status  Verify network connectivity     Trade Not Completing  Symptoms:   Accepted 
+offer but no transfer  Transaction stuck pending  Buyer/seller not responding   Solutions:    Check 
+transaction status   View on Chia block explorer  Verify transaction submitted  Look for error 
+messages     Verify both parties ready   Buyer has funds available  Seller has NFT in wallet  Both 
+wallets properly connected     Wait for confirmations   Chia transactions need confirmations  Can 
+take 5-15 minutes  Check blockchain for progress     Contact support if stuck   Provide transaction 
+ID  Include both wallet addresses  Describe when issue started     Account and Settings Issues  
+Settings Not Saving  Symptoms:   Changes don't persist  Settings revert after refresh  Save button 
+not working   Solutions:   Ensure wallet still connected  Check for error messages  Try saving 
+changes one at a time  Clear browser cache and retry  Disable browser autofill if interfering   
+Can't Update Payment Address  Symptoms:   Can't change Base wallet address  Invalid address error  
+Changes not accepted   Solutions:   Verify address is valid Base address (starts with 0x)  
+Double-check address for typos  Test address by viewing it on Base block explorer  Ensure address 
+is not a contract address  Contact provider if validation failing incorrectly   Notifications Not 
+Working  Symptoms:   Not receiving expected alerts  Email notifications not arriving  Dashboard 
+alerts missing   Solutions:   Check notification settings in Settings page  Verify email address is 
+correct  Check spam/junk folder  Whitelist support@silicon.net  Test notification by triggering an 
+event  Ensure browser notifications are allowed   Network and Benchmark Comparisons  My Performance 
+Seems Low  Symptoms:   Earnings below network average  Lower APR than advertised  Utilization rates 
+lagging   Understanding the comparison:  Network averages include:   All GPU types and ages  
+Different providers with varying performance  Various market conditions over time  GPUs in 
+different regions   Your performance may differ due to:   Specific GPU model characteristics  Your 
+provider's operational efficiency  When you purchased (timing matters)  Current market demand for 
+your GPU type   Steps to take:    Compare apples to apples   Look at same GPU model on Network page 
+ Filter by date range  Account for seasonal variations     Check with provider   Ask about their 
+average performance  Request explanation if underperforming  Understand their operational approach  
+   Review agreement terms   Some providers have different fee structures  Minimum earnings 
+guarantees may apply  Check for performance benchmarks     Consider external factors   New GPU 
+models affect demand for older ones  Market competition changes over time  Provider may be ramping 
+up operations     Some performance variation is normal. Significant sustained underperformance 
+should be discussed with your provider.  Getting Help  Before Contacting Support  Gather this 
+information:   Screenshot of issue  Your wallet address (Base and/or Chia)  Token ID of affected 
+NFT(s)  Browser and version  Steps to reproduce issue  When issue started   Who to Contact  For 
+platform/technical issues:   Email: support@silicon.net  Include your wallet address  Describe 
+issue in detail  Response time: 24-48 hours   For earnings/hardware issues:   Contact your 
+datacenter provider first  They manage hardware and payments  Provider contact info in Dashboard  
+They have access to detailed earning data   For urgent issues:   Payment failures affecting 
+withdrawals  Security concerns with your account  Suspected unauthorized access  Mark email 
+"URGENT"   What to Include  For earnings issues:   Affected GPU Token IDs  Expected vs actual 
+earnings  Time period in question  Screenshots of discrepancies   For technical issues:   Browser 
+console log (F12 > Console)  Screenshot of error message  Transaction hash if applicable  Steps 
+you've already tried   For wallet issues:   Wallet type and version  Network you're connected to  
+Transaction hash if available  Error messages received   Prevention and Best Practices  Regular 
+Monitoring  Check regularly:   Daily: Balance and queued earnings  Weekly: GPU performance and 
+utilization  Monthly: Compare actual vs projected returns  Quarterly: Review provider performance 
+and agreements   Wallet Security  Protect your assets:   Never share private keys or seed phrases  
+Use hardware wallets for large holdings  Keep wallet software updated  Enable all available 
+security features  Use strong, unique passwords   Documentation  Keep records of:   Initial NFT 
+purchase details  Earnings history exports  Provider communications  Agreement copies  Support 
+ticket numbers   Stay Informed   Follow Silicon Network announcements  Join community channels  
+Monitor your provider's updates  Track GPU market trends  Understand network changes   Proactive 
+monitoring helps catch issues early and maximizes your earning potential.   Still need help? 
+Contact support@silicon.net with detailed information about your issue, or reach out to your 
+datacenter provider for hardware and earnings-related questions. Network Overview 
+
+
+========================================
+## provider overview
+URL: https://docs.silicon.net/provider-overview
+========================================
+
+ Overview Provider Dashboard Documentation  Welcome to the Silicon Network Provider Dashboard 
+documentation. This guide helps datacenter providers manage GPU infrastructure, track operations, 
+and facilitate tokenized GPU ownership.   Ask anything   What is the Provider Dashboard?  The 
+Provider Dashboard is your operational control center for managing GPU infrastructure on Silicon 
+Network. It enables you to:   Import and sync GPU hardware from major cloud platforms  Mint and 
+manage NFTs representing physical GPU assets  Pair GPUs with NFTs to activate earning capabilities  
+Monitor operations with real-time alerts and health metrics  Track financials for owners and your 
+datacenter operations  Facilitate payments to GPU NFT owners  Manage relationships with multiple 
+GPU owners  Maintain compliance with provider agreements   Who is this for?  This documentation is 
+designed for datacenter providers who:   Operate GPU infrastructure in professional datacenters  
+Host tokenized GPUs for Silicon Network NFT owners  Facilitate GPU rentals to compute customers  
+Distribute earnings to GPU NFT owners  Manage multi-owner GPU portfolios   Getting Started  If 
+you're new to the Provider Dashboard, we recommend:   Read the Dashboard overview to understand key 
+alerts and metrics  Review Hardware to import and manage your GPU inventory  Explore NFTs to 
+understand minting and pairing workflows  Check Owners to manage owner relationships  Study 
+Financials for earnings tracking and payouts   Quick Navigation  Core Pages   Home - Welcome and 
+quick start  Dashboard - Operational health and alerts  Hardware - GPU and server inventory 
+management  NFTs - Mint and manage tokenized GPU assets  Owners - Owner relationships and 
+agreements  Financials - Earnings tracking and payment processing  Settings - Provider 
+configuration and preferences   Essential Guides   Importing Hardware - Connect vendor platforms 
+and sync GPUs  Minting NFTs (Paired) - Create NFTs and immediately pair with GPUs  Minting NFTs 
+(Unpaired) - Create NFTs for future GPU assignment  Pairing NFTs - Connect existing NFTs to 
+physical GPUs  Paying Owners - Process payouts to NFT holders  Monitoring Financials - Track 
+earnings and operations   Understanding Your Role  As a datacenter provider on Silicon Network:  
+You manage:   Physical GPU hardware and datacenter infrastructure  Vendor platform integrations 
+(RunPod, Vast, Akash, etc.)  GPU-to-NFT pairing operations  Earning calculations and distribution 
+to owners  Operational compliance and uptime  Owner communications and support   You facilitate:   
+GPU rentals to compute customers  NFT minting and transfers to buyers  Regular payouts to GPU NFT 
+owners  Secondary market sales between owners  Agreement signing and renewal   You don't control:   
+NFT ownership (determined by blockchain)  Owner's ability to sell their GPUs  Secondary market 
+pricing  Owner's withdrawal timing   GPU owners handle:   NFT ownership and transfers  Secondary 
+market sales decisions  Earnings withdrawal to their wallets  Portfolio management   Key Concepts  
+Tokenized GPU Infrastructure  Silicon Network enables fractional ownership of GPU infrastructure 
+through NFTs. Each NFT represents one physical GPU unit hosted in your datacenter. Owners receive 
+earnings while you maintain operational control.  Hardware Syncing  Connect your vendor platforms 
+(RunPod, Vast, Akash, TensorDock, Shadeform) to automatically import GPU data, track earnings, and 
+sync operational status. Manual imports are also supported via CSV.  Minting and Pairing  Minting 
+creates the NFT on the blockchain. Pairing connects that NFT to a specific physical GPU in your 
+inventory. GPUs must be paired to generate earnings for owners.  Two workflows:   Paired Minting : 
+Mint NFT and immediately assign to a GPU (recommended for direct sales)  Unpaired Minting : Mint 
+NFT first, pair to GPU later (useful for pre-sales or flexible inventory)   Multi-chain NFT Support 
+ Silicon Network offers multi-chain NFT support to provide GPU access to as many blockchain 
+ecosystems as possible. This approach ensures broader accessibility and enables ownership across 
+different chains, including Base and Chia, with plans to expand to additional networks.  Provider 
+Agreements  Owners must sign your provider agreement before GPUs can generate earnings. These 
+agreements define:   Operational terms and responsibilities  Payout schedules and calculation 
+methods  Hardware maintenance expectations  Termination conditions   Earnings Flow   GPU rented : 
+Compute customer uses GPU capacity  Usage metered : Your vendor platform tracks rental 
+time/resources  Data synced : Silicon imports earning data from vendor  Owner credited : Earning 
+appears in owner's "Queued earnings"  Processed : Moved to owner's "Balance" during payout cycle  
+Paid out : You transfer earnings to owner's wallet  Owner withdraws : Owner moves funds from 
+platform to personal wallet   Payout Responsibility  As the provider, you're responsible for:   
+Monitoring pending payouts in the Financials page  Initiating transfers to owners' wallets on 
+schedule  Maintaining sufficient USDC liquidity for payouts  Tracking payout history and 
+confirmations   Dashboard Overview  Active Alerts  The dashboard prominently shows critical 
+operational issues:  GPUs Not Collecting Earnings : Identifies GPUs that haven't reported earnings 
+recently. May indicate sync failures, offline hardware, unpairing issues, or vendor platform 
+problems.  Action Required : Click "View GPUs" to see affected hardware and investigate root cause. 
+ GPU Inventory Summary  Quick count of total GPUs by model type (H100, RTX 4090, etc.) across your 
+entire operation.  Navigation Hub  Central access point to all provider functions: Hardware 
+management, NFT operations, Owner relationships, Financial tracking, and Settings configuration.  
+Common Workflows  Initial Setup (New Provider)   Configure your provider account in Settings  Add 
+vendor integrations (RunPod, Vast, etc.)  Wait for initial hardware sync to complete  Review 
+imported servers and GPUs in Hardware  Activate servers that will host tokenized GPUs  Create and 
+publish your provider agreement  Mint NFTs for available GPUs (paired or unpaired)  Transfer NFTs 
+to initial buyers  Wait for owners to sign agreements  Monitor Dashboard for operational alerts   
+Daily Operations  Morning check (5 minutes):   Open Dashboard and review alerts  Check for GPUs not 
+collecting earnings  Investigate and resolve any sync issues  Verify no pending agreement approvals 
+  Weekly tasks (30 minutes):   Review Financials for pending payouts  Process payments to owners on 
+schedule  Check vendor sync status in Hardware > Settings  Monitor owner communications and 
+questions  Verify GPU utilization rates   Monthly responsibilities (1-2 hours):   Reconcile all 
+owner payouts  Review and optimize vendor integrations  Audit GPU inventory and pairing status  
+Check for unutilized or underperforming hardware  Review provider metrics and KPIs   Onboarding a 
+New Owner   Owner purchases GPU NFT from you or secondary market  Owner's wallet address appears in 
+Owners page  Owner receives prompt to sign your provider agreement  You receive notification when 
+agreement is signed  Verify GPU is properly paired to NFT  Confirm GPU begins generating earnings  
+Monitor earnings flow to owner's balance   Processing Payouts   Navigate to Financials > Owners tab 
+ Review pending payouts by owner  Click "Pay" on individual owner or bulk process  Confirm 
+transaction details and amounts  Sign blockchain transaction to transfer USDC  Wait for 
+confirmation  Payout marked as complete in system  Owner can now withdraw to personal wallet   
+Handling GPU Sales (Owner-to-Owner)  When an owner lists a GPU on the secondary market:   GPU 
+remains operational and earning (no action needed)  Sale executes between owner wallets  New owner 
+automatically appears in your Owners list  New owner must sign your provider agreement  Verify 
+pairing remains intact after sale  Earnings automatically route to new owner   Minting New NFTs  
+For immediate pairing (most common):   Navigate to Hardware > GPUs tab  Find unpaired GPU in 
+inventory  Click three dots menu > "Mint NFT"  Select "Paired" minting option  Choose blockchain 
+(Base or Chia)  Confirm transaction  NFT minted and immediately paired to GPU  Transfer NFT to 
+buyer   For future pairing (bulk minting):   Navigate to NFTs page  Click "Mint NFTs"  Select 
+quantity and GPU type  Choose blockchain  Confirm batch minting transaction  NFTs created in your 
+wallet  Pair to specific GPUs later as needed   Hardware Management  Vendor Integrations  Silicon 
+supports automatic syncing from:   RunPod : GPU cloud platform  Vast.ai : Distributed GPU 
+marketplace  Akash Network : Decentralized cloud compute  TensorDock : GPU infrastructure provider  
+Shadeform : Multi-cloud GPU aggregator   Each integration requires API credentials and sync 
+configuration. See Importing Hardware for setup instructions.  Sync Monitoring  Hardware syncs run 
+automatically on a schedule (typically hourly). Monitor sync status in Hardware > Settings > 
+Vendors. Failed syncs trigger dashboard alerts and require investigation.  Common sync issues:   
+API credentials expired or invalid  Vendor platform downtime  Rate limiting or throttling  Network 
+connectivity problems   Server Activation  Control which servers participate in the tokenization 
+program. Inactive servers and their GPUs won't appear in pairing workflows or generate earnings. 
+Deactivating a server automatically unpairs all its GPUs.  NFT Operations  Token ID Management  
+Every GPU NFT has a unique Token ID. Track Token IDs in the NFTs page and cross-reference with GPUs 
+in the Hardware page. Token IDs appear on owner dashboards and blockchain explorers.  Pairing 
+Status  GPUs can be:   Unpaired : No NFT assigned (cannot generate owner earnings)  Paired : 
+Connected to specific NFT (earns for owner)  Transferred : NFT moved to new owner (pairing 
+maintained)   Multi-chain Considerations  NFTs can be minted on Base or Chia networks. Each has 
+different characteristics:   Base : EVM-compatible, faster finality, broader DeFi integration  Chia 
+: Offer-based trading, lower fees, unique ownership model   Choose based on buyer preference and 
+market liquidity.  Owner Management  Agreement Status  Track which owners have signed your provider 
+agreement. Unsigned agreements block earnings—follow up with owners to complete this step.  
+Communication  Maintain clear communication with owners about:   Payout schedules and timing  
+Downtime or maintenance windows  Hardware upgrades or replacements  Performance issues or concerns  
+Policy changes or updates   Performance Tracking  Owners monitor their GPU performance daily. 
+Proactive communication about issues builds trust and reduces support burden.  Financial Operations 
+ Earnings Calculation  Earnings are calculated based on:   Actual GPU rental time and usage  Vendor 
+platform pricing and customer payments  Your provider fee structure (defined in agreements)  Any 
+promotional adjustments or bonuses   Payout Processing  Best practices:   Process payouts on a 
+consistent schedule  Maintain sufficient USDC reserves  Batch process payments for efficiency  
+Confirm transactions on blockchain  Respond to owner payout inquiries promptly   Financial 
+Reporting  The Financials page provides:   Total earnings across all owners  Pending payouts by 
+owner  Payout history and confirmations  Revenue trends and analytics  Export capabilities for 
+accounting   Troubleshooting  For common provider issues, see:   Provider Troubleshooting - 
+Comprehensive problem-solving guide  Best Practices - Operational excellence tips  Vendor-specific 
+documentation for platform issues   Quick fixes:   GPUs not syncing : Check API credentials and 
+vendor platform status  Earnings not appearing : Verify GPU pairing and agreement status  Payout 
+failures : Confirm USDC balance and wallet connectivity  Owner can't withdraw : Check that payout 
+was processed and confirmed   Support  If you need assistance:   Review the relevant page 
+documentation  Check Troubleshooting for common issues  Consult Guides for step-by-step 
+walkthroughs  Contact vendor support for platform-specific problems  Reach out to 
+provider-support@silicon.net for platform issues   Best Practices  Operational Excellence:   
+Monitor Dashboard alerts daily  Process payouts consistently and on time  Maintain vendor sync 
+health  Respond to owner communications promptly  Document your internal procedures   Hardware 
+Management:   Keep vendor integrations active and updated  Audit GPU inventory regularly  Maintain 
+spare capacity for replacements  Plan for hardware depreciation  Track utilization and performance  
+ Owner Relations:   Set clear expectations in agreements  Communicate proactively about issues  
+Process payouts reliably  Provide responsive support  Build trust through transparency   Financial 
+Hygiene:   Maintain adequate USDC liquidity  Reconcile payouts monthly  Track revenue and costs 
+accurately  Plan for seasonal demand variations  Optimize fee structures   Important Disclaimers  
+As a provider, you're responsible for:   Operational uptime and hardware maintenance  Accurate 
+earnings calculation and reporting  Timely payouts to owners  Compliance with agreements and 
+regulations  Data security and privacy   Silicon Network provides the platform and infrastructure, 
+but you maintain operational control and responsibility for your datacenter and GPU fleet.   Ready 
+to dive in? Start with the Dashboard to monitor your operations, or jump to Hardware to begin 
+importing your GPU inventory. Troubleshooting Home 
+
+
+========================================
+## provider pages dropdown > home
+URL: https://docs.silicon.net/provider-pages-dropdown/home
+========================================
+
+ Pages Home Provider Dashboard Documentation  Welcome to the Silicon Network Provider Dashboard 
+documentation. This guide will help you manage your GPU infrastructure, mint NFTs, and process 
+owner payments.  What is the Provider Dashboard?  The Provider Dashboard is your control center for 
+managing tokenized GPU infrastructure on Silicon Network. It enables you to:   Import and track 
+physical GPU hardware from vendor platforms  Mint and manage NFTs representing GPU ownership  
+Monitor earnings from GPU compute rentals  Process payments to GPU NFT owners  Analyze performance 
+across your entire GPU fleet   Who is this for?  This documentation is designed for datacenter 
+operators and infrastructure providers who:   Tokenize GPU ownership through Silicon Network's NFT 
+protocol  Manage relationships with GPU owners through Silicon Network  Process earnings and 
+distribute payments through Silicon Network   Getting Started  If you're new to the Provider 
+Dashboard, we recommend:   Read the Dashboard overview to understand the interface  Follow the 
+Importing your hardware guide to add your GPUs  Learn about Minting NFTs to tokenize your hardware  
+Set up your payment workflow for distributing earnings   Quick Navigation  Common Tasks   Import 
+GPUs from vendor platforms  Mint and pair NFTs to GPUs  Pay owners for GPU earnings  Monitor 
+financial performance   Page Reference   Dashboard - Overview and alerts  Hardware - GPU and server 
+inventory  NFTs - Tokenized GPU management  Owners - Owner relationships and payments  Financials - 
+Earnings and transaction tracking  Settings - Account and security configuration   Support  If you 
+need assistance:   Check the Troubleshooting section for common issues  Review Best Practices for 
+operational guidance  Contact support at support@silicon.net  Overview Dashboard 
+
+
+========================================
+## provider pages dropdown > dashboard
+URL: https://docs.silicon.net/provider-pages-dropdown/dashboard
+========================================
+
+ Pages Dashboard Dashboard  Purpose  The Dashboard provides an overview of your entire GPU 
+operation with key metrics and alerts. It's designed to give you immediate visibility into the 
+health and performance of your infrastructure.  Key Metrics Displayed  GPU Count by Type  At the 
+top of the dashboard, you'll see your total GPU inventory broken down by model.This gives you a 
+quick snapshot of your hardware composition.  Active Alerts  The dashboard prominently displays 
+critical alerts that require attention:  GPUs Not Collecting Earnings  This alert appears when one 
+or more GPUs haven't reported earnings within a specified timeframe.  What it means: GPUs may be 
+offline, unpaired from NFTs, or experiencing vendor sync issues.  What to do: Click "View GPUs" to 
+see the affected hardware and investigate.  Actions Available  View Problematic GPUs: When alerts 
+appear, click the action button to navigate directly to the filtered view of affected GPUs in the 
+Hardware section.  Navigate to Detailed Pages: Use the sidebar navigation to access Hardware 
+management, NFT operations, Owner relationships, and Financial tracking.  Best Practices  Check the 
+Dashboard daily as your first stop to catch issues early. Respond immediately to the "GPUs not 
+collecting earnings" alert—revenue loss compounds quickly. Use a clean dashboard with no alerts as 
+your indicator of smooth operations.  Related Guides  Monitoring your financials - Set up a 
+monitoring routine | Troubleshooting sync issues - Fix GPUs not reporting earnings Home Hardware 
+
+
+========================================
+## provider pages dropdown > hardware
+URL: https://docs.silicon.net/provider-pages-dropdown/hardware
+========================================
+
+ Pages Hardware Hardware  Purpose  Manage your physical GPU infrastructure and server inventory. 
+The Hardware page is your central hub for tracking all GPUs, managing servers, and configuring 
+vendor integrations.  GPUs Tab  View and manage all GPUs in your inventory with detailed 
+performance tracking.  Information Displayed   Machine ID : Unique identifier from vendor platform  
+GPU Type : Hardware model (RTX 4090, H100, etc.)  Token ID / Address : NFT paired to this GPU (if 
+any)  Owner : Wallet address of NFT holder  Last Earning : Most recent date GPU generated revenue  
+Created On : Date GPU was added to platform  Total Earnings : Lifetime revenue generated  Next 
+Payout : Pending payment to owner   Actions Available  Search and Filter: Search by Machine ID, 
+Token ID, or Owner address. Filter by GPU type, pairing status, and earning status. Save custom 
+views for quick access.  Import GPUs: Bulk upload GPU data from CSV, useful for initial setup or 
+adding non-vendor hardware.  GPU submenu: Click the three dots to access GPU NFT details (if minted 
+and paired), GPU details (if not minted nor paired), Mint NFT (if not minted), Pair NFT (if not 
+paired), Transfer NFT (if minted and not owned), Server details, or Delete GPU.  Related Guides  
+Importing your hardware | Pairing an NFT to a GPU  Servers Tab  Manage server-level inventory that 
+contains multiple GPUs.  Information Displayed   Server Name : Your custom server identifier  
+Vendor Machine ID : Platform-specific identifier  GPU Type : Type of GPUs in this server  GPUs : 
+Total GPU count in server  Tokenized : Number of GPUs paired with NFTs  Total Earnings : Aggregate 
+earnings for all GPUs in server   Actions Available  Import Servers: Add servers via API for 
+automatic syncing, or add servers individually or via CSV upload for manual syncing.  Edit Servers: 
+Add or delete GPUs from existing servers.  Filter and Search: Find specific servers by either ID 
+property and group by vendor or GPU type.  Track Tokenization / Pairing Progress: See which GPUs in 
+each server have been paired with NFTs and identify servers ready for tokenization.  Settings Tab  
+Configure vendor integrations and data synchronization.  Vendors Section  Connect your GPU 
+platforms to automatically sync hardware data.  Supported Vendors: RunPod, Vast, Akash, TensorDock, 
+and Shadeform.  Vendor Information:   Created : Date integration was set up  Start Date : Beginning 
+of data sync period  Synced To : Most recent successful sync timestamp  Servers : Number of servers 
+imported from this vendor   Actions available: Add Vendor to connect new platform integrations, 
+monitor Sync Status for active and scheduled syncs, and use Fix Sync Issues to troubleshoot and 
+retry failed syncs.  Servers Activation  Control which servers are available for GPU pairing 
+operations.  Active/Inactive Toggle:   Active : Server will show in your dashboard and its GPUs can 
+be paired with NFTs  Inactive : Unpairs all GPUs and their NFTs from this server, hides it from the 
+dashboard   Why Deactivate? When a server is being decommissioned or hardware cannot be tokenized 
+(private ownership).  Critical Note: Deactivating a server unpairs all its GPUs and disconnects 
+them from their NFTs. Only do this if you intend to stop earnings for those owners.  Related Guides 
+ Importing your hardware - Complete vendor setup walkthrough | Troubleshooting sync issues  Common 
+Workflows  Initial Hardware Setup   Add vendor in Settings tab  Configure sync and wait for 
+completion  Review servers in Servers tab  Activate desired servers  Navigate to GPUs tab or server 
+details  Add GPUs to server manually or with a CSV   Regular Maintenance   Check sync status daily 
+(Settings tab)  Review "Last Earning" dates in GPUs tab  Investigate GPUs with stale data  Keep 
+server activation status current   Troubleshooting Low Earners   Go to GPUs tab  Sort by "Last 
+Earning" (oldest first)  Check if GPU is still active on vendor platform  Verify NFT pairing is 
+intact  Contact vendor support if hardware issue suspected  Dashboard NFTs 
+
+
+========================================
+## provider pages dropdown > nfts
+URL: https://docs.silicon.net/provider-pages-dropdown/nfts
+========================================
+
+ Pages NFTs NFTs  Purpose  Manage the tokenized representation of your GPUs. The NFTs page allows 
+you to mint new NFTs, track pairing status, and monitor the connection between digital assets and 
+physical hardware.  Unpaired Tab  View NFTs that haven't been connected to physical GPUs yet.  When 
+to Use  Unpaired NFTs are useful for pre-sales before hardware arrives. Mint an NFT for each of the 
+GPUs you plan to fundraise for. Once the GPU is purchased and provisioned, pair it with an NFT to 
+allow begin its earnings history.  Information Displayed   GPU Type : Hardware model the NFT 
+represents  Token ID / Address : Unique identifier and contract address  Drop : Collection or sale 
+event the NFT belongs to  Minted On : Date the NFT was created  Expected Date : Anticipated 
+hardware delivery (if applicable)   Actions Available  Mint New NFTs: Create unpaired tokens for 
+pre-sales by specifying GPU type and quantity and assigning to drop/collection. See: Minting an NFT 
+(Unpaired)  Pair NFTs to GPUs: Connect unpaired NFTs to physical hardware by selecting matching GPU 
+types and batch pairing multiple NFTs. See: Pairing an NFT to a GPU  View NFT Details: Click any 
+NFT to see complete information, check pairing eligibility, and review transaction history.  Search 
+and Filter: Find specific NFTs by Token ID, filter by GPU type or Drop, and sort by mint date.  
+Related Guides  Minting an NFT (Unpaired) | Pairing an NFT to a GPU  Paired Tab  View NFTs 
+connected to physical GPUs.  Information Displayed  GPU Details:   Server ID : Physical server 
+hosting the GPU  GPU Type : Hardware model  GPU UUID : Unique hardware identifier  Token ID / 
+Address : NFT contract details   Owner Information:   Owner Address : Wallet address of NFT holder  
+Owner Name : Display name (if set)  Organization : Type of ownership (Wallet, Pool, Account)   NFT 
+Metadata:   Drop : Collection the NFT belongs to  Minted On : Creation date  Paired On : When GPU 
+was connected   Actions Available  Mint Paired NFTs: Create and immediately pair NFTs by selecting 
+specific GPUs from inventory and assigning directly to owner wallet. See: Minting an NFT (Paired)  
+View Pairing Details: Click any row to see complete information, review pairing transaction, and 
+check GPU performance.  Search and Filter: Find by Token ID, Owner, or GPU UUID. Filter by GPU type 
+or Organization, sort by various criteria, and save custom views.  Earnings Tracking  Paired NFTs 
+generate earnings with revenue starting immediately after pairing and tracked at the GPU level. 
+Earnings are distributed to owner and part-owners as defined by the primary owner and viewable in 
+the Financials section.  Related Guides  Minting an NFT (Paired) | Paying owners  Common Workflows  
+Pre-Sale to Deployment    Pre-sale period:   Mint unpaired NFTs  List for sale  Buyers purchase 
+tokens     Hardware arrives:   Import GPUs via vendor sync  Navigate to Unpaired tab  Pair NFTs to 
+GPUs     Earnings begin:   Verify pairing in Paired tab  GPUs start generating revenue  Owners see 
+earnings accumulate     Direct Sales    Hardware ready:   Import GPUs and activate servers  
+Navigate to Paired tab  Click "Mint"     Create paired NFTs:   Select specific GPUs  Enter owner 
+wallet address  Complete minting transaction     Immediate activation:   NFT and GPU paired 
+instantly  Earnings begin immediately  No additional pairing step needed     Bulk Operations    
+Prepare inventory:   Mint multiple unpaired NFTs  Or have GPUs ready for paired minting     Batch 
+processing:   Select multiple NFTs (unpaired) or GPUs (paired)  Execute batch pairing or minting  
+Verify all completed successfully     Quality check:   Cross-reference Hardware and NFTs pages  
+Verify all pairings intact  Check earnings start tracking     Pairing Rules and Constraints  Type 
+Matching  GPU type must match NFT type exactly: RTX 4090 NFT → RTX 4090 GPU only, H100 NVL NFT → H100 
+NVL GPU only. Cannot pair mismatched types.  One-to-One Relationship  One NFT pairs to exactly one 
+GPU, one GPU can have exactly one paired NFT, and this relationship persists until deliberately 
+unpaired.  Availability Requirements  For successful pairing, the GPU must be imported and visible 
+in Hardware, the server containing the GPU must be activated, the GPU cannot already be paired to 
+another NFT, and the GPU type must match the NFT type.  Unpairing  Unpairing a GPU and NFT 
+immediately ceases the NFT's earnings. Only unpair an Owner's GPU NFT if you have an immediate 
+backup GPU to pair to their NFT.  Best Practices  Minting Strategy  Mint unpaired for pre-sales 
+only to avoid excess inventory. Use paired minting for immediate sales to provide a better buyer 
+experience. Verify owner addresses carefully as they cannot be changed after minting. Document all 
+minting operations to maintain an audit trail.  Pairing Operations  Pair GPUs shortly after listing 
+on compute marketplace to minimize revenue delays. Batch pair when possible for more efficient 
+operations. Verify immediately after pairing to catch issues early and keep records synchronized by 
+cross-checking Hardware and NFTs pages.  Quality Control  Monitor unpaired inventory to prevent 
+unchecked growth. Track expected delivery dates and follow up on overdue hardware. Communicate with 
+owners to keep them informed of pairing status.  Troubleshooting  NFT Not Appearing After Mint  
+Check: Transaction confirmed on blockchain (SpaceScan for Chia, BaseScan for Base) with your 
+Silicon wallet address, correct tab (Unpaired vs Paired), no active filters hiding NFT, and page 
+refreshed recently.  Action: Wait 2-3 minutes and refresh, then check transaction hash on block 
+explorer.  Can't Pair NFT  Check: Matching GPU type available, GPUs imported and servers activated, 
+and GPU not already paired.  Action: See Troubleshooting  Pairing Completed But Not Showing  Check: 
+Allow 2-3 minutes for confirmation, hard refresh page (Ctrl+Shift+R), verify transaction on block 
+explorer, and check both NFTs and Hardware pages.  Action: If still missing after 10 minutes, 
+contact support@silicon.net  Integration with Other Pages  Hardware Connection  The Paired tab 
+mirrors Hardware > GPUs data with changes in one reflecting in the other. The three dots menu 
+allows you to edit pairing, list for sale, burn NFT, and view NFT. Server activation affects GPU 
+pairing availability.  Owner Relationship  NFT count shows on owner profile, earnings track per 
+NFT/GPU pair, and payouts process at owner level.  Financial Tracking  Each paired NFT generates 
+earnings with revenue tracked in the Financials section, payouts processed per owner, and 
+transaction history maintained.  Monitoring NFT Health  Daily Checks  Review any new unpaired NFTs, 
+verify recent pairings completed, and check for pairing errors or alerts.  Weekly Review  Audit 
+unpaired inventory, confirm all expected pairings done, and cross-reference with the Hardware page. 
+ Monthly Reconciliation  Count total NFTs (paired + unpaired) and match against GPU inventory. 
+Hardware Owners 
+
+
+========================================
+## provider pages dropdown > owners
+URL: https://docs.silicon.net/provider-pages-dropdown/owners
+========================================
+
+ Pages Owners Owners  Purpose  Manage relationships with GPU NFT holders and process payments. The 
+Owners page provides a centralized view of all asset owners, their holdings, earnings, and payout 
+status.  Overview  The Owners page lists all individuals and entities who own GPU NFTs in your 
+infrastructure.  Information Displayed  Owner Identity:   Name : Display name of owner  
+Organization : Entity  Email : Contact information   Holdings:   GPUs : Number of GPUs owned  Click 
+to see detailed list of specific GPUs   Financial Summary:   Total Earnings : Lifetime revenue 
+generated by owner's GPUs  Total Payouts : Cumulative amount paid to owner  Next Payout : Pending 
+amount owed to owner   Actions Available  Pay Individual Owner: Click "Pay [amount]" button in 
+owner's row to process immediate payment, useful for ad-hoc payments. See: Paying owners  Pay All 
+Owners: Click "Pay all" button (top right) to batch process all pending payouts, most efficient for 
+regular payment schedules. See: Paying owners  Filter and Search: Find owners by name or email, 
+filter by organization type, sort by GPU count, earnings, or payouts, and save custom views for 
+quick access.  View Detailed Owner Profile: Click any owner row to expand details, see complete GPU 
+list, review earnings history, and access transaction records.  Financial Tracking  Earnings 
+Accumulation  Owner earnings accumulate based on GPU utilization and rental rates, number of GPUs 
+owned, GPU type and performance, and market demand for compute.  Earnings flow:   GPU rented by 
+compute customer  Revenue generated  Earnings allocated to owner  Tracked in "Next payout" column  
+Processed during payment cycle   Payout Processing  Next Payout Column: Shows pending amount owed, 
+updates in real-time as earnings accumulate, resets to $0 after payment processed, and includes 
+individual "Pay" button.  Total Payouts Column: Cumulative historical payments that increase with 
+each payout, useful for owner reporting and tracking lifetime value.  Payment Status: No button 
+means no pending payout. Grayed out means insufficient balance or the owner has not signed 
+agreements.  Common Workflows  Regular Payment Schedule  Weekly/Monthly Cycle:    Review period:   
+Navigate to Owners page  Review all "Next payout" amounts  Verify total matches available balance   
+  Process payments:   Click "Pay all" for batch processing  Or pay individually as needed  Confirm 
+transaction in wallet     Verification:   Check all "Next payout" reset to $0  Verify transactions 
+in Financials  Confirm owners received payments     Individual Owner Request  Owner contacts for 
+payment:    Locate owner:   Search by name or email  Verify pending payout amount     Process 
+payment:   Click "Pay [amount]" for that owner  Review details  Confirm and approve     
+Communicate:   Inform owner payment processed     Owner Onboarding  New GPU NFT sold:    Owner 
+appears automatically:   After NFT minted/transferred  Shows in Owners list within minutes  
+Initially shows 0 earnings     Verify information:   Check name and email correctness  Confirm GPU 
+count matches sale  Verify organization type     Monitor first earnings:   Check earnings begin 
+accumulating  Confirm GPU pairings intact  Address any issues within 24 hours     Owner 
+Communication  Contact Information  Email Address: Displayed for each owner and used for payment 
+notifications.  Communication Best Practices: Respond to inquiries within 24 hours, provide 
+transaction hashes for payments, proactively notify of systemic issues, and share performance 
+reports regularly.  Payment Notifications  Owners are notified of payments via email.  
+Troubleshooting  Owner Not Appearing  Cause: NFT not yet reflected in system  Solutions: Wait 5 
+minutes after NFT transfer, refresh page, check NFTs > Paired for the GPU, and verify transaction 
+confirmed on-chain.  Incorrect Payout Amount  Cause: Data sync delay or calculation error  
+Solutions: Cross-reference with Financials > Earnings, ensure earnings have aged 30 days before 
+attempting to pay out, check individual GPU earnings, verify time period alignment, and contact 
+support@silicon.net if discrepancy persists.  Payment Fails  Cause: Various technical or account 
+issues  Solutions: See Troubleshooting: Payout Failures , verify owner wallet address is valid, 
+check your wallet balance is sufficient, confirm network status is operational, and contact 
+support@silicon.net if discrepancy persists.  Owner Reports Wrong Amount  Process:   Review owner's 
+GPU list  Check earnings data for each GPU  Compare against vendor platform  Provide detailed 
+breakdown  Process adjustment if error confirmed   Integration with Other Pages  NFTs Page 
+Connection  Owner info syncs from NFT ownership, GPU count matches paired NFTs, organization type 
+comes from NFT metadata, and changes reflect across both pages.  Hardware Page Connection  Owner is 
+shown on each GPU in Hardware > GPUs with earnings tracked at GPU level, aggregated to owner level, 
+and cross-referenced for verification.  Financials Page Connection  Payouts are tracked in 
+Financials > Payouts, earnings detailed in Financials > Earnings, transactions logged in All 
+Transactions, and a complete audit trail is maintained.  Best Practices  Payment Management  
+Establish a consistent schedule (weekly or monthly), communicate the schedule clearly to set owner 
+expectations, maintain adequate balance (1.5x upcoming payouts), and process on time to build trust 
+and reliability.  Owner Relations  Provide prompt communication (respond within 24 hours), send 
+proactive updates to notify of issues before owners ask, deliver professional service by treating 
+owners as valued partners, and gather feedback through regular satisfaction checks.  Data Accuracy  
+Verify contact information when a new owner acquires your GPU, monitor earning accumulation with 
+weekly checks, and reconcile payout records through monthly review.  Compliance  Maintain payment 
+documentation (transaction hashes and amounts), save owner communications correspondence, consider 
+tax requirements by consulting professionals for 1099 requirements, and ensure privacy protection 
+through secure storage of owner data.  Related Guides  Paying owners - Complete payment guide | 
+Monitoring financials - Track obligations | Troubleshooting - Resolve issues NFTs Financials 
+
+
+========================================
+## provider pages dropdown > financials
+URL: https://docs.silicon.net/provider-pages-dropdown/financials
+========================================
+
+ Pages Financials Financials  Purpose  Track financial performance and manage transactions across 
+your GPU fleet. The Financials page provides comprehensive visibility into your earnings, payouts, 
+and transactions.  Overview Tab  High-level financial metrics and visualizations for quick 
+performance assessment.  Key Metrics  Wallet Balance: The current USDC balance in your connected 
+wallet, available for payouts and operations. We recommend maintaing a balance of ≥ 1.5x upcoming 
+30-day payouts. Click "Transfer" to add funds.  Next 30D Payouts: Estimated payouts for next 30 
+days based on current earnings data. As a critical part of cash flow planning, this metric updates 
+daily.  Gross Earnings: Total revenue generated by all GPUs before owner payouts  Payouts to 
+Owners: Total amount paid to GPU owners. Will lag behind earnings by approx. 30 days as earnings 
+need to age to account for chargebacks and finalization.  Net Earnings: Gross earnings minus owner 
+payouts—your revenue after obligations. Includes platform fees (if applicable).  Charts and 
+Visualizations  Earnings Over Time: Track revenue trends and identify patterns. Filter by date 
+range (daily, weekly, monthly views) to see both daily and cumulative earnings while identifying 
+seasonal trends across your filtered dataset.  Average Gross Card Earnings: Compare performance 
+across GPU types using percentile views (10th, 25th, 50th, 75th, 90th). Filter by GPU type (RTX 
+4090, RTX 5090, H100s) and display rates per-hour or per-month to benchmark against expectations. 
+Use this to identify high-performing GPU types, compare against market rates, validate pricing 
+strategies, and plan hardware procurement.  Asset ARR (Annual Run Rate): Project annualized returns 
+for different GPU types by viewing percentage returns over time. Compare trends for every GPU type 
+in your fleet and filter by date range to forecast future performance, compare investment 
+efficiency, and guide purchase decisions.  Earnings Tab  Detailed transaction-level earnings data 
+for comprehensive analysis.  Information displayed per transaction:   Date: When earnings were 
+generated  Vendor: Platform where GPU was rented  GPU Type: Hardware model  GPU ID: specific GPU 
+identifier  Earnings: Amount generated   Filter options:   By date to select date ranges, compare 
+periods, and track specific timeframes.  By vendor to compare vendor performance, identify 
+best-performing platforms, track vendor-specific issues, and validate sync accuracy.  By GPU type 
+to analyze per-model performance, compare across hardware types, identify underperformers, and 
+guide procurement decisions.   Search: Search specific transactions to find by GPU ID, locate 
+specific dates/amounts, investigate anomalies, and maintain audit trails.  Export: Export earnings 
+data in CSV format including all filter criteria for external analysis and tax/accounting purposes. 
+ Use Cases  Weekly Performance Review:   Set filter to "Last 7 days"  Sort by earnings (descending) 
+ Identify top and bottom performers  Investigate $0 earning GPUs   Vendor Comparison:   Group by 
+vendor  Calculate average per vendor  Compare against vendor SLAs  Address underperformance   GPU 
+Type Analysis:   Filter by specific GPU type  Calculate average earnings  Compare to benchmarks  
+Inform purchase decisions   Payouts Tab  Manage scheduled and completed owner payments.  Upcoming 
+Payouts  View and process pending payments to GPU owners.  Information displayed:   Scheduled Date: 
+When payout is due  GPU Type: Hardware generating earnings  GPU ID: Specific GPU  Token ID / 
+Address: NFT identifier  Owner: Owner name and wallet  Owner Address: Payment destination  Amount: 
+Payout amount   Actions: Use Pay Now to process individual payouts immediately. See: Paying owners 
+for detailed guidance.  Use cases: Review upcoming obligations, process early payment requests, 
+verify payout accuracy before processing, and monitor cash flow requirements.  Past Payouts  
+Historical record of completed payments including complete payment history, transaction hashes, 
+payment dates and amounts, owner information, and GPU/NFT details.  Actions available: Search past 
+transactions, export payment records, verify payment completion, and generate owner reports for 
+audit trail maintenance, owner inquiry responses, tax documentation, and financial reconciliation.  
+All Transactions Tab  Complete transaction history including wallet transfers and payments.  
+Information Displayed   Date : Transaction timestamp  Sender Address : Origin wallet  Recipient 
+Address : Destination wallet  Amount : Transaction value  Type : Earnings, Payout, Transfer, etc.  
+Transaction Hash : On-chain identifier   Actions available: Filter transactions by date range, 
+transaction type, wallet address, and amount range. Export transaction data in full or filtered CSV 
+format including all metadata for accounting systems. Sort by date (newest/oldest), amount 
+(high/low), transaction type, or sender/recipient.  Use Cases  Monthly Reconciliation:   Export all 
+transactions for month  Import to accounting software  Reconcile with bank statements  Verify all 
+entries balanced   Audit Trail:   Filter to specific time period  Review all transactions  Document 
+any anomalies  Maintain compliance records   Owner Inquiry:   Search by owner address  Find 
+specific payment  Provide transaction hash  Confirm payment delivery   Financial Monitoring  Daily 
+Checks  Dashboard Review (2-3 minutes): Check wallet balance, review next 30D payouts, compare 
+balance to obligations, and top up wallet if needed.  Earnings Verification (5 minutes): Review 
+earnings chart for anomalies, check latest earnings transactions, verify expected daily totals, and 
+investigate significant deviations.  Weekly Analysis  Performance Deep Dive (30 minutes): Export 
+last 7 days earnings, calculate per-GPU averages, compare week-over-week, and identify trends and 
+issues.  Payout Planning (15 minutes): Review upcoming payouts, verify wallet balance is adequate, 
+schedule payment processing, and communicate with owners if needed.  Monthly Reconciliation  
+Complete Financial Review (2-3 hours): Export all transactions, download monthly statement, 
+reconcile with internal records, generate stakeholder reports, and archive documentation.  Key 
+Performance Indicators  Financial Health  Wallet Balance Ratio: Target ≥ 1.5x next 30D payouts 
+(Warning: < 1.2x, Critical: < 1.0x).  Gross Earnings Growth: Track month-over-month percentage 
+growth against capacity additions (Target: positive growth).  Payout Ratio: Owner payouts divided 
+by gross earnings, typically 60-80%. Higher ratios mean more goes to owners, lower ratios mean more 
+provider revenue.  Net Margin: Net earnings divided by gross earnings. Target depends on your 
+business model—monitor trend over time and optimize through efficiency.  Operational Efficiency  
+Average Earnings per GPU: Track by type (4090, 5090, H100), compare to benchmarks month-over-month, 
+and use to guide procurement decisions.  Utilization Rate: GPUs earning divided by total GPUs 
+(Target: > 95%). Track daily and address gaps quickly.  Payment Timeliness: Percentage of payouts 
+processed on schedule (Target: 100%). Track failures and delays to maintain owner trust.  
+Troubleshooting  Earnings Don't Match Vendor  Check: Date range alignment, time zone differences, 
+sync status, and whether you're comparing gross vs net figures.  Action: Cross-reference specific 
+GPUs, verify sync status, and contact support if there's a large discrepancy.  Missing Transactions 
+ Check: Date filter settings, transaction type filters, whether the page has refreshed recently, 
+and network confirmation status.  Action: Clear all filters, refresh the page, and check the block 
+explorer if transactions are still missing.  Incorrect Payout Totals  Check: Time period 
+calculation accuracy, whether all GPUs are included, if recent pairings are reflected, and data 
+sync completion status.  Action: Review individual GPU earnings, verify totals in the Earnings tab, 
+and recalculate manually to identify discrepancies.  Best Practices  Data Management  Export data 
+monthly as a minimum retention requirement, maintain multiple backups in both cloud and local 
+storage, organize files by month and year, and document any anomalies with explanations for 
+deviations.  Cash Flow  Maintain a buffer of 1.5x upcoming payouts minimum, monitor balance daily 
+every morning, and schedule top-ups before running low.  Reporting  Establish a regular cadence 
+(weekly internal, monthly external), focus on key metrics without overwhelming stakeholders with 
+data, include trend analysis to show change over time, and provide context to explain significant 
+changes.  Compliance  Retain records for 7+ years to meet tax and legal requirements, record all 
+blockchain transaction hashes, maintain owner records that match 1099 requirements (if applicable), 
+and keep a complete and accessible audit trail.  Integration with Other Pages  Hardware Connection  
+Earnings are tracked per GPU with GPU IDs linking to the Hardware page. Performance data is 
+synchronized in real-time across both pages.  Owners Connection  Payout data feeds from earnings 
+data, owner information is synchronized across both pages, and payment processing updates reflect 
+in both views for consistency.  NFTs Connection  Earnings are tied to paired NFTs with token IDs 
+referenced in transactions. Owner payments follow NFT ownership, and pairing status impacts earning 
+tracking.  Related Guides  Monitoring your financials - Complete monitoring guide | Paying owners - 
+Payment processing | Best Practices - Financial management guidelines Owners Settings 
+
+
+========================================
+## provider pages dropdown > settings
+URL: https://docs.silicon.net/provider-pages-dropdown/settings
+========================================
+
+ Pages Settings Settings  Purpose  Configure account, security, and platform preferences for your 
+Provider Dashboard.  General Tab  Manage your business profile and notification preferences.  
+Account Information  Business Name: Your organization name, displayed to owners and in 
+communications. Update anytime and click "Save changes" to apply.  Your Email: Primary contact 
+email used for platform notifications, support communications, and as login identifier.  Profile 
+Photo: Optional business logo. Click "Upload" to add image or "Remove" to delete current image. 
+Displayed in communications.  Security Tab  Manage authentication and account security settings.  
+Change Password  Password Requirements   At least 10 characters (up to 100)  At least one lowercase 
+character  At least one special character (!, @, #, ?)  Significantly different from previous 
+passwords   Process:   Enter current password  Enter new password  Confirm new password  Click 
+"Save changes"   Security indicators show requirements met in real-time.  Two-Factor Authentication 
+ Purpose: Add extra layer of security to your account  Setup Process:   Click "Configure" next to 
+Google Authenticator  Scan QR code with authenticator app  Enter verification code  Save backup 
+codes securely  Confirm 2FA enabled   Backup Codes:   Generate and store offline  Use if 
+authenticator unavailable  Regenerate after use  Keep in secure location   Recommended: Always 
+enable 2FA for provider accounts  Access Tab  Manage API keys for programmatic access to your 
+provider dashboard.  API Key Best Practices  Security Guidelines: Store keys securely immediately 
+after generation, note that private key is shown only once, never share or expose publicly, rotate 
+keys quarterly, and delete unused keys.  If Key Lost: Key cannot be retrieved, must create new key, 
+update all integrations, and delete old key.  API Key Management  Create New API Key:   Click "New 
+API key"  Enter descriptive name  Copy public and private keys immediately  Store in secure 
+password manager  Never commit to version control   Information Displayed:   Name : Descriptive 
+identifier  Access Key : Public identifier  Created : Date generated  Last Used : Most recent 
+activity   Actions available: Delete to remove key (trash icon), View Details for usage history, 
+and Rotate to create new and delete old.  Access Key Usage  Common Use Cases: Automated monitoring 
+scripts, custom dashboards, integration with business intelligence tools, programmatic data 
+exports, and third-party integrations.  Security Considerations: Use environment variables, never 
+hardcode in applications, implement key rotation schedule, and revoke immediately if compromised.  
+Statements Tab  Download monthly financial statements for accounting and compliance.  Statement 
+Management  Statement Period Selector:   Dropdown list of available months  Most recent months 
+listed first  Typically available within 5 days of month end   Download Statements:   Select month 
+from dropdown  Click "Download" button  PDF statement generated  Save to secure location   
+Statement Contents  Summary Information: Business name and account details, statement period, total 
+earnings, total payouts, net revenue, and transaction count.  Detailed Transactions: All earnings 
+by GPU, all payouts to owners, fees and adjustments, and opening and closing balances.  Use Cases: 
+Monthly accounting reconciliation, tax preparation, investor reporting, audit trail maintenance, 
+and historical reference.  Best Practices  Retention: Download immediately when available, store 
+minimum 7 years (tax requirements), maintain backup copies, and organize by month/year.  
+Verification: Compare to internal records, reconcile with blockchain data, verify against dashboard 
+exports, and document any discrepancies.  Access: Store in secure, encrypted location, limit access 
+to authorized personnel, and include in disaster recovery plan.  Account Management  Profile 
+Settings  Keep your information current by updating business name as needed, maintaining accurate 
+email address, adding/updating profile photo, and reviewing quarterly.  Security Hygiene  Monthly 
+Checklist:   Check 2FA functionality  Review API key usage   Quarterly Tasks:   Rotate API keys  
+Update password  Audit user access  Test backup authentication   Annual Review:   Comprehensive 
+security audit  Update all credentials  Review access permissions  Document security procedures   
+Troubleshooting  Can't Change Password  Check: Current password entered correctly, new password 
+meets all requirements, no spaces in password fields, and caps lock not enabled.  Action: Use 
+password manager, reset via email if needed.  2FA Not Working  Check: Authenticator app time 
+synchronized, using correct app (Google Authenticator, Authy), code not expired (30-second window), 
+and app connected to internet.  Action: Use backup codes, resynchronize time, or contact support.  
+API Key Not Working  Check: Key copied correctly (no extra spaces), public and private keys both 
+provided, key not deleted, and rate limits not exceeded.  Action: Regenerate key, check API 
+documentation, and verify implementation.  Statement Not Available  Reasons: Month not yet closed, 
+still processing (wait 5 days), or technical issue.  Action: Wait until 5th of following month, 
+contact support if delayed.  Integration with Other Pages  Security Impact  Changes in Settings 
+affect Dashboard access (password, 2FA), Payment processing, and API operations (access keys 
+control programmatic access).  Financial Connection  Settings support financial operations through 
+Statements (link to Financials data) and API access (enable custom reporting).  Best Practices  
+Security First  Enable all security features (2FA, monitoring), conduct regular audits with weekly 
+log reviews, rotate credentials quarterly (password/API key changes), follow principle of least 
+privilege (minimum necessary access), and maintain incident response plans for security events.  
+Operational Excellence  Keep profile information current, download statements regularly (monthly 
+retrieval), maintain security procedures documentation, and test backup authentication methods 
+regularly.  Compliance  Maintain record retention for 7+ years for statements, document access 
+control for who has access, create policy documentation with written security procedures, and 
+conduct regular quarterly compliance checks.  Related Resources  Best Practices - Comprehensive 
+security guidance | Troubleshooting - Resolve common issues | Silicon Network Security Policy - 
+External documentation | Base Network Security - Network-level security info Financials Importing 
+Your Hardware 
+
+
+========================================
+## guides > importing hardware
+URL: https://docs.silicon.net/guides/importing-hardware
+========================================
+
+ Guides Importing Your Hardware Importing Your Hardware  When to Use This Guide  You need to add 
+physical GPUs from vendor platforms into your Silicon dashboard.  Prerequisites  Before starting, 
+ensure you have:   ✅ Active vendor account (RunPod, Vast, etc.)  ✅ API credentials from vendor  ✅ GPUs 
+deployed and running on vendor platform   Steps  1. Navigate to Vendor Settings  Go to Hardware > 
+Settings tab in the Provider Dashboard.  2. Add Your Vendor   Click "Add vendor"  Select your 
+vendor from the list:   RunPod  Vast  Akash  TensorDock  Shadeform     3. Configure Connection   
+Enter your API credentials  Configure sync preferences:   Sync frequency  Start date for historical 
+data    Click "Start sync"   ⚠️ Store your API credentials securely. They provide full access to your 
+vendor account.  4. Monitor Sync Status  After initiating the sync:   Watch the Vendors table for 
+sync progress  Check the "Synced to" column for the most recent data timestamp  Verify "Next sync" 
+shows the expected time   Initial sync may take several minutes depending on your GPU count and 
+historical data range.  5. Activate Servers  Once sync completes:   Go to Hardware > Servers tab  
+Find your newly imported servers in the activation list  Review server details:   Vendor name  
+Machine ID  GPU count  Tokenization status    Toggle "Active" for servers you want available for 
+GPU pairing   ⚠️ Only activate servers with GPUs you intend to tokenize. Deactivating later will 
+unpair any related NFTs.  What Happens Next  Your activated servers and their GPUs now appear in 
+Hardware > GPUs tab , ready for NFT pairing.  Troubleshooting  Sync Fails to Start  Check:   API 
+credentials are correct and not expired  Vendor platform is operational  API key has proper 
+permissions   Action: Re-enter credentials and retry sync.  Sync Interrupts Mid-Process  You'll see 
+an alert: "Vendor syncing has been interrupted"  Action:   Click "Fix sync issues" for detailed 
+error information  Review the error message  Common causes:   API rate limiting  Network 
+connectivity issues  Vendor platform maintenance    Wait 5 minutes and retry sync   GPUs Not 
+Appearing After Sync  Check:   Verify sync completed successfully (check "Synced to" timestamp)  
+Confirm servers are Active in Hardware > Servers  Check vendor platform to ensure GPUs are deployed 
+  Action: If GPUs still don't appear, contact support with your vendor name and sync timestamp.  
+Related Guides   Pairing an NFT to a GPU - Next step after import  Monitoring your financials - 
+Track imported GPU performance   Best Practices   Sync daily: Set up automatic daily syncs to keep 
+data current  Activate strategically: Only activate servers with GPUs generating earnings  Monitor 
+sync health: Check sync status weekly to catch API issues early  Rotate API keys: Update vendor API 
+credentials quarterly for security  Settings Minting an NFT (Unpaired) 
+
+
+========================================
+## guides > minting nft unpaired
+URL: https://docs.silicon.net/guides/minting-nft-unpaired
+========================================
+
+ Guides Minting an NFT (Unpaired) Minting an NFT (Unpaired)  When to Use This Guide  You want to 
+create NFTs before receiving physical hardware, or for pre-sales.  Prerequisites  Before starting, 
+ensure you have:   ✅ Connected wallet with sufficient balance for gas fees  ✅ GPU type and quantity 
+determined   Steps  1. Navigate to Unpaired NFTs  Go to NFTs > Unpaired tab in the Provider 
+Dashboard.  2. Initiate Minting  Click the "Mint" button in the top right.  3. Configure NFT 
+Details    Select GPU type from dropdown    Enter quantity to mint    Select Drop/collection to 
+associate this NFT with    4. Review Transaction  Review the transaction details:   Total NFTs to 
+mint  Gas fee estimate  Expected delivery date (if pre-sale)   5. Confirm and Approve   Click 
+"Confirm mint"  Your wallet will prompt for approval  Approve the transaction  Wait for blockchain 
+confirmation   Minting time varies based on network congestion. Typically completes in 30-60 
+seconds.  Result  New NFTs appear in the Unpaired tab with:   Mint date  Token ID and address  Drop 
+information  Expected delivery date (if applicable)   ⚠️ Unpaired NFTs do not generate earnings until 
+paired with physical GPUs.  What Happens Next  When physical hardware arrives:   Import the GPUs 
+via vendor sync  Follow the Pairing an NFT to a GPU guide   Use Cases  Pre-Sales  Mint NFTs before 
+hardware arrives to enable early purchases. Buyers own the NFT immediately but earnings begin only 
+after GPU pairing.  Batch Operations  Mint multiple NFTs at once to prepare for bulk hardware 
+deployments.  Marketplace Listings  Create unpaired NFTs for listing on secondary marketplaces 
+before hardware procurement.  Related Guides   Pairing an NFT to a GPU - Connect NFTs to physical 
+hardware  Minting an NFT (Paired) - Alternative for immediate pairing   Best Practices   Mint 
+unpaired NFTs for pre-sales only - Don't create excess unpaired inventory  Track expected delivery 
+dates - Communicate clearly with buyers  Pair within 24 hours of hardware provisioning - Minimize 
+delay between purchase, setup, and earnings  Importing Your Hardware Minting an NFT (Paired) 
+
+
+========================================
+## guides > minting nft paired
+URL: https://docs.silicon.net/guides/minting-nft-paired
+========================================
+
+ Guides Minting an NFT (Paired) Minting an NFT (Paired to a GPU)  When to Use This Guide  You have 
+physical GPUs already imported and want to immediately mint and pair NFTs.  Prerequisites  Before 
+starting, ensure you have:   ✅ GPUs imported via vendor sync (see Importing your hardware )  ✅ 
+Servers activated in Hardware > Settings   Steps  1. Navigate to Paired NFTs  Go to NFTs > Paired 
+tab in the Provider Dashboard.  2. Initiate Minting  Click the "Mint" button in the top right.  3. 
+Select GPU Type  Choose the GPU type from dropdown.  Only GPUs of the selected type will be 
+available for pairing.  4. Choose Specific GPUs  Select which GPUs to pair from your inventory:   
+Browse by Server ID  Filter by availability status  View GPU specifications   Verify GPU details:   
+Machine ID  Current pairing status (must be unpaired)  Server location   ⚠️ Wallet addresses cannot 
+be changed after minting. Verify carefully before proceeding.  5. Select Drop/Collection  Choose 
+the drop or collection:   Select from existing drops  Or use default collection   6. Review and 
+Confirm  Review all pairing and transaction details:   GPU count and types  Owner wallet address  
+Drop information  Gas fee estimate    Click "Confirm mint"  Approve transaction in wallet  Wait for 
+blockchain confirmation   Result  NFTs are minted and immediately paired to specified GPUs. They 
+appear in the Paired tab with:   Full GPU UUID  Owner name and address  NFT metadata (Token ID, 
+Drop)  Server ID  GPU specifications   The paired GPUs immediately begin generating earnings for 
+their owners.  What Happens Next   GPUs start tracking earnings  Owner can view their assets in 
+Owner Dashboard  Earnings accumulate for next payout cycle   Related Guides   Importing your 
+hardware - First import GPUs  Paying owners - Process earnings payments  Minting an NFT (Unpaired) 
+- Alternative approach   Best Practices   Use paired minting for immediate sales - You don't have 
+to also pair the NFTs and GPUs  Confirm GPU availability - Ensure GPUs are active and earning 
+before pairing  Keep records - Document which GPUs were sold to which owners  Minting an NFT 
+(Unpaired) Pairing an NFT to a GPU 
+
+
+========================================
+## guides > pairing nft
+URL: https://docs.silicon.net/guides/pairing-nft
+========================================
+
+ Guides Pairing an NFT to a GPU Pairing an NFT to a GPU  When to Use This Guide  You have unpaired 
+NFTs and physical GPUs ready to be connected.  Prerequisites  Before starting, ensure you have:   ✅ 
+Unpaired NFTs in your inventory  ✅ Physical GPUs imported and activated  ✅ GPUs not currently paired 
+to other NFTs   Steps  1. Navigate to Unpaired NFTs  Go to NFTs > Unpaired tab in the Provider 
+Dashboard.  2. Select NFTs to Pair   Review your unpaired NFT inventory  Select the NFT(s) you want 
+to pair using checkboxes  Note the GPU type for each NFT   You can pair multiple NFTs at once if 
+you have matching GPUs available.  3. Initiate Pairing  Click the "Pair" button in the top right.  
+4. Select Matching GPUs  In the pairing interface:    Select matching GPU type   Must match the 
+NFT's GPU type exactly  RTX 4090 NFT → RTX 4090 GPU only     Choose specific GPU(s)   Browse by 
+Machine ID or Server ID  Filter by availability status  View GPU specifications     Verify GPU 
+availability   Status shows "Available for pairing"  Not currently paired to another NFT  Part of 
+an active server     ⚠️ GPU type must match NFT GPU type. Mismatched pairings will be rejected.  5. 
+Review Pairing Details  Verify all information:   NFT Token ID and address  GPU Machine ID  Server 
+location  Owner information   6. Confirm Transaction   Click "Confirm pairing"  Review transaction 
+in wallet  Approve transaction  Wait for blockchain confirmation   Pairing confirmation typically 
+takes 30-60 seconds depending on network conditions.  Result  NFT moves to Paired tab with:   Full 
+GPU UUID  Server ID  NFT metadata   GPU in Hardware > GPUs now shows:   Token ID  Owner information 
+ Pairing date   Earnings begin immediately after successful pairing.  Important Notes  One-to-One 
+Relationship   One NFT pairs to exactly one GPU  One GPU can have exactly one paired NFT  This 
+relationship is permanent until unpaired   GPU Type Matching  GPU type must match NFT GPU type:   
+RTX 4090 NFT → RTX 4090 GPU ✅  RTX 4090 NFT → H100 GPU ❌   Unpairing  To unpair an NFT from a GPU:   
+Navigate to NFTs > Paired  Click the three dots icon in the last column of the NFT you wish to 
+unpair  Click "Edit pairing"  Change or remove the pairing   Troubleshooting  "No Available GPUs" 
+Error  Cause: No GPUs of matching type are available for pairing.  Solutions:   Import GPUs via 
+vendor sync  Activate servers in Hardware > Settings  Verify GPUs aren't already paired  Check GPU 
+type matches NFT type   Pairing Transaction Fails  Cause: Blockchain transaction issues or 
+validation errors.  Solutions:   Check network status (Base mainnet)  Retry transaction  Contact 
+support@silicon.net if repeated failures   GPU Doesn't Show Owner After Pairing  Cause: Data sync 
+delay or pairing verification pending.  Solutions:   Wait 2-3 minutes for blockchain confirmation  
+Refresh the page  Check NFTs > Paired tab to verify pairing completed  Contact support@silicon.net 
+if issue persists beyond 10 minutes   Related Guides   Importing your hardware - First import GPUs  
+Minting an NFT (Unpaired) - Create NFTs first  Monitoring financials - Track earnings after pairing 
+  Best Practices   Pair NFTs within 24 hours of hardware receipt - Minimize revenue delays  Verify 
+GPU type matching - Double-check before confirming  Document pairings - Keep records of which NFTs 
+paired to which GPUs  Test with one pairing first - Verify process before bulk operations  Minting 
+an NFT (Paired) Paying Owners 
+
+
+========================================
+## guides > paying owners
+URL: https://docs.silicon.net/guides/paying-owners
+========================================
+
+ Guides Paying Owners Paying Owners for GPU Earnings  When to Use This Guide  Process payments 
+according to your regular payout schedule, or when an owner requests payment.  Prerequisites  
+Before starting, ensure you have:   ✅ Sufficient wallet balance to cover payouts  ✅ Owners have 
+accumulated earnings  ✅ Connected wallet with payment authority   ⚠️ Maintain wallet balance of at 
+least 1.5x upcoming 30-day payouts to avoid payment failures.  Payment Methods  You have three 
+options for processing payments. Choose based on your workflow.  Option 1: Pay All Owners  Best 
+for: Regular batch payments to all owners at once.  Steps   Navigate to Owners page  Review total 
+payouts in "Next payout" column  Verify your wallet balance is sufficient  Click "Pay all" (top 
+right)  Review total payout amount in confirmation dialog  Confirm transaction details  Approve in 
+wallet  Wait for transaction confirmation   What Happens   All owners with pending payouts receive 
+payment simultaneously  Transaction is recorded in Financials > All transactions  Each owner 
+receives USDC payment on Base  "Next payout" amounts reset to $0.00  "Total payouts" increases for 
+each owner   Option 2: Pay Individual Owner  Best for: Ad-hoc payments or responding to individual 
+owner requests.  Steps   Navigate to Owners page  Find the owner in the list (use search if needed) 
+ Check their "Next payout" amount  Click "Pay [amount]" button in their row  Review payout details 
+in confirmation dialog:   Owner name and wallet address  Payment amount    Confirm transaction  
+Approve in wallet  Wait for confirmation   Use Cases   Owner requests early payment  Testing 
+payment system  Special payment arrangements  Resolving payment disputes   Option 3: Pay from 
+Financials Page  Best for: Detailed review before processing payments.  Steps   Navigate to 
+Financials > Payouts > Upcoming payouts  Review the list of scheduled payouts  Verify amounts and 
+owner details  Find specific payout(s) to process  Click "Pay now" for individual payout  Review 
+transaction details  Confirm and approve in wallet   Advantages   More detailed view of payout 
+breakdown  See GPU-level earnings detail  Cross-reference with earnings data  Better for audit 
+trail and reconciliation   After Payment  What Happens Automatically  Transaction Recording   
+Payment logged in Financials > All transactions  Timestamp and transaction hash recorded  Owner's 
+payout history updated   Owner Updates   Owner receives USDC payment on Base network  "Next payout" 
+amount resets to $0.00  "Total payouts" counter increases  Payment notification sent (if 
+configured)   Your Dashboard   Wallet balance decreases by payout amount  "Upcoming payouts" metric 
+updates  "Total payouts" metric increases   Verification Steps  After processing payments:    Check 
+transaction status   Go to Financials > All transactions  Verify transaction appears with 
+"Completed" status  Note transaction hash     Verify owner balances updated   Return to Owners page 
+ Confirm "Next payout" shows $0.00  Check "Total payouts" increased correctly     Monitor wallet 
+balance   Ensure remaining balance is sufficient  Plan for next payout cycle     Payments typically 
+confirm within 1-2 minutes on Base network.  Troubleshooting  Payment Transaction Fails  
+Insufficient Balance   Symptom: Transaction rejected before submission  Solution: Add funds to 
+wallet, then retry payment   Invalid Owner Address   Symptom: Transaction fails during processing  
+Solution: Verify owner wallet address is valid Base address, contact owner to confirm   Network 
+Issues   Symptom: Transaction pending indefinitely  Solution: Check Base mainnet status, wait for 
+network recovery   Owner Reports Not Receiving Payment  Verification Steps:   Check transaction 
+hash on block explorer  Verify payment went to correct address  Confirm transaction shows as 
+completed  Ask owner to check correct wallet/network   Common Causes:   Owner checking wrong wallet 
+ Owner on different network (not Base)  Payment pending (not yet confirmed)   Wallet Not Connecting 
+ Solutions:   Refresh page and reconnect wallet  Clear browser cache  Try different browser  Verify 
+wallet extension is updated  Check wallet is on Base network   Payment Schedules  Recommended 
+Schedules  Weekly Payments   Process every Friday/Monday  Predictable for owners  Manageable cash 
+flow   Bi-Weekly Payments   Process 1st and 15th of month  Standard business practice   Monthly 
+Payments   Process on 1st of month  Lowest transaction costs  Requires larger wallet balance   ⚠️ 
+Establish a consistent schedule and communicate it clearly to owners.  Best Practices  Before 
+Processing Payments   Verify wallet balance - Ensure 1.5x upcoming payouts available  Review 
+earnings data - Check for any anomalies or disputes  Confirm owner addresses - Especially for new 
+owners  Check network status - Avoid processing during network congestion   During Payment 
+Processing   Use batch payments when possible - More efficient  Keep records - Screenshot 
+confirmation or save transaction hashes  Stay online - Don't close browser until confirmation   
+After Payment Processing   Verify all payments completed - Check transaction status  Document in 
+accounting system - Maintain parallel records  Communicate with owners - Confirm payments sent (if 
+needed)  Monitor for issues - Watch for owner support requests   Related Guides   Monitoring your 
+financials - Track payout obligations  Troubleshooting - Resolve payment issues   Security 
+Considerations   Enable 2FA - Protect wallet connection in Settings > Security  Use passkeys - 
+Required for payment transactions  Review action log - Check Settings > Security > Action log 
+regularly  Limit wallet exposure - Only keep necessary funds in hot wallet  Pairing an NFT to a GPU 
+Monitoring Financials 
+
+
+========================================
+## guides > monitoring financials
+URL: https://docs.silicon.net/guides/monitoring-financials
+========================================
+
+ Guides Monitoring Financials Monitoring Your Payouts, Earnings, and Transactions  Purpose  Track 
+financial performance and maintain accurate records across your GPU infrastructure.  This guide 
+provides a comprehensive monitoring framework with daily, weekly, and monthly routines.  Daily 
+Monitoring Routine  Check Dashboard Alerts  Purpose: Catch revenue-impacting issues immediately.   
+Navigate to Dashboard  Review "GPUs not collecting earnings" alert  If alert present:   Click "View 
+GPUs" to see affected hardware  Investigate each GPU  Check vendor sync status  Verify NFT pairing 
+intact     ⚠️ Revenue loss compounds quickly. Address earning alerts within 24 hours.  Review Key 
+Earnings Metrics  Purpose: Monitor cash flow and upcoming obligations.   Navigate to Financials > 
+Overview  Check key metrics:   Wallet balance - Sufficient for upcoming payouts?  Next 30D payouts 
+- Cash flow planning  Earnings chart - Trend analysis (up, down, or stable?)     Red Flags:   
+Wallet balance < 1.5x upcoming payouts  Sudden drop in daily earnings  Unusual spikes (possible 
+data error)   Actions:   Top up wallet if low  Investigate earning drops immediately  Verify data 
+accuracy for spikes   Weekly Deep Dive  Spend 30-45 minutes each week analyzing performance in 
+detail.  Earnings Analysis  Purpose: Identify performance trends and issues.   Navigate to 
+Financials > Earnings  Set date filter to "Last 7 days"  Review earnings by:   By Vendor   Are all 
+vendors performing equally?  Any vendor showing consistent underperformance?  Compare 
+week-over-week trends   By GPU Type   Which models generating highest revenue?  Are earnings per 
+GPU type meeting expectations?  Any type showing declining performance?   By Specific GPU ID   
+Identify top performers (for analysis)  Find underperformers (for investigation)  Look for GPUs 
+with $0 earnings   Export weekly data to track long-term trends in a spreadsheet.  GPU Performance 
+Review  Purpose: Catch hardware issues before they impact revenue.   Navigate to Hardware > GPUs  
+Sort by "Last earning" (descending - oldest first)  Investigate GPUs with stale earnings data:   
+Check vendor platform status  Verify server is active  Confirm NFT pairing intact  Look for 
+hardware alerts     Thresholds:   24 hours: Monitor  48 hours: Investigate  72+ hours: Escalate to 
+vendor   Owner Payout Tracking  Purpose: Verify payment obligations are being met.   Navigate to 
+Financials > Payouts > Past payouts  Verify all scheduled payments completed:   Check against your 
+payment schedule  Confirm amounts match expectations  Look for failed transactions    
+Cross-reference with wallet balance changes:   Do payments match balance decreases?  Account for 
+gas fees  Identify any discrepancies     Monthly Reconciliation  Comprehensive financial review at 
+month-end.  Financial Statements  Purpose: Maintain accurate accounting records.   Navigate to 
+Settings > Statements  Download current month statement  Reconcile with internal accounting:   
+Verify gross earnings match  Confirm all payouts recorded  Account for gas fees  Check 
+beginning/ending balances     Use For:   Tax preparation  Financial reporting  Audit trail  
+Investor updates   Export Detailed Data  Purpose: Create comprehensive records for analysis.   
+Navigate to Financials > All transactions  Set filter to current month  Click "Export"  Save 
+exported data   Uses:   Tax preparation  Detailed P&L analysis  Owner reporting  Compliance 
+documentation   Performance Reporting  Purpose: Understand trends and communicate results.   Review 
+Financials > Overview charts:   Average Gross Card Earnings   Track against benchmarks  Compare 
+across GPU types  Identify seasonal patterns  Set future expectations   Asset ARR (Annual Run Rate) 
+  Monitor trend over time  Calculate by GPU type  Project future performance  Report to 
+stakeholders     Take screenshots or export data for reports    Create summary for stakeholders:   
+Total GPUs deployed  Gross earnings  Payouts processed  Key performance metrics  Issues and 
+resolutions     Create a monthly report template to streamline this process.  Monitoring Dashboards 
+ Create Custom Views  Save frequently-used filters and views for quick access:  Underperforming 
+GPUs View   Hardware > GPUs  Filter: Last earning > 72 hours  Save as "Stale Earners"   High-Value 
+Owners View   Owners page  Filter: GPU count > 10  Save as "Major Owners"   Recent Earnings View   
+Financials > Earnings  Filter: Last 7 days  Sort: Earnings descending  Save as "Weekly Top Earners" 
+  Set Up Notifications  Configure alerts in Settings > General > Notifications :   Payout failed - 
+Critical transaction errors  Low funds warning - Wallet balance insufficient  Upcoming scheduled 
+payout reminder - 24h before payout  Successful payout - Confirmation of completed payments   Key 
+Metrics to Track  Financial Health   Wallet balance - Always ≥ 1.5x next 30D payouts  Gross earnings 
+- Week-over-week growth  Net earnings - After owner payouts  Payout ratio - Owner payouts / Gross 
+earnings   Operational Health   GPUs earning - Target: 100% (realistically 95-98%)  Average earning 
+per GPU - By type, vs. benchmarks  Sync health - All vendors syncing successfully  Pairing status - 
+All deployed GPUs paired   Owner Satisfaction   Payment timeliness - On-schedule payout %  Payment 
+accuracy - Disputes / Total payments  Response time - For owner inquiries   Red Flags and Alerts  
+Immediate Action Required   Wallet balance < next payout amount  Less than 10% of GPUs not earning 
+for 24+ hours  Vendor sync failing for 6+ hours  Payment transaction failure   Investigate Within 
+24 Hours   Week-over-week earnings drop >15%  Individual GPU earning $0 for 48+ hours  Wallet 
+balance < 1.5x upcoming payouts  Owner payment inquiry   Monitor and Track   Gradual decline in 
+per-GPU earnings  Seasonal fluctuations in demand  New GPU types underperforming expectations  
+Payout ratio increasing over time   Reporting Templates  Daily Dashboard Check (5 minutes)   Check 
+Dashboard for alerts  Review Financials > Overview metrics  Verify wallet balance adequate  Note 
+any issues for investigation   Weekly Review (30-45 minutes)   Export earnings data for last 7 days 
+ Analyze by vendor, GPU type, and individual GPU  Check Hardware > GPUs for stale earners  Verify 
+all scheduled payouts completed  Update performance tracking spreadsheet   Monthly Close (2-3 
+hours)   Download monthly statement  Export all transactions  Reconcile with accounting system  
+Generate performance report  Calculate key metrics  Create stakeholder summary  Archive all 
+documentation   Tools and Exports  Available to export as a CSV.  Recommended Tools   Spreadsheet 
+software - Track trends over time  Block explorers - Verify on-chain transactions  Accounting 
+software - Integrate financial data  Monitoring dashboards - Real-time alerts   Best Practices  
+Data Hygiene   Export data monthly  Keep 7+ years of records  Document any anomalies  Maintain 
+parallel records in accounting system   Proactive Monitoring   Don't wait for owner complaints  
+Investigate small issues before they grow  Track trends, not just point-in-time metrics  Set up 
+automated alerts   Communication   Share performance data with stakeholders  Notify owners of 
+systemic issues  Document resolutions to problems  Maintain transparency   Continuous Improvement   
+Review monitoring processes quarterly  Update thresholds based on experience  Automate repetitive 
+checks  Learn from past issues   Related Guides   Paying owners - Process scheduled payments  
+Troubleshooting - Resolve common issues  Best Practices - Operational excellence   Advanced Topics  
+API Integration  Use Settings > Access to generate API keys for:   Automated monitoring scripts  
+Custom dashboards  Integration with business intelligence tools  Programmatic data exports   
+Performance Benchmarking  Track your metrics against:   Network averages (if available)  Your 
+historical performance  Individual vendor benchmarks  GPU type expectations  Paying Owners Best 
+Practices 
+
+
+========================================
+## best practices
+URL: https://docs.silicon.net/best-practices
+========================================
+
+ Best Practices Best Practices  Operational guidelines for running a successful GPU provider 
+operation on Silicon Network.  Hardware Management  Vendor Data Synchronization  Sync vendor data 
+daily via Hardware > Settings   Monitor sync status every morning  Address sync failures within 6 
+hours  Rotate API keys quarterly for security   Why it matters: Stale data leads to inaccurate 
+earnings reporting and owner complaints.  Performance Monitoring  Investigate any GPU showing no 
+earnings for an unexpected amount of time  24-hour checklist:   Verify GPU still deployed on vendor 
+platform  Check NFT pairing intact  Confirm server activation status  Review vendor platform alerts 
+  48-hour checklist:   Contact vendor support  Check hardware status  Review rental demand for GPU 
+type   72+ hours:   Communicate with affected owner  Document issue and resolution   NFT Operations 
+ Minting Strategy  Mint unpaired NFTs for pre-sales only   Avoid creating excess unpaired inventory 
+ Track expected hardware delivery dates  Communicate delivery timelines to buyers  Have pairing 
+plan before minting   Why it matters: Unpaired NFTs don't generate earnings, leading to buyer 
+dissatisfaction.  Pairing Timeliness  Pair NFTs within 24 hours of provisioning and rental on a 
+vendor platform   Prepare pairing details in advance  Batch pair when possible for efficiency  
+Verify successful pairing immediately  Confirm earnings begin tracking   Impact: Every day unpaired 
+= lost revenue for owners and reputation risk for you.  Financial Management  Wallet Balance 
+Maintenance  Maintain wallet balance of at least 1.5x upcoming 30-day payouts  Monitoring schedule: 
+  Daily: Check balance vs upcoming payouts  Weekly: Top up if below threshold  Monthly: Review 
+buffer adequacy   Why 1.5x ?   Accounts for payout growth between top-ups  Provides buffer for 
+urgent payments  Maintains payment reliability reputation   Payment Schedules  Pay owners on 
+consistent schedule (weekly/monthly)  Weekly payments:   Pros: Predictable cash flow, happier 
+owners  Cons: More admin time  Best for: Smaller operations (<100 GPUs)   Bi-weekly payments:   
+Pros: Balance of frequency and efficiency  Cons: Requires clear communication  Best for: Mid-size 
+operations (100-500 GPUs)   Monthly payments:   Pros: Lowest transaction costs, simplified 
+accounting  Cons: Longer wait for owners, requires larger balance  Best for: Large operations (500+ 
+GPUs)   Whatever schedule you choose, communicate it clearly and stick to it consistently.  Record 
+Keeping  Export transaction data monthly for records  Monthly export checklist:   All transactions 
+(Financials > All transactions)  Monthly statement (Settings > Statements)  GPU performance data  
+Payout records  Owner communications   Storage requirements:   Keep 7+ years for tax purposes  
+Store in multiple locations (cloud + local)  Organize by month and year  Document any anomalies or 
+disputes   Security  Authentication  Enable 2FA in Settings > Security   Use authenticator app  
+Store backup codes securely  Test recovery process  Require for all admin users   API Key 
+Management  Rotate API keys quarterly (Settings > Access)  Rotation schedule:   Q1: January 15  Q2: 
+April 15  Q3: July 15  Q4: October 15   Rotation process:   Generate new API key  Test new key in 
+staging (if available)  Update production systems  Verify functionality  Delete old key  Document 
+change   ⚠️ Never commit API keys to version control or share them via unsecured channels.  
+Operational Excellence  Documentation  Maintain comprehensive documentation:  System documentation: 
+  Vendor integration details  Server inventory and locations  Network architecture  Disaster 
+recovery procedures   Process documentation:   Onboarding new GPUs workflow  Payment processing 
+procedures  Owner communication templates  Incident response playbook   Historical documentation:   
+Performance trends and analysis  Issues and resolutions  Owner feedback and complaints  System 
+changes and upgrades   Communication  With owners:   Establish clear communication channels  
+Respond to inquiries within 24 hours  Provide proactive updates on issues  Share performance 
+reports regularly   With vendors:   Maintain direct support contacts  Document all technical issues 
+ Track SLA compliance  Review performance quarterly   Internal:   Daily stand-ups for operational 
+team  Weekly performance reviews  Monthly business reviews  Quarterly strategic planning   Capacity 
+Planning  Growth planning:   Monitor utilization trends  Plan hardware procurement 90 days ahead  
+Coordinate with vendors on availability  Pre-sell unpaired NFTs cautiously   Resource allocation:   
+Balance owner demand across vendors  Diversify hardware types  Plan for hardware lifecycle  Budget 
+for replacements and upgrades   Compliance and Legal  Regulatory Awareness  Understand commodity 
+ownership positioning:   Avoid investment language (ROI, yield, returns)  Focus on infrastructure 
+ownership  Emphasize active participation required  Include appropriate disclaimers   Disclaimer 
+requirements:   "Past performance is not indicative of future results"  "This offering is not a 
+security or investment product"  "GPU ownership and earnings subject to market conditions"   Tax 
+Considerations  Maintain records for tax reporting:   Gross revenue (earnings before owner payouts) 
+ Owner payouts (potential 1099 obligations)  Operating expenses (infrastructure)  Capital equipment 
+(GPU purchases)   Consult with tax professionals familiar with digital assets and tokenized 
+infrastructure.  Continuous Improvement  Performance Review Cadence  Weekly:   Review operational 
+metrics  Address immediate issues  Update short-term priorities   Monthly:   Analyze financial 
+performance  Review owner satisfaction  Plan next month's capacity   Quarterly:   Strategic 
+business review  Vendor relationship assessment  Technology stack evaluation  Team performance and 
+training   Annually:   Comprehensive business analysis  Multi-year strategic planning  Major system 
+upgrades  Budget and resource allocation   Metrics That Matter  Track these KPIs consistently:  
+Operational:   GPU utilization rate targets  Average earnings per GPU  Vendor uptime and 
+reliability  Time to pair newly provisioned hardware   Financial:   Gross revenue growth  Net 
+margin after payouts  Payment processing costs  Working capital efficiency   Customer:   Owner 
+retention rate  Average owner GPU count  Support ticket resolution time  Owner satisfaction score   
+Resources  Internal Tools   Monitoring Guide - Comprehensive tracking  Payment Guide - Process 
+payments correctly  Troubleshooting - Resolve common issues   External Resources   Base network 
+status and documentation  Vendor platform status pages  GPU performance benchmarks  Industry news 
+and trends  Monitoring Financials Troubleshooting 
+
+
+========================================
+## troubleshooting
+URL: https://docs.silicon.net/troubleshooting
+========================================
+
+ Troubleshooting Troubleshooting  Common issues and solutions for the Provider Dashboard.  GPUs Not 
+Collecting Earnings  Symptoms   Alert on Dashboard: "GPUs not collecting earnings"  GPU shows $0 
+earnings for multiple days  "Last earning" date is stale   Diagnosis Steps    Check vendor sync 
+status (Hardware > Settings)   Is sync active and recent?  Any error messages?  When was last 
+successful sync?     Verify server still deployed on vendor platform   Log into vendor console  
+Confirm server exists and is running  Check for vendor platform alerts     Confirm NFT pairing 
+intact (cross-reference Hardware and NFTs pages)   Hardware > GPUs: Check Token ID column  NFTs > 
+Paired: Verify GPU shows in list  Look for any "unpaired" status     Check server activation 
+(Hardware > Settings > Servers)   Is server showing "Active" status?  When was it last activated?   
+  Solutions  If sync is failing:   Re-authenticate vendor API credentials  Click "Fix sync issues" 
+for guided resolution  Check vendor platform service status  Wait 5 minutes and retry sync   If 
+server not deployed:   Redeploy server on vendor platform  Wait for next sync cycle (or trigger 
+manual sync)  Verify server appears in Hardware > GPUs   If NFT pairing broken:   Contact 
+support@silicon.net  Provide GPU Machine ID and Token ID  Do not attempt to re-pair manually   If 
+server deactivated:   Review reason for deactivation  Reactivate server in Hardware > Settings  
+Verify GPUs are paired with their NFTs and return to earning within 24 hours   ⚠️ If issue persists 
+beyond 24 hours, escalate to support with detailed troubleshooting notes.  Sync Failures  Symptoms  
+ Alert: "Vendor syncing has been interrupted"  Sync status shows error message  "Synced to" 
+timestamp is stale  New GPUs not appearing   Common Causes and Solutions  Invalid API Credentials  
+Symptoms:   Error: "Authentication failed"  Sync fails immediately   Solutions:   Go to Hardware > 
+Settings  Click vendor name to edit  Re-enter API credentials  Ensure credentials are current and 
+correct  Verify API key has proper permissions on vendor platform  Save and retry sync   API Rate 
+Limiting  Symptoms:   Error: "Rate limit exceeded"  Sync completes partially   Solutions:   Wait 
+15-30 minutes before retrying  Reduce sync frequency if recurring  Contact vendor to increase rate 
+limits  Consider staggering syncs across vendors   Network Connectivity Issues  Symptoms:   Error: 
+"Connection timeout"  Intermittent sync failures   Solutions:   Check your internet connection  
+Verify vendor platform is accessible  Wait 5 minutes and retry  Check vendor status page for 
+outages   Vendor Platform Maintenance  Symptoms:   Error: "Service unavailable"  All operations to 
+vendor failing   Solutions:   Check vendor status page  Wait for maintenance to complete  Sync will 
+resume automatically  Document downtime for records   Advanced Troubleshooting  Review sync error 
+message:   Go to Hardware > Settings  Click "Fix sync issues"  Read detailed error log  Follow 
+specific guidance provided   Check sync history:   Review "Synced to" column  Identify when problem 
+started  Correlate with any system changes  Document timeline for support   Payout Failures  
+Symptoms   Transaction rejected or reverts  Owner reports no payment received  Error message during 
+payment process  Transaction stuck "pending"   Diagnosis Steps    Verify wallet balance (sufficient 
+for transaction)   Check wallet balance in dashboard  Ensure sufficient USDC for payment     
+Confirm owner wallet address (valid Base address)   Should start with "0x"  Verify on Base network 
+(not Ethereum mainnet)  Check for typos or formatting issues     Check network status (Base mainnet 
+operational)   Visit status.base.org  Check for network congestion     Common Issues and Solutions  
+Insufficient Wallet Balance  Solution:   Add USDC to your wallet  Ensure balance > Payout  Retry 
+payment  Set up low balance alerts   Wrong Network  Symptoms:   Transaction fails immediately  
+Wallet shows different balance   Solution:   Switch wallet to Base network  Verify you're on Base 
+mainnet (not testnet)  Check wallet connection in top right  Retry payment   Invalid Owner Address  
+Symptoms:   Transaction reverts  Error: "Invalid address"   Solution:   Verify address with owner  
+Check address is Base-compatible  Test with small amount first  Update owner address if needed   
+Network Congestion  Symptoms:   Transaction pending for 10+ minutes  Slow confirmation   Solution:  
+ Wait for network to clear  Process payments during off-peak hours  Consider batching payments  
+Monitor Base network status   Transaction Stuck Pending  Symptoms:   Transaction submitted but not 
+confirming  Wallet shows "pending" status   Solutions:   Wait 15 minutes (may clear automatically)  
+Check transaction on Base block explorer  If stuck 30+ minutes, contact support   Verification 
+After Failure  After resolving issue:   Check transaction hash on block explorer  Verify payment 
+reached owner address  Confirm "Next payout" reset to $0  Document issue and resolution   
+Authentication Issues  Symptoms:   Can't log in  "Session expired" messages  Access denied errors   
+Solutions:  If 2FA enabled:   Verify authenticator app time sync  Try backup codes  Generate new 
+code after clock sync  Contact support if codes failing   Account locked:   Check email for 
+security alerts  Wait cooldown period (if rate limited)  Contact support for unlock  Review action 
+log after regaining access   Data Display Issues  GPUs Not Appearing  Symptoms:   GPUs deployed but 
+not in dashboard  Missing GPUs after sync  Empty Hardware > GPUs list   Solutions:   Check vendor 
+sync completed successfully  Verify servers are activated  Refresh page and wait 2 minutes  Check 
+filters (may be hiding GPUs)  Clear any active search terms   Incorrect Earnings Data  Symptoms:   
+Earnings don't match vendor platform  Sudden unexplained changes  Missing transactions   Solutions: 
+  Wait for next sync cycle  Compare date ranges (may be offset)  Check if looking at gross vs net  
+Verify timezone settings match  Export data and compare with vendor   Owner Information Not 
+Updating  Symptoms:   Owner details showing old info  Payout amounts not refreshing  Contact info 
+outdated   Solutions:   Refresh page  Check if viewing cached data  Clear browser cache  Wait 5 
+minutes for database update  Contact support if persists   NFT and Pairing Issues  Can't Pair NFT 
+to GPU  No matching GPUs available:   Import GPUs via vendor sync  Activate servers in Hardware > 
+Settings  Verify GPU type matches NFT type  Check GPUs not already paired   Transaction failing:   
+Check Base network status  Ensure NFT and GPU types match  Try pairing one at a time   Pairing 
+Verification Issues  Symptoms:   NFT shows unpaired after transaction  Data inconsistency between 
+pages   Solutions:   Wait 5 minutes for blockchain confirmation  Refresh page (hard refresh: 
+Ctrl+Shift+R)  Check transaction on block explorer  Verify in both NFTs and Hardware pages  Contact 
+support if inconsistent after 15 minutes   Performance Issues  Dashboard Loading Slowly  Solutions: 
+  Check internet connection speed  Clear browser cache and cookies  Disable browser extensions 
+temporarily  Try different browser  Check if vendor platforms accessible   Export Failures  
+Symptoms:   Export button not working  Downloaded file empty or corrupted  Export times out   
+Solutions:   Reduce date range being exported  Check browser popup blocker  Try different file 
+format  Export in smaller batches  Use Chrome/Firefox (better support)   Getting Help  Before 
+Contacting Support  Gather this information:   Screenshot of error message  Transaction hash (if 
+applicable)  Steps to reproduce issue  Browser and version  When issue started  What 
+troubleshooting you've tried   Contact Information  Email Support:   support@silicon.net  Response 
+time: 24-48 hours  Include account email and issue details   Emergency Issues:   Payment processing 
+failures  Security concerns  Data loss or corruption  Mark email "URGENT"   Community Support:   
+Discord: Provider channel  Community knowledge base  Provider forum   What to Include  For 
+technical issues:   Error messages (exact text)  Browser console log (F12 > Console)  Network tab 
+data (if relevant)  Transaction hashes   For financial issues:   Affected owner addresses  
+Transaction amounts  Expected vs actual results  Timeline of events   For sync issues:   Vendor 
+name  Sync error message  Last successful sync timestamp  Number of affected GPUs   Prevention  
+Proactive Monitoring  Set up monitoring to catch issues before they escalate:   Check Dashboard 
+daily for alerts  Review sync status weekly  Test payment process monthly  Maintain documentation 
+of normal operations   Regular Maintenance  Daily:   Check for alerts  Verify sync status  Monitor 
+wallet balance   Weekly:   Review GPU performance  Check for stale earners  Test key workflows   
+Monthly:   Update API credentials if needed  Review security logs  Test disaster recovery  Update 
+documentation   Documentation  Keep records of:   All issues and resolutions  System configuration 
+changes  Vendor communications  Performance baselines  Unusual patterns or anomalies   Most issues 
+resolve quickly with systematic troubleshooting. Document solutions for future reference. Best 
+Practices Introduction 
+
+
+========================================
+## litepaper > introduction
+URL: https://docs.silicon.net/litepaper/introduction
+========================================
+
+ litepaper Introduction Introduction  Silicon Network, developed by Berkeley Compute, Inc., is a 
+decentralized blockchain-enabled AI infrastructure platform that democratizes access to GPU 
+computing resources. By tokenizing GPU ownership, implementing a novel payment protocol, and 
+creating a flexible marketplace, Silicon Network addresses the critical challenges of cost, 
+availability, and liquidity in the rapidly growing AI compute market. To further expand this 
+ecosystem, our community cloud application will enable individuals, gamers, and crypto miners to 
+monetize their idle GPU resources, creating the largest distributed compute network specifically 
+optimized for AI inference workloads. This litepaper outlines our vision, technology stack, token 
+economics, and roadmap for building the world's largest decentralized GPU network, poised to 
+transform how AI compute is funded, accessed, and utilized across industries.   Ask anything  
+Background  The artificial intelligence revolution is rapidly transforming industries worldwide, 
+creating unprecedented demand for GPU computing power. These specialized processors form the 
+foundation of a $46B AI infrastructure market, powering everything from foundational model training 
+to everyday inference applications.  Despite rapid efficiency improvements in AI workloads, compute 
+demand continues to grow exponentially. According to IDC, major tech companies are investing 
+billions in GPU infrastructure, with combined capital expenditure projected to reach over $200 
+billion by 2028. However, this growth has created significant challenges for the broader AI 
+ecosystem, particularly for non-hyperscaler entities seeking affordable and accessible compute 
+resources.  The Berkeley Compute Vision  Berkeley Compute is building Silicon Network to empower 
+thousands of GPU operators and millions of GPU owners to participate in the AI revolution. Our 
+vision is founded on several key principles:   Permissionless distributed computing networks unlock 
+the lowest cost at the highest quality  Blockchain rails provide the most efficient mechanism for 
+connecting GPU owners, operators, and customers  Transparent, on-chain systems enable superior 
+price discovery and quality assessment  Crowdsourced capital unlocks massive scaling opportunities 
+for non-hyperscaler datacenters and subsequent tokenization of GPU assets  DeFi capabilities can 
+create new financial instruments and investment opportunities in AI infrastructure  Troubleshooting 
+Market Analysis 
+
+
+========================================
+## litepaper > market analysis
+URL: https://docs.silicon.net/litepaper/market-analysis
+========================================
+
+ litepaper Market Analysis Market Analysis  AI Infrastructure Landscape  Hyperscaler Dominance  
+Major tech giants like Google, Meta, and Microsoft control the majority of GPU resources, creating 
+bottlenecks and high barriers to entry.  Alternative GPU Marketplaces  Non-hyperscaler GPUs: 
+TensorDock, Lambda, Vultr, VAST, Together, RunPod, ORI, Crusoe AI  Distributed GPUs: DecentAI, 
+Akash, Kuzco, Prime Intellect  Tokenized + Distributed GPUs: GAIB, Compute Labs, Exabits, IOnet  
+Decentralized Physical Infrastructure Networks (DePIN)  Decentralized Physical Infrastructure 
+Networks leverage blockchain technology to create distributed ownership models for physical 
+computing resources. In AI computing, these models enable smaller players to compete with 
+hyperscalers by aggregating resources, tokenizing GPU assets, and establishing decentralized 
+governance—creating more accessible, cost-effective options for customers while giving token holders 
+exposure to the growing AI infrastructure market. Silicon Network builds upon these DePIN 
+principles while addressing limitations in quality control and enterprise reliability through a 
+hybrid model that maintains the benefits of decentralized ownership.  AI Compute Demand Segments  
+Model Training   Training large models requires massive GPU clusters (100-1000s of GPUs)  Dominated 
+by hyperscalers and well-funded AI companies  $152B CapEx from Google, MSFT, Meta alone in 2024   
+Model Fine-tuning   Requires medium-sized GPU clusters (1-8 GPUs)  Critical for customizing models 
+to specific applications  Growing demand from enterprises and AI startups   Inference   Can be 
+efficiently run on distributed computing (1-2 GPUs)  Offers the best price-performance ratio  
+Inference infrastructure spending projected at $18.3B in 2024   Emerging GPU-Dependent Sectors  
+Beyond traditional AI model training and inference, GPU compute demand is rapidly expanding across 
+diverse industries with specialized computational needs:  Generative Media: Image generation 
+(Stable Diffusion, DALL-E), video synthesis, and audio generation services require substantial GPU 
+resources to process creation requests at scale  3D Rendering: Animation studios, architectural 
+firms, and game developers leverage GPU acceleration for ray tracing and complex scene rendering  
+Scientific Computing: Research in genomics, molecular dynamics, climate modeling, and quantum 
+chemistry increasingly depends on GPU parallelization  Financial Modeling: Quantitative analysis, 
+risk assessment, and high-frequency trading algorithms utilize GPUs for real-time data processing  
+Medical Imaging: Diagnostic tools employing advanced image processing and analysis for MRI, CT, and 
+ultrasound interpretation  Extended Reality: AR/VR content creation and real-time spatial computing 
+applications demand significant rendering capabilities  Cybersecurity: Threat detection systems, 
+encryption/decryption operations, and cryptographic mining require specialized processing capacity  
+These sectors represent substantial growth vectors for GPU compute demand, complementing the core 
+AI workloads and further diversifying utilization patterns across the Silicon Network 
+infrastructure. Introduction Problem Statement 
+
+
+========================================
+## litepaper > problem statement
+URL: https://docs.silicon.net/litepaper/problem-statement
+========================================
+
+ litepaper Problem Statement Problem Statement  GPU Compute Customer Challenges  High Costs: 
+Hyperscaler solutions charge premium rates, making sustained AI development prohibitively expensive 
+for many  Limited Availability: Quotas, waitlists, and vendor lock-in restrict access to needed 
+resources  Lack of Flexibility: Rigid pricing and resource allocation models don't accommodate 
+variable workload needs  Datacenter Provider Challenges  Capital Constraints: GPU infrastructure 
+requires substantial upfront investment  Investment Illiquidity: Traditional GPU investments have 
+limited options for partial ownership or transfer  Operational Complexity: Managing multiple 
+clusters and payment streams is resource-intensive  Ecosystem-level Challenges  Centralization 
+Risks: Concentration of resources among few players limits innovation  Quality and Reliability 
+Concerns: Decentralized GPU provision raises consistency questions  Inefficient Resource 
+Allocation: Current models create compute shortages for certain brokers while leaving capacity idle 
+in others  Investor Challenges  Limited Investment Vehicles: Most investors can only seek exposure 
+to AI opportunity via public market equities, with limited upside yields compared to direct 
+infrastructure ownership  High Capital Requirements: Investment in AI infrastructure is typically 
+limited to very large scale investments in entire AI datacenters, shutting out smaller investors 
+and individual participants  Extreme Illiquidity: AI infrastructure investing is typically highly 
+illiquid with few exit potentials beyond liquidation at end of life, locking capital for extended 
+periods Market Analysis Our Solution 
+
+
+========================================
+## litepaper > our solution
+URL: https://docs.silicon.net/litepaper/our-solution
+========================================
+
+ litepaper Our Solution Our Solution  Silicon Network creates a decentralized AI infrastructure 
+marketplace that addresses the critical challenges of cost, availability, and liquidity in the AI 
+compute market through tokenized GPU ownership and blockchain technology.  The solution consists 
+of:  Ecosystem Participants: GPU Owners (capital providers), Datacenter Providers (infrastructure 
+operators), Community Providers (consumer-grade contributors), Compute Customers (resource 
+renters), and Compute Brokers (marketplace facilitators).  Platform Architecture: Tokenization 
+Platform (dual-blockchain ownership verification), GPU Marketplace (asset trading), Datacenter 
+Management Platform (operational tools), Payment System (dual-token economics), Compute Marketplace 
+(resource rental), and Blockchain Architecture (governance foundation).  This integrated ecosystem 
+democratizes access to AI infrastructure while creating new investment opportunities and 
+operational efficiencies for all participants.  Key Ecosystem Participants  GPU Owners  Capital 
+providers who purchase and hold tokenized GPU assets (NFTs) representing physical computing 
+hardware. Their capital enables network expansion while earning revenue proportional to their GPU's 
+utilization, with all transactions securely recorded on-chain.  Verified Providers  Professional 
+datacenter operators who deploy, maintain, and optimize GPU infrastructure in enterprise-grade 
+facilities with redundant power, cooling, and network connectivity. They handle the complex 
+technical operations—from procurement and installation to performance optimization and 
+maintenance—ensuring enterprise-grade reliability while building verifiable on-chain reputation 
+metrics.  Community Providers  Individual GPU owners who contribute underutilized computing 
+resources from consumer-grade hardware. Community Providers extend the network beyond traditional 
+datacenters, primarily supporting inference workloads with lower latency requirements. Their 
+participation creates a more resilient, distributed network while enabling individuals with gaming 
+GPUs or workstations to generate passive income through the Silicon Network protocol. Later, these 
+community providers will have the ability to grow by issuing GPU NFTs to their own buyers, and 
+become Verified Providers.  Compute Customers  AI companies, researchers, and developers who 
+consume GPU compute for training, fine-tuning, and inference workloads. Compute Customers gain 
+access to enterprise-grade GPU resources without capital expenditure or long-term commitments. The 
+marketplace's flexible consumption models enable them to optimize for cost, performance, or 
+reliability based on specific workload requirements, significantly reducing the barriers to AI 
+innovation.  Compute Brokers  Specialized marketplace platforms that match compute supply with 
+demand through streamlined provider networks. Compute Brokers enable efficient discovery, 
+deployment, and management of compute resources through standardized specifications and seamless 
+deployment tools. Their participation enhances market efficiency by creating essential connection 
+points between datacenter providers and customers seeking appropriate resources.  Platform 
+Architecture  Silicon Network is a complete ecosystem of tools connecting GPU owners, datacenter 
+operators, and compute customers through a blockchain-enabled marketplace leveraging the Silicon 
+Protocol:  GPU Tokenization Platform  Silicon Network's tokenization platform bridges physical AI 
+infrastructure and digital ownership through a dual-blockchain architecture, combining Base chain 
+for capital flows and Chia blockchain for ownership verification.  Key Components:   Multi-chain 
+Architecture: Leverages Base for liquidity and Chia for secure ownership verification  Digital Twin 
+Creation: Each GPU is represented by an NFT with immutable metadata including hardware 
+specifications, datacenter agreements, ownership records, and performance data  Ownership Rights 
+Enforcement: Smart contracts automatically distribute earnings to current NFT holders  Performance 
+Tracking: Real-time monitoring of utilization and earnings metrics   GPU Marketplace  Silicon 
+Network's GPU Marketplace facilitates both primary issuance and secondary trading of GPU NFTs, 
+creating a liquid market for AI infrastructure investment.  Key Components:   Dual Investment 
+Pathways: Primary market for funding new deployments and secondary market for trading existing GPU 
+NFTs  Discovery Tools: Standardized performance metrics, real-time statistics, hardware 
+verification, and ownership history  Trading Functionality: Auction mechanisms, limit orders, and 
+fractionalization capabilities  Investment Analytics: Comparative yield analysis and ROI 
+calculations  Enhanced Asset Liquidity: Secondary market trading transforms traditionally illiquid 
+GPU hardware into transferable digital assets, enabling owners to exit positions, adjust portfolio 
+exposure, and realize value without physical hardware sales   Datacenter Infrastructure Management 
+Platform  Silicon Network provides datacenter partners with essential tools to efficiently manage 
+GPU infrastructure and tokenized ownership reducing operational complexity while maintaining 
+transparency.  Key Components:   Hardware Management: Automated asset tracking, performance 
+monitoring, and maintenance scheduling  DCIM: Simplified deployment of AI workloads with 
+containerization and orchestration tools  Financial Operations: Automated revenue distribution to 
+GPU NFT holders with transparent reporting  Quality Assurance: Performance metrics and SLA 
+monitoring with on-chain verification  Rental Orchestration API: Interface that enables datacenter 
+providers to communicate with existing compute marketplace brokers or direct lease customers   
+Payment System  Silicon Network's payment system provides a stable, transparent financial 
+infrastructure for GPU rentals and rewards through a blockchain-based dual-token model that aligns 
+incentives across the ecosystem. A more detailed analysis of the Silicon token is covered in the 
+Silicon Network Tokenomics document.  Key Components:   Burn-Mint Equilibrium: $SIL tokens are 
+burned to create data credits, with new $SIL minted as rewards based on GPU utilization  Data 
+credits (DCs): USD-pegged utility tokens used for GPU rentals, providing stable pricing for compute 
+resources  Reward Distribution: Automated allocation of newly minted $SIL to GPU owners, datacenter 
+providers, and community cloud providers based on utilization metrics  Pooling Protocol: Novel 
+earnings distribution system allowing GPU owners to combine resources into pools for smoothed, 
+predictable revenue streams regardless of individual utilization patterns. This is independent of 
+Provider systems, optional for GPU owners to set up, join or leave. It is a capability built on top 
+of the Silicon Protocol.  Multi-currency Support: Integration with stablecoins and fiat payment 
+rails to simplify customer onboarding and enterprise adoption   Compute Marketplace  Silicon 
+Network's Compute Marketplace connects AI workload customers with GPU providers through a flexible 
+platform that optimizes for cost, availability, and performance based on specific customer 
+requirements.  Key Components:   Spot Computing: Lower-cost, interruptible computing resources 
+ideal for batch processing and fault-tolerant workloads  On-demand Computing: Pay-as-you-go model 
+with service guarantees for development and testing environments  Reserved Computing: Guaranteed 
+future access to specific GPU resources at predictable pricing  Resource Matching: Intelligent 
+allocation system that pairs workloads with optimal hardware configurations   Community Inference 
+Cloud Application  Silicon Network's Community Inference Cloud application enables individuals and 
+small organizations to monetize idle GPU resources by contributing them to a globally distributed 
+AI inference network initially targeting the Chia farming community.  Key Components:   Lightweight 
+Client: Easy-to-install software that enables GPU sharing with minimal impact on host device 
+performance for Chia farmers  Resource Management: Intelligent scheduling system that utilizes GPUs 
+during idle periods without impacting Chia farming performance  Workload Distribution: Optimized 
+allocation of inference tasks based on hardware capabilities and network conditions  Performance 
+Analytics: Real-time monitoring of contribution metrics, earnings, and hardware utilization   
+Organizational Structures  Silicon Network supports flexible organizational structures that enable 
+collective investment and governance of GPU assets through traditional and decentralized 
+frameworks.  Key Components:   Special Purpose Vehicles (SPVs): Legal entities that pool capital 
+from multiple investors for acquiring GPU assets, providing regulatory compliance and structured 
+governance for institutional participation  Decentralized Autonomous Organizations (DAOs): On-chain 
+governance systems allowing token holders to collectively manage GPU portfolios, vote on 
+operational decisions, and distribute returns through smart contracts  Hybrid Models: Combinations 
+of traditional and decentralized structures that leverage legal protections while enabling 
+programmatic execution of governance decisions  Multi-signature Controls: Secure authorization 
+systems requiring consensus among designated key holders for major decisions and treasury 
+management   These organizational frameworks expand access to GPU infrastructure investment beyond 
+individual ownership, enabling community-driven funding, risk diversification, and democratized 
+governance of AI computing assets.  Blockchain Architecture  Silicon Network's blockchain 
+architecture provides the secure foundation for transparent governance, decentralized operations, 
+and trustless transactions across the entire GPU infrastructure ecosystem.  Key Components:   
+Multi-chain Integration: Strategic combination of Base and Chia blockchains and cross chain asset 
+management for optimal balance of speed, security, and energy efficiency  Smart Contracts: 
+Automated enforcement of ownership rights, payment distribution, and marketplace operations  
+On-chain Verification: Immutable record-keeping for GPU performance, utilization, and reputation 
+metrics  Oracle System: Decentralized data feeds providing real-time price information and external 
+validation of hardware metrics  Problem Statement Tokenomics 
+
+
+========================================
+## litepaper > tokenomics
+URL: https://docs.silicon.net/litepaper/tokenomics
+========================================
+
+ litepaper Tokenomics Tokenomics  Silicon Network's token economy is designed to align incentives 
+across all ecosystem participants while providing a stable foundation for the network's long-term 
+growth. This section provides a high-level overview of the token model, with comprehensive details 
+that will be available in a Silicon Network tokenomics whitepaper.  Tokenized GPU Ownership  GPU 
+NFTs represents ownership of physical computing hardware, combining the benefits of real-world 
+assets with blockchain-based transferability:   Each physical GPU in a datacenter will have an NFT 
+on Chia that represents ownership of the GPU to claim rewards, and a corresponding Base NFT that 
+will be used for initial capital formation as well as be used to define where rewards payouts are 
+sent  Owners can claim rewards based on their GPU's utilization or can opt into resource pools for 
+smoothed, predictable earnings across multiple GPUs  Performance metrics and ownership records are 
+transparently tracked on-chain  NFTs can be traded on Silicon Network's marketplace   $SIL Token 
+Overview  $SIL functions as the native utility token of the Silicon Network, serving three 
+essential purposes and will be available on both Base and Chia blockchains:   Payment Mechanism: 
+Facilitates transactions within the ecosystem  Reward Distribution: Compensates GPU owners and 
+operators for contributing resources  Governance: Enables protocol decision-making by token holders 
+  A total fixed supply of $SIL will be generated across both Base, a layer 2 optimistic rollup on 
+Ethereum, and the Chia blockchain to serve as native tokens on both chains. The native tokens will 
+be interchangeable between the two chains through Silicon's cross-chain transfer protocol (CCTP), a 
+fork of Circle's CCTP for swapping USDC across blockchains.  Economic Model Summary on Base  On 
+Base, Silicon Network employs a Burn-Mint Equilibrium (BME) model that creates price stability for 
+users while rewarding infrastructure providers building an economic flywheel that balances supply 
+and demand:   Customer payments in $SIL are burned to create USD-pegged data credits ($DC)  
+Spending $DC for compute resources provides stable pricing  $DCs spent to a GPU or pool GPUs 
+represent the utilization of those GPUs that will earn $SIL within a given time epoch  $SIL is 
+minted as rewards proportional to resource utilization when $DC are burned over a epoch and 
+ultimately distributed to both GPU owners and providers while a small fee is paid to the Silicon 
+Protocol foundation wallet to maintain the network  Proof of ownership of NFT to a specific GPU 
+entitles the owner to claim $SIL rewards   Economic Model Summary on Chia  Silicon Network's will 
+have a portion of the total supply minted as a native token on Chia to incentive participation by 
+the Chia farming community to participate in a worldwide distributed AI inference cloud platform:   
+$SIL on Chia will be used by inference customers to access and use the Silicon Community Cloud 
+Provider network  Community cloud providers will be paid in $SIL on Chia as rewards for processing 
+AI inference workloads based on the market price token cost to run the inference workload  
+Marketplace price for inference customers will be initially be set by Berkeley Compute based on 
+market rates that will eventually move to an oracle that will determine the exchange rate for $SIL 
+to compute tokens needed to pay for each inference workload  $SIL on Chia can be swapped to $SIL on 
+Base and vice versa through Silicon's cross chain transfer protocol   Cross Chain Transfer Protocol 
+ Silicon Network will deploy a cross chain transfer protocol to ensure a 1 for 1 swap of $SIL 
+across all supported blockchains to keep the total supply of $SIL fixed while allowing the 
+flexibility for users to collect, and spend $SIL on their preferred blockchains and use case:   
+Smart contracts on Chia and on Base enable burning and minting of SIL on a 1:1 basis  Holders can 
+move $SIL seamlessly between Base and Chia or any other future supported blockchains at a 1:1 swap 
+eliminating needs to have a wrapped or synthetic tokens  Enhanced security due to a burn-mint 
+mechanism that ensures the native token is only minted on the destination chain  Easily supports 
+the addition of $SIL on new blockchains to access other highly liquid or strategic communities  
+Removes reliance on liquidity pools and third party liquidity providers enabling limitless 
+transfers without requiring locked liquidity while minimizing fees with no slippage   Token 
+Allocation  The $SIL token distribution on Base and Chia is strategically designed to foster 
+long-term ecosystem growth and align incentives across all stakeholders:   Early Node Incentives: 
+Allocation reserved for early GPU operators who support network growth  Community & Ecosystem: 
+Funds dedicated to community development, grants, and ecosystem expansion  Foundation Treasury: 
+Resources maintained by the foundation for long-term governance and sustainability  Team & 
+Contributors: Allocation for the development team and early contributors with appropriate vesting 
+schedules  Strategic Partners: Tokens dedicated to building strategic relationships with key 
+industry participants   Specific allocation percentages and vesting schedules are detailed in a 
+forthcoming Silicon Network tokenomics whitepaper. Our Solution Roadmap 
+
+
+========================================
+## litepaper > roadmap
+URL: https://docs.silicon.net/litepaper/roadmap
+========================================
+
+ litepaper Roadmap Roadmap  Q2 2025   Tokenization platform launch for providers - for new and live 
+earning GPUs  New owner onboarding experience  Provider integration support with compute 
+marketplaces  Provider dashboard for owner and GPU management  Public Silicon ecosystem dashboard  
+Silicon Marketplace for primary and secondary sales   Q3 2025   Tokenomics whitepaper  Mainnet 
+launch of $SIL tokens on Base and Chia  Community inference cloud application  Smart contract based 
+pooling support  Silicon Foundation   Q4 2025   Cross chain protocol for swapping $SIL between Base 
+and Chia  GPU Equity fund primitive  DCIM software for providers   Q1 2026   GPU compute 
+marketplace  Tokenomics Privacy Policy 
+

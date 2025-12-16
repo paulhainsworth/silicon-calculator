@@ -68,3 +68,8 @@ If you want to move `silicon.net` entirely to Vercel:
 
 If you specifically need `/calculator` path, use Option 2 with a proxy setup.
 
+
+
+
+
+

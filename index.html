@@ -21,6 +21,120 @@
             --negative: #ff4444;
         }
 
+        /* Light Mode */
+        [data-theme="light"] {
+            --bg-primary: #f8f9fa;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --bg-input: #f3f4f6;
+            --border: #e5e7eb;
+            --border-light: #d1d5db;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --text-muted: #9ca3af;
+            --accent: #00d46a;
+            --accent-dim: rgba(0, 212, 106, 0.1);
+            --negative: #ef4444;
+        }
+
+        [data-theme="light"] .logo-icon {
+            background: #111827;
+        }
+
+        [data-theme="light"] .logo-icon::before {
+            border-color: #f8f9fa;
+        }
+
+        [data-theme="light"] .card {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="light"] .tooltip-text {
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        [data-theme="light"] .tooltip-text::after {
+            border-top-color: #ffffff;
+        }
+
+        [data-theme="light"] .formula-text {
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        [data-theme="light"] input[type="range"]::-webkit-slider-thumb {
+            background: #111827;
+        }
+
+        [data-theme="light"] .inline-input {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="light"] .inline-input:hover {
+            background: rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="light"] .inline-input:focus {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="light"] tr:hover td {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        [data-theme="light"] .export-btn:hover {
+            color: #fff;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 80px;
+            right: 24px;
+            z-index: 1001;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle .sun-icon {
+            display: none;
+        }
+
+        .theme-toggle .moon-icon {
+            display: block;
+        }
+
+        [data-theme="light"] .theme-toggle .sun-icon {
+            display: block;
+        }
+
+        [data-theme="light"] .theme-toggle .moon-icon {
+            display: none;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -168,7 +282,7 @@
 
         .apr-badge {
             position: fixed;
-            top: 80px;
+            top: 130px;
             right: 24px;
             z-index: 1000;
             display: inline-block;
@@ -1007,6 +1121,17 @@
     </style>
 </head>
 <body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="sun-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+    </button>
+
     <!-- Header -->
     <header class="header">
         <a href="https://silicon.net" class="logo" style="text-decoration: none; color: inherit;">
@@ -1031,7 +1156,7 @@
         <!-- Page Header -->
         <div class="page-header">
             <div class="page-title">GPU Financing Calculator — Cluster 01</div>
-            <div class="apr-badge">Est. APY <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Annualized return: (Owner Net Profit ÷ Total Investment) × (12 ÷ Term)</span></span> <span id="apyBadge">24.1%</span></div>
+            <div class="apr-badge">Est. APR <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Annualized return: (Owner Net Profit ÷ Total Investment) × (12 ÷ Term)</span></span> <span id="aprBadge">24.1%</span></div>
         </div>
 
         <!-- Scenario Controls -->
@@ -1381,6 +1506,25 @@
     </div>
 
     <script>
+        // Theme toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Initialize theme from localStorage or system preference
+        (function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+
         function PMT(rate, nper, pv) {
             if (rate === 0) return -pv / nper;
             return -pv * rate * Math.pow(1 + rate, nper) / (Math.pow(1 + rate, nper) - 1);
@@ -1563,7 +1707,7 @@
             // Update all outputs
             document.getElementById('totalCapexStat').textContent = formatCurrency(totalCapex, true);
             document.getElementById('downpaymentStat').textContent = formatCurrency(totalInvestment, true);
-            // APY badge updated later after tax calculations
+            // APR badge updated later after tax calculations
 
             document.getElementById('totalCashInflow').textContent = formatCurrency(totalCashInflow);
             document.getElementById('totalCashOutflow').textContent = formatCurrency(totalCashOutflow);
@@ -1813,9 +1957,9 @@
             const totalReturn = finalAfterTaxCashFlow / totalInvestment;
             document.getElementById('totalReturn').textContent = formatPercent(totalReturn, 0);
             
-            // APY based on after-tax cash flow (true investor return)
-            const simpleApy = (finalAfterTaxCashFlow / totalInvestment) * (12 / term);
-            document.getElementById('apyBadge').textContent = formatPercent(simpleApy);
+            // APR based on after-tax cash flow (true investor return)
+            const simpleApr = (finalAfterTaxCashFlow / totalInvestment) * (12 / term);
+            document.getElementById('aprBadge').textContent = formatPercent(simpleApr);
 
             updateChart(cashFlows);
             
@@ -2063,7 +2207,7 @@
             csv += 'Total Cash Outflow,' + document.getElementById('totalCashOutflow').textContent + '\n';
             csv += 'Owner Net Profit,' + document.getElementById('afterTaxCashFlow').textContent + '\n';
             csv += 'Payback Period,' + document.getElementById('paybackPeriod').textContent + '\n';
-            csv += 'Est. APY,' + document.getElementById('apyBadge').textContent + '\n\n';
+            csv += 'Est. APR,' + document.getElementById('aprBadge').textContent + '\n\n';
             
             // Cash flow table
             csv += 'Monthly Cash Flow\n';
@@ -2110,7 +2254,25 @@
         // ============================================
         
         // Embedded scenarios (this gets populated when downloading with scenarios)
-        const EMBEDDED_SCENARIOS = [];
+        const EMBEDDED_SCENARIOS = [
+            {
+                name: "2M USDC Pre-Commit #1",
+                description: "First Silicon Network USDC Pre-commit pool. $2M CAPEX of Nvidia Pro 6000 servers. Total server count: 21",
+                params: {
+                    term: "36",
+                    servers: "21",
+                    unitCost: "98500",
+                    residual: "20",
+                    hourlyRate: "1.84",
+                    decay: "20",
+                    utilization: "90",
+                    marketRake: "20",
+                    providerRake: "20",
+                    siliconFee: "5",
+                    taxRate: "21"
+                }
+            }
+        ];
         
         // Runtime scenarios array
         let scenarios = [...EMBEDDED_SCENARIOS];
@@ -2125,6 +2287,16 @@
         function initScenarios() {
             updateScenarioDropdown();
             updateScenarioCount();
+            
+            // Auto-load first scenario if available and no URL params
+            const urlParams = new URLSearchParams(window.location.search);
+            const hasUrlParams = PARAM_KEYS.some(key => urlParams.has(key));
+            
+            if (!hasUrlParams && scenarios.length > 0) {
+                const select = document.getElementById('scenarioSelect');
+                select.value = 0;
+                loadScenario();
+            }
         }
         
         // Get current parameters

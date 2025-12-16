@@ -74,3 +74,8 @@ If your main silicon.net site is on Vercel:
 **If silicon.net is separate or you want to keep projects separate:**
 - Use Option 2 (separate project with domain routing)
 
+
+
+
+
+
