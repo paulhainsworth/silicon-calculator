@@ -863,6 +863,136 @@
             background: var(--negative);
         }
 
+        /* Pie Chart */
+        .pie-chart-section {
+            margin-bottom: 16px;
+        }
+
+        .pie-chart-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .pie-chart-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+        }
+
+        .pie-toggle-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .pie-toggle-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .pie-chart-container {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 16px;
+            background: var(--bg-input);
+            border-radius: 8px;
+        }
+
+        .pie-chart {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .pie-chart-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: var(--bg-input);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pie-chart-inner-label {
+            font-size: 0.55rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .pie-chart-inner-value {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .pie-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .pie-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.75rem;
+        }
+
+        .pie-legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        .pie-legend-label {
+            color: var(--text-secondary);
+            flex: 1;
+        }
+
+        .pie-legend-value {
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+        }
+
+        .pie-legend-percent {
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            width: 40px;
+            text-align: right;
+        }
+
+        /* Pie chart colors */
+        .pie-color-marketplace { background: #6366f1; }
+        .pie-color-provider { background: #ec4899; }
+        .pie-color-silicon { background: #f59e0b; }
+        .pie-color-owner { background: #00d46a; }
+        .pie-color-tax { background: #ef4444; }
+
         /* Divider */
         .divider {
             height: 1px;
@@ -1398,6 +1528,23 @@
                     <div class="output-card highlight full-width">
                         <div class="output-label">Owner Net Profit <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">−Total Investment + Owner Fee + Liquidation Value − Tax. After-tax return on invested capital.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">−Investment + Owner Fee + Liquidation − Tax</span></span></div>
                         <div class="output-value" id="afterTaxCashFlow">$734,567</div>
+                    </div>
+                </div>
+
+                <!-- Pie Chart: Revenue Distribution -->
+                <div class="pie-chart-section">
+                    <div class="pie-chart-header">
+                        <span class="pie-chart-title">Revenue Distribution</span>
+                        <button class="pie-toggle-btn" id="pieToggleBtn" onclick="togglePieChart()">Show Chart</button>
+                    </div>
+                    <div class="pie-chart-container" id="pieChartContainer" style="display: none;">
+                        <div class="pie-chart" id="pieChart">
+                            <div class="pie-chart-inner">
+                                <span class="pie-chart-inner-label">Total</span>
+                                <span class="pie-chart-inner-value" id="pieTotal">$0</span>
+                            </div>
+                        </div>
+                        <div class="pie-legend" id="pieLegend"></div>
                     </div>
                 </div>
 
@@ -1962,6 +2109,10 @@
             document.getElementById('aprBadge').textContent = formatPercent(simpleApr);
 
             updateChart(cashFlows);
+            // Pie chart: show where gross revenue ultimately goes
+            // Owner's portion should be after-tax (Owner Fee - Tax) to avoid double-counting
+            const ownerAfterTax = totalOwnerFee - totalTax;
+            updatePieChart(totalMarketplaceFees, totalProviderRevenue, totalSiliconFees, ownerAfterTax, totalTax);
             
             // Calculate and position breakeven ticks
             updateBreakevenTicks();
@@ -2144,6 +2295,73 @@
                 bar.style.height = Math.max(2, height) + '%';
                 chartBars.appendChild(bar);
             });
+        }
+
+        function togglePieChart() {
+            const container = document.getElementById('pieChartContainer');
+            const btn = document.getElementById('pieToggleBtn');
+            if (container.style.display === 'none') {
+                container.style.display = 'flex';
+                btn.textContent = 'Hide Chart';
+            } else {
+                container.style.display = 'none';
+                btn.textContent = 'Show Chart';
+            }
+        }
+
+        function updatePieChart(marketplace, provider, silicon, owner, tax) {
+            const pieChart = document.getElementById('pieChart');
+            const pieLegend = document.getElementById('pieLegend');
+            const pieTotal = document.getElementById('pieTotal');
+            
+            const total = marketplace + provider + silicon + owner + tax;
+            
+            if (total <= 0) {
+                pieChart.style.background = 'var(--border)';
+                pieLegend.innerHTML = '<div style="color: var(--text-muted); font-size: 0.75rem;">No revenue to display</div>';
+                pieTotal.textContent = '$0';
+                return;
+            }
+            
+            // Calculate percentages
+            const data = [
+                { label: 'Marketplace', value: marketplace, color: '#6366f1', colorClass: 'marketplace' },
+                { label: 'Provider', value: provider, color: '#ec4899', colorClass: 'provider' },
+                { label: 'Silicon', value: silicon, color: '#f59e0b', colorClass: 'silicon' },
+                { label: 'Owner (Net)', value: owner, color: '#00d46a', colorClass: 'owner' },
+                { label: 'Tax', value: tax, color: '#ef4444', colorClass: 'tax' }
+            ];
+            
+            // Build conic gradient
+            let gradientStops = [];
+            let currentAngle = 0;
+            
+            data.forEach(item => {
+                const percent = (item.value / total) * 100;
+                const endAngle = currentAngle + percent;
+                if (percent > 0) {
+                    gradientStops.push(`${item.color} ${currentAngle}% ${endAngle}%`);
+                }
+                currentAngle = endAngle;
+            });
+            
+            pieChart.style.background = `conic-gradient(${gradientStops.join(', ')})`;
+            
+            // Update total
+            pieTotal.textContent = formatCurrency(total, true);
+            
+            // Build legend
+            pieLegend.innerHTML = data.map(item => {
+                const percent = ((item.value / total) * 100).toFixed(1);
+                return `
+                    <div class="pie-legend-item">
+                        <div class="pie-legend-color pie-color-${item.colorClass}"></div>
+                        <span class="pie-legend-label">${item.label}</span>
+                        <span class="pie-legend-value">${formatCurrency(item.value, true)}</span>
+                        <span class="pie-legend-percent">${percent}%</span>
+                    </div>
+                `;
+            }).join('');
         }
 
         function toggleTable(tableId, btn) {
