@@ -1446,6 +1446,10 @@
                         <div class="output-label">ROI <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Return on Investment: Owner Net Profit ÷ Total CAPEX</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Owner Net Profit ÷ Total CAPEX</span></span></div>
                         <div class="output-value" id="totalReturn">141%</div>
                     </div>
+                    <div class="output-card">
+                        <div class="output-label">APY <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Annualized Percentage Yield: ROI adjusted to a 12-month basis</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">(Owner Net Profit ÷ CAPEX) × (12 ÷ Term)</span></span></div>
+                        <div class="output-value" id="apyValue">24.1%</div>
+                    </div>
                 </div>
 
                 <!-- Section 3: Revenue -->
@@ -2086,9 +2090,10 @@
             const totalReturn = finalAfterTaxCashFlow / totalInvestment;
             document.getElementById('totalReturn').textContent = formatPercent(totalReturn, 0);
             
-            // APR based on after-tax cash flow (true investor return)
+            // APR/APY based on after-tax cash flow (true investor return)
             const simpleApr = (finalAfterTaxCashFlow / totalInvestment) * (12 / term);
             document.getElementById('aprBadge').textContent = formatPercent(simpleApr);
+            document.getElementById('apyValue').textContent = formatPercent(simpleApr);
 
             updateChart(cashFlows);
             // Pie chart: show where gross revenue ultimately goes
