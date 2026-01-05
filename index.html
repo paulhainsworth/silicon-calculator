@@ -1286,7 +1286,7 @@
         <!-- Page Header -->
         <div class="page-header">
             <div class="page-title">GPU Financing Calculator — Cluster 01</div>
-            <div class="apr-badge">Est. APR <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Annualized return: (Owner Net Profit ÷ Total Investment) × (12 ÷ Term)</span></span> <span id="aprBadge">24.1%</span></div>
+            <div class="apr-badge">Est. APR <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Annualized return: (Owner Net Profit ÷ Total CAPEX) × (12 ÷ Term)</span></span> <span id="aprBadge">24.1%</span></div>
         </div>
 
         <!-- Scenario Controls -->
@@ -1433,17 +1433,13 @@
                         <div class="stat-value" id="totalCapexStat">$3.75M</div>
                         <div class="stat-label">Total CAPEX <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Total capital expenditure: Number of Servers × Server Cost</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Servers × Server Cost</span></span></div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-value" id="downpaymentStat">$375K</div>
-                        <div class="stat-label">Total Investment <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Owner's upfront capital investment (100% of CAPEX). Owner owns the asset.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">= Total CAPEX<br>(Owner pays 100%)</span></span></div>
-                    </div>
                 </div>
 
                 <!-- Section 2: KPIs -->
                 <div class="section-header">KEY PERFORMANCE INDICATORS</div>
                 <div class="outputs-grid">
                     <div class="output-card">
-                        <div class="output-label">Payback Period <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Months of owner revenue share required to recover initial investment</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Total Investment ÷ (Owner Fee ÷ Term)</span></span></div>
+                        <div class="output-label">Payback Period <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Months of owner revenue share required to recover initial CAPEX</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Total CAPEX ÷ (Owner Fee ÷ Term)</span></span></div>
                         <div class="output-value" id="paybackPeriod">24 mo</div>
                     </div>
                     <div class="output-card">
@@ -1451,7 +1447,7 @@
                         <div class="output-value" id="breakevenMonth">Month 42</div>
                     </div>
                     <div class="output-card">
-                        <div class="output-label">Total Return <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Owner Net Profit ÷ Total Investment. Your total profit as a percentage of initial capital.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Owner Net Profit ÷ Total Investment</span></span></div>
+                        <div class="output-label">Total Return <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Owner Net Profit ÷ Total CAPEX. Your total profit as a percentage of initial capital.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Owner Net Profit ÷ Total CAPEX</span></span></div>
                         <div class="output-value" id="totalReturn">141%</div>
                     </div>
                 </div>
@@ -1526,7 +1522,7 @@
                         <div class="output-value" id="totalTax">$125,000</div>
                     </div>
                     <div class="output-card highlight full-width">
-                        <div class="output-label">Owner Net Profit <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">−Total Investment + Owner Fee + Liquidation Value − Tax. After-tax return on invested capital.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">−Investment + Owner Fee + Liquidation − Tax</span></span></div>
+                        <div class="output-label">Owner Net Profit <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">−Total CAPEX + Owner Fee + Liquidation Value − Tax. After-tax return on invested capital.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">−CAPEX + Owner Fee + Liquidation − Tax</span></span></div>
                         <div class="output-value" id="afterTaxCashFlow">$734,567</div>
                     </div>
                 </div>
@@ -1853,7 +1849,6 @@
 
             // Update all outputs
             document.getElementById('totalCapexStat').textContent = formatCurrency(totalCapex, false);
-            document.getElementById('downpaymentStat').textContent = formatCurrency(totalInvestment, true);
             // APR badge updated later after tax calculations
 
             document.getElementById('totalCashInflow').textContent = formatCurrency(totalCashInflow);
@@ -2418,7 +2413,6 @@
             // Summary metrics
             csv += 'Summary\n';
             csv += 'Total CAPEX,' + document.getElementById('totalCapexStat').textContent + '\n';
-            csv += 'Total Investment,' + document.getElementById('downpaymentStat').textContent + '\n';
             csv += 'Total Revenue,' + document.getElementById('totalRevenue').textContent + '\n';
             csv += 'Owner Fee,' + document.getElementById('ownerEbitda').textContent + '\n';
             csv += 'Total Cash Inflow,' + document.getElementById('totalCashInflow').textContent + '\n';
