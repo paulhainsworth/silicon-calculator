@@ -1480,10 +1480,6 @@
                         <div class="output-label">Silicon Fee Earnings <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Silicon's share: Provider Gross Revenue × Silicon Fee %.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Provider Gross × Silicon Fee %</span></span></div>
                         <div class="output-value" id="siliconFeeEarnings">$123,456</div>
                     </div>
-                    <div class="output-card">
-                        <div class="output-label">Provider Rake Earnings <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Provider's share: (Provider Gross − Silicon Fee) × Provider Rake %.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">(Provider Gross − Silicon) × Provider Rake %</span></span></div>
-                        <div class="output-value" id="providerRakeEarnings">$1,234,567</div>
-                    </div>
                     <div class="output-card highlight">
                         <div class="output-label">Provider Net Revenue <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Provider Gross Revenue − Silicon Fee − Owner Fee. What provider keeps.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">= Provider Rake Earnings</span></span></div>
                         <div class="output-value" id="providerNetRevenue">$1,234,567</div>
@@ -1859,7 +1855,6 @@
             // Provider Financials
             document.getElementById('providerGrossRevenue').textContent = formatCurrency(providerGrossRevenue);
             document.getElementById('providerNetRevenue').textContent = formatCurrency(providerNetRevenue);
-            document.getElementById('providerRakeEarnings').textContent = formatCurrency(totalProviderRevenue);
             document.getElementById('siliconFeeEarnings').textContent = formatCurrency(totalSiliconFees);
             document.getElementById('liquidationValueDisplay').textContent = formatCurrency(liquidationValue);
             
