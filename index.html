@@ -1852,7 +1852,7 @@
             const paybackPeriod = avgMonthlyOwnerFee > 0 ? totalInvestment / avgMonthlyOwnerFee : Infinity;
 
             // Update all outputs
-            document.getElementById('totalCapexStat').textContent = formatCurrency(totalCapex, true);
+            document.getElementById('totalCapexStat').textContent = formatCurrency(totalCapex, false);
             document.getElementById('downpaymentStat').textContent = formatCurrency(totalInvestment, true);
             // APR badge updated later after tax calculations
 
