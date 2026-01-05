@@ -988,7 +988,7 @@
 
         /* Pie chart colors */
         .pie-color-marketplace { background: #6366f1; }
-        .pie-color-provider { background: #ec4899; }
+        .pie-color-provider { background: #22c55e; }
         .pie-color-silicon { background: #f59e0b; }
         .pie-color-owner { background: #00d46a; }
         .pie-color-tax { background: #ef4444; }
@@ -1336,14 +1336,14 @@
 
                         <div class="input-group">
                             <div class="input-row">
-                                <span class="input-label">Unit Cost (CAPEX)</span>
+                                <span class="input-label">Server Cost (CAPEX)</span>
                             </div>
                             <input type="number" id="unitCost" value="100000" oninput="calculate()">
                         </div>
 
                         <div class="input-group">
                             <div class="input-row">
-                                <span class="input-label">Liquidation Residual</span>
+                                <span class="input-label">Liquidation Residual <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Minimum guaranteed sale price at end of service term</span></span></span>
                                 <span class="input-value"><input type="number" class="inline-input" id="residualInput" value="20" min="0" max="100" step="1" oninput="syncFromInput('residual')"><span class="input-suffix">%</span></span>
                             </div>
                             <div class="slider-container">
@@ -1358,14 +1358,14 @@
                         
                         <div class="input-group">
                             <div class="input-row">
-                                <span class="input-label">Starting Hourly Rate</span>
+                                <span class="input-label"><a href="https://www.runpod.io/pricing#:~:text=RTX%20Pro%206000,/hr" target="_blank" style="color: inherit; text-decoration: underline; text-decoration-style: dotted;">Starting Hourly Rate</a></span>
                             </div>
                             <input type="number" id="hourlyRate" value="1.84" step="0.01" oninput="calculate()">
                         </div>
 
                         <div class="input-group">
                             <div class="input-row">
-                                <span class="input-label">Annual Decay</span>
+                                <span class="input-label">Annual Hourly Rate Decay</span>
                                 <span class="input-value"><input type="number" class="inline-input" id="decayInput" value="20" min="0" max="50" step="1" oninput="syncFromInput('decay')"><span class="input-suffix">%</span></span>
                             </div>
                             <div class="slider-container">
@@ -1387,7 +1387,7 @@
 
                         <div class="input-group">
                             <div class="input-row">
-                                <span class="input-label">Marketplace Rake</span>
+                                <span class="input-label">Cloud Marketplace Fee</span>
                                 <span class="input-value"><input type="number" class="inline-input" id="marketRakeInput" value="20" min="0" max="40" step="1" oninput="syncFromInput('marketRake')"><span class="input-suffix">%</span></span>
                             </div>
                             <input type="range" id="marketRake" min="0" max="40" step="1" value="20" oninput="syncFromSlider('marketRake')">
@@ -1404,9 +1404,9 @@
                         <div class="input-group">
                             <div class="input-row">
                                 <span class="input-label">Silicon Fee</span>
-                                <span class="input-value"><input type="number" class="inline-input" id="siliconFeeInput" value="5" min="0" max="25" step="1" oninput="syncFromInput('siliconFee')"><span class="input-suffix">%</span></span>
+                                <span class="input-value"><input type="number" class="inline-input" id="siliconFeeInput" value="10" min="0" max="25" step="1" oninput="syncFromInput('siliconFee')"><span class="input-suffix">%</span></span>
                             </div>
-                            <input type="range" id="siliconFee" min="0" max="25" step="1" value="5" oninput="syncFromSlider('siliconFee')">
+                            <input type="range" id="siliconFee" min="0" max="25" step="1" value="10" oninput="syncFromSlider('siliconFee')">
                         </div>
                     </div>
 
@@ -1431,7 +1431,7 @@
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-value" id="totalCapexStat">$3.75M</div>
-                        <div class="stat-label">Total CAPEX <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Total capital expenditure: Number of Servers × Unit Cost</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Servers × Unit Cost</span></span></div>
+                        <div class="stat-label">Total CAPEX <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Total capital expenditure: Number of Servers × Server Cost</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Servers × Server Cost</span></span></div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-value" id="downpaymentStat">$375K</div>
@@ -1468,7 +1468,7 @@
                         <div class="output-value" id="grossRentalRevenue">$7,234,567</div>
                     </div>
                     <div class="output-card">
-                        <div class="output-label">Marketplace Rake <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Marketplace earnings: Gross Rental Revenue × Marketplace Fee %</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Gross Rental Revenue × Marketplace %</span></span></div>
+                        <div class="output-label">Cloud Marketplace Fee <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Marketplace earnings: Gross Rental Revenue × Marketplace Fee %</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Gross Rental Revenue × Marketplace %</span></span></div>
                         <div class="output-value" id="marketplaceRake">$1,446,913</div>
                     </div>
                 </div>
@@ -1477,7 +1477,7 @@
                 <div class="section-header">PROVIDER FINANCIALS</div>
                 <div class="outputs-grid">
                     <div class="output-card">
-                        <div class="output-label">Provider Gross Revenue <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Gross Rental Revenue − Marketplace Rake. Revenue to provider before fees.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Gross Rental − Marketplace Rake</span></span></div>
+                        <div class="output-label">Provider Gross Revenue <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Gross Rental Revenue − Cloud Marketplace Fee. Revenue to provider before fees.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Gross Rental − Cloud Marketplace Fee</span></span></div>
                         <div class="output-value" id="providerGrossRevenue">$5,787,654</div>
                     </div>
                     <div class="output-card">
@@ -2326,7 +2326,7 @@
             // Calculate percentages
             const data = [
                 { label: 'Marketplace', value: marketplace, color: '#6366f1', colorClass: 'marketplace' },
-                { label: 'Provider', value: provider, color: '#ec4899', colorClass: 'provider' },
+                { label: 'Provider', value: provider, color: '#22c55e', colorClass: 'provider' },
                 { label: 'Silicon', value: silicon, color: '#f59e0b', colorClass: 'silicon' },
                 { label: 'Owner (Net)', value: owner, color: '#00d46a', colorClass: 'owner' },
                 { label: 'Tax', value: tax, color: '#ef4444', colorClass: 'tax' }
@@ -2405,12 +2405,12 @@
             csv += 'Model Parameters\n';
             csv += 'Investment Term (months),' + params.term + '\n';
             csv += 'Number of Servers,' + params.servers + '\n';
-            csv += 'Unit Cost ($),' + params.unitCost + '\n';
+            csv += 'Server Cost ($),' + params.unitCost + '\n';
             csv += 'Liquidation Residual (%),' + params.residual + '\n';
             csv += 'Starting Hourly Rate ($),' + params.hourlyRate + '\n';
-            csv += 'Annual Decay (%),' + params.decay + '\n';
+            csv += 'Annual Hourly Rate Decay (%),' + params.decay + '\n';
             csv += 'Utilization (%),' + params.utilization + '\n';
-            csv += 'Marketplace Rake (%),' + params.marketRake + '\n';
+            csv += 'Cloud Marketplace Fee (%),' + params.marketRake + '\n';
             csv += 'Provider Rake (%),' + params.providerRake + '\n';
             csv += 'Silicon Fee (%),' + params.siliconFee + '\n';
             csv += 'Tax Rate (%),' + params.taxRate + '\n\n';
@@ -2486,7 +2486,7 @@
                     utilization: "90",
                     marketRake: "20",
                     providerRake: "20",
-                    siliconFee: "5",
+                    siliconFee: "10",
                     taxRate: "21"
                 }
             }
