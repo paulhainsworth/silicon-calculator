@@ -1443,7 +1443,7 @@
                         <div class="output-value" id="breakevenMonth">Month 21</div>
                     </div>
                     <div class="output-card">
-                        <div class="output-label">Total Return <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Owner Net Profit ÷ Total CAPEX. Your total profit as a percentage of initial capital.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Owner Net Profit ÷ Total CAPEX</span></span></div>
+                        <div class="output-label">ROI <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Return on Investment: Owner Net Profit ÷ Total CAPEX</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Owner Net Profit ÷ Total CAPEX</span></span></div>
                         <div class="output-value" id="totalReturn">141%</div>
                     </div>
                 </div>
@@ -2082,7 +2082,7 @@
             afterTaxEl.textContent = formatCurrency(finalAfterTaxCashFlow);
             afterTaxEl.className = 'output-value ' + (finalAfterTaxCashFlow >= 0 ? 'positive' : 'negative');
             
-            // Total Return = Net Profit / Investment
+            // ROI = Net Profit / Investment
             const totalReturn = finalAfterTaxCashFlow / totalInvestment;
             document.getElementById('totalReturn').textContent = formatPercent(totalReturn, 0);
             
