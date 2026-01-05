@@ -1439,12 +1439,8 @@
                 <div class="section-header">KEY PERFORMANCE INDICATORS</div>
                 <div class="outputs-grid">
                     <div class="output-card">
-                        <div class="output-label">Payback Period <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Months of owner revenue share required to recover initial CAPEX</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Total CAPEX ÷ (Owner Fee ÷ Term)</span></span></div>
-                        <div class="output-value" id="paybackPeriod">24 mo</div>
-                    </div>
-                    <div class="output-card">
-                        <div class="output-label">CAPEX Break-even <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Month when cumulative rental revenue equals the total CAPEX investment</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Month where:<br>Σ(Owner Fee) ≥ CAPEX</span></span></div>
-                        <div class="output-value" id="breakevenMonth">Month 42</div>
+                        <div class="output-label">Simple Payback <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Month when cumulative Owner Fee (pre-tax) equals Total CAPEX</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Month where:<br>Σ(Owner Fee) ≥ CAPEX</span></span></div>
+                        <div class="output-value" id="breakevenMonth">Month 21</div>
                     </div>
                     <div class="output-card">
                         <div class="output-label">Total Return <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Owner Net Profit ÷ Total CAPEX. Your total profit as a percentage of initial capital.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Owner Net Profit ÷ Total CAPEX</span></span></div>
@@ -1843,9 +1839,6 @@
             const providerGrossRevenue = totalRawRevenue - totalMarketplaceFees;  // Before silicon/splits
             const providerNetRevenue = totalProviderRevenue;  // Same as Provider Rake Earnings
             
-            // Payback period: months of owner fee required to recover investment
-            const avgMonthlyOwnerFee = totalOwnerFee / term;
-            const paybackPeriod = avgMonthlyOwnerFee > 0 ? totalInvestment / avgMonthlyOwnerFee : Infinity;
 
             // Update all outputs
             document.getElementById('totalCapexStat').textContent = formatCurrency(totalCapex, false);
@@ -1869,13 +1862,7 @@
             // Owner Financials
             document.getElementById('ownerEbitda').textContent = formatCurrency(totalOwnerFee);
             
-            if (paybackPeriod === Infinity || paybackPeriod < 0) {
-                document.getElementById('paybackPeriod').textContent = 'Never';
-            } else {
-                document.getElementById('paybackPeriod').textContent = Math.ceil(paybackPeriod) + ' mo';
-            }
-
-            // Break-even (months to pay back full CAPEX from rental income only)
+            // Simple Payback (months to pay back full CAPEX from rental income only)
             if (breakevenMonth > 0 && breakevenMonth <= term) {
                 document.getElementById('breakevenMonth').textContent = 'Month ' + breakevenMonth;
             } else {
@@ -2418,7 +2405,7 @@
             csv += 'Total Cash Inflow,' + document.getElementById('totalCashInflow').textContent + '\n';
             csv += 'Total Cash Outflow,' + document.getElementById('totalCashOutflow').textContent + '\n';
             csv += 'Owner Net Profit,' + document.getElementById('afterTaxCashFlow').textContent + '\n';
-            csv += 'Payback Period,' + document.getElementById('paybackPeriod').textContent + '\n';
+            csv += 'Simple Payback,' + document.getElementById('breakevenMonth').textContent + '\n';
             csv += 'Est. APR,' + document.getElementById('aprBadge').textContent + '\n\n';
             
             // Cash flow table
