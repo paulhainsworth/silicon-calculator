@@ -301,6 +301,131 @@
             box-shadow: 0 6px 25px rgba(16, 185, 129, 0.4);
         }
 
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            gap: 0;
+            margin-bottom: 24px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .tab-btn {
+            padding: 12px 32px;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .tab-btn.active {
+            color: var(--accent);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Simple Tab Styles */
+        .simple-tab .simple-pie-section {
+            background: var(--bg-input);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
+        }
+
+        .simple-tab .simple-pie-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+        }
+
+        .simple-tab .simple-pie-chart {
+            width: 270px;
+            height: 270px;
+            border-radius: 50%;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .simple-tab .simple-pie-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: var(--bg-input);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .simple-tab .simple-pie-inner-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .simple-tab .simple-pie-inner-value {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .simple-tab .simple-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .simple-tab .simple-content {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        .simple-tab .simple-kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .simple-tab .simple-kpi-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
         /* Main Grid - Side by Side */
         .main-grid {
             display: grid;
@@ -1398,6 +1523,124 @@
             <div class="apr-badge">Est. APR <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Annualized return: (Pool Net Profit ÷ Total CAPEX) × (12 ÷ Term)</span></span> <span id="aprBadge">24.1%</span></div>
         </div>
 
+        <!-- Tab Navigation -->
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="switchTab('simple')">Simple</button>
+            <button class="tab-btn" onclick="switchTab('advanced')">Advanced</button>
+        </div>
+
+        <!-- SIMPLE TAB -->
+        <div class="tab-content simple-tab active" id="simpleTab">
+            <!-- Large Pie Chart Section -->
+            <div class="simple-pie-section">
+                <div class="simple-pie-row">
+                    <div class="simple-pie-chart" id="simplePieChart">
+                        <div class="simple-pie-inner">
+                            <span class="simple-pie-inner-label">Total</span>
+                            <span class="simple-pie-inner-value" id="simplePieTotal">$0</span>
+                        </div>
+                    </div>
+                    <div class="simple-legend" id="simplePieLegend"></div>
+                </div>
+            </div>
+
+            <!-- Simple Content Grid -->
+            <div class="simple-content">
+                <!-- LEFT: Model Parameters (without advanced) -->
+                <div class="inputs-column">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Model Parameters</div>
+                            <div class="card-subtitle">Adjust to see results update</div>
+                        </div>
+
+                        <div class="input-section">
+                            <div class="section-label">Assets</div>
+                            
+                            <div class="input-group">
+                                <div class="input-row">
+                                    <span class="input-label">Number of Servers</span>
+                                    <span class="input-value"><input type="number" class="inline-input" id="simpleServersInput" value="1" min="1" max="100000" oninput="syncSimpleInput('servers')"></span>
+                                </div>
+                                <input type="range" id="simpleServers" min="1" max="100000" value="1" oninput="syncSimpleSlider('servers')">
+                            </div>
+
+                            <div class="input-group">
+                                <div class="input-row">
+                                    <span class="input-label">Server Cost (CAPEX)</span>
+                                </div>
+                                <input type="number" id="simpleUnitCost" value="100000" oninput="syncSimpleValue('unitCost')">
+                            </div>
+
+                            <div class="input-group">
+                                <div class="input-row">
+                                    <span class="input-label">Liquidation Residual <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Minimum guaranteed sale price at end of service term</span></span></span>
+                                    <span class="input-value"><input type="number" class="inline-input" id="simpleResidualInput" value="20" min="0" max="100" step="1" oninput="syncSimpleInput('residual')"><span class="input-suffix">%</span></span>
+                                </div>
+                                <input type="range" id="simpleResidual" min="0" max="100" step="1" value="20" oninput="syncSimpleSlider('residual')">
+                            </div>
+                        </div>
+
+                        <div class="input-section">
+                            <div class="section-label">Investment Terms</div>
+                            
+                            <div class="input-group">
+                                <div class="input-row">
+                                    <span class="input-label">Investment Term</span>
+                                    <span class="input-value"><input type="number" class="inline-input" id="simpleTermInput" value="30" min="6" max="60" oninput="syncSimpleInput('term')"><span class="input-suffix">mo</span></span>
+                                </div>
+                                <input type="range" id="simpleTerm" min="6" max="60" value="30" oninput="syncSimpleSlider('term')">
+                            </div>
+                        </div>
+
+                        <div class="input-section">
+                            <div class="section-label">Revenue</div>
+                            
+                            <div class="input-group">
+                                <div class="input-row">
+                                    <span class="input-label"><a href="https://www.runpod.io/pricing#:~:text=RTX%20Pro%206000,/hr" target="_blank" style="color: inherit; text-decoration: underline; text-decoration-style: dotted;">Starting Hourly Rate</a></span>
+                                </div>
+                                <input type="number" id="simpleHourlyRate" value="2.09" step="0.01" oninput="syncSimpleValue('hourlyRate')">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Simple KPIs -->
+                <div class="results-column">
+                    <div class="kpi-section">
+                        <div class="section-header kpi-header">KEY PERFORMANCE INDICATORS</div>
+                        <div class="simple-kpi-grid">
+                            <div class="output-card">
+                                <div class="output-label">Total CAPEX <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Total capital expenditure: Number of Servers × Server Cost</span></span></div>
+                                <div class="output-value large" id="simpleTotalCapex">$1,990,000</div>
+                            </div>
+                            <div class="output-card highlight">
+                                <div class="output-label">Pool Net Profit <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">After-tax return on invested capital</span></span></div>
+                                <div class="output-value large" id="simpleNetProfit">$734,567</div>
+                            </div>
+                        </div>
+                        <div class="simple-kpi-grid-3">
+                            <div class="output-card">
+                                <div class="output-label">Payback <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Month when cumulative Pool Earnings equals Total CAPEX</span></span></div>
+                                <div class="output-value" id="simplePayback">Month 21</div>
+                            </div>
+                            <div class="output-card">
+                                <div class="output-label">ROI <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Return on Investment: Pool Net Profit ÷ Total CAPEX</span></span></div>
+                                <div class="output-value" id="simpleROI">141%</div>
+                            </div>
+                            <div class="output-card">
+                                <div class="output-label">APY <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Annualized Percentage Yield</span></span></div>
+                                <div class="output-value" id="simpleAPY">24.1%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ADVANCED TAB -->
+        <div class="tab-content" id="advancedTab">
         <!-- Scenario Controls -->
         <div class="scenario-controls">
             <select class="scenario-select" id="scenarioSelect" onchange="loadScenario()">
@@ -1740,9 +1983,150 @@
                 </div>
             </div>
         </div>
+        </div>
     </div>
 
     <script>
+        // Tab switching
+        function switchTab(tab) {
+            const simpleTab = document.getElementById('simpleTab');
+            const advancedTab = document.getElementById('advancedTab');
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            
+            tabBtns.forEach(btn => btn.classList.remove('active'));
+            
+            if (tab === 'simple') {
+                simpleTab.classList.add('active');
+                advancedTab.classList.remove('active');
+                tabBtns[0].classList.add('active');
+                syncToSimple();
+                updateSimplePieChart();
+            } else {
+                simpleTab.classList.remove('active');
+                advancedTab.classList.add('active');
+                tabBtns[1].classList.add('active');
+            }
+        }
+
+        // Sync simple inputs to advanced (main model)
+        function syncSimpleInput(param) {
+            const simpleInput = document.getElementById('simple' + param.charAt(0).toUpperCase() + param.slice(1) + 'Input');
+            const simpleSlider = document.getElementById('simple' + param.charAt(0).toUpperCase() + param.slice(1));
+            const advancedInput = document.getElementById(param + 'Input');
+            const advancedSlider = document.getElementById(param);
+            
+            if (simpleInput && advancedInput) {
+                advancedInput.value = simpleInput.value;
+                if (simpleSlider) simpleSlider.value = simpleInput.value;
+                if (advancedSlider) advancedSlider.value = simpleInput.value;
+            }
+            calculate();
+            updateSimpleKPIs();
+            updateSimplePieChart();
+        }
+
+        function syncSimpleSlider(param) {
+            const simpleSlider = document.getElementById('simple' + param.charAt(0).toUpperCase() + param.slice(1));
+            const simpleInput = document.getElementById('simple' + param.charAt(0).toUpperCase() + param.slice(1) + 'Input');
+            const advancedInput = document.getElementById(param + 'Input');
+            const advancedSlider = document.getElementById(param);
+            
+            if (simpleSlider && advancedSlider) {
+                advancedSlider.value = simpleSlider.value;
+                if (simpleInput) simpleInput.value = simpleSlider.value;
+                if (advancedInput) advancedInput.value = simpleSlider.value;
+            }
+            calculate();
+            updateSimpleKPIs();
+            updateSimplePieChart();
+        }
+
+        function syncSimpleValue(param) {
+            const simpleEl = document.getElementById('simple' + param.charAt(0).toUpperCase() + param.slice(1));
+            const advancedEl = document.getElementById(param);
+            
+            if (simpleEl && advancedEl) {
+                advancedEl.value = simpleEl.value;
+            }
+            calculate();
+            updateSimpleKPIs();
+            updateSimplePieChart();
+        }
+
+        // Sync from advanced to simple (when switching tabs)
+        function syncToSimple() {
+            // Servers
+            const servers = document.getElementById('servers');
+            const serversInput = document.getElementById('serversInput');
+            if (servers) {
+                document.getElementById('simpleServers').value = servers.value;
+                document.getElementById('simpleServersInput').value = serversInput ? serversInput.value : servers.value;
+            }
+            
+            // Unit Cost
+            const unitCost = document.getElementById('unitCost');
+            if (unitCost) document.getElementById('simpleUnitCost').value = unitCost.value;
+            
+            // Residual
+            const residual = document.getElementById('residual');
+            const residualInput = document.getElementById('residualInput');
+            if (residual) {
+                document.getElementById('simpleResidual').value = residual.value;
+                document.getElementById('simpleResidualInput').value = residualInput ? residualInput.value : residual.value;
+            }
+            
+            // Term
+            const term = document.getElementById('term');
+            const termInput = document.getElementById('termInput');
+            if (term) {
+                document.getElementById('simpleTerm').value = term.value;
+                document.getElementById('simpleTermInput').value = termInput ? termInput.value : term.value;
+            }
+            
+            // Hourly Rate
+            const hourlyRate = document.getElementById('hourlyRate');
+            if (hourlyRate) document.getElementById('simpleHourlyRate').value = hourlyRate.value;
+            
+            updateSimpleKPIs();
+        }
+
+        // Update simple KPIs from calculated values
+        function updateSimpleKPIs() {
+            const totalCapex = document.getElementById('totalCapexStat');
+            const netProfit = document.getElementById('afterTaxCashFlow');
+            const payback = document.getElementById('breakevenMonth');
+            const roi = document.getElementById('totalReturn');
+            const apy = document.getElementById('apyValue');
+            
+            if (totalCapex) document.getElementById('simpleTotalCapex').textContent = totalCapex.textContent;
+            if (netProfit) document.getElementById('simpleNetProfit').textContent = netProfit.textContent;
+            if (payback) document.getElementById('simplePayback').textContent = payback.textContent;
+            if (roi) document.getElementById('simpleROI').textContent = roi.textContent;
+            if (apy) document.getElementById('simpleAPY').textContent = apy.textContent;
+        }
+
+        // Update simple pie chart
+        function updateSimplePieChart() {
+            const pieChart = document.getElementById('simplePieChart');
+            const pieLegend = document.getElementById('simplePieLegend');
+            const pieTotal = document.getElementById('simplePieTotal');
+            
+            // Get the same data as the advanced chart
+            const mainPieChart = document.getElementById('pieChart');
+            const mainPieLegend = document.getElementById('pieLegend');
+            const mainPieTotal = document.getElementById('pieTotal');
+            
+            if (mainPieChart && pieChart) {
+                pieChart.style.background = mainPieChart.style.background;
+            }
+            if (mainPieLegend && pieLegend) {
+                pieLegend.innerHTML = mainPieLegend.innerHTML;
+            }
+            if (mainPieTotal && pieTotal) {
+                pieTotal.textContent = mainPieTotal.textContent;
+            }
+        }
+
         // Theme toggle
         function toggleTheme() {
             const html = document.documentElement;
@@ -2192,6 +2576,10 @@
             // Pool's portion should be after-tax (Pool Earnings - Tax) to avoid double-counting
             const ownerAfterTax = totalPoolFee - totalTax;
             updatePieChart(totalMarketplaceFees, totalProviderRevenue, totalSiliconFees, ownerAfterTax, totalTax);
+            
+            // Update simple tab if visible
+            updateSimpleKPIs();
+            updateSimplePieChart();
             
             // Calculate and position breakeven ticks
             updateBreakevenTicks();
@@ -2761,6 +3149,12 @@
         
         // Initialize scenarios
         initScenarios();
+        
+        // Initialize simple tab
+        setTimeout(() => {
+            syncToSimple();
+            updateSimplePieChart();
+        }, 100);
 
         // ============================================
         // SHARE FUNCTIONALITY
