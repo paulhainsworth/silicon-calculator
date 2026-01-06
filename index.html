@@ -1080,22 +1080,26 @@
 
         /* Inline Pie Chart for KPI section */
         .kpi-chart-row .pie-chart {
-            width: 140px;
-            height: 140px;
+            width: 180px;
+            height: 180px;
             flex-shrink: 0;
         }
 
         .kpi-chart-row .pie-chart-inner {
-            width: 55px;
-            height: 55px;
+            width: 70px;
+            height: 70px;
             background: var(--bg-card);
         }
 
         .kpi-chart-row .pie-legend {
             display: flex;
-            flex-wrap: wrap;
-            gap: 8px 16px;
+            flex-direction: column;
+            gap: 4px;
             flex: 1;
+        }
+
+        .kpi-chart-row .pie-legend-item {
+            gap: 8px;
         }
 
         /* Divider */
