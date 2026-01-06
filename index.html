@@ -586,10 +586,18 @@
         }
 
         .kpi-with-chart {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            align-items: start;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .kpi-chart-row {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 16px;
+            background: var(--bg-card);
+            border-radius: 8px;
         }
 
         .kpi-metrics {
@@ -1071,30 +1079,23 @@
         .pie-color-tax { background: #ef4444; }
 
         /* Inline Pie Chart for KPI section */
-        .pie-chart-inline {
+        .kpi-chart-row .pie-chart {
+            width: 140px;
+            height: 140px;
+            flex-shrink: 0;
+        }
+
+        .kpi-chart-row .pie-chart-inner {
+            width: 55px;
+            height: 55px;
+            background: var(--bg-card);
+        }
+
+        .kpi-chart-row .pie-legend {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            background: var(--bg-card);
-            border-radius: 8px;
-        }
-
-        .pie-chart-inline .pie-chart {
-            width: 120px;
-            height: 120px;
-        }
-
-        .pie-chart-inline .pie-chart-inner {
-            width: 50px;
-            height: 50px;
-            background: var(--bg-card);
-        }
-
-        .pie-chart-inline .pie-legend {
-            flex-direction: column;
-            gap: 6px;
+            flex-wrap: wrap;
+            gap: 8px 16px;
+            flex: 1;
         }
 
         /* Divider */
@@ -1537,8 +1538,17 @@
                 <div class="kpi-section">
                     <div class="section-header kpi-header">KEY PERFORMANCE INDICATORS</div>
                     <div class="kpi-with-chart">
+                        <div class="kpi-chart-row">
+                            <div class="pie-chart" id="pieChart">
+                                <div class="pie-chart-inner">
+                                    <span class="pie-chart-inner-label">Total</span>
+                                    <span class="pie-chart-inner-value" id="pieTotal">$0</span>
+                                </div>
+                            </div>
+                            <div class="pie-legend" id="pieLegend"></div>
+                        </div>
                         <div class="kpi-metrics">
-                            <div class="outputs-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 12px;">
+                            <div class="outputs-grid" style="grid-template-columns: repeat(2, 1fr);">
                                 <div class="output-card">
                                     <div class="output-label">Total CAPEX <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Total capital expenditure: Number of Servers × Server Cost</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Servers × Server Cost</span></span></div>
                                     <div class="output-value large" id="totalCapexStat">$1,990,000</div>
@@ -1562,15 +1572,6 @@
                                     <div class="output-value" id="apyValue">24.1%</div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="pie-chart-inline">
-                            <div class="pie-chart" id="pieChart">
-                                <div class="pie-chart-inner">
-                                    <span class="pie-chart-inner-label">Total</span>
-                                    <span class="pie-chart-inner-value" id="pieTotal">$0</span>
-                                </div>
-                            </div>
-                            <div class="pie-legend" id="pieLegend"></div>
                         </div>
                     </div>
                 </div>
