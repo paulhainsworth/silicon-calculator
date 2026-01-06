@@ -561,6 +561,83 @@
             border-bottom: 1px solid var(--border-light);
         }
 
+        .section-header.kpi-header {
+            font-size: 0.85rem;
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+            margin-top: 0;
+        }
+
+        /* KPI Section - More Prominent */
+        .kpi-section {
+            background: var(--bg-input);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .kpi-section .outputs-grid {
+            margin-bottom: 0;
+        }
+
+        .kpi-section .output-card {
+            background: var(--bg-card);
+        }
+
+        .kpi-with-chart {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .kpi-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Advanced Toggle Button */
+        .advanced-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            width: 100%;
+            padding: 10px;
+            margin-top: 16px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .advanced-toggle:hover {
+            background: var(--border);
+            color: var(--text-primary);
+        }
+
+        .advanced-toggle .arrow {
+            transition: transform 0.2s ease;
+        }
+
+        .advanced-toggle.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .advanced-inputs {
+            display: none;
+        }
+
+        .advanced-inputs.show {
+            display: block;
+        }
+
         /* Outputs Grid - 3 column */
         .outputs-grid {
             display: grid;
@@ -993,6 +1070,33 @@
         .pie-color-owner { background: #00d46a; }
         .pie-color-tax { background: #ef4444; }
 
+        /* Inline Pie Chart for KPI section */
+        .pie-chart-inline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: var(--bg-card);
+            border-radius: 8px;
+        }
+
+        .pie-chart-inline .pie-chart {
+            width: 120px;
+            height: 120px;
+        }
+
+        .pie-chart-inline .pie-chart-inner {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-card);
+        }
+
+        .pie-chart-inline .pie-legend {
+            flex-direction: column;
+            gap: 6px;
+        }
+
         /* Divider */
         .divider {
             height: 1px;
@@ -1363,6 +1467,12 @@
                             <input type="number" id="hourlyRate" value="2.09" step="0.01" oninput="calculate()">
                         </div>
 
+                        <button class="advanced-toggle" id="advancedToggle" onclick="toggleAdvanced()">
+                            <span>Advanced Settings</span>
+                            <span class="arrow">▼</span>
+                        </button>
+
+                        <div class="advanced-inputs" id="advancedInputs">
                         <div class="input-group">
                             <div class="input-row">
                                 <span class="input-label">Annual Hourly Rate Decay</span>
@@ -1422,6 +1532,7 @@
                             <input type="range" id="taxRate" min="0" max="100" step="1" value="21" oninput="syncFromSlider('taxRate')">
                         </div>
                     </div>
+                    </div>
                 </div>
             </div>
 
@@ -1436,45 +1547,51 @@
                 </div>
 
                 <!-- Section 2: KPIs -->
-                <div class="section-header">KEY PERFORMANCE INDICATORS</div>
-                <div class="outputs-grid">
-                    <div class="output-card">
-                        <div class="output-label">Simple Payback <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Month when cumulative Pool Fee (pre-tax) equals Total CAPEX</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Month where:<br>Σ(Pool Fee) ≥ CAPEX</span></span></div>
-                        <div class="output-value" id="breakevenMonth">Month 21</div>
-                    </div>
-                    <div class="output-card">
-                        <div class="output-label">ROI <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Return on Investment: Pool Net Profit ÷ Total CAPEX</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Pool Net Profit ÷ Total CAPEX</span></span></div>
-                        <div class="output-value" id="totalReturn">141%</div>
-                    </div>
-                    <div class="output-card">
-                        <div class="output-label">APY <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Annualized Percentage Yield: ROI adjusted to a 12-month basis</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">(Pool Net Profit ÷ CAPEX) × (12 ÷ Term)</span></span></div>
-                        <div class="output-value" id="apyValue">24.1%</div>
+                <div class="kpi-section">
+                    <div class="section-header kpi-header">KEY PERFORMANCE INDICATORS</div>
+                    <div class="kpi-with-chart">
+                        <div class="kpi-metrics">
+                            <div class="output-card">
+                                <div class="output-label">Gross Rental Revenue <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Sum of (Hourly Rate × 730 × 8 × Utilization) for all months. Raw rental income before any fees.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Σ(Rate × 730 × 8 × Util)<br>for each month<br>(Rate decays monthly)</span></span></div>
+                                <div class="output-value large" id="grossRentalRevenue">$7,234,567</div>
+                            </div>
+                            <div class="outputs-grid" style="grid-template-columns: repeat(3, 1fr);">
+                                <div class="output-card">
+                                    <div class="output-label">Simple Payback <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Month when cumulative Pool Fee (pre-tax) equals Total CAPEX</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Month where:<br>Σ(Pool Fee) ≥ CAPEX</span></span></div>
+                                    <div class="output-value" id="breakevenMonth">Month 21</div>
+                                </div>
+                                <div class="output-card">
+                                    <div class="output-label">ROI <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Return on Investment: Pool Net Profit ÷ Total CAPEX</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Pool Net Profit ÷ Total CAPEX</span></span></div>
+                                    <div class="output-value" id="totalReturn">141%</div>
+                                </div>
+                                <div class="output-card">
+                                    <div class="output-label">APY <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Annualized Percentage Yield: ROI adjusted to a 12-month basis</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">(Pool Net Profit ÷ CAPEX) × (12 ÷ Term)</span></span></div>
+                                    <div class="output-value" id="apyValue">24.1%</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pie-chart-inline">
+                            <div class="pie-chart" id="pieChart">
+                                <div class="pie-chart-inner">
+                                    <span class="pie-chart-inner-label">Total</span>
+                                    <span class="pie-chart-inner-value" id="pieTotal">$0</span>
+                                </div>
+                            </div>
+                            <div class="pie-legend" id="pieLegend"></div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Section 3: Revenue -->
-                <div class="section-header">REVENUE</div>
-                <div class="outputs-grid">
-                    <div class="output-card">
-                        <div class="output-label">Total Revenue <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Total gross rental revenue generated by the assets over the investment term (same as Gross Rental Revenue).</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">= Gross Rental Revenue</span></span></div>
-                        <div class="output-value" id="totalRevenue">$8,234,567</div>
-                    </div>
-                    <div class="output-card">
-                        <div class="output-label">Gross Rental Revenue <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Sum of (Hourly Rate × 730 × 8 × Utilization) for all months. Raw rental income before any fees.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Σ(Rate × 730 × 8 × Util)<br>for each month<br>(Rate decays monthly)</span></span></div>
-                        <div class="output-value" id="grossRentalRevenue">$7,234,567</div>
-                    </div>
-                    <div class="output-card">
-                        <div class="output-label">Cloud Marketplace Fee <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Marketplace earnings: Gross Rental Revenue × Marketplace Fee %</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Gross Rental Revenue × Marketplace %</span></span></div>
-                        <div class="output-value" id="marketplaceRake">$1,446,913</div>
-                    </div>
-                </div>
-
-                <!-- Section 4: Provider Financials -->
+                <!-- Section 3: Provider Financials -->
                 <div class="section-header">PROVIDER FINANCIALS</div>
                 <div class="outputs-grid">
                     <div class="output-card">
                         <div class="output-label">Provider Gross Revenue <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Gross Rental Revenue − Cloud Marketplace Fee. Revenue to provider before fees.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Gross Rental − Cloud Marketplace Fee</span></span></div>
                         <div class="output-value" id="providerGrossRevenue">$5,787,654</div>
+                    </div>
+                    <div class="output-card">
+                        <div class="output-label">Cloud Marketplace Fee <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Marketplace earnings: Gross Rental Revenue × Marketplace Fee %</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Gross Rental Revenue × Marketplace %</span></span></div>
+                        <div class="output-value" id="marketplaceRake">$1,446,913</div>
                     </div>
                     <div class="output-card">
                         <div class="output-label">Silicon Fee Earnings <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Silicon's share: Provider Gross Revenue × Silicon Fee %.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Provider Gross × Silicon Fee %</span></span></div>
@@ -1486,8 +1603,8 @@
                     </div>
                 </div>
 
-                <!-- Section 5: Pool Financials -->
-                <div class="section-header">OWNER FINANCIALS</div>
+                <!-- Section 4: Pool Financials -->
+                <div class="section-header">POOL FINANCIALS</div>
                 <div class="outputs-grid">
                     <div class="output-card">
                         <div class="output-label">Total Cash Inflow <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Pool Fee + Liquidation Value at end of term.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Pool Fee + Liquidation Value</span></span></div>
@@ -1520,23 +1637,6 @@
                     <div class="output-card highlight full-width">
                         <div class="output-label">Pool Net Profit <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">−Total CAPEX + Pool Fee + Liquidation Value − Tax. After-tax return on invested capital.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">−CAPEX + Pool Fee + Liquidation − Tax</span></span></div>
                         <div class="output-value" id="afterTaxCashFlow">$734,567</div>
-                    </div>
-                </div>
-
-                <!-- Pie Chart: Revenue Distribution -->
-                <div class="pie-chart-section">
-                    <div class="pie-chart-header">
-                        <span class="pie-chart-title">Revenue Distribution</span>
-                        <button class="pie-toggle-btn" id="pieToggleBtn" onclick="togglePieChart()">Show Chart</button>
-                    </div>
-                    <div class="pie-chart-container" id="pieChartContainer" style="display: none;">
-                        <div class="pie-chart" id="pieChart">
-                            <div class="pie-chart-inner">
-                                <span class="pie-chart-inner-label">Total</span>
-                                <span class="pie-chart-inner-value" id="pieTotal">$0</span>
-                            </div>
-                        </div>
-                        <div class="pie-legend" id="pieLegend"></div>
                     </div>
                 </div>
 
@@ -1848,7 +1948,6 @@
             document.getElementById('totalCashOutflow').textContent = formatCurrency(totalCashOutflow);
             
             // Revenue outputs
-            document.getElementById('totalRevenue').textContent = formatCurrency(totalRevenue);
             document.getElementById('grossRentalRevenue').textContent = formatCurrency(totalRawRevenue);
             document.getElementById('marketplaceRake').textContent = formatCurrency(totalMarketplaceFees);
             
@@ -2279,16 +2378,11 @@
             });
         }
 
-        function togglePieChart() {
-            const container = document.getElementById('pieChartContainer');
-            const btn = document.getElementById('pieToggleBtn');
-            if (container.style.display === 'none') {
-                container.style.display = 'flex';
-                btn.textContent = 'Hide Chart';
-            } else {
-                container.style.display = 'none';
-                btn.textContent = 'Show Chart';
-            }
+        function toggleAdvanced() {
+            const inputs = document.getElementById('advancedInputs');
+            const btn = document.getElementById('advancedToggle');
+            inputs.classList.toggle('show');
+            btn.classList.toggle('active');
         }
 
         function updatePieChart(marketplace, provider, silicon, owner, tax) {
@@ -2400,7 +2494,7 @@
             // Summary metrics
             csv += 'Summary\n';
             csv += 'Total CAPEX,' + document.getElementById('totalCapexStat').textContent + '\n';
-            csv += 'Total Revenue,' + document.getElementById('totalRevenue').textContent + '\n';
+            csv += 'Gross Rental Revenue,' + document.getElementById('grossRentalRevenue').textContent + '\n';
             csv += 'Pool Fee,' + document.getElementById('ownerEbitda').textContent + '\n';
             csv += 'Total Cash Inflow,' + document.getElementById('totalCashInflow').textContent + '\n';
             csv += 'Total Cash Outflow,' + document.getElementById('totalCashOutflow').textContent + '\n';
