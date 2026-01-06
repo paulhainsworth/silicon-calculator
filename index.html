@@ -348,24 +348,35 @@
         }
 
         /* Simple Tab Styles */
+        .simple-tab .simple-content {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        .simple-tab .simple-right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
         .simple-tab .simple-pie-section {
             background: var(--bg-input);
             border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 24px;
+            padding: 20px;
             border: 1px solid var(--border);
         }
 
         .simple-tab .simple-pie-row {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 48px;
+            gap: 32px;
         }
 
         .simple-tab .simple-pie-chart {
-            width: 270px;
-            height: 270px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             position: relative;
             flex-shrink: 0;
@@ -376,8 +387,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             background: var(--bg-input);
             border-radius: 50%;
             display: flex;
@@ -387,14 +398,14 @@
         }
 
         .simple-tab .simple-pie-inner-label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.03em;
         }
 
         .simple-tab .simple-pie-inner-value {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--text-primary);
             font-family: 'JetBrains Mono', monospace;
@@ -403,14 +414,7 @@
         .simple-tab .simple-legend {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-        }
-
-        .simple-tab .simple-content {
-            display: grid;
-            grid-template-columns: 380px 1fr;
-            gap: 32px;
-            align-items: start;
+            gap: 6px;
         }
 
         .simple-tab .simple-kpi-grid {
@@ -1531,19 +1535,6 @@
 
         <!-- SIMPLE TAB -->
         <div class="tab-content simple-tab active" id="simpleTab">
-            <!-- Large Pie Chart Section -->
-            <div class="simple-pie-section">
-                <div class="simple-pie-row">
-                    <div class="simple-pie-chart" id="simplePieChart">
-                        <div class="simple-pie-inner">
-                            <span class="simple-pie-inner-label">Total</span>
-                            <span class="simple-pie-inner-value" id="simplePieTotal">$0</span>
-                        </div>
-                    </div>
-                    <div class="simple-legend" id="simplePieLegend"></div>
-                </div>
-            </div>
-
             <!-- Simple Content Grid -->
             <div class="simple-content">
                 <!-- LEFT: Model Parameters (without advanced) -->
@@ -1606,8 +1597,22 @@
                     </div>
                 </div>
 
-                <!-- RIGHT: Simple KPIs -->
-                <div class="results-column">
+                <!-- RIGHT: Chart + KPIs -->
+                <div class="simple-right-column">
+                    <!-- Pie Chart Section -->
+                    <div class="simple-pie-section">
+                        <div class="simple-pie-row">
+                            <div class="simple-pie-chart" id="simplePieChart">
+                                <div class="simple-pie-inner">
+                                    <span class="simple-pie-inner-label">Total</span>
+                                    <span class="simple-pie-inner-value" id="simplePieTotal">$0</span>
+                                </div>
+                            </div>
+                            <div class="simple-legend" id="simplePieLegend"></div>
+                        </div>
+                    </div>
+
+                    <!-- KPIs -->
                     <div class="kpi-section">
                         <div class="section-header kpi-header">KEY PERFORMANCE INDICATORS</div>
                         <div class="simple-kpi-grid">
