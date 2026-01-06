@@ -1421,18 +1421,6 @@
                     </div>
 
                     <div class="input-section">
-                        <div class="section-label">Investment Terms</div>
-                        
-                        <div class="input-group">
-                            <div class="input-row">
-                                <span class="input-label">Investment Term</span>
-                                <span class="input-value"><input type="number" class="inline-input" id="termInput" value="30" min="6" max="60" oninput="syncFromInput('term')"><span class="input-suffix">mo</span></span>
-                            </div>
-                            <input type="range" id="term" min="6" max="60" value="30" oninput="syncFromSlider('term')">
-                        </div>
-                    </div>
-
-                    <div class="input-section">
                         <div class="section-label">Assets</div>
                         
                         <div class="input-group">
@@ -1459,6 +1447,18 @@
                                 <input type="range" id="residual" min="0" max="100" step="1" value="20" oninput="syncFromSlider('residual')">
                                 <div class="breakeven-tick hidden" id="residualBreakeven" onclick="setToBreakeven('residual')"></div>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="input-section">
+                        <div class="section-label">Investment Terms</div>
+                        
+                        <div class="input-group">
+                            <div class="input-row">
+                                <span class="input-label">Investment Term</span>
+                                <span class="input-value"><input type="number" class="inline-input" id="termInput" value="30" min="6" max="60" oninput="syncFromInput('term')"><span class="input-suffix">mo</span></span>
+                            </div>
+                            <input type="range" id="term" min="6" max="60" value="30" oninput="syncFromSlider('term')">
                         </div>
                     </div>
 
