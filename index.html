@@ -1550,7 +1550,7 @@
                             </div>
                             <div class="outputs-grid" style="grid-template-columns: repeat(3, 1fr);">
                                 <div class="output-card">
-                                    <div class="output-label">Simple Payback <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Month when cumulative Pool Earnings (pre-tax) equals Total CAPEX</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Month where:<br>Σ(Pool Earnings) ≥ CAPEX</span></span></div>
+                                    <div class="output-label">Payback <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Month when cumulative Pool Earnings (pre-tax) equals Total CAPEX</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Month where:<br>Σ(Pool Earnings) ≥ CAPEX</span></span></div>
                                     <div class="output-value" id="breakevenMonth">Month 21</div>
                                 </div>
                                 <div class="output-card">
@@ -1953,7 +1953,7 @@
             // Pool Financials
             document.getElementById('ownerEbitda').textContent = formatCurrency(totalPoolFee);
             
-            // Simple Payback (months to pay back full CAPEX from rental income only)
+            // Payback (months to pay back full CAPEX from rental income only)
             if (breakevenMonth > 0 && breakevenMonth <= term) {
                 document.getElementById('breakevenMonth').textContent = 'Month ' + breakevenMonth;
             } else {
@@ -2492,7 +2492,7 @@
             csv += 'Total Cash Inflow,' + document.getElementById('totalCashInflow').textContent + '\n';
             csv += 'CAPEX,' + document.getElementById('totalCashOutflow').textContent + '\n';
             csv += 'Pool Net Profit,' + document.getElementById('afterTaxCashFlow').textContent + '\n';
-            csv += 'Simple Payback,' + document.getElementById('breakevenMonth').textContent + '\n';
+            csv += 'Payback,' + document.getElementById('breakevenMonth').textContent + '\n';
             csv += 'Est. APR,' + document.getElementById('aprBadge').textContent + '\n\n';
             
             // Cash flow table
