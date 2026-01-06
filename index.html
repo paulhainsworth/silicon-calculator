@@ -1274,7 +1274,7 @@
             <div class="nav-dropdown">
                 <a href="#" class="nav-dropdown-toggle">App</a>
                 <div class="nav-dropdown-menu">
-                    <a href="https://owner.silicon.net">Owner</a>
+                    <a href="https://owner.silicon.net">Pool</a>
                     <a href="https://provider.silicon.net">Provider</a>
                 </div>
             </div>
@@ -1286,7 +1286,7 @@
         <!-- Page Header -->
         <div class="page-header">
             <div class="page-title">GPU Financing Calculator — Cluster 01</div>
-            <div class="apr-badge">Est. APR <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Annualized return: (Owner Net Profit ÷ Total CAPEX) × (12 ÷ Term)</span></span> <span id="aprBadge">24.1%</span></div>
+            <div class="apr-badge">Est. APR <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Annualized return: (Pool Net Profit ÷ Total CAPEX) × (12 ÷ Term)</span></span> <span id="aprBadge">24.1%</span></div>
         </div>
 
         <!-- Scenario Controls -->
@@ -1439,15 +1439,15 @@
                 <div class="section-header">KEY PERFORMANCE INDICATORS</div>
                 <div class="outputs-grid">
                     <div class="output-card">
-                        <div class="output-label">Simple Payback <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Month when cumulative Owner Fee (pre-tax) equals Total CAPEX</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Month where:<br>Σ(Owner Fee) ≥ CAPEX</span></span></div>
+                        <div class="output-label">Simple Payback <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Month when cumulative Pool Fee (pre-tax) equals Total CAPEX</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Month where:<br>Σ(Pool Fee) ≥ CAPEX</span></span></div>
                         <div class="output-value" id="breakevenMonth">Month 21</div>
                     </div>
                     <div class="output-card">
-                        <div class="output-label">ROI <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Return on Investment: Owner Net Profit ÷ Total CAPEX</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Owner Net Profit ÷ Total CAPEX</span></span></div>
+                        <div class="output-label">ROI <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Return on Investment: Pool Net Profit ÷ Total CAPEX</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Pool Net Profit ÷ Total CAPEX</span></span></div>
                         <div class="output-value" id="totalReturn">141%</div>
                     </div>
                     <div class="output-card">
-                        <div class="output-label">APY <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Annualized Percentage Yield: ROI adjusted to a 12-month basis</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">(Owner Net Profit ÷ CAPEX) × (12 ÷ Term)</span></span></div>
+                        <div class="output-label">APY <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Annualized Percentage Yield: ROI adjusted to a 12-month basis</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">(Pool Net Profit ÷ CAPEX) × (12 ÷ Term)</span></span></div>
                         <div class="output-value" id="apyValue">24.1%</div>
                     </div>
                 </div>
@@ -1481,36 +1481,36 @@
                         <div class="output-value" id="siliconFeeEarnings">$123,456</div>
                     </div>
                     <div class="output-card highlight">
-                        <div class="output-label">Provider Net Revenue <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Provider Gross Revenue − Silicon Fee − Owner Fee. What provider keeps.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">= Provider Rake Earnings</span></span></div>
+                        <div class="output-label">Provider Net Revenue <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Provider Gross Revenue − Silicon Fee − Pool Fee. What provider keeps.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">= Provider Rake Earnings</span></span></div>
                         <div class="output-value" id="providerNetRevenue">$1,234,567</div>
                     </div>
                 </div>
 
-                <!-- Section 5: Owner Financials -->
+                <!-- Section 5: Pool Financials -->
                 <div class="section-header">OWNER FINANCIALS</div>
                 <div class="outputs-grid">
                     <div class="output-card">
-                        <div class="output-label">Total Cash Inflow <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Owner Fee + Liquidation Value at end of term.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Owner Fee + Liquidation Value</span></span></div>
+                        <div class="output-label">Total Cash Inflow <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Pool Fee + Liquidation Value at end of term.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Pool Fee + Liquidation Value</span></span></div>
                         <div class="output-value" id="totalCashInflow">$5,234,567</div>
                     </div>
                     <div class="output-card">
-                        <div class="output-label">Total Cash Outflow <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Owner's upfront capital investment (100% of CAPEX).</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">= Total CAPEX<br>(100% upfront)</span></span></div>
+                        <div class="output-label">Total Cash Outflow <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Pool's upfront capital investment (100% of CAPEX).</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">= Total CAPEX<br>(100% upfront)</span></span></div>
                         <div class="output-value" id="totalCashOutflow">$4,612,351</div>
                     </div>
                     <div class="output-card highlight">
-                        <div class="output-label">Owner Fee <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Owner's revenue share: (Provider Gross − Silicon Fee) × (1 − Provider Rake).</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">(Provider Gross − Silicon) × (1 − Provider Rake %)</span></span></div>
+                        <div class="output-label">Pool Fee <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Pool's revenue share: (Provider Gross − Silicon Fee) × (1 − Provider Rake).</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">(Provider Gross − Silicon) × (1 − Provider Rake %)</span></span></div>
                         <div class="output-value" id="ownerEbitda">$859,567</div>
                     </div>
                     <div class="output-card">
-                        <div class="output-label">Depreciation Expense <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Straight-line depreciation: (CAPEX − Liquidation Value) / Term. Owner owns the asset.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">(CAPEX − Liquidation) ÷ Term</span></span></div>
+                        <div class="output-label">Depreciation Expense <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Straight-line depreciation: (CAPEX − Liquidation Value) / Term. Pool owns the asset.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">(CAPEX − Liquidation) ÷ Term</span></span></div>
                         <div class="output-value" id="depreciationExpense">$80,000</div>
                     </div>
                     <div class="output-card">
-                        <div class="output-label">Liquidation Value <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Expected residual value at end of term: CAPEX × Residual %. Owner receives at exit.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">CAPEX × Residual %</span></span></div>
+                        <div class="output-label">Liquidation Value <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Expected residual value at end of term: CAPEX × Residual %. Pool receives at exit.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">CAPEX × Residual %</span></span></div>
                         <div class="output-value" id="liquidationValueDisplay">$20,000</div>
                     </div>
                     <div class="output-card">
-                        <div class="output-label">Taxable Income <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Owner Fee − Depreciation Expense. Owner claims depreciation as asset owner.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Owner Fee − Depreciation</span></span></div>
+                        <div class="output-label">Taxable Income <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Pool Fee − Depreciation Expense. Pool claims depreciation as asset owner.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Pool Fee − Depreciation</span></span></div>
                         <div class="output-value" id="taxableIncomeTotal">$500,000</div>
                     </div>
                     <div class="output-card">
@@ -1518,7 +1518,7 @@
                         <div class="output-value" id="totalTax">$125,000</div>
                     </div>
                     <div class="output-card highlight full-width">
-                        <div class="output-label">Owner Net Profit <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">−Total CAPEX + Owner Fee + Liquidation Value − Tax. After-tax return on invested capital.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">−CAPEX + Owner Fee + Liquidation − Tax</span></span></div>
+                        <div class="output-label">Pool Net Profit <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">−Total CAPEX + Pool Fee + Liquidation Value − Tax. After-tax return on invested capital.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">−CAPEX + Pool Fee + Liquidation − Tax</span></span></div>
                         <div class="output-value" id="afterTaxCashFlow">$734,567</div>
                     </div>
                 </div>
@@ -1607,7 +1607,7 @@
                             <thead>
                                 <tr>
                                     <th>Month</th>
-                                    <th>Owner Fee</th>
+                                    <th>Pool Fee</th>
                                     <th>Taxable Income</th>
                                     <th>Tax</th>
                                 </tr>
@@ -1617,10 +1617,10 @@
                     </div>
                 </div>
 
-                <!-- Table Section: Owner Net Profit -->
+                <!-- Table Section: Pool Net Profit -->
                 <div class="table-section">
                     <div class="table-header">
-                        <span class="table-title">Owner Net Profit</span>
+                        <span class="table-title">Pool Net Profit</span>
                         <div class="table-buttons">
                             <button class="toggle-btn" onclick="toggleTable('afterTaxTable', this)">Show Table</button>
                         </div>
@@ -1630,7 +1630,7 @@
                             <thead>
                                 <tr>
                                     <th>Month</th>
-                                    <th>Owner Fee</th>
+                                    <th>Pool Fee</th>
                                     <th>Tax</th>
                                     <th>After-Tax Cash Flow</th>
                                     <th>Cumulative After-Tax</th>
@@ -1737,17 +1737,17 @@
 
             // Calculations - OWNER FINANCING MODEL (no loan)
             const totalCapex = unitCost * servers;
-            const totalInvestment = totalCapex;  // Owner pays 100% upfront
+            const totalInvestment = totalCapex;  // Pool pays 100% upfront
             const liquidationValue = totalCapex * residual;
 
             const cashFlows = [];
             let currentHourlyRate = hourlyRate * servers;
-            let totalOwnerFee = 0;       // Owner's share of revenue
+            let totalPoolFee = 0;       // Pool's share of revenue
             let totalRawRevenue = 0;     // Gross rental revenue
             let totalProviderRevenue = 0; // Provider's share
             let totalMarketplaceFees = 0; // Marketplace earnings
             let totalSiliconFees = 0;     // Silicon earnings
-            let cumulativeOwnerFee = 0;   // For break-even tracking
+            let cumulativePoolFee = 0;   // For break-even tracking
             let breakevenMonth = 0;
             let cumulativeCashFlow = 0;
 
@@ -1772,7 +1772,7 @@
                 // 1. Gross Rental Revenue
                 // 2. - Marketplace Fee = Provider Gross Revenue
                 // 3. - Silicon Fee (Provider Gross × Silicon %) = After Silicon
-                // 4. - Owner Fee = After Silicon × (1 - Provider Rake)
+                // 4. - Pool Fee = After Silicon × (1 - Provider Rake)
                 // 5. = Provider Net Revenue (Provider Rake Earnings)
                 
                 const rawRevenue = currentHourlyRate * 730 * 8 * utilization;  // Gross rental revenue
@@ -1780,7 +1780,7 @@
                 const providerGross = rawRevenue - marketplaceFee;              // Provider Gross Revenue
                 const siliconShare = providerGross * siliconFee;                // Silicon Fee
                 const afterSilicon = providerGross - siliconShare;              // After Silicon
-                const ownerShare = afterSilicon * (1 - providerRake);           // Owner Fee
+                const ownerShare = afterSilicon * (1 - providerRake);           // Pool Fee
                 const providerShare = afterSilicon * providerRake;              // Provider Rake Earnings
                 
                 const grossRevenue = ownerShare;
@@ -1790,12 +1790,12 @@
                 totalMarketplaceFees += marketplaceFee;
                 totalSiliconFees += siliconShare;
                 totalProviderRevenue += providerShare;
-                totalOwnerFee += ownerShare;
-                cumulativeOwnerFee += ownerShare;
+                totalPoolFee += ownerShare;
+                cumulativePoolFee += ownerShare;
                 cumulativeCashFlow += netProfit;
 
                 // Break-even = when cumulative owner fee covers full CAPEX
-                if (breakevenMonth === 0 && cumulativeOwnerFee >= totalCapex) {
+                if (breakevenMonth === 0 && cumulativePoolFee >= totalCapex) {
                     breakevenMonth = m;
                 }
 
@@ -1822,14 +1822,14 @@
             exportData = cashFlows;
 
             // Check if break-even happens with liquidation
-            cumulativeOwnerFee += liquidationValue;
+            cumulativePoolFee += liquidationValue;
             cumulativeCashFlow += liquidationValue;
-            if (breakevenMonth === 0 && cumulativeOwnerFee >= totalCapex) {
+            if (breakevenMonth === 0 && cumulativePoolFee >= totalCapex) {
                 breakevenMonth = term + 1; // Happens at liquidation
             }
 
             // Cash flow calculations (OWNER FINANCING MODEL)
-            const totalCashInflow = totalOwnerFee + liquidationValue;  // Owner Fee + Liquidation
+            const totalCashInflow = totalPoolFee + liquidationValue;  // Pool Fee + Liquidation
             const totalCashOutflow = totalInvestment;                   // 100% of CAPEX
             
             // Revenue calculations
@@ -1858,8 +1858,8 @@
             document.getElementById('siliconFeeEarnings').textContent = formatCurrency(totalSiliconFees);
             document.getElementById('liquidationValueDisplay').textContent = formatCurrency(liquidationValue);
             
-            // Owner Financials
-            document.getElementById('ownerEbitda').textContent = formatCurrency(totalOwnerFee);
+            // Pool Financials
+            document.getElementById('ownerEbitda').textContent = formatCurrency(totalPoolFee);
             
             // Simple Payback (months to pay back full CAPEX from rental income only)
             if (breakevenMonth > 0 && breakevenMonth <= term) {
@@ -1941,7 +1941,7 @@
 
             // ============================================
             // TAXABLE INCOME TABLE (OWNER FINANCING MODEL)
-            // Owner claims depreciation as asset owner
+            // Pool claims depreciation as asset owner
             // ============================================
             const taxableIncomeData = [];
 
@@ -1949,7 +1949,7 @@
                 const cf = cashFlows.find(c => c.month === m);
                 const ownerFee = cf ? cf.grossRevenue : 0;
 
-                // Owner financing model: Taxable income = Owner Fee - Depreciation
+                // Pool financing model: Taxable income = Pool Fee - Depreciation
                 const taxableIncome = ownerFee - monthlyDepreciation;
                 
                 // Tax calculation - may have loss carryforward due to depreciation
@@ -2092,8 +2092,8 @@
 
             updateChart(cashFlows);
             // Pie chart: show where gross revenue ultimately goes
-            // Owner's portion should be after-tax (Owner Fee - Tax) to avoid double-counting
-            const ownerAfterTax = totalOwnerFee - totalTax;
+            // Pool's portion should be after-tax (Pool Fee - Tax) to avoid double-counting
+            const ownerAfterTax = totalPoolFee - totalTax;
             updatePieChart(totalMarketplaceFees, totalProviderRevenue, totalSiliconFees, ownerAfterTax, totalTax);
             
             // Calculate and position breakeven ticks
@@ -2115,13 +2115,13 @@
             const taxRate = overrides.taxRate ?? parseFloat(document.getElementById('taxRate').value) / 100;
             
             const totalCapex = unitCost * servers;
-            const totalInvestment = totalCapex;  // Owner pays 100%
+            const totalInvestment = totalCapex;  // Pool pays 100%
             const liquidationValue = totalCapex * residual;
             const depreciableBasis = totalCapex - liquidationValue;
             const monthlyDepreciation = depreciableBasis / term;
             
             // Generate cash flows with FINANCING MODEL WATERFALL
-            // Raw → Marketplace → Silicon → Provider/Owner split
+            // Raw → Marketplace → Silicon → Provider/Pool split
             let currentHourlyRate = hourlyRate * servers;
             const ownerFees = [];
             for (let m = 1; m <= term; m++) {
@@ -2134,7 +2134,7 @@
                 ownerFees.push(ownerFee);
             }
             
-            // OWNER FINANCING TAX MODEL: Owner Fee - Depreciation
+            // OWNER FINANCING TAX MODEL: Pool Fee - Depreciation
             const taxes = [];
             for (let m = 0; m < term; m++) {
                 const taxableIncome = ownerFees[m] - monthlyDepreciation;
@@ -2147,7 +2147,7 @@
             for (let m = 0; m < term; m++) {
                 cumulative += ownerFees[m] - taxes[m];
             }
-            // Owner receives liquidation value at exit
+            // Pool receives liquidation value at exit
             cumulative += liquidationValue;
             
             return cumulative;
@@ -2195,7 +2195,7 @@
         
         // Update breakeven tick positions
         function updateBreakevenTicks() {
-            // Junior debt model: breakeven is when Owner Net Profit = 0
+            // Junior debt model: breakeven is when Pool Net Profit = 0
             // (no liquidation, full tax on EBITDA)
             
             // Decay: higher decay = less revenue = more negative (decreasing relationship)
@@ -2206,7 +2206,7 @@
             const utilBE = findBreakeven('utilization', 0.10, 1.00, true);
             positionBreakevenTick('utilization', utilBE, 10, 100);
             
-            // Residual: Owner doesn't participate in liquidation, so no breakeven to show
+            // Residual: Pool doesn't participate in liquidation, so no breakeven to show
             // Hide the residual breakeven tick
             const residualTick = document.getElementById('residualBreakeven');
             if (residualTick) residualTick.classList.add('hidden');
@@ -2310,7 +2310,7 @@
                 { label: 'Marketplace', value: marketplace, color: '#6366f1', colorClass: 'marketplace' },
                 { label: 'Provider', value: provider, color: '#22c55e', colorClass: 'provider' },
                 { label: 'Silicon', value: silicon, color: '#f59e0b', colorClass: 'silicon' },
-                { label: 'Owner (Net)', value: owner, color: '#00d46a', colorClass: 'owner' },
+                { label: 'Pool (Net)', value: owner, color: '#00d46a', colorClass: 'owner' },
                 { label: 'Tax', value: tax, color: '#ef4444', colorClass: 'tax' }
             ];
             
@@ -2401,16 +2401,16 @@
             csv += 'Summary\n';
             csv += 'Total CAPEX,' + document.getElementById('totalCapexStat').textContent + '\n';
             csv += 'Total Revenue,' + document.getElementById('totalRevenue').textContent + '\n';
-            csv += 'Owner Fee,' + document.getElementById('ownerEbitda').textContent + '\n';
+            csv += 'Pool Fee,' + document.getElementById('ownerEbitda').textContent + '\n';
             csv += 'Total Cash Inflow,' + document.getElementById('totalCashInflow').textContent + '\n';
             csv += 'Total Cash Outflow,' + document.getElementById('totalCashOutflow').textContent + '\n';
-            csv += 'Owner Net Profit,' + document.getElementById('afterTaxCashFlow').textContent + '\n';
+            csv += 'Pool Net Profit,' + document.getElementById('afterTaxCashFlow').textContent + '\n';
             csv += 'Simple Payback,' + document.getElementById('breakevenMonth').textContent + '\n';
             csv += 'Est. APR,' + document.getElementById('aprBadge').textContent + '\n\n';
             
             // Cash flow table
             csv += 'Monthly Cash Flow\n';
-            const headers = ['Month', 'Hourly Rate', 'Owner Fee', 'Net Profit', 'Cumulative Net'];
+            const headers = ['Month', 'Hourly Rate', 'Pool Fee', 'Net Profit', 'Cumulative Net'];
             csv += headers.join(',') + '\n';
             
             let cumulative = 0;
