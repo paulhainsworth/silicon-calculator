@@ -1538,22 +1538,20 @@
 
             <!-- RIGHT: Results Column -->
             <div class="results-column">
-                <!-- Key Stats -->
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-value" id="totalCapexStat">$3.75M</div>
-                        <div class="stat-label">Total CAPEX <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Total capital expenditure: Number of Servers × Server Cost</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Servers × Server Cost</span></span></div>
-                    </div>
-                </div>
-
-                <!-- Section 2: KPIs -->
+                <!-- Section 1: KPIs -->
                 <div class="kpi-section">
                     <div class="section-header kpi-header">KEY PERFORMANCE INDICATORS</div>
                     <div class="kpi-with-chart">
                         <div class="kpi-metrics">
-                            <div class="output-card">
-                                <div class="output-label">Gross Rental Revenue <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Sum of (Hourly Rate × 730 × 8 × Utilization) for all months. Raw rental income before any fees.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Σ(Rate × 730 × 8 × Util)<br>for each month<br>(Rate decays monthly)</span></span></div>
-                                <div class="output-value large" id="grossRentalRevenue">$7,234,567</div>
+                            <div class="outputs-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 12px;">
+                                <div class="output-card">
+                                    <div class="output-label">Total CAPEX <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Total capital expenditure: Number of Servers × Server Cost</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Servers × Server Cost</span></span></div>
+                                    <div class="output-value large" id="totalCapexStat">$1,990,000</div>
+                                </div>
+                                <div class="output-card">
+                                    <div class="output-label">Gross Rental Revenue <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Sum of (Hourly Rate × 730 × 8 × Utilization) for all months. Raw rental income before any fees.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Σ(Rate × 730 × 8 × Util)<br>for each month<br>(Rate decays monthly)</span></span></div>
+                                    <div class="output-value large" id="grossRentalRevenue">$7,234,567</div>
+                                </div>
                             </div>
                             <div class="outputs-grid" style="grid-template-columns: repeat(3, 1fr);">
                                 <div class="output-card">
