@@ -2174,6 +2174,11 @@
                                     <div class="stacked-legend-value" id="simpleLegendSilicon">$479K</div>
                                     <div class="stacked-legend-label">Platform</div>
                                 </div>
+                                <div class="stacked-legend-item">
+                                    <div class="stacked-legend-dot tax"></div>
+                                    <div class="stacked-legend-value" id="simpleLegendTax">$390K</div>
+                                    <div class="stacked-legend-label">Taxes</div>
+                                </div>
                             </div>
                         </div>
 
@@ -2764,33 +2769,39 @@
         function updateSimpleStackedBar(pool, marketplace, provider, silicon, tax, total) {
             const el = (id) => document.getElementById(id);
             
-            // Total = Gross Rental Revenue (don't include tax since it comes from Pool's share)
+            // Total = Gross Rental Revenue (pool is pre-tax Pool Earnings)
             const grandTotal = pool + marketplace + provider + silicon;
+            
+            // Pool Net = Pool Earnings minus Tax (what pool actually receives)
+            const poolNet = pool - tax;
             
             if (grandTotal <= 0) return;
             
             // Calculate percentages relative to Gross Rental Revenue
-            const poolPct = (pool / grandTotal) * 100;
+            const poolNetPct = (poolNet / grandTotal) * 100;
             const marketplacePct = (marketplace / grandTotal) * 100;
             const providerPct = (provider / grandTotal) * 100;
             const siliconPct = (silicon / grandTotal) * 100;
+            const taxPct = (tax / grandTotal) * 100;
             
-            // Update bar segments (no tax segment)
+            // Update bar segments (Pool Net + Tax = Pool Earnings)
             const bar = el('simpleStackedBar');
             if (bar) {
                 bar.innerHTML = `
-                    <div class="stacked-bar-segment pool" style="width: ${poolPct}%"></div>
+                    <div class="stacked-bar-segment pool" style="width: ${poolNetPct}%"></div>
                     <div class="stacked-bar-segment marketplace" style="width: ${marketplacePct}%"></div>
                     <div class="stacked-bar-segment provider" style="width: ${providerPct}%"></div>
                     <div class="stacked-bar-segment silicon" style="width: ${siliconPct}%"></div>
+                    <div class="stacked-bar-segment tax" style="width: ${taxPct}%"></div>
                 `;
             }
             
-            // Update legend values with correct percentages
-            if (el('simpleLegendPool')) el('simpleLegendPool').textContent = formatCurrency(pool, true);
+            // Update legend values (Pool shows net amount after tax)
+            if (el('simpleLegendPool')) el('simpleLegendPool').textContent = formatCurrency(poolNet, true);
             if (el('simpleLegendMarketplace')) el('simpleLegendMarketplace').textContent = formatCurrency(marketplace, true);
             if (el('simpleLegendProvider')) el('simpleLegendProvider').textContent = formatCurrency(provider, true);
             if (el('simpleLegendSilicon')) el('simpleLegendSilicon').textContent = formatCurrency(silicon, true);
+            if (el('simpleLegendTax')) el('simpleLegendTax').textContent = formatCurrency(tax, true);
             
             // Update total (Gross Rental Revenue)
             if (el('simpleRevenueSplitTotal')) el('simpleRevenueSplitTotal').textContent = formatCurrency(grandTotal, true) + ' total';
@@ -3449,9 +3460,12 @@
             const pieLegend = document.getElementById('pieLegend');
             const pieTotal = document.getElementById('pieTotal');
             
-            // Total = Gross Rental Revenue (how it gets distributed)
-            // Don't include tax in total since it comes out of Pool's share
+            // Total = Gross Rental Revenue
+            // owner is Pool Earnings (pre-tax), so total = marketplace + provider + silicon + owner
             const total = marketplace + provider + silicon + owner;
+            
+            // Pool Net = Pool Earnings minus Tax (what pool actually receives)
+            const poolNet = owner - tax;
             
             if (total <= 0) {
                 pieChart.style.background = 'var(--border)';
@@ -3460,16 +3474,17 @@
                 return;
             }
             
-            // Calculate percentages - ordered: Pool Earnings, Marketplace, Provider, Silicon
-            // Tax is shown separately but % is relative to Gross Rental Revenue
+            // Calculate percentages - ordered: Pool Net, Marketplace, Provider, Silicon, Tax
+            // Pool Earnings is split into Pool Net + Tax
             const data = [
-                { label: 'Pool Earnings', value: owner, color: '#00d46a', colorClass: 'owner' },
+                { label: 'Pool Earnings', value: poolNet, color: '#00d46a', colorClass: 'owner' },
                 { label: 'Marketplace', value: marketplace, color: '#6366f1', colorClass: 'marketplace' },
                 { label: 'Provider', value: provider, color: '#22c55e', colorClass: 'provider' },
-                { label: 'Silicon', value: silicon, color: '#f59e0b', colorClass: 'silicon' }
+                { label: 'Silicon', value: silicon, color: '#f59e0b', colorClass: 'silicon' },
+                { label: 'Tax', value: tax, color: '#ef4444', colorClass: 'tax' }
             ];
             
-            // Build conic gradient (without tax)
+            // Build conic gradient
             let gradientStops = [];
             let currentAngle = 0;
             
@@ -3487,11 +3502,11 @@
             // Update total (Gross Rental Revenue)
             pieTotal.textContent = formatCurrency(total, true);
             
-            // Build legend - show all 4 items
+            // Build legend - show all 5 items
             let legendHtml = data.map(item => {
-                // Use whole numbers for Provider, Silicon; one decimal for others
+                // Use whole numbers for Provider, Silicon, Tax; one decimal for others
                 const rawPercent = (item.value / total) * 100;
-                const useWholeNumber = ['Provider', 'Silicon'].includes(item.label);
+                const useWholeNumber = ['Provider', 'Silicon', 'Tax'].includes(item.label);
                 const percent = useWholeNumber ? Math.round(rawPercent) : rawPercent.toFixed(1);
                 return `
                     <div class="pie-legend-item">
