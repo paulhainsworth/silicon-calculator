@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Silicon | GPU Financing Calculator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-primary: #000000;
@@ -347,12 +347,459 @@
             display: block;
         }
 
-        /* Simple Tab Styles */
-        .simple-tab .simple-content {
+        /* New Redesigned Layout Styles */
+        .redesign-container {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        /* Apply Plus Jakarta Sans to both tabs */
+        .tab-content {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        
+        /* Advanced tab specific styling to match redesign */
+        #advancedTab .card-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+        }
+        
+        #advancedTab .section-header {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Investment Summary Bar */
+        .investment-summary-bar {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .summary-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .summary-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 800px) {
+            .summary-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .summary-right {
+                margin-top: 12px;
+            }
+        }
+
+        .summary-item {
+            text-align: left;
+        }
+
+        .summary-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .summary-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .summary-value.green {
+            color: #10b981;
+        }
+
+        .summary-arrow {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .summary-progress {
+            width: 120px;
+            height: 6px;
+            background: var(--border);
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+
+        .summary-progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #34d399, #10b981);
+            border-radius: 9999px;
+            transition: width 0.7s ease;
+        }
+
+        .summary-arrow-icon {
+            color: #10b981;
+            font-size: 1.25rem;
+        }
+
+        .summary-right {
+            text-align: right;
+        }
+
+        .profit-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            padding: 10px 16px;
+            border-radius: 9999px;
+        }
+
+        .profit-badge .value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #10b981;
+        }
+
+        .profit-badge .percent {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #10b981;
+            background: rgba(16, 185, 129, 0.2);
+            padding: 2px 8px;
+            border-radius: 9999px;
+        }
+
+        /* Redesigned Two Column Grid */
+        .redesign-grid {
             display: grid;
-            grid-template-columns: 380px 1fr;
-            gap: 32px;
-            align-items: start;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .redesign-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Redesigned Card */
+        .redesign-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .redesign-card-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        /* Slider Control Group */
+        .slider-group {
+            margin-bottom: 28px;
+        }
+
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .slider-header-left {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slider-label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .slider-sublabel {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .slider-value-display {
+            text-align: right;
+        }
+
+        .slider-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .slider-value.green {
+            color: #10b981;
+        }
+
+        .slider-suffix {
+            color: var(--text-muted);
+            margin-left: 4px;
+            font-weight: 400;
+        }
+
+        .redesign-slider {
+            width: 100%;
+            height: 10px;
+            background: var(--bg-input);
+            border-radius: 9999px;
+            appearance: none;
+            cursor: pointer;
+            margin-bottom: 4px;
+        }
+
+        .redesign-slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #10b981;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
+        }
+
+        .redesign-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #10b981;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
+        }
+
+        .slider-range-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        /* Cost Display Box */
+        .cost-display-box {
+            background: var(--bg-input);
+            border-radius: 12px;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+        }
+
+        .cost-display-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .cost-display-value {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Return Profile Cards */
+        .returns-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .return-card {
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .return-card.primary {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .return-card.dark {
+            background: #1e293b;
+        }
+
+        .return-card.light {
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+        }
+
+        .return-card-label {
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .return-card.primary .return-card-label {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .return-card.dark .return-card-label {
+            color: #94a3b8;
+        }
+
+        .return-card.light .return-card-label {
+            color: var(--text-secondary);
+        }
+
+        .return-card-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .return-card.primary .return-card-value {
+            color: #ffffff;
+        }
+
+        .return-card.dark .return-card-value {
+            color: #ffffff;
+        }
+
+        .return-card.light .return-card-value {
+            color: var(--text-primary);
+        }
+
+        .return-card-sublabel {
+            font-size: 0.7rem;
+            margin-top: 4px;
+        }
+
+        .return-card.primary .return-card-sublabel {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .return-card.dark .return-card-sublabel {
+            color: #64748b;
+        }
+
+        .return-card.light .return-card-sublabel {
+            color: var(--text-muted);
+        }
+
+        /* Revenue Split Section */
+        .revenue-split-section {
+            margin-top: 0;
+        }
+
+        .revenue-split-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .revenue-split-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .revenue-split-total {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* Stacked Horizontal Bar */
+        .stacked-bar {
+            height: 36px;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            margin-bottom: 16px;
+        }
+
+        .stacked-bar-segment {
+            height: 100%;
+            transition: width 0.5s ease;
+        }
+
+        .stacked-bar-segment.pool { background: #10b981; }
+        .stacked-bar-segment.marketplace { background: #6366f1; }
+        .stacked-bar-segment.provider { background: #22c55e; }
+        .stacked-bar-segment.silicon { background: #f59e0b; }
+        .stacked-bar-segment.tax { background: #ef4444; }
+
+        /* Stacked Bar Legend */
+        .stacked-legend {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            text-align: center;
+        }
+
+        .stacked-legend-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stacked-legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-bottom: 4px;
+        }
+
+        .stacked-legend-dot.pool { background: #10b981; }
+        .stacked-legend-dot.marketplace { background: #6366f1; }
+        .stacked-legend-dot.provider { background: #22c55e; }
+        .stacked-legend-dot.silicon { background: #f59e0b; }
+        .stacked-legend-dot.tax { background: #ef4444; }
+
+        .stacked-legend-value {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .stacked-legend-label {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+        }
+
+        /* CTA Button */
+        .cta-button {
+            width: 100%;
+            background: #1e293b;
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background: #334155;
+        }
+
+        /* Simple Tab Specific Overrides */
+        .simple-tab .simple-content {
+            display: block;
         }
 
         .simple-tab .simple-right-column {
@@ -1535,110 +1982,193 @@
 
         <!-- SIMPLE TAB -->
         <div class="tab-content simple-tab active" id="simpleTab">
-            <!-- Simple Content Grid -->
-            <div class="simple-content">
-                <!-- LEFT: Model Parameters (without advanced) -->
-                <div class="inputs-column">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-title">Model Parameters</div>
-                            <div class="card-subtitle">Adjust to see results update</div>
-                        </div>
-
-                        <div class="input-section">
-                            <div class="section-label">Assets</div>
-                            
-                            <div class="input-group">
-                                <div class="input-row">
-                                    <span class="input-label">Number of Servers</span>
-                                    <span class="input-value"><input type="number" class="inline-input" id="simpleServersInput" value="1" min="1" max="100000" oninput="syncSimpleInput('servers')"></span>
-                                </div>
-                                <input type="range" id="simpleServers" min="1" max="100000" value="1" oninput="syncSimpleSlider('servers')">
+            <div class="redesign-container">
+                <!-- Investment Summary Bar -->
+                <div class="investment-summary-bar">
+                    <div class="summary-row">
+                        <div class="summary-left">
+                            <div class="summary-item">
+                                <div class="summary-label">CAPEX</div>
+                                <div class="summary-value" id="summaryCapex">$1.99M</div>
                             </div>
-
-                            <div class="input-group">
-                                <div class="input-row">
-                                    <span class="input-label">Server Cost (CAPEX)</span>
+                            <div class="summary-arrow">
+                                <div class="summary-progress">
+                                    <div class="summary-progress-fill" style="width: 100%"></div>
                                 </div>
-                                <input type="number" id="simpleUnitCost" value="100000" oninput="syncSimpleValue('unitCost')">
+                                <span class="summary-arrow-icon">→</span>
                             </div>
-
-                            <div class="input-group">
-                                <div class="input-row">
-                                    <span class="input-label">Liquidation Residual <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Minimum guaranteed sale price at end of service term</span></span></span>
-                                    <span class="input-value"><input type="number" class="inline-input" id="simpleResidualInput" value="20" min="0" max="100" step="1" oninput="syncSimpleInput('residual')"><span class="input-suffix">%</span></span>
-                                </div>
-                                <input type="range" id="simpleResidual" min="0" max="100" step="1" value="20" oninput="syncSimpleSlider('residual')">
+                            <div class="summary-item">
+                                <div class="summary-label">Pool Earns</div>
+                                <div class="summary-value green" id="summaryPoolEarns">$3.46M</div>
                             </div>
                         </div>
-
-                        <div class="input-section">
-                            <div class="section-label">Investment Terms</div>
-                            
-                            <div class="input-group">
-                                <div class="input-row">
-                                    <span class="input-label">Investment Term</span>
-                                    <span class="input-value"><input type="number" class="inline-input" id="simpleTermInput" value="30" min="6" max="60" oninput="syncSimpleInput('term')"><span class="input-suffix">mo</span></span>
-                                </div>
-                                <input type="range" id="simpleTerm" min="6" max="60" value="30" oninput="syncSimpleSlider('term')">
-                            </div>
-                        </div>
-
-                        <div class="input-section">
-                            <div class="section-label">Revenue</div>
-                            
-                            <div class="input-group">
-                                <div class="input-row">
-                                    <span class="input-label"><a href="https://www.runpod.io/pricing#:~:text=RTX%20Pro%206000,/hr" target="_blank" style="color: inherit; text-decoration: underline; text-decoration-style: dotted;">Starting Hourly Rate</a></span>
-                                </div>
-                                <input type="number" id="simpleHourlyRate" value="2.09" step="0.01" oninput="syncSimpleValue('hourlyRate')">
+                        <div class="summary-right">
+                            <div class="summary-label">Pool Profit</div>
+                            <div class="profit-badge">
+                                <span class="value" id="summaryProfit">+$1.47M</span>
+                                <span class="percent" id="summaryProfitPercent">+74%</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- RIGHT: Chart + KPIs -->
-                <div class="simple-right-column">
-                    <!-- Pie Chart Section -->
-                    <div class="simple-pie-section">
-                        <div class="simple-pie-row">
-                            <div class="simple-pie-chart" id="simplePieChart">
-                                <div class="simple-pie-inner">
-                                    <span class="simple-pie-inner-label">Total</span>
-                                    <span class="simple-pie-inner-value" id="simplePieTotal">$0</span>
+                <!-- Two Column Grid -->
+                <div class="redesign-grid">
+                    <!-- LEFT: Investment Terms -->
+                    <div class="redesign-card">
+                        <div class="redesign-card-title">Investment Terms</div>
+                        
+                        <!-- Servers -->
+                        <div class="slider-group">
+                            <div class="slider-header">
+                                <div class="slider-header-left">
+                                    <span class="slider-label">Servers</span>
+                                    <span class="slider-sublabel" id="serverEarningsHint">Each server earns ~$7K/month</span>
+                                </div>
+                                <div class="slider-value-display">
+                                    <span class="slider-value" id="simpleServersDisplay">20</span>
+                                    <span class="slider-suffix">units</span>
                                 </div>
                             </div>
-                            <div class="simple-legend" id="simplePieLegend"></div>
+                            <input type="range" class="redesign-slider" id="simpleServers" min="5" max="50" value="20" oninput="syncSimpleSlider('servers')">
+                            <div class="slider-range-labels">
+                                <span>5</span>
+                                <span>50</span>
+                            </div>
+                        </div>
+
+                        <!-- Server Cost -->
+                        <div class="slider-group">
+                            <div class="slider-header">
+                                <div class="slider-header-left">
+                                    <span class="slider-label">Cost per Server</span>
+                                    <span class="slider-sublabel">Nvidia Pro 6000</span>
+                                </div>
+                                <div class="slider-value-display">
+                                    <span class="slider-value" id="simpleUnitCostDisplay">$99,500</span>
+                                </div>
+                            </div>
+                            <div class="cost-display-box">
+                                <span class="cost-display-label">Total upfront</span>
+                                <span class="cost-display-value" id="simpleTotalUpfront">$1,990,000</span>
+                            </div>
+                        </div>
+
+                        <!-- Investment Term -->
+                        <div class="slider-group">
+                            <div class="slider-header">
+                                <div class="slider-header-left">
+                                    <span class="slider-label">Investment Term</span>
+                                    <span class="slider-sublabel">Longer = more earnings</span>
+                                </div>
+                                <div class="slider-value-display">
+                                    <span class="slider-value" id="simpleTermDisplay">36</span>
+                                    <span class="slider-suffix">months</span>
+                                </div>
+                            </div>
+                            <input type="range" class="redesign-slider" id="simpleTerm" min="12" max="60" value="36" oninput="syncSimpleSlider('term')">
+                            <div class="slider-range-labels">
+                                <span>1 year</span>
+                                <span>5 years</span>
+                            </div>
+                        </div>
+
+                        <!-- Liquidation Residual -->
+                        <div class="slider-group">
+                            <div class="slider-header">
+                                <div class="slider-header-left">
+                                    <span class="slider-label">Guaranteed Buyback</span>
+                                    <span class="slider-sublabel">Liquidator buys at end of term</span>
+                                </div>
+                                <div class="slider-value-display">
+                                    <span class="slider-value green" id="simpleResidualDisplay">20%</span>
+                                </div>
+                            </div>
+                            <input type="range" class="redesign-slider" id="simpleResidual" min="0" max="40" step="1" value="20" oninput="syncSimpleSlider('residual')">
+                            <div class="slider-range-labels">
+                                <span>0%</span>
+                                <span>40%</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- KPIs -->
-                    <div class="kpi-section">
-                        <div class="section-header kpi-header">KEY PERFORMANCE INDICATORS</div>
-                        <div class="simple-kpi-grid">
-                            <div class="output-card">
-                                <div class="output-label">Total CAPEX <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Total capital expenditure: Number of Servers × Server Cost</span></span></div>
-                                <div class="output-value large" id="simpleTotalCapex">$1,990,000</div>
-                            </div>
-                            <div class="output-card highlight">
-                                <div class="output-label">Pool Net Profit <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">After-tax return on invested capital</span></span></div>
-                                <div class="output-value large" id="simpleNetProfit">$734,567</div>
+                    <!-- RIGHT: Returns -->
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                        <div class="redesign-card">
+                            <div class="redesign-card-title">Return Profile</div>
+                            
+                            <div class="returns-grid">
+                                <div class="return-card primary">
+                                    <div class="return-card-label">Pool Net Profit</div>
+                                    <div class="return-card-value" id="simpleNetProfit">$1,465,313</div>
+                                    <div class="return-card-sublabel">After all fees & taxes</div>
+                                </div>
+                                <div class="return-card dark">
+                                    <div class="return-card-label">Annual Return</div>
+                                    <div class="return-card-value" id="simpleAPY">24.5%</div>
+                                    <div class="return-card-sublabel">APY on investment</div>
+                                </div>
+                                <div class="return-card light">
+                                    <div class="return-card-label">Payback</div>
+                                    <div class="return-card-value" id="simplePayback">Month 19</div>
+                                    <div class="return-card-sublabel">Profit after this point</div>
+                                </div>
+                                <div class="return-card light">
+                                    <div class="return-card-label">ROI</div>
+                                    <div class="return-card-value" id="simpleROI">74%</div>
+                                    <div class="return-card-sublabel" id="simpleROITerm">Over 36 months</div>
+                                </div>
                             </div>
                         </div>
-                        <div class="simple-kpi-grid-3">
-                            <div class="output-card">
-                                <div class="output-label">Payback <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Month when cumulative Pool Earnings equals Total CAPEX</span></span></div>
-                                <div class="output-value" id="simplePayback">Month 21</div>
+
+                        <!-- Revenue Split -->
+                        <div class="redesign-card revenue-split-section">
+                            <div class="revenue-split-header">
+                                <span class="revenue-split-title">Revenue Split</span>
+                                <span class="revenue-split-total" id="simpleRevenueSplitTotal">$5.98M total</span>
                             </div>
-                            <div class="output-card">
-                                <div class="output-label">ROI <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Return on Investment: Pool Net Profit ÷ Total CAPEX</span></span></div>
-                                <div class="output-value" id="simpleROI">141%</div>
+                            
+                            <div class="stacked-bar" id="simpleStackedBar">
+                                <div class="stacked-bar-segment pool" style="width: 51.1%"></div>
+                                <div class="stacked-bar-segment marketplace" style="width: 20%"></div>
+                                <div class="stacked-bar-segment provider" style="width: 14.4%"></div>
+                                <div class="stacked-bar-segment silicon" style="width: 8%"></div>
+                                <div class="stacked-bar-segment tax" style="width: 6.5%"></div>
                             </div>
-                            <div class="output-card">
-                                <div class="output-label">APY <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Annualized Percentage Yield</span></span></div>
-                                <div class="output-value" id="simpleAPY">24.1%</div>
+                            
+                            <div class="stacked-legend" id="simpleStackedLegend">
+                                <div class="stacked-legend-item">
+                                    <div class="stacked-legend-dot pool"></div>
+                                    <div class="stacked-legend-value" id="simpleLegendPool">$3.06M</div>
+                                    <div class="stacked-legend-label">Pool</div>
+                                </div>
+                                <div class="stacked-legend-item">
+                                    <div class="stacked-legend-dot marketplace"></div>
+                                    <div class="stacked-legend-value" id="simpleLegendMarketplace">$1.2M</div>
+                                    <div class="stacked-legend-label">Marketplace</div>
+                                </div>
+                                <div class="stacked-legend-item">
+                                    <div class="stacked-legend-dot provider"></div>
+                                    <div class="stacked-legend-value" id="simpleLegendProvider">$862K</div>
+                                    <div class="stacked-legend-label">Provider</div>
+                                </div>
+                                <div class="stacked-legend-item">
+                                    <div class="stacked-legend-dot silicon"></div>
+                                    <div class="stacked-legend-value" id="simpleLegendSilicon">$479K</div>
+                                    <div class="stacked-legend-label">Platform</div>
+                                </div>
+                                <div class="stacked-legend-item">
+                                    <div class="stacked-legend-dot tax"></div>
+                                    <div class="stacked-legend-value" id="simpleLegendTax">$390K</div>
+                                    <div class="stacked-legend-label">Taxes</div>
+                                </div>
                             </div>
                         </div>
+
+                        <!-- CTA Button -->
+                        <a href="https://predeposit.netlify.app/" target="_blank" style="text-decoration: none;">
+                            <button class="cta-button">Participate now →</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1646,6 +2176,36 @@
 
         <!-- ADVANCED TAB -->
         <div class="tab-content" id="advancedTab">
+        <div class="redesign-container">
+            <!-- Investment Summary Bar (Advanced) -->
+            <div class="investment-summary-bar">
+                <div class="summary-row">
+                    <div class="summary-left">
+                        <div class="summary-item">
+                            <div class="summary-label">CAPEX</div>
+                            <div class="summary-value" id="advSummaryCapex">$1.99M</div>
+                        </div>
+                        <div class="summary-arrow">
+                            <div class="summary-progress">
+                                <div class="summary-progress-fill" style="width: 100%"></div>
+                            </div>
+                            <span class="summary-arrow-icon">→</span>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">Pool Earns</div>
+                            <div class="summary-value green" id="advSummaryPoolEarns">$3.46M</div>
+                        </div>
+                    </div>
+                    <div class="summary-right">
+                        <div class="summary-label">Pool Profit</div>
+                        <div class="profit-badge">
+                            <span class="value" id="advSummaryProfit">+$1.47M</span>
+                            <span class="percent" id="advSummaryProfitPercent">+74%</span>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
         <!-- Scenario Controls -->
         <div class="scenario-controls">
             <select class="scenario-select" id="scenarioSelect" onchange="loadScenario()">
@@ -1664,7 +2224,7 @@
             <div class="inputs-column">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">Model Parameters</div>
+                        <div class="card-title">Investment Terms</div>
                         <div class="card-subtitle">Adjust to see results update</div>
                     </div>
 
@@ -1674,16 +2234,16 @@
                         <div class="input-group">
                             <div class="input-row">
                                 <span class="input-label">Number of Servers</span>
-                                <span class="input-value"><input type="number" class="inline-input" id="serversInput" value="1" min="1" max="100000" oninput="syncFromInput('servers')"></span>
+                                <span class="input-value"><input type="number" class="inline-input" id="serversInput" value="20" min="1" max="100000" oninput="syncFromInput('servers')"></span>
                             </div>
-                            <input type="range" id="servers" min="1" max="100000" value="1" oninput="syncFromSlider('servers')">
+                            <input type="range" id="servers" min="1" max="100000" value="20" oninput="syncFromSlider('servers')">
                         </div>
 
                         <div class="input-group">
                             <div class="input-row">
                                 <span class="input-label">Server Cost (CAPEX)</span>
                             </div>
-                            <input type="number" id="unitCost" value="100000" oninput="calculate()">
+                            <input type="number" id="unitCost" value="99500" oninput="calculate()">
                         </div>
 
                         <div class="input-group">
@@ -1704,9 +2264,9 @@
                         <div class="input-group">
                             <div class="input-row">
                                 <span class="input-label">Investment Term</span>
-                                <span class="input-value"><input type="number" class="inline-input" id="termInput" value="30" min="6" max="60" oninput="syncFromInput('term')"><span class="input-suffix">mo</span></span>
+                                <span class="input-value"><input type="number" class="inline-input" id="termInput" value="36" min="6" max="60" oninput="syncFromInput('term')"><span class="input-suffix">mo</span></span>
                             </div>
-                            <input type="range" id="term" min="6" max="60" value="30" oninput="syncFromSlider('term')">
+                            <input type="range" id="term" min="6" max="60" value="36" oninput="syncFromSlider('term')">
                         </div>
                     </div>
 
@@ -1770,7 +2330,7 @@
                                 <span class="input-value"><input type="number" class="inline-input" id="siliconFeeInput" value="10" min="0" max="25" step="1" oninput="syncFromInput('siliconFee')"><span class="input-suffix">%</span></span>
                             </div>
                             <input type="range" id="siliconFee" min="0" max="25" step="1" value="10" oninput="syncFromSlider('siliconFee')">
-                        </div>
+                    </div>
 
                         <div class="input-group">
                             <div class="input-row">
@@ -1788,38 +2348,38 @@
             <div class="results-column">
                 <!-- Section 1: KPIs -->
                 <div class="kpi-section">
-                    <div class="section-header kpi-header">KEY PERFORMANCE INDICATORS</div>
+                    <div class="section-header kpi-header">RETURN PROFILE</div>
                     <div class="kpi-with-chart">
                         <div class="kpi-chart-row">
                             <div class="pie-chart" id="pieChart">
                                 <div class="pie-chart-inner">
                                     <span class="pie-chart-inner-label">Total</span>
                                     <span class="pie-chart-inner-value" id="pieTotal">$0</span>
-                                </div>
-                            </div>
+                    </div>
+                    </div>
                             <div class="pie-legend" id="pieLegend"></div>
-                        </div>
+                </div>
                         <div class="kpi-metrics">
                             <div class="outputs-grid" style="grid-template-columns: repeat(2, 1fr);">
-                                <div class="output-card">
+                    <div class="output-card">
                                     <div class="output-label">Total CAPEX <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Total capital expenditure: Number of Servers × Server Cost</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Servers × Server Cost</span></span></div>
                                     <div class="output-value large" id="totalCapexStat">$1,990,000</div>
-                                </div>
-                                <div class="output-card">
+                    </div>
+                    <div class="output-card">
                                     <div class="output-label">Gross Rental Revenue <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Sum of (Hourly Rate × 730 × 8 × Utilization) for all months. Raw rental income before any fees.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Σ(Rate × 730 × 8 × Util)<br>for each month<br>(Rate decays monthly)</span></span></div>
                                     <div class="output-value large" id="grossRentalRevenue">$7,234,567</div>
-                                </div>
-                            </div>
+                    </div>
+                    </div>
                             <div class="outputs-grid" style="grid-template-columns: repeat(3, 1fr);">
-                                <div class="output-card">
+                    <div class="output-card">
                                     <div class="output-label">Payback <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Month when cumulative Pool Earnings (pre-tax) equals Total CAPEX</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Month where:<br>Σ(Pool Earnings) ≥ CAPEX</span></span></div>
                                     <div class="output-value" id="breakevenMonth">Month 21</div>
-                                </div>
-                                <div class="output-card">
+                    </div>
+                    <div class="output-card">
                                     <div class="output-label">ROI <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Return on Investment: Pool Net Profit ÷ Total CAPEX</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Pool Net Profit ÷ Total CAPEX</span></span></div>
                                     <div class="output-value" id="totalReturn">141%</div>
-                                </div>
-                                <div class="output-card">
+                    </div>
+                    <div class="output-card">
                                     <div class="output-label">APY <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Annualized Percentage Yield: ROI adjusted to a 12-month basis</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">(Pool Net Profit ÷ CAPEX) × (12 ÷ Term)</span></span></div>
                                     <div class="output-value" id="apyValue">24.1%</div>
                                 </div>
@@ -1988,6 +2548,14 @@
                 </div>
             </div>
         </div>
+        
+        <!-- CTA Button (Advanced) -->
+        <div style="margin-top: 24px;">
+            <a href="https://predeposit.netlify.app/" target="_blank" style="text-decoration: none;">
+                <button class="cta-button">Participate now →</button>
+            </a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -2005,45 +2573,52 @@
                 advancedTab.classList.remove('active');
                 tabBtns[0].classList.add('active');
                 syncToSimple();
-                updateSimplePieChart();
+                initSimpleSliderFills();
             } else {
                 simpleTab.classList.remove('active');
                 advancedTab.classList.add('active');
                 tabBtns[1].classList.add('active');
             }
         }
-
-        // Sync simple inputs to advanced (main model)
-        function syncSimpleInput(param) {
-            const simpleInput = document.getElementById('simple' + param.charAt(0).toUpperCase() + param.slice(1) + 'Input');
-            const simpleSlider = document.getElementById('simple' + param.charAt(0).toUpperCase() + param.slice(1));
-            const advancedInput = document.getElementById(param + 'Input');
-            const advancedSlider = document.getElementById(param);
-            
-            if (simpleInput && advancedInput) {
-                advancedInput.value = simpleInput.value;
-                if (simpleSlider) simpleSlider.value = simpleInput.value;
-                if (advancedSlider) advancedSlider.value = simpleInput.value;
-            }
-            calculate();
-            updateSimpleKPIs();
-            updateSimplePieChart();
+        
+        // Initialize simple slider fills
+        function initSimpleSliderFills() {
+            const sliders = ['simpleServers', 'simpleTerm', 'simpleResidual'];
+            sliders.forEach(id => {
+                const slider = document.getElementById(id);
+                if (slider) updateSliderFill(slider);
+            });
         }
 
+        // Sync simple slider to advanced (main model) - redesigned version
         function syncSimpleSlider(param) {
             const simpleSlider = document.getElementById('simple' + param.charAt(0).toUpperCase() + param.slice(1));
-            const simpleInput = document.getElementById('simple' + param.charAt(0).toUpperCase() + param.slice(1) + 'Input');
             const advancedInput = document.getElementById(param + 'Input');
             const advancedSlider = document.getElementById(param);
             
-            if (simpleSlider && advancedSlider) {
-                advancedSlider.value = simpleSlider.value;
-                if (simpleInput) simpleInput.value = simpleSlider.value;
-                if (advancedInput) advancedInput.value = simpleSlider.value;
+            if (simpleSlider) {
+                const value = simpleSlider.value;
+                if (advancedSlider) advancedSlider.value = value;
+                if (advancedInput) advancedInput.value = value;
+                
+                // Update slider gradient fill
+                updateSliderFill(simpleSlider);
             }
             calculate();
-            updateSimpleKPIs();
-            updateSimplePieChart();
+        }
+        
+        // Update slider fill for redesigned sliders
+        function updateSliderFill(slider) {
+            const min = parseFloat(slider.min);
+            const max = parseFloat(slider.max);
+            const value = parseFloat(slider.value);
+            const percentage = ((value - min) / (max - min)) * 100;
+            slider.style.background = `linear-gradient(to right, #10b981 0%, #10b981 ${percentage}%, var(--bg-input) ${percentage}%, var(--bg-input) 100%)`;
+        }
+
+        // Legacy functions kept for compatibility
+        function syncSimpleInput(param) {
+            syncSimpleSlider(param);
         }
 
         function syncSimpleValue(param) {
@@ -2054,82 +2629,153 @@
                 advancedEl.value = simpleEl.value;
             }
             calculate();
-            updateSimpleKPIs();
-            updateSimplePieChart();
         }
 
         // Sync from advanced to simple (when switching tabs)
         function syncToSimple() {
             // Servers
             const servers = document.getElementById('servers');
-            const serversInput = document.getElementById('serversInput');
-            if (servers) {
-                document.getElementById('simpleServers').value = servers.value;
-                document.getElementById('simpleServersInput').value = serversInput ? serversInput.value : servers.value;
+            const simpleServers = document.getElementById('simpleServers');
+            if (servers && simpleServers) {
+                simpleServers.value = servers.value;
+                updateSliderFill(simpleServers);
             }
-            
-            // Unit Cost
-            const unitCost = document.getElementById('unitCost');
-            if (unitCost) document.getElementById('simpleUnitCost').value = unitCost.value;
             
             // Residual
             const residual = document.getElementById('residual');
-            const residualInput = document.getElementById('residualInput');
-            if (residual) {
-                document.getElementById('simpleResidual').value = residual.value;
-                document.getElementById('simpleResidualInput').value = residualInput ? residualInput.value : residual.value;
+            const simpleResidual = document.getElementById('simpleResidual');
+            if (residual && simpleResidual) {
+                simpleResidual.value = residual.value;
+                updateSliderFill(simpleResidual);
             }
             
             // Term
             const term = document.getElementById('term');
-            const termInput = document.getElementById('termInput');
-            if (term) {
-                document.getElementById('simpleTerm').value = term.value;
-                document.getElementById('simpleTermInput').value = termInput ? termInput.value : term.value;
+            const simpleTerm = document.getElementById('simpleTerm');
+            if (term && simpleTerm) {
+                simpleTerm.value = term.value;
+                updateSliderFill(simpleTerm);
             }
-            
-            // Hourly Rate
-            const hourlyRate = document.getElementById('hourlyRate');
-            if (hourlyRate) document.getElementById('simpleHourlyRate').value = hourlyRate.value;
             
             updateSimpleKPIs();
         }
 
-        // Update simple KPIs from calculated values
+        // Update simple tab redesigned layout
         function updateSimpleKPIs() {
-            const totalCapex = document.getElementById('totalCapexStat');
+            // Get values from advanced tab calculations
+            const term = parseInt(document.getElementById('term').value);
+            const servers = parseInt(document.getElementById('servers').value);
+            const unitCost = parseFloat(document.getElementById('unitCost').value);
+            const residual = parseFloat(document.getElementById('residual').value);
+            
+            const totalCapex = unitCost * servers;
             const netProfit = document.getElementById('afterTaxCashFlow');
             const payback = document.getElementById('breakevenMonth');
             const roi = document.getElementById('totalReturn');
             const apy = document.getElementById('apyValue');
+            const totalCashInflow = document.getElementById('totalCashInflow');
+            const grossRental = document.getElementById('grossRentalRevenue');
+            const marketplaceFee = document.getElementById('marketplaceRake');
+            const providerRevenue = document.getElementById('providerNetRevenue');
+            const siliconFee = document.getElementById('siliconFeeEarnings');
+            const totalTax = document.getElementById('totalTax');
             
-            if (totalCapex) document.getElementById('simpleTotalCapex').textContent = totalCapex.textContent;
-            if (netProfit) document.getElementById('simpleNetProfit').textContent = netProfit.textContent;
-            if (payback) document.getElementById('simplePayback').textContent = payback.textContent;
-            if (roi) document.getElementById('simpleROI').textContent = roi.textContent;
-            if (apy) document.getElementById('simpleAPY').textContent = apy.textContent;
+            // Parse currency values
+            const parseCurrency = (el) => {
+                if (!el) return 0;
+                return parseFloat(el.textContent.replace(/[$,]/g, '')) || 0;
+            };
+            
+            const netProfitVal = parseCurrency(netProfit);
+            const totalInflow = parseCurrency(totalCashInflow);
+            const grossRentalVal = parseCurrency(grossRental);
+            const marketplaceVal = parseCurrency(marketplaceFee);
+            const providerVal = parseCurrency(providerRevenue);
+            const siliconVal = parseCurrency(siliconFee);
+            const taxVal = parseCurrency(totalTax);
+            
+            // Calculate avg monthly pool net profit per server
+            const avgMonthlyPerServer = term > 0 ? netProfitVal / term / servers : 0;
+            
+            // Update summary bar (Simple tab)
+            const el = (id) => document.getElementById(id);
+            if (el('summaryCapex')) el('summaryCapex').textContent = formatCurrency(totalCapex, true);
+            if (el('summaryPoolEarns')) el('summaryPoolEarns').textContent = formatCurrency(totalInflow, true);
+            if (el('summaryProfit')) el('summaryProfit').textContent = '+' + formatCurrency(netProfitVal, true);
+            if (el('summaryProfitPercent')) el('summaryProfitPercent').textContent = roi ? '+' + roi.textContent : '+0%';
+            
+            // Update summary bar (Advanced tab)
+            if (el('advSummaryCapex')) el('advSummaryCapex').textContent = formatCurrency(totalCapex, true);
+            if (el('advSummaryPoolEarns')) el('advSummaryPoolEarns').textContent = formatCurrency(totalInflow, true);
+            if (el('advSummaryProfit')) el('advSummaryProfit').textContent = '+' + formatCurrency(netProfitVal, true);
+            if (el('advSummaryProfitPercent')) el('advSummaryProfitPercent').textContent = roi ? '+' + roi.textContent : '+0%';
+            
+            // Update slider displays
+            if (el('simpleServersDisplay')) el('simpleServersDisplay').textContent = servers;
+            if (el('simpleUnitCostDisplay')) el('simpleUnitCostDisplay').textContent = '$' + unitCost.toLocaleString();
+            if (el('simpleTotalUpfront')) el('simpleTotalUpfront').textContent = '$' + totalCapex.toLocaleString();
+            if (el('simpleTermDisplay')) el('simpleTermDisplay').textContent = term;
+            if (el('simpleResidualDisplay')) el('simpleResidualDisplay').textContent = residual + '%';
+            if (el('simpleROITerm')) el('simpleROITerm').textContent = 'Over ' + term + ' months';
+            
+            // Update server earnings hint
+            if (el('serverEarningsHint')) {
+                const avgK = Math.round(avgMonthlyPerServer / 1000);
+                el('serverEarningsHint').textContent = 'Each server earns ~$' + avgK + 'K/month';
+            }
+            
+            // Update return profile cards
+            if (netProfit && el('simpleNetProfit')) el('simpleNetProfit').textContent = formatCurrency(netProfitVal);
+            if (apy && el('simpleAPY')) el('simpleAPY').textContent = apy.textContent;
+            if (payback && el('simplePayback')) el('simplePayback').textContent = payback.textContent;
+            if (roi && el('simpleROI')) el('simpleROI').textContent = roi.textContent;
+            
+            // Update stacked bar chart
+            updateSimpleStackedBar(netProfitVal, marketplaceVal, providerVal, siliconVal, taxVal, grossRentalVal);
+        }
+        
+        // Update the stacked bar chart in simple tab
+        function updateSimpleStackedBar(pool, marketplace, provider, silicon, tax, total) {
+            const el = (id) => document.getElementById(id);
+            
+            // Total includes all revenue splits
+            const grandTotal = pool + marketplace + provider + silicon + tax;
+            
+            if (grandTotal <= 0) return;
+            
+            // Calculate percentages
+            const poolPct = (pool / grandTotal) * 100;
+            const marketplacePct = (marketplace / grandTotal) * 100;
+            const providerPct = (provider / grandTotal) * 100;
+            const siliconPct = (silicon / grandTotal) * 100;
+            const taxPct = (tax / grandTotal) * 100;
+            
+            // Update bar segments
+            const bar = el('simpleStackedBar');
+            if (bar) {
+                bar.innerHTML = `
+                    <div class="stacked-bar-segment pool" style="width: ${poolPct}%"></div>
+                    <div class="stacked-bar-segment marketplace" style="width: ${marketplacePct}%"></div>
+                    <div class="stacked-bar-segment provider" style="width: ${providerPct}%"></div>
+                    <div class="stacked-bar-segment silicon" style="width: ${siliconPct}%"></div>
+                    <div class="stacked-bar-segment tax" style="width: ${taxPct}%"></div>
+                `;
+            }
+            
+            // Update legend values
+            if (el('simpleLegendPool')) el('simpleLegendPool').textContent = formatCurrency(pool, true);
+            if (el('simpleLegendMarketplace')) el('simpleLegendMarketplace').textContent = formatCurrency(marketplace, true);
+            if (el('simpleLegendProvider')) el('simpleLegendProvider').textContent = formatCurrency(provider, true);
+            if (el('simpleLegendSilicon')) el('simpleLegendSilicon').textContent = formatCurrency(silicon, true);
+            if (el('simpleLegendTax')) el('simpleLegendTax').textContent = formatCurrency(tax, true);
+            
+            // Update total
+            if (el('simpleRevenueSplitTotal')) el('simpleRevenueSplitTotal').textContent = formatCurrency(grandTotal, true) + ' total';
         }
 
-        // Update simple pie chart
+        // Update simple pie chart (legacy - kept for compatibility)
         function updateSimplePieChart() {
-            const pieChart = document.getElementById('simplePieChart');
-            const pieLegend = document.getElementById('simplePieLegend');
-            const pieTotal = document.getElementById('simplePieTotal');
-            
-            // Get the same data as the advanced chart
-            const mainPieChart = document.getElementById('pieChart');
-            const mainPieLegend = document.getElementById('pieLegend');
-            const mainPieTotal = document.getElementById('pieTotal');
-            
-            if (mainPieChart && pieChart) {
-                pieChart.style.background = mainPieChart.style.background;
-            }
-            if (mainPieLegend && pieLegend) {
-                pieLegend.innerHTML = mainPieLegend.innerHTML;
-            }
-            if (mainPieTotal && pieTotal) {
-                pieTotal.textContent = mainPieTotal.textContent;
-            }
+            // Now handled by updateSimpleStackedBar
         }
 
         // Theme toggle
