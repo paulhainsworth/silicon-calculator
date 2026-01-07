@@ -2054,22 +2054,39 @@
                             </div>
                         </div>
 
-                        <!-- Investment Term -->
+                        <!-- Annual Hourly Rate Decay -->
                         <div class="slider-group">
                             <div class="slider-header">
                                 <div class="slider-header-left">
-                                    <span class="slider-label">Investment Term</span>
-                                    <span class="slider-sublabel">Longer = more earnings</span>
+                                    <span class="slider-label">Annual Hourly Rate Decay</span>
+                                    <span class="slider-sublabel">Rate decreases over time</span>
                                 </div>
                                 <div class="slider-value-display">
-                                    <span class="slider-value" id="simpleTermDisplay">36</span>
-                                    <span class="slider-suffix">months</span>
+                                    <span class="slider-value" id="simpleDecayDisplay">20%</span>
                                 </div>
                             </div>
-                            <input type="range" class="redesign-slider" id="simpleTerm" min="12" max="60" value="36" oninput="syncSimpleSlider('term')">
+                            <input type="range" class="redesign-slider" id="simpleDecay" min="0" max="50" step="1" value="20" oninput="syncSimpleSlider('decay')">
                             <div class="slider-range-labels">
-                                <span>1 year</span>
-                                <span>5 years</span>
+                                <span>0%</span>
+                                <span>50%</span>
+                            </div>
+                        </div>
+
+                        <!-- Utilization -->
+                        <div class="slider-group">
+                            <div class="slider-header">
+                                <div class="slider-header-left">
+                                    <span class="slider-label">Utilization</span>
+                                    <span class="slider-sublabel">% of time servers are rented</span>
+                                </div>
+                                <div class="slider-value-display">
+                                    <span class="slider-value" id="simpleUtilizationDisplay">90%</span>
+                                </div>
+                            </div>
+                            <input type="range" class="redesign-slider" id="simpleUtilization" min="10" max="100" step="1" value="90" oninput="syncSimpleSlider('utilization')">
+                            <div class="slider-range-labels">
+                                <span>10%</span>
+                                <span>100%</span>
                             </div>
                         </div>
 
@@ -2583,7 +2600,7 @@
         
         // Initialize simple slider fills
         function initSimpleSliderFills() {
-            const sliders = ['simpleServers', 'simpleTerm', 'simpleResidual'];
+            const sliders = ['simpleServers', 'simpleDecay', 'simpleUtilization', 'simpleResidual'];
             sliders.forEach(id => {
                 const slider = document.getElementById(id);
                 if (slider) updateSliderFill(slider);
@@ -2641,20 +2658,28 @@
                 updateSliderFill(simpleServers);
             }
             
+            // Decay
+            const decay = document.getElementById('decay');
+            const simpleDecay = document.getElementById('simpleDecay');
+            if (decay && simpleDecay) {
+                simpleDecay.value = decay.value;
+                updateSliderFill(simpleDecay);
+            }
+            
+            // Utilization
+            const utilization = document.getElementById('utilization');
+            const simpleUtilization = document.getElementById('simpleUtilization');
+            if (utilization && simpleUtilization) {
+                simpleUtilization.value = utilization.value;
+                updateSliderFill(simpleUtilization);
+            }
+            
             // Residual
             const residual = document.getElementById('residual');
             const simpleResidual = document.getElementById('simpleResidual');
             if (residual && simpleResidual) {
                 simpleResidual.value = residual.value;
                 updateSliderFill(simpleResidual);
-            }
-            
-            // Term
-            const term = document.getElementById('term');
-            const simpleTerm = document.getElementById('simpleTerm');
-            if (term && simpleTerm) {
-                simpleTerm.value = term.value;
-                updateSliderFill(simpleTerm);
             }
             
             updateSimpleKPIs();
@@ -2711,10 +2736,14 @@
             if (el('advSummaryProfitPercent')) el('advSummaryProfitPercent').textContent = roi ? '+' + roi.textContent : '+0%';
             
             // Update slider displays
+            const decay = parseFloat(document.getElementById('decay').value);
+            const utilization = parseFloat(document.getElementById('utilization').value);
+            
             if (el('simpleServersDisplay')) el('simpleServersDisplay').textContent = servers;
             if (el('simpleUnitCostDisplay')) el('simpleUnitCostDisplay').textContent = '$' + unitCost.toLocaleString();
             if (el('simpleTotalUpfront')) el('simpleTotalUpfront').textContent = '$' + totalCapex.toLocaleString();
-            if (el('simpleTermDisplay')) el('simpleTermDisplay').textContent = term;
+            if (el('simpleDecayDisplay')) el('simpleDecayDisplay').textContent = decay + '%';
+            if (el('simpleUtilizationDisplay')) el('simpleUtilizationDisplay').textContent = utilization + '%';
             if (el('simpleResidualDisplay')) el('simpleResidualDisplay').textContent = residual + '%';
             if (el('simpleROITerm')) el('simpleROITerm').textContent = 'Over ' + term + ' months';
             
