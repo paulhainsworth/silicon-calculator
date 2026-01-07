@@ -3495,7 +3495,10 @@
             
             // Build legend
             pieLegend.innerHTML = data.map(item => {
-                const percent = ((item.value / total) * 100).toFixed(1);
+                // Use whole numbers for Provider, Silicon, Tax; one decimal for others
+                const rawPercent = (item.value / total) * 100;
+                const useWholeNumber = ['Provider', 'Silicon', 'Tax'].includes(item.label);
+                const percent = useWholeNumber ? Math.round(rawPercent) : rawPercent.toFixed(1);
                 return `
                     <div class="pie-legend-item">
                         <div class="pie-legend-color pie-color-${item.colorClass}"></div>
