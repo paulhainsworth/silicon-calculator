@@ -740,25 +740,38 @@
         .stacked-bar-segment.silicon { background: #f59e0b; }
         .stacked-bar-segment.tax { background: #ef4444; }
 
-        /* Stacked Bar Legend */
-        .stacked-legend {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
+        /* Stacked Bar with Side Legend */
+        .stacked-bar-row {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .stacked-bar-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
             gap: 8px;
-            text-align: center;
+        }
+
+        .stacked-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            min-width: 140px;
         }
 
         .stacked-legend-item {
             display: flex;
-            flex-direction: column;
             align-items: center;
+            gap: 8px;
         }
 
         .stacked-legend-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            margin-bottom: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            flex-shrink: 0;
         }
 
         .stacked-legend-dot.pool { background: #10b981; }
@@ -767,15 +780,17 @@
         .stacked-legend-dot.silicon { background: #f59e0b; }
         .stacked-legend-dot.tax { background: #ef4444; }
 
+        .stacked-legend-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            min-width: 75px;
+        }
+
         .stacked-legend-value {
             font-size: 0.75rem;
             font-weight: 600;
             color: var(--text-primary);
-        }
-
-        .stacked-legend-label {
-            font-size: 0.65rem;
-            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
         }
 
         /* CTA Button */
@@ -2145,39 +2160,43 @@
                                 <span class="revenue-split-total" id="simpleRevenueSplitTotal">$5.98M total</span>
                             </div>
                             
-                            <div class="stacked-bar" id="simpleStackedBar">
-                                <div class="stacked-bar-segment pool" style="width: 51.1%"></div>
-                                <div class="stacked-bar-segment marketplace" style="width: 20%"></div>
-                                <div class="stacked-bar-segment provider" style="width: 14.4%"></div>
-                                <div class="stacked-bar-segment silicon" style="width: 8%"></div>
-                                <div class="stacked-bar-segment tax" style="width: 6.5%"></div>
-                            </div>
-                            
-                            <div class="stacked-legend" id="simpleStackedLegend">
-                                <div class="stacked-legend-item">
-                                    <div class="stacked-legend-dot pool"></div>
-                                    <div class="stacked-legend-value" id="simpleLegendPool">$3.06M</div>
-                                    <div class="stacked-legend-label">Pool</div>
+                            <div class="stacked-bar-row">
+                                <div class="stacked-bar-wrapper">
+                                    <div class="stacked-bar" id="simpleStackedBar">
+                                        <div class="stacked-bar-segment pool" style="width: 51.1%"></div>
+                                        <div class="stacked-bar-segment marketplace" style="width: 20%"></div>
+                                        <div class="stacked-bar-segment provider" style="width: 14.4%"></div>
+                                        <div class="stacked-bar-segment silicon" style="width: 8%"></div>
+                                        <div class="stacked-bar-segment tax" style="width: 6.5%"></div>
+                                    </div>
                                 </div>
-                                <div class="stacked-legend-item">
-                                    <div class="stacked-legend-dot marketplace"></div>
-                                    <div class="stacked-legend-value" id="simpleLegendMarketplace">$1.2M</div>
-                                    <div class="stacked-legend-label">Marketplace</div>
-                                </div>
-                                <div class="stacked-legend-item">
-                                    <div class="stacked-legend-dot provider"></div>
-                                    <div class="stacked-legend-value" id="simpleLegendProvider">$862K</div>
-                                    <div class="stacked-legend-label">Provider</div>
-                                </div>
-                                <div class="stacked-legend-item">
-                                    <div class="stacked-legend-dot silicon"></div>
-                                    <div class="stacked-legend-value" id="simpleLegendSilicon">$479K</div>
-                                    <div class="stacked-legend-label">Platform</div>
-                                </div>
-                                <div class="stacked-legend-item">
-                                    <div class="stacked-legend-dot tax"></div>
-                                    <div class="stacked-legend-value" id="simpleLegendTax">$390K</div>
-                                    <div class="stacked-legend-label">Taxes</div>
+                                
+                                <div class="stacked-legend" id="simpleStackedLegend">
+                                    <div class="stacked-legend-item">
+                                        <div class="stacked-legend-dot pool"></div>
+                                        <span class="stacked-legend-label">Pool</span>
+                                        <span class="stacked-legend-value" id="simpleLegendPool">$3.06M</span>
+                                    </div>
+                                    <div class="stacked-legend-item">
+                                        <div class="stacked-legend-dot marketplace"></div>
+                                        <span class="stacked-legend-label">Marketplace</span>
+                                        <span class="stacked-legend-value" id="simpleLegendMarketplace">$1.2M</span>
+                                    </div>
+                                    <div class="stacked-legend-item">
+                                        <div class="stacked-legend-dot provider"></div>
+                                        <span class="stacked-legend-label">Provider</span>
+                                        <span class="stacked-legend-value" id="simpleLegendProvider">$862K</span>
+                                    </div>
+                                    <div class="stacked-legend-item">
+                                        <div class="stacked-legend-dot silicon"></div>
+                                        <span class="stacked-legend-label">Platform</span>
+                                        <span class="stacked-legend-value" id="simpleLegendSilicon">$479K</span>
+                                    </div>
+                                    <div class="stacked-legend-item">
+                                        <div class="stacked-legend-dot tax"></div>
+                                        <span class="stacked-legend-label">Taxes</span>
+                                        <span class="stacked-legend-value" id="simpleLegendTax">$390K</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
