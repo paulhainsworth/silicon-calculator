@@ -2436,7 +2436,7 @@
                 <div class="section-header">POOL FINANCIALS</div>
                 <div class="outputs-grid">
                     <div class="output-card">
-                        <div class="output-label">Total Cash Inflow <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Pool Earnings + Liquidation Value at end of term.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Pool Earnings + Liquidation Value</span></span></div>
+                        <div class="output-label">Total Cash Inflow <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Pool Earnings (after tax) + Liquidation Value at end of term.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Pool Earnings − Tax + Liquidation</span></span></div>
                         <div class="output-value" id="totalCashInflow">$5,234,567</div>
                     </div>
                     <div class="output-card highlight">
@@ -3053,7 +3053,7 @@
             }
 
             // Cash flow calculations (OWNER FINANCING MODEL)
-            const totalCashInflow = totalPoolFee + liquidationValue;  // Pool Earnings + Liquidation
+            // Note: totalCashInflow calculated after tax is known (see below)
             const totalCashOutflow = totalInvestment;                   // 100% of CAPEX
             
             // Revenue calculations
@@ -3070,7 +3070,7 @@
             document.getElementById('totalCapexStat').textContent = formatCurrency(totalCapex, false);
             // APY badge updated later after tax calculations
 
-            document.getElementById('totalCashInflow').textContent = formatCurrency(totalCashInflow);
+            // totalCashInflow updated after tax calculation below
             document.getElementById('totalCashOutflow').textContent = formatCurrency(totalCashOutflow);
             
             // Revenue outputs
@@ -3300,6 +3300,10 @@
             // Total Tax (sum of tax column)
             const totalTax = taxableIncomeData.reduce((sum, row) => sum + row.tax, 0);
             document.getElementById('totalTax').textContent = formatCurrency(totalTax);
+            
+            // Total Cash Inflow (Pool Earnings AFTER tax + Liquidation)
+            const totalCashInflow = totalPoolFee - totalTax + liquidationValue;
+            document.getElementById('totalCashInflow').textContent = formatCurrency(totalCashInflow);
             
             // After-Tax Cash Flow (final cumulative value)
             const finalAfterTaxCashFlow = afterTaxData[afterTaxData.length - 1].cumulativeAfterTax;
