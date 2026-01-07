@@ -2371,9 +2371,9 @@
                         <div class="input-group">
                             <div class="input-row">
                                 <span class="input-label">Provider OPEX <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Provider's guaranteed operational expenses per server per month. Deducted from Pool's share after percentage-based fees.</span></span></span>
-                                <span class="input-value"><input type="number" class="inline-input" id="providerOpexInput" value="500" min="0" max="2000" step="50" oninput="syncFromInput('providerOpex')"><span class="input-suffix">$/mo</span></span>
+                                <span class="input-value"><input type="number" class="inline-input" id="providerOpexInput" value="508" min="0" max="2000" step="1" oninput="syncFromInput('providerOpex')"><span class="input-suffix">$/mo</span></span>
                             </div>
-                            <input type="range" id="providerOpex" min="0" max="2000" step="50" value="500" oninput="syncFromSlider('providerOpex')">
+                            <input type="range" id="providerOpex" min="0" max="2000" step="1" value="508" oninput="syncFromSlider('providerOpex')">
                     </div>
 
                         <div class="input-group">
@@ -3710,7 +3710,7 @@
                     marketRake: "20",
                     providerRake: "7",
                     siliconFee: "5",
-                    providerOpex: "500",
+                    providerOpex: "508",
                     taxRate: "30"
                 }
             }
