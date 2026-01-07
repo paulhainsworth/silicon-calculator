@@ -2026,14 +2026,14 @@
                                     <span class="slider-sublabel" id="serverEarningsHint">Each server earns ~$7K/month</span>
                                 </div>
                                 <div class="slider-value-display">
-                                    <span class="slider-value" id="simpleServersDisplay">20</span>
+                                    <span class="slider-value" id="simpleServersDisplay">50</span>
                                     <span class="slider-suffix">units</span>
                                 </div>
                             </div>
-                            <input type="range" class="redesign-slider" id="simpleServers" min="5" max="50" value="20" oninput="syncSimpleSlider('servers')">
+                            <input type="range" class="redesign-slider" id="simpleServers" min="5" max="100" value="50" oninput="syncSimpleSlider('servers')">
                             <div class="slider-range-labels">
                                 <span>5</span>
-                                <span>50</span>
+                                <span>100</span>
                             </div>
                         </div>
 
@@ -2251,9 +2251,9 @@
                         <div class="input-group">
                             <div class="input-row">
                                 <span class="input-label">Number of Servers</span>
-                                <span class="input-value"><input type="number" class="inline-input" id="serversInput" value="20" min="1" max="100000" oninput="syncFromInput('servers')"></span>
+                                <span class="input-value"><input type="number" class="inline-input" id="serversInput" value="50" min="1" max="100000" oninput="syncFromInput('servers')"></span>
                             </div>
-                            <input type="range" id="servers" min="1" max="100000" value="20" oninput="syncFromSlider('servers')">
+                            <input type="range" id="servers" min="1" max="100000" value="50" oninput="syncFromSlider('servers')">
                         </div>
 
                         <div class="input-group">
