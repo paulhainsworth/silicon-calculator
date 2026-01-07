@@ -2355,9 +2355,9 @@
                         <div class="input-group">
                             <div class="input-row">
                                 <span class="input-label">Provider Rake <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Provider's share of gross rental revenue. This percentage is taken directly from customer payments, in addition to OPEX.</span></span></span>
-                                <span class="input-value"><input type="number" class="inline-input" id="providerRakeInput" value="7" min="0" max="100" step="1" oninput="syncFromInput('providerRake')"><span class="input-suffix">%</span></span>
+                                <span class="input-value"><input type="number" class="inline-input" id="providerRakeInput" value="5" min="0" max="100" step="1" oninput="syncFromInput('providerRake')"><span class="input-suffix">%</span></span>
                             </div>
-                            <input type="range" id="providerRake" min="0" max="100" step="1" value="7" oninput="syncFromSlider('providerRake')">
+                            <input type="range" id="providerRake" min="0" max="100" step="1" value="5" oninput="syncFromSlider('providerRake')">
                         </div>
 
                         <div class="input-group">
@@ -3708,7 +3708,7 @@
                     decay: "20",
                     utilization: "90",
                     marketRake: "20",
-                    providerRake: "7",
+                    providerRake: "5",
                     siliconFee: "5",
                     providerOpex: "508",
                     taxRate: "30"
