@@ -2762,8 +2762,7 @@
             if (payback && el('simplePayback')) el('simplePayback').textContent = payback.textContent;
             if (roi && el('simpleROI')) el('simpleROI').textContent = roi.textContent;
             
-            // Update stacked bar chart
-            updateSimpleStackedBar(netProfitVal, marketplaceVal, providerVal, siliconVal, taxVal, grossRentalVal);
+            // Note: Stacked bar chart is updated directly from calculate() with accurate values
         }
         
         // Update the stacked bar chart in simple tab
@@ -3259,9 +3258,9 @@
             // Pool Earnings = Pool Net Profit (after all deductions including CAPEX recovery)
             updatePieChart(totalMarketplaceFees, totalProviderRevenue, totalSiliconFees, finalAfterTaxCashFlow, totalTax);
             
-            // Update simple tab if visible
+            // Update simple tab with same values as advanced pie chart
             updateSimpleKPIs();
-            updateSimplePieChart();
+            updateSimpleStackedBar(finalAfterTaxCashFlow, totalMarketplaceFees, totalProviderRevenue, totalSiliconFees, totalTax);
             
             // Calculate and position breakeven ticks
             updateBreakevenTicks();
