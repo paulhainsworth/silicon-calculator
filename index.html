@@ -1991,7 +1991,7 @@
         <!-- Page Header -->
         <div class="page-header">
             <div class="page-title">GPU Financing Calculator — Cluster 01</div>
-            <div class="apr-badge" id="aprBadgeContainer">Est. APR <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Annualized return: (Pool Net Profit ÷ Total CAPEX) × (12 ÷ Term)</span></span> <span id="aprBadge">24.1%</span></div>
+            <div class="apr-badge" id="aprBadgeContainer">Est. APY <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Annualized return: (Pool Net Profit ÷ Total CAPEX) × (12 ÷ Term)</span></span> <span id="aprBadge">24.1%</span></div>
         </div>
 
         <!-- Tab Navigation -->
@@ -3068,7 +3068,7 @@
 
             // Update all outputs
             document.getElementById('totalCapexStat').textContent = formatCurrency(totalCapex, false);
-            // APR badge updated later after tax calculations
+            // APY badge updated later after tax calculations
 
             document.getElementById('totalCashInflow').textContent = formatCurrency(totalCashInflow);
             document.getElementById('totalCashOutflow').textContent = formatCurrency(totalCashOutflow);
@@ -3311,7 +3311,7 @@
             const totalReturn = finalAfterTaxCashFlow / totalInvestment;
             document.getElementById('totalReturn').textContent = formatPercent(totalReturn, 0);
             
-            // APR/APY based on after-tax cash flow (true investor return)
+            // APY based on after-tax cash flow (true investor return)
             const simpleApr = (finalAfterTaxCashFlow / totalInvestment) * (12 / term);
             document.getElementById('aprBadge').textContent = formatPercent(simpleApr);
             document.getElementById('apyValue').textContent = formatPercent(simpleApr);
@@ -3648,7 +3648,7 @@
             csv += 'CAPEX,' + document.getElementById('totalCashOutflow').textContent + '\n';
             csv += 'Pool Net Profit,' + document.getElementById('afterTaxCashFlow').textContent + '\n';
             csv += 'Payback,' + document.getElementById('breakevenMonth').textContent + '\n';
-            csv += 'Est. APR,' + document.getElementById('aprBadge').textContent + '\n\n';
+            csv += 'Est. APY,' + document.getElementById('aprBadge').textContent + '\n\n';
             
             // Cash flow table
             csv += 'Monthly Cash Flow\n';
@@ -3917,7 +3917,7 @@
         setTimeout(() => {
             syncToSimple();
             updateSimplePieChart();
-            // Hide APR badge on Simple tab (default)
+            // Hide APY badge on Simple tab (default)
             const aprBadgeContainer = document.getElementById('aprBadgeContainer');
             if (aprBadgeContainer) aprBadgeContainer.style.display = 'none';
         }, 100);
