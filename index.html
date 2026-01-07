@@ -3136,8 +3136,7 @@
             // ============================================
             // DEPRECIATION SCHEDULE TABLE
             // ============================================
-            const depreciableBasis = totalCapex - liquidationValue;
-            const monthlyDepreciation = depreciableBasis / term;
+            // depreciableBasis and monthlyDepreciation already calculated above
             const depreciationData = [];
             let cumulativeDepreciation = 0;
 
