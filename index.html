@@ -1971,7 +1971,7 @@
         <!-- Page Header -->
         <div class="page-header">
             <div class="page-title">GPU Financing Calculator — Cluster 01</div>
-            <div class="apr-badge">Est. APR <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Annualized return: (Pool Net Profit ÷ Total CAPEX) × (12 ÷ Term)</span></span> <span id="aprBadge">24.1%</span></div>
+            <div class="apr-badge" id="aprBadgeContainer">Est. APR <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Annualized return: (Pool Net Profit ÷ Total CAPEX) × (12 ÷ Term)</span></span> <span id="aprBadge">24.1%</span></div>
         </div>
 
         <!-- Tab Navigation -->
@@ -2582,6 +2582,7 @@
             const simpleTab = document.getElementById('simpleTab');
             const advancedTab = document.getElementById('advancedTab');
             const tabBtns = document.querySelectorAll('.tab-btn');
+            const aprBadgeContainer = document.getElementById('aprBadgeContainer');
             
             tabBtns.forEach(btn => btn.classList.remove('active'));
             
@@ -2589,12 +2590,14 @@
                 simpleTab.classList.add('active');
                 advancedTab.classList.remove('active');
                 tabBtns[0].classList.add('active');
+                if (aprBadgeContainer) aprBadgeContainer.style.display = 'none';
                 syncToSimple();
                 initSimpleSliderFills();
             } else {
                 simpleTab.classList.remove('active');
                 advancedTab.classList.add('active');
                 tabBtns[1].classList.add('active');
+                if (aprBadgeContainer) aprBadgeContainer.style.display = '';
             }
         }
         
@@ -3833,6 +3836,9 @@
         setTimeout(() => {
             syncToSimple();
             updateSimplePieChart();
+            // Hide APR badge on Simple tab (default)
+            const aprBadgeContainer = document.getElementById('aprBadgeContainer');
+            if (aprBadgeContainer) aprBadgeContainer.style.display = 'none';
         }, 100);
 
         // ============================================
@@ -4069,3 +4075,4 @@
     <div id="toastContainer"></div>
 </body>
 </html>
+
