@@ -2045,11 +2045,11 @@
                                     <span class="slider-sublabel" id="serverEarningsHint">Each server earns ~$7K/month</span>
                                 </div>
                                 <div class="slider-value-display">
-                                    <span class="slider-value" id="simpleServersDisplay">50</span>
+                                    <span class="slider-value" id="simpleServersDisplay">20</span>
                                     <span class="slider-suffix">units</span>
                                 </div>
                             </div>
-                            <input type="range" class="redesign-slider" id="simpleServers" min="1" max="100" value="50" oninput="syncSimpleSlider('servers')">
+                            <input type="range" class="redesign-slider" id="simpleServers" min="1" max="100" value="20" oninput="syncSimpleSlider('servers')">
                             <div class="slider-range-labels">
                                 <span>1</span>
                                 <span>100</span>
@@ -2270,9 +2270,9 @@
                         <div class="input-group">
                             <div class="input-row">
                                 <span class="input-label">Number of Servers</span>
-                                <span class="input-value"><input type="number" class="inline-input" id="serversInput" value="50" min="1" max="100000" oninput="syncFromInput('servers')"></span>
+                                <span class="input-value"><input type="number" class="inline-input" id="serversInput" value="20" min="1" max="100000" oninput="syncFromInput('servers')"></span>
                             </div>
-                            <input type="range" id="servers" min="1" max="100000" value="50" oninput="syncFromSlider('servers')">
+                            <input type="range" id="servers" min="1" max="100000" value="20" oninput="syncFromSlider('servers')">
                         </div>
 
                         <div class="input-group">
@@ -2355,17 +2355,17 @@
                         <div class="input-group">
                             <div class="input-row">
                                 <span class="input-label">Provider Rake <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Provider's share of gross rental revenue. This percentage is taken directly from customer payments, in addition to OPEX.</span></span></span>
-                                <span class="input-value"><input type="number" class="inline-input" id="providerRakeInput" value="25" min="0" max="100" step="1" oninput="syncFromInput('providerRake')"><span class="input-suffix">%</span></span>
+                                <span class="input-value"><input type="number" class="inline-input" id="providerRakeInput" value="7" min="0" max="100" step="1" oninput="syncFromInput('providerRake')"><span class="input-suffix">%</span></span>
                             </div>
-                            <input type="range" id="providerRake" min="0" max="100" step="1" value="25" oninput="syncFromSlider('providerRake')">
+                            <input type="range" id="providerRake" min="0" max="100" step="1" value="7" oninput="syncFromSlider('providerRake')">
                         </div>
 
                         <div class="input-group">
                             <div class="input-row">
                                 <span class="input-label">Silicon Fee <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Silicon's share of gross rental revenue. This percentage is taken directly from customer payments.</span></span></span>
-                                <span class="input-value"><input type="number" class="inline-input" id="siliconFeeInput" value="10" min="0" max="25" step="1" oninput="syncFromInput('siliconFee')"><span class="input-suffix">%</span></span>
+                                <span class="input-value"><input type="number" class="inline-input" id="siliconFeeInput" value="5" min="0" max="25" step="1" oninput="syncFromInput('siliconFee')"><span class="input-suffix">%</span></span>
                             </div>
-                            <input type="range" id="siliconFee" min="0" max="25" step="1" value="10" oninput="syncFromSlider('siliconFee')">
+                            <input type="range" id="siliconFee" min="0" max="25" step="1" value="5" oninput="syncFromSlider('siliconFee')">
                         </div>
 
                         <div class="input-group">
@@ -3690,19 +3690,19 @@
         // Embedded scenarios (this gets populated when downloading with scenarios)
         const EMBEDDED_SCENARIOS = [
             {
-                name: "5M USDC Pre-Commit #1",
-                description: "First Silicon Network USDC Pre-commit pool. $5M CAPEX of Nvidia Pro 6000 servers. Total server count: 50",
+                name: "2M USDC Pre-Commit #1",
+                description: "First Silicon Network USDC Pre-commit pool. $2M CAPEX of Nvidia Pro 6000 servers. Total server count: 20",
                 params: {
                     term: "36",
-                    servers: "50",
+                    servers: "20",
                     unitCost: "99500",
                     residual: "20",
                     hourlyRate: "1.84",
                     decay: "20",
                     utilization: "90",
                     marketRake: "20",
-                    providerRake: "20",
-                    siliconFee: "10",
+                    providerRake: "7",
+                    siliconFee: "5",
                     providerOpex: "500",
                     taxRate: "30"
                 }
