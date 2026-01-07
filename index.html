@@ -2520,8 +2520,8 @@
                                     <th>Month</th>
                                     <th>Hourly Rate</th>
                                     <th>Break-even Util.</th>
-                                    <th>Gross Revenue</th>
-                                    <th>Net Profit</th>
+                                    <th>Pool Earnings</th>
+                                    <th>After-Tax Profit</th>
                                 </tr>
                             </thead>
                             <tbody id="cashFlowBody"></tbody>
@@ -2942,6 +2942,10 @@
             const totalCapex = unitCost * servers;
             const totalInvestment = totalCapex;  // Pool pays 100% upfront
             const liquidationValue = totalCapex * residual;
+            
+            // Calculate depreciation for tax purposes
+            const depreciableBasis = totalCapex - liquidationValue;
+            const monthlyDepreciation = depreciableBasis / term;
 
             const cashFlows = [];
             let currentHourlyRate = hourlyRate * servers;
@@ -2998,8 +3002,12 @@
                 // Provider Net = Revenue Share + OPEX
                 const providerNetThisMonth = providerRevenueShare + opexThisMonth;
                 
-                const grossRevenue = ownerShare;
-                const netProfit = grossRevenue;
+                // Calculate monthly tax (Pool Earnings - Depreciation = Taxable Income)
+                const taxableIncome = ownerShare - monthlyDepreciation;
+                const monthlyTax = taxableIncome > 0 ? taxableIncome * taxRate : 0;
+                
+                const grossRevenue = ownerShare;  // Pool Earnings (pre-tax)
+                const netProfit = ownerShare - monthlyTax;  // Pool Earnings (after-tax)
 
                 totalRawRevenue += rawRevenue;
                 totalMarketplaceFees += marketplaceFee;
@@ -3645,7 +3653,7 @@
             
             // Cash flow table
             csv += 'Monthly Cash Flow\n';
-            const headers = ['Month', 'Hourly Rate', 'Pool Earnings', 'Net Profit', 'Cumulative Net'];
+            const headers = ['Month', 'Hourly Rate', 'Pool Earnings', 'After-Tax Profit', 'Cumulative Net'];
             csv += headers.join(',') + '\n';
             
             let cumulative = 0;
