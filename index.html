@@ -2174,11 +2174,6 @@
                                     <div class="stacked-legend-value" id="simpleLegendSilicon">$479K</div>
                                     <div class="stacked-legend-label">Platform</div>
                                 </div>
-                                <div class="stacked-legend-item">
-                                    <div class="stacked-legend-dot tax"></div>
-                                    <div class="stacked-legend-value" id="simpleLegendTax">$390K</div>
-                                    <div class="stacked-legend-label">Taxes</div>
-                                </div>
                             </div>
                         </div>
 
@@ -2769,19 +2764,18 @@
         function updateSimpleStackedBar(pool, marketplace, provider, silicon, tax, total) {
             const el = (id) => document.getElementById(id);
             
-            // Total includes all revenue splits
-            const grandTotal = pool + marketplace + provider + silicon + tax;
+            // Total = Gross Rental Revenue (don't include tax since it comes from Pool's share)
+            const grandTotal = pool + marketplace + provider + silicon;
             
             if (grandTotal <= 0) return;
             
-            // Calculate percentages
+            // Calculate percentages relative to Gross Rental Revenue
             const poolPct = (pool / grandTotal) * 100;
             const marketplacePct = (marketplace / grandTotal) * 100;
             const providerPct = (provider / grandTotal) * 100;
             const siliconPct = (silicon / grandTotal) * 100;
-            const taxPct = (tax / grandTotal) * 100;
             
-            // Update bar segments
+            // Update bar segments (no tax segment)
             const bar = el('simpleStackedBar');
             if (bar) {
                 bar.innerHTML = `
@@ -2789,18 +2783,16 @@
                     <div class="stacked-bar-segment marketplace" style="width: ${marketplacePct}%"></div>
                     <div class="stacked-bar-segment provider" style="width: ${providerPct}%"></div>
                     <div class="stacked-bar-segment silicon" style="width: ${siliconPct}%"></div>
-                    <div class="stacked-bar-segment tax" style="width: ${taxPct}%"></div>
                 `;
             }
             
-            // Update legend values
+            // Update legend values with correct percentages
             if (el('simpleLegendPool')) el('simpleLegendPool').textContent = formatCurrency(pool, true);
             if (el('simpleLegendMarketplace')) el('simpleLegendMarketplace').textContent = formatCurrency(marketplace, true);
             if (el('simpleLegendProvider')) el('simpleLegendProvider').textContent = formatCurrency(provider, true);
             if (el('simpleLegendSilicon')) el('simpleLegendSilicon').textContent = formatCurrency(silicon, true);
-            if (el('simpleLegendTax')) el('simpleLegendTax').textContent = formatCurrency(tax, true);
             
-            // Update total
+            // Update total (Gross Rental Revenue)
             if (el('simpleRevenueSplitTotal')) el('simpleRevenueSplitTotal').textContent = formatCurrency(grandTotal, true) + ' total';
         }
 
@@ -3254,13 +3246,13 @@
             document.getElementById('apyValue').textContent = formatPercent(simpleApr);
 
             updateChart(cashFlows);
-            // Pie chart: show cash flows to each party
-            // Pool Earnings = Pool Net Profit (after all deductions including CAPEX recovery)
-            updatePieChart(totalMarketplaceFees, totalProviderRevenue, totalSiliconFees, finalAfterTaxCashFlow, totalTax);
+            // Pie chart: show how Gross Rental Revenue is distributed among parties
+            // Using Pool Earnings (pre-tax) so percentages are accurate relative to total revenue
+            updatePieChart(totalMarketplaceFees, totalProviderRevenue, totalSiliconFees, totalPoolFee, totalTax);
             
             // Update simple tab with same values as advanced pie chart
             updateSimpleKPIs();
-            updateSimpleStackedBar(finalAfterTaxCashFlow, totalMarketplaceFees, totalProviderRevenue, totalSiliconFees, totalTax);
+            updateSimpleStackedBar(totalPoolFee, totalMarketplaceFees, totalProviderRevenue, totalSiliconFees, totalTax);
             
             // Calculate and position breakeven ticks
             updateBreakevenTicks();
@@ -3457,7 +3449,9 @@
             const pieLegend = document.getElementById('pieLegend');
             const pieTotal = document.getElementById('pieTotal');
             
-            const total = marketplace + provider + silicon + owner + tax;
+            // Total = Gross Rental Revenue (how it gets distributed)
+            // Don't include tax in total since it comes out of Pool's share
+            const total = marketplace + provider + silicon + owner;
             
             if (total <= 0) {
                 pieChart.style.background = 'var(--border)';
@@ -3466,16 +3460,16 @@
                 return;
             }
             
-            // Calculate percentages - ordered: Pool Earnings, Marketplace, Provider, Silicon, Tax
+            // Calculate percentages - ordered: Pool Earnings, Marketplace, Provider, Silicon
+            // Tax is shown separately but % is relative to Gross Rental Revenue
             const data = [
                 { label: 'Pool Earnings', value: owner, color: '#00d46a', colorClass: 'owner' },
                 { label: 'Marketplace', value: marketplace, color: '#6366f1', colorClass: 'marketplace' },
                 { label: 'Provider', value: provider, color: '#22c55e', colorClass: 'provider' },
-                { label: 'Silicon', value: silicon, color: '#f59e0b', colorClass: 'silicon' },
-                { label: 'Tax', value: tax, color: '#ef4444', colorClass: 'tax' }
+                { label: 'Silicon', value: silicon, color: '#f59e0b', colorClass: 'silicon' }
             ];
             
-            // Build conic gradient
+            // Build conic gradient (without tax)
             let gradientStops = [];
             let currentAngle = 0;
             
@@ -3490,14 +3484,14 @@
             
             pieChart.style.background = `conic-gradient(${gradientStops.join(', ')})`;
             
-            // Update total
+            // Update total (Gross Rental Revenue)
             pieTotal.textContent = formatCurrency(total, true);
             
-            // Build legend
-            pieLegend.innerHTML = data.map(item => {
-                // Use whole numbers for Provider, Silicon, Tax; one decimal for others
+            // Build legend - show all 4 items
+            let legendHtml = data.map(item => {
+                // Use whole numbers for Provider, Silicon; one decimal for others
                 const rawPercent = (item.value / total) * 100;
-                const useWholeNumber = ['Provider', 'Silicon', 'Tax'].includes(item.label);
+                const useWholeNumber = ['Provider', 'Silicon'].includes(item.label);
                 const percent = useWholeNumber ? Math.round(rawPercent) : rawPercent.toFixed(1);
                 return `
                     <div class="pie-legend-item">
@@ -3508,6 +3502,8 @@
                     </div>
                 `;
             }).join('');
+            
+            pieLegend.innerHTML = legendHtml;
         }
 
         function toggleTable(tableId, btn) {
