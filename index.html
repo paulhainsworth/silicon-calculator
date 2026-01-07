@@ -2327,7 +2327,7 @@
 
                         <div class="input-group">
                             <div class="input-row">
-                                <span class="input-label">Cloud Marketplace Fee</span>
+                                <span class="input-label">Cloud Marketplace Fee <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Marketplace's share of gross rental revenue. This percentage is taken directly from customer payments.</span></span></span>
                                 <span class="input-value"><input type="number" class="inline-input" id="marketRakeInput" value="20" min="0" max="40" step="1" oninput="syncFromInput('marketRake')"><span class="input-suffix">%</span></span>
                             </div>
                             <input type="range" id="marketRake" min="0" max="40" step="1" value="20" oninput="syncFromSlider('marketRake')">
@@ -2335,7 +2335,7 @@
 
                         <div class="input-group">
                             <div class="input-row">
-                                <span class="input-label">Provider Rake</span>
+                                <span class="input-label">Provider Rake <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Provider's share of gross rental revenue. This percentage is taken directly from customer payments, in addition to OPEX.</span></span></span>
                                 <span class="input-value"><input type="number" class="inline-input" id="providerRakeInput" value="25" min="0" max="100" step="1" oninput="syncFromInput('providerRake')"><span class="input-suffix">%</span></span>
                             </div>
                             <input type="range" id="providerRake" min="0" max="100" step="1" value="25" oninput="syncFromSlider('providerRake')">
@@ -2343,10 +2343,18 @@
 
                         <div class="input-group">
                             <div class="input-row">
-                                <span class="input-label">Silicon Fee</span>
+                                <span class="input-label">Silicon Fee <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Silicon's share of gross rental revenue. This percentage is taken directly from customer payments.</span></span></span>
                                 <span class="input-value"><input type="number" class="inline-input" id="siliconFeeInput" value="10" min="0" max="25" step="1" oninput="syncFromInput('siliconFee')"><span class="input-suffix">%</span></span>
                             </div>
                             <input type="range" id="siliconFee" min="0" max="25" step="1" value="10" oninput="syncFromSlider('siliconFee')">
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-row">
+                                <span class="input-label">Provider OPEX <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Provider's guaranteed operational expenses per server per month. Deducted from Pool's share after percentage-based fees.</span></span></span>
+                                <span class="input-value"><input type="number" class="inline-input" id="providerOpexInput" value="500" min="0" max="2000" step="50" oninput="syncFromInput('providerOpex')"><span class="input-suffix">$/mo</span></span>
+                            </div>
+                            <input type="range" id="providerOpex" min="0" max="2000" step="50" value="500" oninput="syncFromSlider('providerOpex')">
                     </div>
 
                         <div class="input-group">
@@ -2399,9 +2407,9 @@
                     <div class="output-card">
                                     <div class="output-label">APY <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Annualized Percentage Yield: ROI adjusted to a 12-month basis</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">(Pool Net Profit ÷ CAPEX) × (12 ÷ Term)</span></span></div>
                                     <div class="output-value" id="apyValue">24.1%</div>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
+                </div>
+                    </div>
                     </div>
                 </div>
 
@@ -2446,20 +2454,28 @@
                 <div class="section-header">PROVIDER FINANCIALS</div>
                 <div class="outputs-grid">
                     <div class="output-card">
-                        <div class="output-label">Provider Gross Revenue <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Gross Rental Revenue − Cloud Marketplace Fee. Revenue to provider before fees.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Gross Rental − Cloud Marketplace Fee</span></span></div>
+                        <div class="output-label">Provider Gross Revenue <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Gross Rental Revenue − Cloud Marketplace Fee. Revenue to provider before other fees.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Gross Rental − Cloud Marketplace Fee</span></span></div>
                         <div class="output-value" id="providerGrossRevenue">$5,787,654</div>
                     </div>
                     <div class="output-card">
                         <div class="output-label">Cloud Marketplace Fee <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Marketplace earnings: Gross Rental Revenue × Marketplace Fee %</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Gross Rental Revenue × Marketplace %</span></span></div>
                         <div class="output-value" id="marketplaceRake">$1,446,913</div>
+                            </div>
+                    <div class="output-card">
+                        <div class="output-label">Silicon Fee Earnings <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Silicon's share: Gross Rental Revenue × Silicon Fee %.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Gross Rental Revenue × Silicon Fee %</span></span></div>
+                        <div class="output-value" id="siliconFeeEarnings">$123,456</div>
+                        </div>
+                    <div class="output-card">
+                        <div class="output-label">Provider OPEX Fee <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Provider's guaranteed operational expenses: OPEX per server × Number of servers × Term months.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">OPEX/server/mo × Servers × Term</span></span></div>
+                        <div class="output-value" id="providerOpexFee">$900,000</div>
                     </div>
                     <div class="output-card">
-                        <div class="output-label">Silicon Fee Earnings <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Silicon's share: Provider Gross Revenue × Silicon Fee %.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Provider Gross × Silicon Fee %</span></span></div>
-                        <div class="output-value" id="siliconFeeEarnings">$123,456</div>
+                        <div class="output-label">Provider Revenue Share <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Provider's percentage share of gross rental revenue (flat % of gross, not waterfall).</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">Gross Rental Revenue × Provider Rake %</span></span></div>
+                        <div class="output-value" id="providerRevenueShare">$1,808,642</div>
                     </div>
                     <div class="output-card highlight">
-                        <div class="output-label">Provider Net Revenue <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Provider Gross Revenue − Silicon Fee − Pool Earnings. What provider keeps.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">= Provider Rake Earnings</span></span></div>
-                        <div class="output-value" id="providerNetRevenue">$1,234,567</div>
+                        <div class="output-label">Provider Net Revenue <span class="tooltip" onclick="this.classList.toggle('active')">ⓘ<span class="tooltip-text">Total provider earnings = OPEX Fee + Revenue Share.</span></span><span class="formula-tip" onclick="this.classList.toggle('active')">🔧<span class="formula-text">OPEX Fee + Revenue Share</span></span></div>
+                        <div class="output-value" id="providerNetRevenue">$2,708,642</div>
                     </div>
                 </div>
 
@@ -2900,6 +2916,7 @@
             const marketRake = parseFloat(document.getElementById('marketRake').value) / 100;
             const providerRake = parseFloat(document.getElementById('providerRake').value) / 100;
             const siliconFee = parseFloat(document.getElementById('siliconFee').value) / 100;
+            const providerOpex = parseFloat(document.getElementById('providerOpex').value);
             const taxRate = parseFloat(document.getElementById('taxRate').value) / 100;
 
             // Calculations - OWNER FINANCING MODEL (no loan)
@@ -2911,12 +2928,16 @@
             let currentHourlyRate = hourlyRate * servers;
             let totalPoolFee = 0;       // Pool's share of revenue
             let totalRawRevenue = 0;     // Gross rental revenue
-            let totalProviderRevenue = 0; // Provider's share
+            let totalProviderRevenueShare = 0; // Provider's % share of gross
             let totalMarketplaceFees = 0; // Marketplace earnings
             let totalSiliconFees = 0;     // Silicon earnings
+            let totalProviderOpexFees = 0; // Provider OPEX total
             let cumulativePoolFee = 0;   // For break-even tracking
             let breakevenMonth = 0;
             let cumulativeCashFlow = 0;
+
+            // Monthly OPEX per server (fixed cost)
+            const monthlyOpex = providerOpex * servers;
 
             cashFlows.push({
                 month: 0,
@@ -2935,20 +2956,28 @@
                 // Not directly applicable in this model, but keep for consistency
                 const breakevenUtil = 0;
                 
-                // FINANCING MODEL WATERFALL:
-                // 1. Gross Rental Revenue
-                // 2. - Marketplace Fee = Provider Gross Revenue
-                // 3. - Silicon Fee (Provider Gross × Silicon %) = After Silicon
-                // 4. - Pool Earnings = After Silicon × (1 - Provider Rake)
-                // 5. = Provider Net Revenue (Provider Rake Earnings)
+                // NEW FLAT FEE MODEL:
+                // All fees are a flat percentage of Gross Rental Revenue
+                // 1. Gross Rental Revenue (customer payments)
+                // 2. Marketplace Fee = Gross × Marketplace %
+                // 3. Silicon Fee = Gross × Silicon %
+                // 4. Provider Revenue Share = Gross × Provider Rake %
+                // 5. Provider OPEX = fixed $/server/month (guaranteed to provider)
+                // 6. Pool Earnings = Gross - Marketplace - Silicon - Provider Share - OPEX
                 
                 const rawRevenue = currentHourlyRate * 730 * 8 * utilization;  // Gross rental revenue
-                const marketplaceFee = rawRevenue * marketRake;                 // Marketplace cut
-                const providerGross = rawRevenue - marketplaceFee;              // Provider Gross Revenue
-                const siliconShare = providerGross * siliconFee;                // Silicon Fee
-                const afterSilicon = providerGross - siliconShare;              // After Silicon
-                const ownerShare = afterSilicon * (1 - providerRake);           // Pool Earnings
-                const providerShare = afterSilicon * providerRake;              // Provider Rake Earnings
+                const marketplaceFee = rawRevenue * marketRake;                 // Marketplace cut (% of gross)
+                const siliconShare = rawRevenue * siliconFee;                   // Silicon Fee (% of gross)
+                const providerRevenueShare = rawRevenue * providerRake;         // Provider Share (% of gross)
+                
+                // OPEX is guaranteed to provider (comes from remaining pool after other fees)
+                const opexThisMonth = monthlyOpex;
+                
+                // Pool gets what's left after all fees and OPEX
+                const ownerShare = rawRevenue - marketplaceFee - siliconShare - providerRevenueShare - opexThisMonth;
+                
+                // Provider Net = Revenue Share + OPEX
+                const providerNetThisMonth = providerRevenueShare + opexThisMonth;
                 
                 const grossRevenue = ownerShare;
                 const netProfit = grossRevenue;
@@ -2956,7 +2985,8 @@
                 totalRawRevenue += rawRevenue;
                 totalMarketplaceFees += marketplaceFee;
                 totalSiliconFees += siliconShare;
-                totalProviderRevenue += providerShare;
+                totalProviderRevenueShare += providerRevenueShare;
+                totalProviderOpexFees += opexThisMonth;
                 totalPoolFee += ownerShare;
                 cumulativePoolFee += ownerShare;
                 cumulativeCashFlow += netProfit;
@@ -3002,9 +3032,11 @@
             // Revenue calculations
             const totalRevenue = totalRawRevenue;  // Gross rental revenue only (no liquidation)
             
-            // Provider Financials
-            const providerGrossRevenue = totalRawRevenue - totalMarketplaceFees;  // Before silicon/splits
-            const providerNetRevenue = totalProviderRevenue;  // Same as Provider Rake Earnings
+            // Provider Financials (NEW: flat fee model)
+            // Provider Gross Revenue = Gross Rental - Marketplace (what comes to provider before other splits)
+            const providerGrossRevenue = totalRawRevenue - totalMarketplaceFees;
+            // Provider Net Revenue = OPEX Fee + Revenue Share
+            const providerNetRevenue = totalProviderOpexFees + totalProviderRevenueShare;
             
 
             // Update all outputs
@@ -3020,6 +3052,8 @@
             
             // Provider Financials
             document.getElementById('providerGrossRevenue').textContent = formatCurrency(providerGrossRevenue);
+            document.getElementById('providerOpexFee').textContent = formatCurrency(totalProviderOpexFees);
+            document.getElementById('providerRevenueShare').textContent = formatCurrency(totalProviderRevenueShare);
             document.getElementById('providerNetRevenue').textContent = formatCurrency(providerNetRevenue);
             document.getElementById('siliconFeeEarnings').textContent = formatCurrency(totalSiliconFees);
             document.getElementById('liquidationValueDisplay').textContent = formatCurrency(liquidationValue);
@@ -3258,12 +3292,14 @@
 
             updateChart(cashFlows);
             // Pie chart: show how Gross Rental Revenue is distributed among parties
-            // Using Pool Earnings (pre-tax) so percentages are accurate relative to total revenue
-            updatePieChart(totalMarketplaceFees, totalProviderRevenue, totalSiliconFees, totalPoolFee, totalTax);
+            // NEW: All percentages are now flat % of gross revenue
+            // Provider total = Revenue Share + OPEX (shown combined for chart simplicity)
+            const providerTotalForChart = totalProviderRevenueShare + totalProviderOpexFees;
+            updatePieChart(totalMarketplaceFees, providerTotalForChart, totalSiliconFees, totalPoolFee, totalTax);
             
             // Update simple tab with same values as advanced pie chart
             updateSimpleKPIs();
-            updateSimpleStackedBar(totalPoolFee, totalMarketplaceFees, totalProviderRevenue, totalSiliconFees, totalTax);
+            updateSimpleStackedBar(totalPoolFee, totalMarketplaceFees, providerTotalForChart, totalSiliconFees, totalTax);
             
             // Calculate and position breakeven ticks
             updateBreakevenTicks();
@@ -3281,6 +3317,7 @@
             const marketRake = overrides.marketRake ?? parseFloat(document.getElementById('marketRake').value) / 100;
             const providerRake = overrides.providerRake ?? parseFloat(document.getElementById('providerRake').value) / 100;
             const siliconFee = overrides.siliconFee ?? parseFloat(document.getElementById('siliconFee').value) / 100;
+            const providerOpex = overrides.providerOpex ?? parseFloat(document.getElementById('providerOpex').value);
             const taxRate = overrides.taxRate ?? parseFloat(document.getElementById('taxRate').value) / 100;
             
             const totalCapex = unitCost * servers;
@@ -3289,17 +3326,20 @@
             const depreciableBasis = totalCapex - liquidationValue;
             const monthlyDepreciation = depreciableBasis / term;
             
-            // Generate cash flows with FINANCING MODEL WATERFALL
-            // Raw → Marketplace → Silicon → Provider/Pool split
+            // Monthly OPEX
+            const monthlyOpex = providerOpex * servers;
+            
+            // Generate cash flows with NEW FLAT FEE MODEL
+            // All fees are % of gross revenue
             let currentHourlyRate = hourlyRate * servers;
             const ownerFees = [];
             for (let m = 1; m <= term; m++) {
                 if (m > 1) currentHourlyRate *= (1 - decay / 12);
                 const rawRevenue = currentHourlyRate * 730 * 8 * utilization;
-                const providerGross = rawRevenue * (1 - marketRake);
-                const siliconShare = providerGross * siliconFee;
-                const afterSilicon = providerGross - siliconShare;
-                const ownerFee = afterSilicon * (1 - providerRake);
+                const marketplaceFee = rawRevenue * marketRake;
+                const siliconShare = rawRevenue * siliconFee;
+                const providerRevenueShare = rawRevenue * providerRake;
+                const ownerFee = rawRevenue - marketplaceFee - siliconShare - providerRevenueShare - monthlyOpex;
                 ownerFees.push(ownerFee);
             }
             
@@ -3570,6 +3610,7 @@
             csv += 'Cloud Marketplace Fee (%),' + params.marketRake + '\n';
             csv += 'Provider Rake (%),' + params.providerRake + '\n';
             csv += 'Silicon Fee (%),' + params.siliconFee + '\n';
+            csv += 'Provider OPEX ($/server/mo),' + params.providerOpex + '\n';
             csv += 'Tax Rate (%),' + params.taxRate + '\n\n';
 
             // Summary metrics
@@ -3643,6 +3684,7 @@
                     marketRake: "20",
                     providerRake: "20",
                     siliconFee: "10",
+                    providerOpex: "500",
                     taxRate: "21"
                 }
             }
@@ -3654,7 +3696,7 @@
         // Parameter keys for saving/loading
         const PARAM_KEYS = [
             'term', 'servers', 'unitCost', 'residual',
-            'hourlyRate', 'decay', 'utilization', 'marketRake', 'providerRake', 'siliconFee', 'taxRate'
+            'hourlyRate', 'decay', 'utilization', 'marketRake', 'providerRake', 'siliconFee', 'providerOpex', 'taxRate'
         ];
         
         // Initialize scenarios on page load
